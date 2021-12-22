@@ -20,19 +20,18 @@ zstyle ':omz:update' mode reminder
 # Plugins
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 
+# Other
 source $ZSH/oh-my-zsh.sh
 export PATH=/home/linuxbrew/.linuxbrew/bin/:$PATH
+export EDITOR=vim
+export VISUAL=vim
+export NVM_DIR="$HOME/.nvm"
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export HISTCONTROL=ignoreboth
 
 #################
 ###  Aliases  ###
 #################
-
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias g="git"
-alias bat="batcat"
 
 # Enable aliases to be sudo’ed
 alias su='sudo '
@@ -52,6 +51,21 @@ alias hs='history | grep'
 # Show files sorted by size
 alias lt='ls --human-readable --size -1 -S --classify'
 
+# Other
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias g="git"
+alias bat="batcat"
+alias gs="git status"
+alias gs="git fetch"
+alias la='ls -A'
+alias l='ls -CF'
+alias ll='ls -alF'
+alias mv='mv -i'
+alias rm='rm -i'
+alias cp='cp -i'
 
 ###################
 ###  Functions  ###
@@ -109,7 +123,6 @@ ch() {
 speedtest() {
     curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -;
 }
-
 
 # Expand a short url
 expand() {

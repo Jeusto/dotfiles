@@ -3,3 +3,14 @@
 /README.MD
 /bin
 /sync-dotfiles.sh
+/setup.sh
+/stow-install.sh
+
+/kitty
+/pop-shell
+/qbit-torrent
+/qimgv
+/ranger
+/rofi
+/vscode
+/vscode-insiders

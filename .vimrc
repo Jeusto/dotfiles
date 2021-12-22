@@ -21,6 +21,7 @@ Plug 'junegunn/fzf.vim' " Files search
 Plug 'SirVer/ultisnips' " Snipppets engine
 Plug 'honza/vim-snippets' " Snippets
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' } " Prettier wrapper
+Plug 'joshdick/onedark.vim' " Theme
 
 call plug#end()
 
@@ -64,8 +65,20 @@ set visualbell
 set mouse=a 
 " Set the window’s title, reflecting the file currently being edited.
 set title 
-" Use colors that suit a dark background.
+" 80 character limit line
+set colorcolumn=80
+" Theme
 set background=dark 
+colorscheme onedark
+let g:lightline = {'colorscheme': 'onedark', }
+if (empty($TMUX))
+  if (has("nvim"))
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
 
 "#######################
 "###  Search options ###

@@ -104,6 +104,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+bind "set completion-ignore-case on"
 
 PS1="\e[0;34m[\W] ➤ \e[0m"
 
@@ -117,6 +118,12 @@ alias ....="cd ../../.."
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias g="git"
 alias bat="batcat"
+alias la='ls -A'
+alias l='ls -CF'
+alias ll='ls -alF'
+alias mv='mv -i'
+alias rm='rm -i'
+alias cp='cp -i'
 
 # Enable aliases to be sudo’ed
 alias su='sudo '
