@@ -1,0 +1,5 @@
+/.git
+/.gitignore
+/README.MD
+/bin
+/sync-dotfiles.sh
