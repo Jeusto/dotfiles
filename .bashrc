@@ -112,19 +112,6 @@ PS1="\e[0;34m[\W] ➤ \e[0m"
 ###  Aliases  ###
 #################
 
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias g="git"
-alias bat="batcat"
-alias la='ls -A'
-alias l='ls -CF'
-alias ll='ls -alF'
-alias mv='mv -i'
-alias rm='rm -i'
-alias cp='cp -i'
-
 # Enable aliases to be sudo’ed
 alias su='sudo '
 
@@ -142,6 +129,22 @@ alias hs='history | grep'
 
 # Show files sorted by size
 alias lt='ls --human-readable --size -1 -S --classify'
+
+# Other
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias dot='git -C $HOME/Dotfiles'
+alias g="git"
+alias bat="batcat"
+alias gs="git status"
+alias gs="git fetch"
+alias la='ls -A'
+alias l='ls -CF'
+alias ll='ls -alF'
+alias mv='mv -i'
+alias rm='rm -i'
+alias cp='cp -i'
 
 
 ###################

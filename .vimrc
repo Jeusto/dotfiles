@@ -56,7 +56,12 @@ set wildmenu
 " Maximum number of tab pages that can be opened from the command line.
 set tabpagemax=50
 " Show line numbers on the sidebar.
-set number 
+:set number
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+:  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+:augroup END
 " Disable beep on errors.
 set noerrorbells 
 " Flash the screen instead of beeping on errors.

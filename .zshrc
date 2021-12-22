@@ -55,7 +55,7 @@ alias lt='ls --human-readable --size -1 -S --classify'
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias dot='git -C $HOME/Dotfiles'
 alias g="git"
 alias bat="batcat"
 alias gs="git status"

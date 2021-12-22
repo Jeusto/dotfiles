@@ -1,11 +1,11 @@
 /.git
 /.gitignore
 /README.MD
-/bin
-/sync-dotfiles.sh
-/setup.sh
-/stow-install.sh
+/install.sh
+/uninstall.sh
+/install.sh
 
+/bin
 /kitty
 /pop-shell
 /qbit-torrent
@@ -14,3 +14,6 @@
 /rofi
 /vscode
 /vscode-insiders
+/okular
+/firefox-custom-css
+/nemo
