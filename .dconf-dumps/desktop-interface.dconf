@@ -1,0 +1,15 @@
+[/]
+clock-show-weekday=true
+cursor-theme='Qogir-white-cursors'
+document-font-name='Arial 11'
+enable-animations=true
+enable-hot-corners=false
+font-name='Inter Medium 11'
+gtk-im-module='gtk-im-context-simple'
+gtk-theme='Qogir-dark'
+icon-theme='Papirus-Dark'
+locate-pointer=false
+monospace-font-name='JetBrainsMono Nerd Font 11'
+show-battery-percentage=true
+text-scaling-factor=1.0
+toolkit-accessibility=false

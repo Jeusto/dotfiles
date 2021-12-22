@@ -38,6 +38,11 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <Enter> pumvisible() ? "\<C-y>" : "\<Enter>"
 
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+inoremap <Up> <Nop>
+
 noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
@@ -142,6 +147,9 @@ set shiftwidth=2
 "###  Other  ###
 "###############
 	
+" Use system clipboard by default
+set clipboard=unnamedplus
+
 " Cursor types for different modes
 let &t_SI="\eP\e[5 q\e\\"
 let &t_EI="\eP\e[1 q\e\\"
