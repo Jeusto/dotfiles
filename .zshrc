@@ -18,7 +18,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 zstyle ':omz:update' mode reminder  
 
 # Plugins
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git fzf-tab zsh-syntax-highlighting zsh-autosuggestions vi-mode command-not-found)
 
 # Other
 source $ZSH/oh-my-zsh.sh
@@ -29,6 +29,7 @@ export NVM_DIR="$HOME/.nvm"
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 export HISTCONTROL=ignoreboth
 PROMPT_EOL_MARK=''
+bindkey -v
 
 #################
 ###  Aliases  ###
@@ -67,6 +68,7 @@ alias ll='ls -alF'
 alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
+alias fzfp="fzf --preview 'batcat --style=numbers --color=always --line-range :500 {}'"
 
 ###################
 ###  Functions  ###
@@ -165,3 +167,24 @@ news() {
 ###############
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+[[ -s /home/asaday/.autojump/etc/profile.d/autojump.sh ]] && source /home/asaday/.autojump/etc/profile.d/autojump.sh
+
+autoload -U compinit && compinit -u
+
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# preview directory's content with exa when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+# switch group using `,` and `.`
+zstyle ':fzf-tab:*' switch-group ',' '.'
+
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+ --color=fg:#abb2bf,bg:#282c34,hl:#326996
+ --color=fg+:#d3dae6,bg+:#3b414d,hl+:#61afef
+ --color=info:#e5c07b,prompt:#e06c75,pointer:#c678dd
+ --color=marker:#98c379,spinner:#c678dd,header:#56b6c2'

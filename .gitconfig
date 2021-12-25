@@ -31,6 +31,7 @@
   st = status -sb
   last = log -1 HEAD --stat
   cm = commit -m
+  cam = commit -a -m
   rv = remote -v
   a = add
   b = branch
@@ -45,3 +46,6 @@
   r = remote
   s = status
   w = whatchanged
+  pushf = push --force-with-lease <remote> <branch>
+  commitamend = commit --amend --no-edit
+
