@@ -1,0 +1,4 @@
+[/]
+disable-external=false
+disabled=['org.gnome.Characters.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.Software.desktop', 'org.gnome.Calendar.desktop']
+sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Characters.desktop', 'org.gnome.seahorse.Application.desktop']

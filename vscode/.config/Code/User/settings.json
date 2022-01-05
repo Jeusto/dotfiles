@@ -1,7 +1,8 @@
 {
-  // =========================================================
-  // ~ FONTS
-  // =========================================================
+  // ###############
+  // ###  Fonts  ###
+  // ###############
+
   "editor.fontLigatures": true,
   "editor.fontFamily": "'JetBrainsMono Nerd Font'",
   "editor.fontWeight": "500",
@@ -9,21 +10,26 @@
   "editor.codeLensFontFamily": "'JetBrainsMono NF Regular'",
   "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font'",
   "terminal.integrated.fontSize": 14,
-  // =========================================================
-  // ~ THEMING AND STYLE
-  // =========================================================
+
+  // #########################
+  // ###  Theme and style  ###
+  // #########################
+
   "material-icon-theme.showWelcomeMessage": false,
-  "workbench.iconTheme": "material-icon-theme",
   "workbench.preferredLightColorTheme": "Atom One Light",
   "workbench.preferredDarkColorTheme": "Atom One Dark",
-  // =========================================================
-  // ~ CURSOR
-  // =========================================================
+
+  // ################
+  // ###  Cursor  ###
+  // ################
+
   "editor.multiCursorModifier": "ctrlCmd",
   "terminal.integrated.cursorStyle": "line",
-  // =========================================================
-  // ~ UI IMPROVEMENTS
-  // =========================================================
+
+  // ####################
+  // ###  UI Options  ###
+  // ####################
+
   "editor.minimap.showSlider": "always",
   "editor.minimap.renderCharacters": false,
   "window.title": "${activeEditorShort} ${dirty}",
@@ -33,9 +39,11 @@
   "window.titleBarStyle": "custom",
   "editor.rulers": [80],
   "window.menuBarVisibility": "toggle",
-  // =========================================================
-  // ~ QUALITY OF LIFE
-  // =========================================================
+
+  // ###########################
+  // ###  Life improvements  ###
+  // ###########################
+
   "editor.quickSuggestionsDelay": 0,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
@@ -52,9 +60,11 @@
     "**/.factorypath": true,
     "node_modules": true
   },
-  // =========================================================
-  // ~ TERMINAL
-  // =========================================================
+
+  // ##################
+  // ###  Terminal  ###
+  // ##################
+
   "terminal.external.windowsExec": "C:\\Program Files\\Git\\git-bash.exe",
   "terminal.integrated.defaultProfile.windows": "Git Bash",
   "terminal.integrated.profiles.windows": {
@@ -68,9 +78,11 @@
     }
   },
   "terminal.integrated.defaultProfile.linux": "zsh",
-  // =========================================================
-  // ~ LANGUAGES
-  // =========================================================
+
+  // ###################
+  // ###  Languages  ###
+  // ###################
+
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "python.formatting.yapfArgs": [
     "--style={based_on_style: google, column_limit: 80, indent_width: 2}"
@@ -111,9 +123,11 @@
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter.notebook.ipynb"
   },
-  // =========================================================
-  // ~ EXTENSIONS
-  // =========================================================
+
+  // ############################
+  // ###  Extension settings  ###
+  // ############################
+
   "leetcode.hint.commandShortcut": false,
   "leetcode.hint.configWebviewMarkdown": false,
   "leetcode.hint.commentDescription": false,
@@ -174,9 +188,35 @@
   },
   "C_Cpp_Runner.warnings": ["-Wall", "-Wextra", "-Wpedantic", "-Werror"],
   "vscode-neovim.neovimExecutablePaths.win32": "C:\\Users\\arhun\\scoop\\apps\\neovim\\current\\bin\\nvim.exe",
-  // =========================================================
-  // ~ OTHER
-  // =========================================================
+
+  // ####################
+  // ###  Minimal UI  ###
+  // ####################
+
+  // "editor.minimap.enabled": false, // removes minimap
+  // "editor.renderWhitespace": "none", // removes whitespace chars
+  // "editor.renderIndentGuides": false, // removes indent guides
+  // "editor.renderLineHighlight": "none", // removes line highlight
+  // "editor.overviewRulerBorder": false, // removes border from overview ruler (located on the right, same position as the scrollbar)
+  // "editor.hideCursorInOverviewRuler": true, // hides cursor mark in the overview ruler
+  // "editor.folding": false, // removes the folding feature
+  // "editor.occurrencesHighlight": false, // removes highlights occurrences (still works when you select a word)
+  // "editor.matchBrackets": false, // removes the highlight of matching brackets (I use Subtle Match Brackets extension for this)
+  // "editor.glyphMargin": false, // removes the space used mainly for debugging indicators
+  // "explorer.openEditors.visible": 0, // removes the open editors section at the top of the sidebar, you can see the opened files with ⌘ + ⌥ + Tab
+  // "workbench.activityBar.visible": false, // removes the activity bar (the 4 icons at the left of the screen), so now you will have to open the explorer, git, debugger and extension with shortcuts or through the Command Palette
+  // "workbench.editor.showIcons": false, // removes icon from opened files in tabs
+  // "workbench.editor.tabCloseButton": "off", // removes cross icon from tabs
+  // "workbench.statusBar.visible": false, // removes the status bar
+  // "indenticator.color.dark": "rgba(255,255,255,.1)", // adds a subtle indent guide (needs Indenticator extension)
+  // "workbench.colorCustomizations": { // object that allows you to customize your color theme: https://code.visualstudio.com/docs/getstarted/theme-color-reference
+  //   "tab.activeBorder": "#0000" // removes border to highlight active tabs (the colors formats are: #RGB, #RGBA, #RRGGBB or #RRGGBBAA)
+  // },
+
+  // ###############
+  // ###  Other  ###
+  // ###############
+
   "window.openFilesInNewWindow": "default",
   "editor.tabSize": 2,
   "files.eol": "\n",
@@ -242,5 +282,6 @@
   "window.autoDetectColorScheme": true,
   "terminal.external.linuxExec": "",
   "editor.minimap.enabled": false,
-  "workbench.colorTheme": "Atom One Dark"
+  "workbench.colorTheme": "Atom One Dark",
+  "workbench.iconTheme": "material-icon-theme"
 }

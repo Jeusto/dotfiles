@@ -3,17 +3,13 @@
 /README.MD
 /install.sh
 /uninstall.sh
-/install.sh
 
-/bin
 /kitty
-/pop-shell
-/qbit-torrent
 /qimgv
 /ranger
 /rofi
 /vscode
-/vscode-insiders
-/okular
-/firefox-custom-css
-/nemo
+/firefox
+/zsh
+/nvim
+/pop-shell

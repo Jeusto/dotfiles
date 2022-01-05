@@ -1,5 +1,5 @@
 [core]
-  editor = code --wait
+  editor = nvim
   longpaths = true
 
 [user]
@@ -19,10 +19,10 @@
   autocorrect = 01
 
 [alias]
-  lg = log --graph --all --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)%an%Creset %C(yellow)%d%Creset'
   unstage = reset HEAD --
   s = status
   co = checkout
+  lg = log --graph --all --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)%an%Creset %C(yellow)%d%Creset'
   br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
   del = branch -D
   undo = reset HEAD~1 --mixed
@@ -48,4 +48,3 @@
   w = whatchanged
   pushf = push --force-with-lease <remote> <branch>
   commitamend = commit --amend --no-edit
-

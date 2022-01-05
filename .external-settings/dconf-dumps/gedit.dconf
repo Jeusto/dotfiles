@@ -1,0 +1,30 @@
+[plugins]
+active-plugins=['docinfo', 'spell', 'modelines', 'filebrowser', 'time']
+
+[plugins/filebrowser]
+root='file:///'
+tree-view=true
+virtual-root='file:///home/asaday/Tests'
+
+[preferences/editor]
+background-pattern='grid'
+display-right-margin=true
+editor-font='JetBrainsMono Nerd Font 12'
+insert-spaces=true
+scheme='two_dark'
+tabs-size=uint32 2
+use-default-font=true
+wrap-last-split-mode='word'
+
+[preferences/ui]
+bottom-panel-visible=false
+show-tabs-mode='auto'
+side-panel-visible=false
+
+[state/window]
+bottom-panel-active-page='GeditPythonConsolePanel'
+bottom-panel-size=291
+side-panel-active-page='GeditFileBrowserPanel'
+side-panel-size=250
+size=(948, 471)
+state=87168

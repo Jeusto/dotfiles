@@ -49,21 +49,6 @@
     "command": "workbench.action.terminal.focusAtIndex2",
     "when": "terminalFocus && terminalProcessSupported"
   },
-  // =========================================================
-  // ~ NAVIGATION
-
-  // =========================================================
-  // ~ SEARCH AND REPLACE
-
-  // =========================================================
-  // ~ SMART SELECT
-
-  // =========================================================
-  // ~ ZOOM
-
-  // =========================================================
-  // ~ INTELLISENSE
-
   {
     "key": "tab",
     "command": "selectNextQuickFix",
@@ -269,7 +254,6 @@
     "key": "f1",
     "command": "workbench.action.showCommands"
   },
-
   {
     "key": "alt+\\",
     "command": "editor.action.inlineSuggest.trigger",
@@ -513,7 +497,6 @@
     "key": "ctrl+shift+a",
     "command": "workbench.view.extension.project-manager"
   },
-
   {
     "key": "alt+l",
     "command": "-toggleFindInSelection",

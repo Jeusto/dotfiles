@@ -1,8 +1,8 @@
 {
-	"suggest.maxCompleteItemCount": 10,
+	"suggest.maxCompleteItemCount": 5,
 	"suggest.triggerCompletionWait": 130,
 	"suggest.detailField": "abbr",
-	"suggest.noselect": false,
+	"suggest.noselect": true,
 	"coc.preferences.formatOnSaveFiletypes": [
 		"javascript",
 		"typescript",
