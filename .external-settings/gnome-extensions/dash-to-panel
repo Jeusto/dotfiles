@@ -1,154 +1,88 @@
-{
-    "enabled": false,
-    "fetchNews": true,
-    "theme": {
-        "mode": 1,
-        "brightness": 100,
-        "contrast": 100,
-        "grayscale": 0,
-        "sepia": 0,
-        "useFont": false,
-        "fontFamily": "Segoe UI",
-        "textStroke": 0,
-        "engine": "dynamicTheme",
-        "stylesheet": "",
-        "darkSchemeBackgroundColor": "#181a1b",
-        "darkSchemeTextColor": "#e8e6e3",
-        "lightSchemeBackgroundColor": "#dcdad7",
-        "lightSchemeTextColor": "#181a1b",
-        "scrollbarColor": "auto",
-        "selectionColor": "auto",
-        "styleSystemControls": true,
-        "lightColorScheme": "Default",
-        "darkColorScheme": "Default"
-    },
-    "presets": [],
-    "customThemes": [],
-    "siteList": [
-        "file:",
-        "bbb-moodle-prod-27.di.unistra.fr",
-        "bbb-moodle-prod-54.di.unistra.fr",
-        "bbb-moodle-prod-58.di.unistra.fr",
-        "bbb-moodle-prod-36.di.unistra.fr",
-        "bbb-moodle-prod-29.di.unistra.fr",
-        "127.0.0.1:5500",
-        "recettes-zombies",
-        "regexr.com",
-        "regex101.com",
-        "bbb-moodle-prod-22.di.unistra.fr",
-        "bbb-moodle-prod-26.di.unistra.fr",
-        "freshflesh.000webhostapp.com",
-        "loading.io",
-        "icons8.com",
-        "swiperjs.com",
-        "ia-10min.netlify.app",
-        "www.patreon.com",
-        "clementmihailescu.github.io",
-        "localhost:3000",
-        "trivia-ten.herokuapp.com",
-        "wheres-the-iss.vercel.app",
-        "daily-wallpapers.vercel.app",
-        "www.jeusto.me",
-        "lansadmin.unistra.fr",
-        "abdulrcs.github.io",
-        "github.com",
-        "web.whatsapp.com",
-        "www.notion.so",
-        "jeusto.me",
-        "www.figma.com",
-        "oeis.org",
-        "tomotasks.vercel.app",
-        "livre.g6.asso.fr",
-        "www.sebastienadam.be",
-        "www.awwwards.com",
-        "www.totem.earth",
-        "www.dariaizbash.com",
-        "www.ju.st",
-        "advanced.team",
-        "www.columbifarms.com",
-        "destinilocators.com",
-        "www.flaticon.com",
-        "book.huihoo.com",
-        "mtgdev-old.netlify.app",
-        "mtg2000.github.io",
-        "mtgdev.netlify.app",
-        "gol-conway.vercel.app",
-        "twitter-opinion.vercel.app",
-        "tukif.com",
-        "website2k3.free.fr",
-        "lucas-blampied.fr",
-        "www.linkedin.com",
-        "www.programiz.com",
-        "tabby.sh",
-        "oauth.unistra.fr",
-        "browsers.page",
-        "www.youtube.com",
-        "a-haas.gitlab.io",
-        "libredd.it",
-        "2021.stateofcss.com",
-        "nivo.rocks",
-        "notes.schawnndev.fr",
-        "online.sodapdf.com",
-        "1.1.1.1",
-        "pkg.cloudflareclient.com",
-        "lottiefiles.com",
-        "about:",
-        "code-hike-sample.vercel.app",
-        "thomas-boileau.fr",
-        "picocss.com",
-        "create.fable.app",
-        "rinaldi.io",
-        "90e53b78-34b7-49a5-ab69-cea8162b21c2",
-        "willtraore.com",
-        "minsw.github.io",
-        "pinetools.com",
-        "www.similarweb.com",
-        "ridiculousfish.com",
-        "www.eteks.com",
-        "app.daily.dev",
-        "krourke.org",
-        "www.startpage.com",
-        "gitlab.com"
-    ],
-    "siteListEnabled": [
-        "spec.draculatheme.com"
-    ],
-    "applyToListedOnly": false,
-    "changeBrowserTheme": false,
-    "syncSettings": true,
-    "syncSitesFixes": false,
-    "automation": "system",
-    "time": {
-        "activation": "18:00",
-        "deactivation": "9:00"
-    },
-    "location": {
-        "latitude": null,
-        "longitude": null
-    },
-    "previewNewDesign": true,
-    "enableForPDF": true,
-    "enableForProtectedPages": false,
-    "enableContextMenus": true,
-    "notifyOfNews": false,
-    "readNews": [
-        "v4-9-16",
-        "v4-9",
-        "attention",
-        "dr-5-announcement",
-        "2m-users",
-        "automation",
-        "product-hunt-golden-kitty-2018",
-        "time-settings",
-        "safari",
-        "500k-users",
-        "stylish",
-        "product-hunt",
-        "custom-site-settings",
-        "thanks-for-contribution",
-        "dynamic-theme",
-        "thanks-2021",
-        "5m-users",
-        "chrome-favorites-2021"
-    ]
-}
+[/]
+animate-app-switch=true
+animate-appicon-hover=false
+animate-appicon-hover-animation-extent={'RIPPLE': 4, 'PLANK': 4, 'SIMPLE': 1}
+animate-show-apps=true
+animate-window-launch=true
+appicon-margin=3
+appicon-padding=5
+available-monitors=[0, 1]
+click-action='CYCLE-MIN'
+desktop-line-use-custom-color=false
+dot-color-1='#5294e2'
+dot-color-2='#5294e2'
+dot-color-3='#5294e2'
+dot-color-4='#5294e2'
+dot-color-dominant=false
+dot-color-override=false
+dot-color-unfocused-1='#5294e2'
+dot-color-unfocused-2='#5294e2'
+dot-color-unfocused-3='#5294e2'
+dot-color-unfocused-4='#5294e2'
+dot-position='BOTTOM'
+dot-size=2
+dot-style-focused='SEGMENTED'
+dot-style-unfocused='SEGMENTED'
+focus-highlight-color='#eeeeee'
+focus-highlight-dominant=false
+focus-highlight-opacity=25
+group-apps=true
+hot-keys=false
+hotkeys-overlay-combo='TEMPORARILY'
+intellihide=false
+intellihide-hide-from-windows=false
+isolate-monitors=true
+isolate-workspaces=true
+leftbox-padding=-1
+leftbox-size=0
+middle-click-action='LAUNCH'
+multi-monitors=true
+overview-click-to-exit=false
+panel-anchors='{"0":"MIDDLE","1":"MIDDLE"}'
+panel-element-positions='{"0":[{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"centerBox","visible":false,"position":"centered"},{"element":"dateMenu","visible":true,"position":"centerMonitor"},{"element":"leftBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}],"1":[{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"centerBox","visible":false,"position":"centered"},{"element":"dateMenu","visible":true,"position":"centerMonitor"},{"element":"leftBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}]}'
+panel-lengths='{"0":100,"1":100}'
+panel-positions='{"0":"BOTTOM","1":"BOTTOM"}'
+panel-sizes='{"0":28,"1":28}'
+peek-mode-opacity=80
+primary-monitor=0
+scroll-icon-action='CYCLE_WINDOWS'
+scroll-panel-action='CHANGE_VOLUME'
+secondarymenu-contains-showdetails=false
+shift-click-action='LAUNCH'
+shift-middle-click-action='QUIT'
+show-appmenu=false
+show-apps-icon-file=''
+show-apps-override-escape=true
+show-favorites=true
+show-favorites-all-monitors=false
+show-running-apps=true
+show-showdesktop-hover=false
+show-tooltip=false
+show-window-previews=true
+showdesktop-button-width=11
+status-icon-padding=3
+stockgs-force-hotcorner=false
+stockgs-keep-dash=false
+stockgs-keep-top-panel=false
+stockgs-panelbtn-click-only=false
+taskbar-locked=false
+trans-gradient-bottom-color='#204a87'
+trans-gradient-top-color='#ef2929'
+trans-panel-opacity=0.29999999999999999
+trans-use-custom-bg=false
+trans-use-custom-gradient=false
+trans-use-custom-opacity=true
+trans-use-dynamic-opacity=false
+tray-padding=-1
+tray-size=0
+window-preview-animation-time=180
+window-preview-aspect-ratio-x=8
+window-preview-aspect-ratio-y=8
+window-preview-custom-icon-size=8
+window-preview-fixed-x=false
+window-preview-fixed-y=true
+window-preview-hide-immediate-click=true
+window-preview-show-title=true
+window-preview-title-font-color='#dddddd'
+window-preview-title-position='TOP'
+window-preview-use-custom-icon-size=false

@@ -1,4 +1,5 @@
 [/]
+focus-active-notification=@as []
 open-application-menu=@as []
 switch-to-application-1=['']
 switch-to-application-2=['']

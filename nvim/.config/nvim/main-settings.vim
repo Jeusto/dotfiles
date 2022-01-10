@@ -4,30 +4,31 @@
 "####################"
 
 "Always display the status bar"
-set laststatus=2 
+set laststatus=2
 "Always show cursor position"
-set ruler 
+set ruler
 "Display command line’s tab complete options as a menu"
-set wildmenu 
+set wildmenu
 "Maximum number of tab pages that can be opened from the command line"
 set tabpagemax=50
 "Show line numbers on the sidebar"
-:set number
+set number
+set nuw=2
 :augroup numbertoggle
 :  autocmd!
 :  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i"| set rnu   | endif
 :  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                 | set nornu | endif
 :augroup END
 "Disable beep on errors"
-set noerrorbells 
+set noerrorbells
 "Enable mouse for scrolling and resizing"
-set mouse=a 
+set mouse=a
 "Set the window’s title, reflecting the file currently being edited"
-set title 
+set title
 "80 character limit line"
 set colorcolumn=80
 "Theme"
-set background=dark 
+set background=dark
 colorscheme onedark
 let g:lightline = {'colorscheme': 'onedark', }
 if (empty($TMUX))
@@ -40,41 +41,41 @@ if (empty($TMUX))
 endif
 
 "Enable search highlighting"
-set hlsearch 		
+set hlsearch
 "Ignore case when searching"
-set ignorecase	
+set ignorecase
 "Incremental search that shows partial matches"
-set incsearch		
+set incsearch
 "Auto switch search to case-sensitive if search contains an uppercase letter"
-set smartcase		
+set smartcase
 
 "#############################"
 "###  Performance options  ###"
 "#############################"
 
 "Limit the files searched for auto-completes"
-set complete-=i 	
+set complete-=i
 "Don’t update screen during macro and script execution"
-set lazyredraw 		
+set lazyredraw
 
 "################################"
 "###  Text rendering options  ###"
 "################################"
 
 "Always try to show a paragraph’s last line"
-set display+=lastline 	
+set display+=lastline
 "Use an encoding that supports unicode"
-set encoding=utf-8	
+set encoding=utf-8
 "Avoid wrapping a line in the middle of a word"
-set linebreak 		
+set linebreak
 "The number of screen lines to keep above and below the cursor"
-set scrolloff=1 
+set scrolloff=1
 "The number of screen columns to keep to the left and right of the cursor"
-set sidescrolloff=5 	
+set sidescrolloff=5
 "Enable syntax highlighting"
-syntax enable 		
+syntax enable
 "Enable line wrapping"
-set wrap 	
+set wrap
 
 "####################################"
 "###  Indentation and tabulation  ###"
@@ -83,15 +84,16 @@ set wrap
 set autoindent
 set smartindent
 set smarttab
-set expandtab 
+set expandtab
 set tabstop=8
 set softtabstop=2
 set shiftwidth=2
+set noshowmode
 
 "###############"
 "###  Other  ###"
 "###############"
-	
+
 "Use system clipboard by default"
 set clipboard=unnamedplus
 
@@ -103,4 +105,19 @@ let &t_SR="\eP\e[3 q\e\\"
 "You will have bad experience for diagnostic messages when it's default 4000"
 set updatetime=300
 
-set noshowmode
+"TextEdit might fail if hidden is not set"
+set hidden
+
+"Some servers have issues with backup files, see #649"
+set nobackup
+set nowritebackup
+
+"Give more space for displaying messages?"
+set cmdheight=2
+
+"Don't pass messages to |ins-completion-menu|"
+set shortmess+=c
+
+"Indicators on the same column as line numbers"
+set signcolumn=yes:1
+hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg

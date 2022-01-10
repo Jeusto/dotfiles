@@ -33,7 +33,7 @@
 window {
   transparency: "screenshot";
 	location: center;
-	background-color: #282c34df;
+	background-color: #22262ddf;
 	width: 40%;
 	border-radius: 2px;
 }

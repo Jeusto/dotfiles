@@ -16,7 +16,10 @@
       "class": "Org.gnome.DejaDup"
     },
     {
-      "class": "Nemo"
+      "class": "Gnome-tweaks"
+    },
+    {
+      "class": "pentablet"
     }
   ],
   "skiptaskbarhidden": [],

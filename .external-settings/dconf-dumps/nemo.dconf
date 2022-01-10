@@ -21,7 +21,7 @@ show-directory-item-counts='always'
 show-full-path-titles=true
 show-hidden-files=true
 show-image-thumbnails='always'
-show-location-entry=false
+show-location-entry=true
 show-new-folder-icon-toolbar=false
 show-next-icon-toolbar=true
 show-open-in-terminal-toolbar=true
@@ -48,7 +48,7 @@ show-only-directories=true
 [window-state]
 bookmarks-expanded=true
 devices-expanded=true
-geometry='1236x1008+676+251'
+geometry='942x1000+966+255'
 maximized=false
 my-computer-expanded=true
 network-expanded=true

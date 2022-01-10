@@ -28,14 +28,15 @@ alias dot='git -C $HOME/Dotfiles'
 alias g="git"
 alias bat="batcat"
 alias gs="git status"
-alias gs="git fetch"
+alias gf="git fetch"
 alias la='ls -A'
 alias l='ls -CF'
 alias ll='ls -alF'
 alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
-alias vi='nvim'
+alias vim='nvim'
 alias v='nvim'
 alias fzfp="fzf --preview 'batcat --style=numbers --color=always --line-range :500 {}'"
-
+alias gendir="mkdir -p {a,b}/{e,f,g}/{h,i,j}"
+alias del="trash-put"

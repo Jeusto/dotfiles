@@ -187,7 +187,6 @@
     "turing.u-strasbg.fr": "linux"
   },
   "C_Cpp_Runner.warnings": ["-Wall", "-Wextra", "-Wpedantic", "-Werror"],
-  "vscode-neovim.neovimExecutablePaths.win32": "C:\\Users\\arhun\\scoop\\apps\\neovim\\current\\bin\\nvim.exe",
 
   // ####################
   // ###  Minimal UI  ###
@@ -283,5 +282,7 @@
   "terminal.external.linuxExec": "",
   "editor.minimap.enabled": false,
   "workbench.colorTheme": "Atom One Dark",
-  "workbench.iconTheme": "material-icon-theme"
+  "workbench.iconTheme": "material-icon-theme",
+  "vscode-neovim.neovimInitVimPaths.linux": "/home/asaday/.config/nvim/init.vim",
+  "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim"
 }

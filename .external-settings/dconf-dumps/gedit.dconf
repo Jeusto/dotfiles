@@ -4,7 +4,7 @@ active-plugins=['docinfo', 'spell', 'modelines', 'filebrowser', 'time']
 [plugins/filebrowser]
 root='file:///'
 tree-view=true
-virtual-root='file:///home/asaday/Tests'
+virtual-root='file:///home/asaday/Dotfiles/.external-settings/firefox-extensions'
 
 [preferences/editor]
 background-pattern='grid'
@@ -26,5 +26,5 @@ bottom-panel-active-page='GeditPythonConsolePanel'
 bottom-panel-size=291
 side-panel-active-page='GeditFileBrowserPanel'
 side-panel-size=250
-size=(948, 471)
-state=87168
+size=(561, 465)
+state=43908
