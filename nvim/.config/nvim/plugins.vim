@@ -18,10 +18,12 @@ Plug 'vim-airline/vim-airline' "Status/tabline"
 Plug 'mhinz/vim-startify' "Fancy start screen"
 
 Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' } "File navigation window"
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'preservim/tagbar' "Display tags/classes etc in a window"
 
 Plug 'tpope/vim-fugitive' "Git wrapper"
-Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter' "Show git gutters in the editor"
 Plug 'ianding1/leetcode.vim' "Solve LeetCode problems in Vim"
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "Intellisense"

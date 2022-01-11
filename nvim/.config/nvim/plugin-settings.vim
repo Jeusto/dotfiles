@@ -21,7 +21,7 @@ let g:coc_global_extensions = [
       \ 'coc-prettier',
       \ 'coc-json',
       \ 'coc-java',
-      \ 'coc-python',
+      \ 'coc-jedi',
       \ 'coc-clangd'
       \ ]
 
@@ -29,34 +29,105 @@ let g:coc_global_extensions = [
 let g:coc_user_config = {
       \ "diagnostic.errorSign": '✖✖',
       \ "diagnostic.warningSign": '!!',
-      \ "diagnostic.infoSign": 'ℹ️',
-      \ "diagnostic.hintSign": '💡',
+      \ "diagnostic.infoSign": 'ii',
+      \ "diagnostic.hintSign": 'hh',
       \ "diagnostic.signOffset": 100,
       \ "coc.preferences.enableFloatHighlight": v:false,
       \ }
 
 "Add `:Format` command to format current buffer
 command! -nargs=0 Format :call CocAction('format')
-
 "Add `:Fold` command to fold current buffer"
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
+command! -nargs=? Fold :call CocAction('fold', <f-args>)
 "Highlight the symbol and its references when holding the cursor"
 autocmd CursorHold * silent call CocActionAsync('highlight')
-
 "Symbol renaming"
 nmap <leader>rn <Plug>(coc-rename)
-
 "Formatting selected code"
-xmap <leader>f  <Plug>(coc-format-selected)
-
+xmap <leader>fo <Plug>(coc-format-selected)
 "Apply AutoFix to problem on the current line"
-map <leader>qf  <Plug>(coc-fix-current)
+map <leader>qf <Plug>(coc-fix-current)
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>d <Plug>(coc-diagnostic-info)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+nmap <silent> ]h <Plug>(coc-git-nextchunk)
+nmap <silent> [h <Plug>(coc-git-prevchunk)
+
+" apply autofix to problem on the current line.
+nmap <leader>af  <plug>(coc-fix-current)
+nmap <leader>am  <plug>(coc-format-selected)
+xmap <leader>am  <plug>(coc-format-selected)
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Applying codeAction to the selected region.
+" Example: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>ga  <Plug>(coc-codeaction-line)
+
+" Map function and class text objects
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap <C-f> and <C-b> for scroll float windows/popups.
+nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+
+" Add `:Fold` command to fold current buffer.
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+nmap <leader>l :CocFzfList<cr>
 
 "#############"
 "###  FZF  ###"
 "#############"
 
+"Mappings"
 nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>f :Files<CR>
 nnoremap <silent> <Leader>/ :BLines<CR>
@@ -115,10 +186,40 @@ let g:gitgutter_sign_added = '++'
 let g:gitgutter_sign_modified = '~~'
 let g:gitgutter_sign_removed = '--'
 
-" map <F7> :NERDTreeToggle<CR>
-" map <F8> :TagbarToggle<CR>
+map <leader>t :TagbarToggle<CR>
+let g:UltiSnipsExpandTrigger = "<F5>"
 
-" let g:UltiSnipsExpandTrigger = "<F5>" 
+"##################"
+"###  NERDTree  ###"
+"##################"
+
+let NERDTreeShowHidden=1
 
 " Nerd tree better toggle
-nnoremap <expr> <leader>n g:NERDTree.IsOpen() ? : ':NERDTreeClose<CR>' @% == '' ? ':NERDTree<CR>' : ':NERDTreeFind<CR>'
+augroup finalcountdown
+  au!
+  autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) || &buftype == 'quickfix' | q | endif
+  nmap <leader>n :NERDTreeToggle<cr>
+augroup END
+
+" If more than one window and previous buffer was NERDTree, go back to it.
+autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
+
+"##################"
+"###  Startify  ###"
+"##################"
+let g:startify_lists = [
+      \ { 'type': 'files',     'header': ['   ⌛ Recent files']            },
+      \ { 'type': 'dir',       'header': ['   🗃️ Current directory: '. getcwd()] },
+      \ { 'type': 'sessions',  'header': ['   💾 Sessions']       },
+      \ { 'type': 'bookmarks', 'header': ['   ⭐ Bookmarks']      },
+      \ { 'type': 'commands',  'header': ['   Commands']       },
+      \ ]
+
+let g:startify_bookmarks = [
+            \ { 'cv': '~/.config/nvim/init.vim' },
+            \ { 'cz': '~/.config/zsh/main.zsh' },
+            \ ]
+
+let g:startify_enable_special = 0
+let g:startify_fortune_use_unicode = 1

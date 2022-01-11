@@ -30,7 +30,6 @@ set colorcolumn=80
 "Theme"
 set background=dark
 colorscheme onedark
-let g:lightline = {'colorscheme': 'onedark', }
 if (empty($TMUX))
   if (has("nvim"))
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
