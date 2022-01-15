@@ -1,9 +1,9 @@
 [/]
 app-picker-view=uint32 1
-command-history=['neofetch', 'xrandr', 'lg', 'gksu nautilus /etc/xdg/autostart', 'nautilus /etc/xdg/autostart', 'restart', 'ls lf', 'echo test', 'rt', '', 'ccsm', 'r']
+command-history=['neofetch', 'xrandr', 'gksu nautilus /etc/xdg/autostart', 'nautilus /etc/xdg/autostart', 'restart', 'ls lf', 'echo test', 'rt', 'ccsm', '', "gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell --method org.gnome.Shell.Eval 'Main.loadTheme();'", 'lg', 'r']
 disable-user-extensions=false
-disabled-extensions=['TransparentTopbar@enrico.sorio.net', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'ubuntu-appindicators@ubuntu.com', 'transparent-gnome-panel@ttomovcik.com', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'desktop-icons@csoriano', 'ding@rastersoft.com', 'gsconnect@andyholmes.github.io', 'gTile@vibou', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com', 'ubuntu-dock@ubuntu.com', 'compiz-alike-windows-effect@hermes83.github.com', 'remove-dropdown-arrows@mpdeimos.com', 'native-window-placement@gnome-shell-extensions.gcampax.github.com', 'Vitals@CoreCoding.com', 'workspaces-bar@fthx', 'appindicatorsupport@rgcjonas.gmail.com', 'tiling-assistant@leleat-on-github', 'trayIconsReloaded@selfmade.pl', 'status-area-horizontal-spacing@mathematical.coffee.gmail.com', 'bluetooth-quick-connect@bjarosze.gmail.com', 'escape-overview@raelgc', 'color-picker@tuberry', 'noannoyance@daase.net', 'notification-banner-position@Selenium-H', 'glassygnome@emiapwil', 'middleclickclose@paolo.tranquilli.gmail.com', 'runcat@kolesnikov.se', 'multi-monitors-add-on@spin83', 'horizontal-workspace-indicator@tty2.io', 'remove-alt-tab-delay@tetrafox.pw', 'media-keys@mafflin', 'fq@megh', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'window-list@gnome-shell-extensions.gcampax.github.com', 'windowsNavigator@gnome-shell-extensions.gcampax.github.com', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com', 'horizontal-workspaces@gnome-shell-extensions.gcampax.github.com', 'emoji-selector@maestroschan.fr']
-enabled-extensions=['tactile@lundal.io', 'ShellTile@emasab.it', 'audio-switcher@AndresCidoncha', 'audio-switcher@albertomosconi', 'audio-selector@bjarosze.gmail.com', 'output-audio-devices@muflone', 'Media_Controls@katsarov.org', 'MprisControl@zdyb.tk', 'transparency@franglais125.gmail.com', 'babar@fthx', 'panel-indicators@leavitals', 'dash-to-dock@micxgx.gmail.com', 'drop-down-terminal@gs-extensions.zzrough.org', 'activities-config@nls1729', 'extension-list@tu.berry', 'hideTopBarWindow@kinzoku.one', 'putWindow@clemens.lab21.org', 'no-title-bar@franglais125.gmail.com', 'gtktitlebar@velitasali.github.io', 'order-extensions@wa4557.github.com', 'TaskBar@zpydr', 'top-bar-organizer@julian.gse.jsts.xyz', 'CoverflowAltTab@palatis.blogspot.com', 'fully-transparent-top-bar@aunetx', 'snap-manager@fthx', 'jiggle@jeffchannell.com', 'date-menu-formatter@marcinjakubowski.github.com', 'TaskBar@c0ldplasma', 'arcmenu@arcmenu.com', 'tray-icons@zhangkaizhao.com', 'unite@hardpixel.eu', 'sound-output-device-chooser@kgshank.net', 'gnome-fuzzy-search@gnome-shell-exstensions.fffilo.github.com', 'extend-panel-menu@julio641742', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'temperature@xtranophilist', 'freon@UshakovVasilii_Github.yahoo.com', 'pomodoro@arun.codito.in', 'window-corner-preview@fabiomereu.it', 'transparent-window@pbxqdown.github.com', 'miniview@thesecretaryofwar.com', 'gnomesome@chwick.github.com', 'quake-mode@repsac-by.github.com', 'better-osd@hllvc', 'pop-shell@system76.com', 'icon-hider@kalnitsky.org', 'Recents@leonardo.bartoli.gmail.com', 'windowIsReady_Remover@nunofarruca@gmail.com', 'clipboard-indicator@tudmotu.com', 'ddterm@amezin.github.com', 'overview-improved@human.experience', 'transparent-window-moving@noobsai.github.com', 'timepp@zagortenay333', 'gnome-shell-screenshot@ttll.de', 'EvilStatusIconForever@bone.twbbs.org.tw', 'impatience@gfxmonk.net', 'simply.workspaces@andyrichardson.dev', 'logomenu@aryan_k', 'disable-workspace-switcher-popup@github.com', 'just-perfection-desktop@just-perfection', 'dash-to-panel@jderose9.github.com', 'vertical-overview@RensAlthuis.github.com', 'gnomespotifylabel@mheine.github.com', 'sp-tray@sp-tray.esenliyim.github.com', 'mprispanel@kennedn.msn.com', 'mediacontrols@cliffniff.github.com', 'panel-osd@berend.de.schouwer.gmail.com', 'transparentosd@ipaq3870', 'better-osd', 'caffeine@patapon.info', 'blur-my-shell@aunetx', 'blyr@yozoon.dev.gmail.com']
+disabled-extensions=['drive-menu@gnome-shell-extensions.gcampax.github.com', 'ubuntu-appindicators@ubuntu.com', 'transparent-gnome-panel@ttomovcik.com', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'desktop-icons@csoriano', 'ding@rastersoft.com', 'gsconnect@andyholmes.github.io', 'gTile@vibou', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com', 'ubuntu-dock@ubuntu.com', 'compiz-alike-windows-effect@hermes83.github.com', 'remove-dropdown-arrows@mpdeimos.com', 'native-window-placement@gnome-shell-extensions.gcampax.github.com', 'appindicatorsupport@rgcjonas.gmail.com', 'tiling-assistant@leleat-on-github', 'trayIconsReloaded@selfmade.pl', 'status-area-horizontal-spacing@mathematical.coffee.gmail.com', 'bluetooth-quick-connect@bjarosze.gmail.com', 'escape-overview@raelgc', 'noannoyance@daase.net', 'notification-banner-position@Selenium-H', 'glassygnome@emiapwil', 'middleclickclose@paolo.tranquilli.gmail.com', 'runcat@kolesnikov.se', 'multi-monitors-add-on@spin83', 'media-keys@mafflin', 'fq@megh', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'window-list@gnome-shell-extensions.gcampax.github.com', 'windowsNavigator@gnome-shell-extensions.gcampax.github.com', 'horizontal-workspaces@gnome-shell-extensions.gcampax.github.com', 'emoji-selector@maestroschan.fr', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com', 'simply.workspaces@andyrichardson.dev']
+enabled-extensions=['tactile@lundal.io', 'ShellTile@emasab.it', 'audio-switcher@AndresCidoncha', 'audio-switcher@albertomosconi', 'audio-selector@bjarosze.gmail.com', 'output-audio-devices@muflone', 'Media_Controls@katsarov.org', 'MprisControl@zdyb.tk', 'transparency@franglais125.gmail.com', 'babar@fthx', 'panel-indicators@leavitals', 'dash-to-dock@micxgx.gmail.com', 'drop-down-terminal@gs-extensions.zzrough.org', 'activities-config@nls1729', 'extension-list@tu.berry', 'hideTopBarWindow@kinzoku.one', 'putWindow@clemens.lab21.org', 'no-title-bar@franglais125.gmail.com', 'gtktitlebar@velitasali.github.io', 'order-extensions@wa4557.github.com', 'TaskBar@zpydr', 'top-bar-organizer@julian.gse.jsts.xyz', 'CoverflowAltTab@palatis.blogspot.com', 'fully-transparent-top-bar@aunetx', 'snap-manager@fthx', 'jiggle@jeffchannell.com', 'date-menu-formatter@marcinjakubowski.github.com', 'TaskBar@c0ldplasma', 'arcmenu@arcmenu.com', 'tray-icons@zhangkaizhao.com', 'unite@hardpixel.eu', 'sound-output-device-chooser@kgshank.net', 'gnome-fuzzy-search@gnome-shell-exstensions.fffilo.github.com', 'extend-panel-menu@julio641742', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'temperature@xtranophilist', 'freon@UshakovVasilii_Github.yahoo.com', 'pomodoro@arun.codito.in', 'window-corner-preview@fabiomereu.it', 'transparent-window@pbxqdown.github.com', 'miniview@thesecretaryofwar.com', 'gnomesome@chwick.github.com', 'quake-mode@repsac-by.github.com', 'better-osd@hllvc', 'pop-shell@system76.com', 'icon-hider@kalnitsky.org', 'Recents@leonardo.bartoli.gmail.com', 'windowIsReady_Remover@nunofarruca@gmail.com', 'clipboard-indicator@tudmotu.com', 'ddterm@amezin.github.com', 'overview-improved@human.experience', 'transparent-window-moving@noobsai.github.com', 'timepp@zagortenay333', 'gnome-shell-screenshot@ttll.de', 'EvilStatusIconForever@bone.twbbs.org.tw', 'impatience@gfxmonk.net', 'logomenu@aryan_k', 'disable-workspace-switcher-popup@github.com', 'just-perfection-desktop@just-perfection', 'vertical-overview@RensAlthuis.github.com', 'gnomespotifylabel@mheine.github.com', 'sp-tray@sp-tray.esenliyim.github.com', 'mprispanel@kennedn.msn.com', 'mediacontrols@cliffniff.github.com', 'panel-osd@berend.de.schouwer.gmail.com', 'transparentosd@ipaq3870', 'caffeine@patapon.info', 'blur-my-shell@aunetx', 'clock-override@gnomeshell.kryogenix.org', 'argos@pew.worldwidemann.com', 'workspaces-to-dock@passingthru67.gmail.com', 'gnome-visuals-top-bar@evendanan.net', 'user-theme', 'blur-me@nunchucks', 'better-osd', 'workspaces-bar@fthx', 'horizontal-workspace-indicator@tty22.io', 'empty-workspace-app', 'horizontal-workspace-indicator@tty2.io', 'remove-alt-tab-delay@tetrafox.pw', 'blur-provider@corvettecole.github.com', 'color-picker@tuberry', 'dash-to-panel@jderose9.github.com', 'blyr@yozoon.dev.gmail.com', 'Vitals@CoreCoding.com']
 favorite-apps=['firefox.desktop', 'kitty.desktop', 'ranger.desktop', 'nemo.desktop', 'code.desktop', 'nvim.desktop']
 had-bluetooth-devices-setup=true
 looking-glass-history=['echo test']
@@ -100,11 +100,16 @@ horizontal=0
 size=20
 vertical=36
 
+[extensions/blur-me]
+window-class-overrides='{"x-terminal-emul":true,"GeckoMain":false,"gjs":true,"gnome-control-c":false,"nemo":false,"kitty":false}'
+
 [extensions/blur-my-shell]
-dash-opacity=0.10000000000000001
+dash-opacity=0.16
+sigma=35
 
 [extensions/blyr]
-mode=2
+intensity=4.0
+mode=3
 panelbrightness=0.69999999999999996
 
 [extensions/caffeine]
@@ -118,8 +123,11 @@ user-enabled=true
 [extensions/clipboard-indicator]
 display-mode=0
 
+[extensions/clock_override]
+override-string='%a %e %b %g — %R'
+
 [extensions/color-picker]
-color-history=['#6f366e', '#202d34', '#4100a1', '#d3dae3', '#181a1b', '#00bfff', '#b9642c']
+color-history=['#282556', '#0d98d2', '#353945', '#2f343f', '#404552', '#2a2e37', '#2c2f39', '#fac536']
 menu-style=uint32 0
 
 [extensions/dash-to-dock]
@@ -129,9 +137,13 @@ click-action='minimize'
 custom-theme-running-dots-border-color='#9c9c9c'
 custom-theme-running-dots-color='#9c9c9c'
 custom-theme-shrink=true
-dash-max-icon-size=32
+dash-max-icon-size=24
 dock-fixed=true
-dock-position='BOTTOM'
+dock-position='LEFT'
+height-fraction=0.33000000000000002
+hot-keys=false
+isolate-monitors=false
+isolate-workspaces=false
 multi-monitor=false
 preferred-monitor=0
 running-indicator-style='DEFAULT'
@@ -178,7 +190,8 @@ middle-click-action='LAUNCH'
 multi-monitors=true
 overview-click-to-exit=false
 panel-anchors='{"0":"MIDDLE","1":"MIDDLE"}'
-panel-element-positions='{"0":[{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"centerBox","visible":false,"position":"centered"},{"element":"dateMenu","visible":true,"position":"centerMonitor"},{"element":"leftBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}],"1":[{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"centerBox","visible":false,"position":"centered"},{"element":"dateMenu","visible":true,"position":"centerMonitor"},{"element":"leftBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}]}'
+panel-element-positions='{"0":[{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedTL"},{"element":"dateMenu","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"centerMonitor"},{"element":"leftBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}],"1":[{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedTL"},{"element":"dateMenu","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"centerMonitor"},{"element":"leftBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}]}'
+panel-element-positions-monitors-sync=true
 panel-lengths='{"0":100,"1":100}'
 panel-positions='{"0":"BOTTOM","1":"BOTTOM"}'
 panel-sizes='{"0":28,"1":28}'
@@ -204,10 +217,11 @@ stockgs-force-hotcorner=false
 stockgs-keep-dash=false
 stockgs-keep-top-panel=false
 stockgs-panelbtn-click-only=false
-taskbar-locked=false
+taskbar-locked=true
+trans-bg-color='#000000'
 trans-gradient-bottom-color='#204a87'
 trans-gradient-top-color='#ef2929'
-trans-panel-opacity=0.29999999999999999
+trans-panel-opacity=0.35000000000000003
 trans-use-custom-bg=false
 trans-use-custom-gradient=false
 trans-use-custom-opacity=true
@@ -305,7 +319,7 @@ window-margin-fullscreen-enabled=false
 [extensions/icon-hider]
 hidden=['a11y', 'dwellClick', 'keyboard', 'Caffeine']
 is-indicator-shown=false
-known=['activities', 'appMenu', 'dateMenu', 'dwellClick', 'a11y', 'keyboard', 'aggregateMenu', 'pop-shell', 'recents', 'clipboardIndicator', 'timepp', 'media_controls_extension', 'menuButton', 'Caffeine']
+known=['activities', 'appMenu', 'dateMenu', 'dwellClick', 'a11y', 'keyboard', 'aggregateMenu', 'pop-shell', 'recents', 'clipboardIndicator', 'timepp', 'media_controls_extension', 'menuButton', 'Caffeine', 'workspace-indicator', 'blur-menu', 'color-picker@tuberry']
 
 [extensions/jiggle]
 fireworks-spark-trail=10
@@ -362,7 +376,7 @@ show-thumbnails-slider=true
 thumbnails-on-left-side=true
 
 [extensions/net/gfxmonk/impatience]
-speed-factor=0.29999999999999999
+speed-factor=0.40000000000000002
 
 [extensions/nightthemeswitcher]
 settings-version=1
@@ -416,7 +430,7 @@ y-pos=100.0
 active-hint=true
 gap-inner=uint32 3
 gap-outer=uint32 3
-hint-color-rgba='rgba(213,197,229,0.661922)'
+hint-color-rgba='rgba(255,255,255,0.508897)'
 show-skip-taskbar=true
 show-title=true
 smart-gaps=false
@@ -531,10 +545,14 @@ name='Qogir-dark'
 
 [extensions/vitals]
 alphabetize=true
-fixed-widths=false
+fixed-widths=true
 hide-zeros=false
-position-in-panel=2
+hot-sensors=['_memory_usage_', '_system_load_1m_', '_temperature_tdie_']
+position-in-panel=1
 show-battery=false
+show-fan=false
+show-storage=false
+show-voltage=false
 update-time=10
 use-higher-precision=false
 

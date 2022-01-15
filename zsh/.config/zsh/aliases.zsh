@@ -38,5 +38,8 @@ alias cp='cp -i'
 alias vim='nvim'
 alias v='nvim'
 alias fzfp="fzf --preview 'batcat --style=numbers --color=always --line-range :500 {}'"
+alias fzfc="find | fzf | xclip -selection clipboard"
+alias fzfv="find | fzf | xargs -I{} nvim {}"
 alias gendir="mkdir -p {a,b}/{e,f,g}/{h,i,j}"
 alias del="trash-put"
+alias fd="fdfind"

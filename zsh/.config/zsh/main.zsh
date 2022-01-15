@@ -15,7 +15,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 zstyle ':omz:update' mode reminder  
 
 # Plugins
-plugins=(git fzf-tab vi-mode zsh-syntax-highlighting zsh-autosuggestions command-not-found)
+plugins=(git fzf fzf-tab vi-mode zsh-syntax-highlighting zsh-autosuggestions command-not-found)
 
 # Other
 source $HOME/.oh-my-zsh/oh-my-zsh.sh
@@ -74,9 +74,13 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
 # Switch group using `,` and `.`
 zstyle ':fzf-tab:*' switch-group ',' '.'
 
-# Fzf theme colors
+# Fzf 
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
  --color=fg:#abb2bf,bg:#282c34,hl:#326996
  --color=fg+:#d3dae6,bg+:#3b414d,hl+:#61afef
  --color=info:#e5c07b,prompt:#e06c75,pointer:#c678dd
  --color=marker:#98c379,spinner:#c678dd,header:#56b6c2'
+
+export FZF_DEFAULT_COMMAND="find ."

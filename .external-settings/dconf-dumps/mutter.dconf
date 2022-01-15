@@ -4,7 +4,7 @@ center-new-windows=true
 dynamic-workspaces=false
 experimental-features=@as []
 overlay-key='Super_R'
-workspaces-only-on-primary=false
+workspaces-only-on-primary=true
 
 [keybindings]
 switch-monitor=['XF86Display']

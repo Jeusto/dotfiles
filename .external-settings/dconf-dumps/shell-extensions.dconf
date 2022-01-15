@@ -90,11 +90,16 @@ horizontal=0
 size=20
 vertical=36
 
+[blur-me]
+window-class-overrides='{"x-terminal-emul":true,"GeckoMain":false,"gjs":true,"gnome-control-c":false,"nemo":false,"kitty":false}'
+
 [blur-my-shell]
-dash-opacity=0.10000000000000001
+dash-opacity=0.16
+sigma=35
 
 [blyr]
-mode=2
+intensity=4.0
+mode=3
 panelbrightness=0.69999999999999996
 
 [caffeine]
@@ -108,8 +113,11 @@ user-enabled=true
 [clipboard-indicator]
 display-mode=0
 
+[clock_override]
+override-string='%a %e %b %g — %R'
+
 [color-picker]
-color-history=['#6f366e', '#202d34', '#4100a1', '#d3dae3', '#181a1b', '#00bfff', '#b9642c']
+color-history=['#282556', '#0d98d2', '#353945', '#2f343f', '#404552', '#2a2e37', '#2c2f39', '#fac536']
 menu-style=uint32 0
 
 [dash-to-dock]
@@ -119,9 +127,13 @@ click-action='minimize'
 custom-theme-running-dots-border-color='#9c9c9c'
 custom-theme-running-dots-color='#9c9c9c'
 custom-theme-shrink=true
-dash-max-icon-size=32
+dash-max-icon-size=24
 dock-fixed=true
-dock-position='BOTTOM'
+dock-position='LEFT'
+height-fraction=0.33000000000000002
+hot-keys=false
+isolate-monitors=false
+isolate-workspaces=false
 multi-monitor=false
 preferred-monitor=0
 running-indicator-style='DEFAULT'
@@ -168,7 +180,8 @@ middle-click-action='LAUNCH'
 multi-monitors=true
 overview-click-to-exit=false
 panel-anchors='{"0":"MIDDLE","1":"MIDDLE"}'
-panel-element-positions='{"0":[{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"centerBox","visible":false,"position":"centered"},{"element":"dateMenu","visible":true,"position":"centerMonitor"},{"element":"leftBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}],"1":[{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"centerBox","visible":false,"position":"centered"},{"element":"dateMenu","visible":true,"position":"centerMonitor"},{"element":"leftBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}]}'
+panel-element-positions='{"0":[{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedTL"},{"element":"dateMenu","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"centerMonitor"},{"element":"leftBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}],"1":[{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedTL"},{"element":"dateMenu","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"centerMonitor"},{"element":"leftBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}]}'
+panel-element-positions-monitors-sync=true
 panel-lengths='{"0":100,"1":100}'
 panel-positions='{"0":"BOTTOM","1":"BOTTOM"}'
 panel-sizes='{"0":28,"1":28}'
@@ -194,10 +207,11 @@ stockgs-force-hotcorner=false
 stockgs-keep-dash=false
 stockgs-keep-top-panel=false
 stockgs-panelbtn-click-only=false
-taskbar-locked=false
+taskbar-locked=true
+trans-bg-color='#000000'
 trans-gradient-bottom-color='#204a87'
 trans-gradient-top-color='#ef2929'
-trans-panel-opacity=0.29999999999999999
+trans-panel-opacity=0.35000000000000003
 trans-use-custom-bg=false
 trans-use-custom-gradient=false
 trans-use-custom-opacity=true
@@ -295,7 +309,7 @@ window-margin-fullscreen-enabled=false
 [icon-hider]
 hidden=['a11y', 'dwellClick', 'keyboard', 'Caffeine']
 is-indicator-shown=false
-known=['activities', 'appMenu', 'dateMenu', 'dwellClick', 'a11y', 'keyboard', 'aggregateMenu', 'pop-shell', 'recents', 'clipboardIndicator', 'timepp', 'media_controls_extension', 'menuButton', 'Caffeine']
+known=['activities', 'appMenu', 'dateMenu', 'dwellClick', 'a11y', 'keyboard', 'aggregateMenu', 'pop-shell', 'recents', 'clipboardIndicator', 'timepp', 'media_controls_extension', 'menuButton', 'Caffeine', 'workspace-indicator', 'blur-menu', 'color-picker@tuberry']
 
 [jiggle]
 fireworks-spark-trail=10
@@ -352,7 +366,7 @@ show-thumbnails-slider=true
 thumbnails-on-left-side=true
 
 [net/gfxmonk/impatience]
-speed-factor=0.29999999999999999
+speed-factor=0.40000000000000002
 
 [nightthemeswitcher]
 settings-version=1
@@ -406,7 +420,7 @@ y-pos=100.0
 active-hint=true
 gap-inner=uint32 3
 gap-outer=uint32 3
-hint-color-rgba='rgba(213,197,229,0.661922)'
+hint-color-rgba='rgba(255,255,255,0.508897)'
 show-skip-taskbar=true
 show-title=true
 smart-gaps=false
@@ -521,9 +535,13 @@ name='Qogir-dark'
 
 [vitals]
 alphabetize=true
-fixed-widths=false
+fixed-widths=true
 hide-zeros=false
-position-in-panel=2
+hot-sensors=['_memory_usage_', '_system_load_1m_', '_temperature_tdie_']
+position-in-panel=1
 show-battery=false
+show-fan=false
+show-storage=false
+show-voltage=false
 update-time=10
 use-higher-precision=false

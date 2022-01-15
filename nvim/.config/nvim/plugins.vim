@@ -12,15 +12,15 @@ Plug 'tpope/vim-commentary' "Easily comment/uncomment"
 Plug 'tpope/vim-surround' "Easily add/remove brackets/tags etc"
 Plug 'tpope/vim-unimpaired' "Pairs of handy bracket mappings"
 
+Plug 'preservim/nerdtree' "File navigation window"
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'preservim/tagbar' "Display tags/classes etc in a window"
+
 Plug 'joshdick/onedark.vim' "Theme"
 Plug 'ryanoasis/vim-devicons' "Adds file type icons"
 Plug 'vim-airline/vim-airline' "Status/tabline"
 Plug 'mhinz/vim-startify' "Fancy start screen"
-
-Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' } "File navigation window"
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'preservim/tagbar' "Display tags/classes etc in a window"
 
 Plug 'tpope/vim-fugitive' "Git wrapper"
 Plug 'airblade/vim-gitgutter' "Show git gutters in the editor"
@@ -34,5 +34,13 @@ Plug 'junegunn/fzf', { 'do': { ->  fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make'}
+
+Plug 'justinmk/vim-sneak'
+Plug 'terryma/vim-expand-region'
+Plug 'svermeulen/vim-cutlass' "d and c operations don't affect clipboard"
+
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
 call plug#end()

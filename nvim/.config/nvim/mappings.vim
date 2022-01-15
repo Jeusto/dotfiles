@@ -42,18 +42,18 @@ nnoremap <leader>k :m .-2<CR>==
 nnoremap <leader>j :m .+1<CR>==
 
 "Hide search higlights"
-nmap <leader>k :nohlsearch<CR>
+nmap <silent> <leader>k :nohlsearch<CR>
 
-"Delete current buffer"
-nmap <leader>q :bdel <cr>
-
-"Delete all buffers"
-nmap <leader>Q :bufdo bdelete<cr>
+"Buffers"
+nmap <silent> <leader>bd :bdel <cr>
+nmap <silent> <leader>bq :bufdo bdelete <cr>
+nmap <silent> <leader>bp :bprevious <cr>
+nmap <silent> <leader>bn :bnext <cr>
 
 "Open even non-existant files with gf"
 map gf :edit <cfile><cr>
 
-"Reselect visual selection after indenting" 
+"Reselect visual selection after indenting"
 vnoremap < <gv
 vnoremap > >gv
 
@@ -65,11 +65,3 @@ nmap <silent> <C-l> <C-w>l
 
 "Open current file in the default program"
 nmap <leader>x :!xdg-opn %<cr><cr>
-
-"Center the pane by adding an empty buffer"
-function CenterPane()
- lefta vnew
- wincmd w
- exec 'vertical resize '. string(&columns * 0.75)
-endfunction
-nnoremap <leader>c :call CenterPane()<cr>

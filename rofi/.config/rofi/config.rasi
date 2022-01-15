@@ -2,11 +2,12 @@ configuration {
     modi: "combi";
     font: "JetBrainsMono Nerd Font 12";
     show-icons: true;
-    icon-theme: "Papirus" ;
+    icon-theme: "Papirus";
     drun-match-fields: "name,generic,exec,categories";
     drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
     sort: true;
-    sorting-method: "levenshtein";
+    sorting-method: "fzf";
+    matching: "normal";
     combi-modi: "drun,window,emoji, p:~/Dotfiles/rofi/.config/rofi/rofi-power-menu";
     kb-remove-word-forward: "Control+Alt+d";
     kb-remove-char-forward: "Delete";

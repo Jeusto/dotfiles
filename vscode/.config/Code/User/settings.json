@@ -52,7 +52,6 @@
   "git.decorations.enabled": false,
   "editor.wordWrap": "wordWrapColumn",
   "workbench.editor.tabCloseButton": "off",
-  "files.defaultLanguage": "markdown",
   "files.exclude": {
     "**/.classpath": true,
     "**/.project": true,
@@ -280,9 +279,9 @@
   "breadcrumbs.enabled": false,
   "window.autoDetectColorScheme": true,
   "terminal.external.linuxExec": "",
-  "editor.minimap.enabled": false,
-  "workbench.colorTheme": "Atom One Dark",
+  "workbench.colorTheme": "One Dark Pro",
   "workbench.iconTheme": "material-icon-theme",
   "vscode-neovim.neovimInitVimPaths.linux": "/home/asaday/.config/nvim/init.vim",
-  "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim"
+  "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+  "warmUp.changeTypingMode": "code snippets"
 }

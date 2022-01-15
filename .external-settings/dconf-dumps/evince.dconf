@@ -1,5 +1,5 @@
 [/]
-document-directory=@ms 'file:///home/asaday/Gdrive/Documents'
+document-directory=@ms 'file:///home/asaday/Downloads'
 
 [default]
 continuous=true
@@ -12,4 +12,4 @@ show-sidebar=true
 sidebar-page='thumbnails'
 sidebar-size=148
 sizing-mode='automatic'
-window-ratio=(1.5831932773109243, 0.55291319857312726)
+window-ratio=(1.5824485956188683, 1.1699865778189551)

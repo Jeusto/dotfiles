@@ -41,6 +41,7 @@ command! -nargs=0 Format :call CocAction('format')
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
 "Highlight the symbol and its references when holding the cursor"
 autocmd CursorHold * silent call CocActionAsync('highlight')
+
 "Symbol renaming"
 nmap <leader>rn <Plug>(coc-rename)
 "Formatting selected code"
@@ -128,7 +129,7 @@ nmap <leader>l :CocFzfList<cr>
 "#############"
 
 "Mappings"
-nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <Leader>bb :Buffers<CR>
 nnoremap <silent> <Leader>f :Files<CR>
 nnoremap <silent> <Leader>/ :BLines<CR>
 nnoremap <silent> <Leader>g :Commits<CR>
@@ -194,13 +195,13 @@ let g:UltiSnipsExpandTrigger = "<F5>"
 "##################"
 
 let NERDTreeShowHidden=1
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsEnableFoldersOpenClose = 1
+let g:DevIconsEnableFolderExtensionPatternMatching = 1
 
-" Nerd tree better toggle
-augroup finalcountdown
-  au!
-  autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) || &buftype == 'quickfix' | q | endif
-  nmap <leader>n :NERDTreeToggle<cr>
-augroup END
+" " Nerd tree better toggle
+nnoremap <expr> <leader>n g:NERDTree.IsOpen() ? ':NERDTreeClose<CR>' : @% == '' ? ':NERDTree<CR>' : ':NERDTreeFind<CR>'
+nmap <leader>N :NERDTreeToggle<CR>
 
 " If more than one window and previous buffer was NERDTree, go back to it.
 autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
@@ -208,18 +209,58 @@ autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | en
 "##################"
 "###  Startify  ###"
 "##################"
+
 let g:startify_lists = [
       \ { 'type': 'files',     'header': ['   ⌛ Recent files']            },
       \ { 'type': 'dir',       'header': ['   🗃️ Current directory: '. getcwd()] },
       \ { 'type': 'sessions',  'header': ['   💾 Sessions']       },
       \ { 'type': 'bookmarks', 'header': ['   ⭐ Bookmarks']      },
-      \ { 'type': 'commands',  'header': ['   Commands']       },
+      \ { 'type': 'commands',  'header': ['   📢 Commands']       },
       \ ]
 
 let g:startify_bookmarks = [
             \ { 'cv': '~/.config/nvim/init.vim' },
-            \ { 'cz': '~/.config/zsh/main.zsh' },
+            \ { 'cz': '~/.zshrc' },
             \ ]
 
 let g:startify_enable_special = 0
 let g:startify_fortune_use_unicode = 1
+
+map <silent><leader>ss :SSave<CR>
+map <silent><leader>sc :SClose<CR>
+map <silent><leader>sd :SDelete<CR>
+
+"###############"
+"###  Sneak  ###"
+"###############"
+
+map f <Plug>Sneak_s
+map F <Plug>Sneak_S
+map t <Plug>Sneak_t
+map T <Plug>Sneak_T
+
+highlight Sneak guifg=black guibg=#61afef ctermfg=black ctermbg=blue
+highlight SneakScope guifg=black guibg=#e06c75 ctermfg=black ctermbg=red
+
+let g:sneak#use_ic_scs = 1
+let g:sneak#s_next = 1
+let g:sneak#label = 1
+let g:sneak#prompt = '🔎 '
+
+"########################"
+"###  Limelight+goyo  ###"
+"########################"
+
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+
+"#################"
+"### Cutlass   ###"
+"#################"
+
+"Use x for delete and yank, use dl for removing letter"
+nnoremap x d
+xnoremap x d
+
+nnoremap xx dd
+nnoremap X D
