@@ -43,11 +43,11 @@ command! -nargs=? Fold :call CocAction('fold', <f-args>)
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 "Symbol renaming"
-nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>cr <Plug>(coc-rename)
 "Formatting selected code"
-xmap <leader>fo <Plug>(coc-format-selected)
+xmap <leader>cf <Plug>(coc-format-selected)
 "Apply AutoFix to problem on the current line"
-map <leader>qf <Plug>(coc-fix-current)
+map <leader>cq <Plug>(coc-fix-current)
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -64,11 +64,12 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <silent> ]h <Plug>(coc-git-nextchunk)
 nmap <silent> [h <Plug>(coc-git-prevchunk)
 
-" apply autofix to problem on the current line.
+" Apply autofix to problem on the current line.
 nmap <leader>af  <plug>(coc-fix-current)
 nmap <leader>am  <plug>(coc-format-selected)
 xmap <leader>am  <plug>(coc-format-selected)
 nmap <leader>ac  <Plug>(coc-codeaction)
+
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
 xmap <leader>a  <Plug>(coc-codeaction-selected)
@@ -102,9 +103,6 @@ endfunction
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
 " Remap <C-f> and <C-b> for scroll float windows/popups.
 nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
 nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
@@ -122,7 +120,7 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
-nmap <leader>l :CocFzfList<cr>
+nmap <leader>cc :CocFzfList<cr>
 
 "#############"
 "###  FZF  ###"
@@ -130,12 +128,12 @@ nmap <leader>l :CocFzfList<cr>
 
 "Mappings"
 nnoremap <silent> <Leader>bb :Buffers<CR>
-nnoremap <silent> <Leader>f :Files<CR>
+nnoremap <silent> <Leader>e :Files<CR>
 nnoremap <silent> <Leader>/ :BLines<CR>
 nnoremap <silent> <Leader>g :Commits<CR>
-nnoremap <silent> <Leader>hh :History<CR>
-nnoremap <silent> <Leader>h: :History:<CR>
-nnoremap <silent> <Leader>h/ :History/<CR>
+" nnoremap <silent> <Leader>hh :History<CR>
+" nnoremap <silent> <Leader>h: :History:<CR>
+" nnoremap <silent> <Leader>h/ :History/<CR>
 
 "#################"
 "###  Airline  ###"
@@ -199,7 +197,7 @@ let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
 let g:DevIconsEnableFolderExtensionPatternMatching = 1
 
-" " Nerd tree better toggle
+" Nerd tree better toggle
 nnoremap <expr> <leader>n g:NERDTree.IsOpen() ? ':NERDTreeClose<CR>' : @% == '' ? ':NERDTree<CR>' : ':NERDTreeFind<CR>'
 nmap <leader>N :NERDTreeToggle<CR>
 
@@ -226,30 +224,49 @@ let g:startify_bookmarks = [
 let g:startify_enable_special = 0
 let g:startify_fortune_use_unicode = 1
 
-map <silent><leader>ss :SSave<CR>
-map <silent><leader>sc :SClose<CR>
-map <silent><leader>sd :SDelete<CR>
+" map <silent><leader>ss :SSave<CR>
+" map <silent><leader>sc :SClose<CR>
+" map <silent><leader>sd :SDelete<CR>
 
-"###############"
-"###  Sneak  ###"
-"###############"
+"#####################"
+"###  Easy motion  ###"
+"#####################"
 
-map f <Plug>Sneak_s
-map F <Plug>Sneak_S
-map t <Plug>Sneak_t
-map T <Plug>Sneak_T
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+let g:EasyMotion_enter_jump_first = 1
+let g:EasyMotion_space_jump_first = 1
+let g:EasyMotion_prompt = 'Search for {n} character(s): '
+let g:EasyMotion_use_upper = 1
+let g:EasyMotion_keys = 'ASDGHKLQWERTYUIOPZXCVBNMFJ;'
+let g:EasyMotion_verbose = 0
+let g:EasyMotion_move_highlight = 0
 
-highlight Sneak guifg=black guibg=#61afef ctermfg=black ctermbg=blue
-highlight SneakScope guifg=black guibg=#e06c75 ctermfg=black ctermbg=red
+map f <Plug>(easymotion-f)
+map F <Plug>(easymotion-F)
+map t <Plug>(easymotion-t)
+map T <Plug>(easymotion-T)
 
-let g:sneak#use_ic_scs = 1
-let g:sneak#s_next = 1
-let g:sneak#label = 1
-let g:sneak#prompt = '🔎 '
+map <Leader>l <Plug>(easymotion-bd-wl)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
 
-"########################"
-"###  Limelight+goyo  ###"
-"########################"
+map <Leader>f <Plug>(easymotion-bd-f2)
+map <Leader>t <Plug>(easymotion-bd-t2)
+
+map <Leader>w <Plug>(easymotion-bd-w)
+map <Leader>s <Plug>(easymotion-sn)
+
+map ; <Plug>(easymotion-next)
+map . <Plug>(easymotion-previous)
+
+autocmd User EasyMotionPromptEnd silent! CocEnable
+autocmd User EasyMotionPromptBegin silent! CocDisable
+
+""########################"
+""###  Limelight+goyo  ###"
+""########################"
 
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!

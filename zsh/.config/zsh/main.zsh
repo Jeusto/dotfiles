@@ -15,41 +15,38 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 zstyle ':omz:update' mode reminder  
 
 # Plugins
-plugins=(git fzf fzf-tab vi-mode zsh-syntax-highlighting zsh-autosuggestions command-not-found)
+plugins=(git fzf fzf-tab zsh-syntax-highlighting zsh-autosuggestions vi-mode command-not-found)
 
 # Other
 source $HOME/.oh-my-zsh/oh-my-zsh.sh
 PROMPT_EOL_MARK=''
 setopt globdots
 
-# Enable vim mode
+# Vi mode cursor
 bindkey -v
 
-  # Remove mode switching delay.
-  KEYTIMEOUT=5
+# Remove mode switching delay.
+KEYTIMEOUT=5
 
-  # Change cursor shape for different vi modes.
-  function zle-keymap-select {
-    if [[ ${KEYMAP} == vicmd ]] ||
-        [[ $1 = 'block' ]]; then
-      echo -ne '\e[1 q'
+# Change cursor shape for different vi modes.
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] ||
+      [[ $1 = 'block' ]]; then
+    echo -ne '\e[1 q'
 
-    elif [[ ${KEYMAP} == main ]] ||
-          [[ ${KEYMAP} == viins ]] ||
-          [[ ${KEYMAP} = '' ]] ||
-          [[ $1 = 'beam' ]]; then
-      echo -ne '\e[5 q'
-    fi
-  }
-  zle -N zle-keymap-select
+  elif [[ ${KEYMAP} == main ]] ||
+        [[ ${KEYMAP} == viins ]] ||
+        [[ ${KEYMAP} = '' ]] ||
+        [[ $1 = 'beam' ]]; then
+    echo -ne '\e[5 q'
+  fi
+}
+zle -N zle-keymap-select
 
-  # Use beam shape cursor on startup.
-  echo -ne '\e[5 q'
-
-  # Use beam shape cursor for each new prompt.
-  preexec() {
-      echo -ne '\e[5 q'
-  }
+# Use beam shape cursor for each new prompt.
+preexec() {
+    echo -ne '\e[5 q'
+}
 
 ###############
 ###  Other  ###

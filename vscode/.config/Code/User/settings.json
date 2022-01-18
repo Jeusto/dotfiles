@@ -2,48 +2,58 @@
   // ###############
   // ###  Fonts  ###
   // ###############
-
   "editor.fontLigatures": true,
   "editor.fontFamily": "'JetBrainsMono Nerd Font'",
   "editor.fontWeight": "500",
   "editor.inlayHints.fontFamily": "'JetBrainsMono Nerd Font'",
   "editor.codeLensFontFamily": "'JetBrainsMono NF Regular'",
   "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font'",
-  "terminal.integrated.fontSize": 14,
-
   // #########################
   // ###  Theme and style  ###
   // #########################
-
   "material-icon-theme.showWelcomeMessage": false,
   "workbench.preferredLightColorTheme": "Atom One Light",
   "workbench.preferredDarkColorTheme": "Atom One Dark",
-
+  "workbench.colorCustomizations": {
+    "editorCursor.foreground": "#bfc4ce",
+    "editorCursor.background": "#000000",
+    "terminal.ansiBlack": "#3f4451",
+    "terminal.ansiBlue": "#4aa5f0",
+    "terminal.ansiBrightBlack": "#4f5666",
+    "terminal.ansiBrightBlue": "#4dc4ff",
+    "terminal.ansiBrightCyan": "#4cd1e0",
+    "terminal.ansiBrightGreen": "#a5e075",
+    "terminal.ansiBrightMagenta": "#de73ff",
+    "terminal.ansiBrightRed": "#ff616e",
+    "terminal.ansiBrightWhite": "#d7dae0",
+    "terminal.ansiBrightYellow": "#f0a45d",
+    "terminal.ansiCyan": "#42b3c2",
+    "terminal.ansiGreen": "#8cc265",
+    "terminal.ansiMagenta": "#c162de",
+    "terminal.ansiRed": "#e05561",
+    "terminal.ansiWhite": "#e6e6e6",
+    "terminal.ansiYellow": "#d18f52"
+  },
   // ################
   // ###  Cursor  ###
   // ################
-
   "editor.multiCursorModifier": "ctrlCmd",
   "terminal.integrated.cursorStyle": "line",
-
   // ####################
   // ###  UI Options  ###
   // ####################
-
   "editor.minimap.showSlider": "always",
   "editor.minimap.renderCharacters": false,
   "window.title": "${activeEditorShort} ${dirty}",
   "workbench.editor.pinnedTabSizing": "shrink",
   "workbench.sideBar.location": "right",
   "zenMode.hideTabs": false,
+  "window.menuBarVisibility": "toggle",
   "window.titleBarStyle": "custom",
   "editor.rulers": [80],
-  "window.menuBarVisibility": "toggle",
-
   // ###########################
   // ###  Life improvements  ###
   // ###########################
-
   "editor.quickSuggestionsDelay": 0,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
@@ -59,13 +69,12 @@
     "**/.factorypath": true,
     "node_modules": true
   },
-
   // ##################
   // ###  Terminal  ###
   // ##################
-
   "terminal.external.windowsExec": "C:\\Program Files\\Git\\git-bash.exe",
   "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "terminal.integrated.defaultProfile.linux": "zsh",
   "terminal.integrated.profiles.windows": {
     "PowerShell": {
       "source": "Git Bash",
@@ -76,12 +85,9 @@
       "icon": "terminal-bash"
     }
   },
-  "terminal.integrated.defaultProfile.linux": "zsh",
-
   // ###################
   // ###  Languages  ###
   // ###################
-
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "python.formatting.yapfArgs": [
     "--style={based_on_style: google, column_limit: 80, indent_width: 2}"
@@ -122,11 +128,9 @@
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter.notebook.ipynb"
   },
-
   // ############################
   // ###  Extension settings  ###
   // ############################
-
   "leetcode.hint.commandShortcut": false,
   "leetcode.hint.configWebviewMarkdown": false,
   "leetcode.hint.commentDescription": false,
@@ -186,11 +190,9 @@
     "turing.u-strasbg.fr": "linux"
   },
   "C_Cpp_Runner.warnings": ["-Wall", "-Wextra", "-Wpedantic", "-Werror"],
-
   // ####################
   // ###  Minimal UI  ###
   // ####################
-
   // "editor.minimap.enabled": false, // removes minimap
   // "editor.renderWhitespace": "none", // removes whitespace chars
   // "editor.renderIndentGuides": false, // removes indent guides
@@ -210,11 +212,9 @@
   // "workbench.colorCustomizations": { // object that allows you to customize your color theme: https://code.visualstudio.com/docs/getstarted/theme-color-reference
   //   "tab.activeBorder": "#0000" // removes border to highlight active tabs (the colors formats are: #RGB, #RGBA, #RRGGBB or #RRGGBBAA)
   // },
-
   // ###############
   // ###  Other  ###
   // ###############
-
   "window.openFilesInNewWindow": "default",
   "editor.tabSize": 2,
   "files.eol": "\n",
@@ -270,7 +270,7 @@
   },
   "debug.toolBarLocation": "docked",
   "github.copilot.enable": {
-    "*": true,
+    "*": false,
     "yaml": false,
     "plaintext": false,
     "markdown": false
@@ -283,5 +283,8 @@
   "workbench.iconTheme": "material-icon-theme",
   "vscode-neovim.neovimInitVimPaths.linux": "/home/asaday/.config/nvim/init.vim",
   "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
-  "warmUp.changeTypingMode": "code snippets"
+  "vscode-neovim.neovimWidth": 700,
+  "vscode-neovim.mouseSelectionStartVisualMode": true,
+  "editor.lineNumbers": "relative",
+  "editor.occurrencesHighlight": false
 }

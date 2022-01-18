@@ -20,6 +20,9 @@
     },
     {
       "class": "pentablet"
+    },
+    {
+      "class": "Peek"
     }
   ],
   "skiptaskbarhidden": [],

@@ -93,6 +93,11 @@ set noshowmode
 "###  Other  ###"
 "###############"
 
+map q: <Nop>
+nnoremap Q <Nop>
+
+set cursorline
+
 "Use system clipboard by default"
 set clipboard=unnamedplus
 

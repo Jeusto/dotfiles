@@ -6,11 +6,6 @@
 nnoremap <SPACE> <Nop>
 let mapleader = "\<space>"
 
-"Better autocompletion mappins"
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <Enter> pumvisible() ? "\<C-y>" : "\<Enter>"
-
 "To avoid using arrow keys"
 inoremap <Down> <Nop>
 inoremap <Left> <Nop>
@@ -36,13 +31,9 @@ nnoremap J mzJz
 "Moving text"
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-inoremap <C-j> <esc>:m .+1<CR>==
-inoremap <C-k> <esc>:m .-2<CR>==
-nnoremap <leader>k :m .-2<CR>==
-nnoremap <leader>j :m .+1<CR>==
 
 "Hide search higlights"
-nmap <silent> <leader>k :nohlsearch<CR>
+nmap <silent> <leader>u :nohlsearch<CR>
 
 "Buffers"
 nmap <silent> <leader>bd :bdel <cr>
@@ -65,3 +56,14 @@ nmap <silent> <C-l> <C-w>l
 
 "Open current file in the default program"
 nmap <leader>x :!xdg-opn %<cr><cr>
+
+"Better autocompletion mappings"
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <Enter> pumvisible() ? "\<C-y>" : "\<Enter>"
+
+"Paste and indent by default and ctrl+p to paste without indenting"
+:nnoremap p ]p
+:nnoremap <c-p> p
