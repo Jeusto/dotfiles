@@ -3,22 +3,22 @@
   {
     "key": "ctrl+j",
     "command": "selectNextSuggestion",
-    "when": ""
+    "when": "suggestWidgetVisible"
   },
   {
     "key": "ctrl+k",
     "command": "selectPrevSuggestion",
-    "when": ""
+    "when": "suggestWidgetVisible"
   },
   {
     "key": "tab",
     "command": "selectNextSuggestion",
-    "when": ""
+    "when": "suggestWidgetVisible"
   },
   {
     "key": "shift+tab",
     "command": "selectPrevSuggestion",
-    "when": ""
+    "when": "suggestWidgetVisible"
   },
   {
     "key": "ctrl+j",
@@ -30,9 +30,113 @@
     "command": "workbench.action.quickOpenSelectPrevious",
     "when": "inQuickOpen"
   },
-  // Navigation
-  { "key": "ctrl+shift+h", "command": "workbench.action.previousEditor" },
-  { "key": "ctrl+shift+l", "command": "workbench.action.nextEditor" },
+  {
+    "key": "ctrl+j",
+    "command": "list.focusDown",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "list.focusUp",
+    "when": "listFocus && !inputFocus"
+  },
+  // General navigation
+  {
+    "key": "alt+b",
+    "command": "workbench.action.toggleSidebarVisibility"
+  },
+  {
+    "key": "alt+n",
+    "command": "workbench.view.explorer"
+  },
+  // Editors management and navigation
+  {
+    "key": "ctrl+shift+h",
+    "command": "workbench.action.previousEditor"
+  },
+  {
+    "key": "ctrl+shift+l",
+    "command": "workbench.action.nextEditor"
+  },
+  {
+    "key": "ctrl+shift+t",
+    "command": "workbench.action.files.newUntitledFile"
+  },
+  {
+    "key": "ctrl+shift+w",
+    "command": "workbench.action.closeActiveEditor"
+  },
+  // Editor actions
+  {
+    "key": "ctrl+shift+c",
+    "command": "editor.action.clipboardCopyAction"
+  },
+  {
+    "key": "ctrl+shift+v",
+    "command": "editor.action.clipboardPasteAction"
+  },
+  // Terminal management and navigation
+  {
+    "key": "ctrl+t",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "terminal.active"
+  },
+  {
+    "key": "ctrl+shift+j",
+    "command": "workbench.action.terminal.scrollDown"
+  },
+  {
+    "key": "ctrl+shift+k",
+    "command": "workbench.action.terminal.scrollUp"
+  },
+  {
+    "key": "ctrl+shift+t",
+    "command": "workbench.action.terminal.new",
+    "when": "terminalFocus && terminalIsOpen"
+  },
+  {
+    "key": "ctrl+shift+w",
+    "command": "workbench.action.terminal.kill",
+    "when": "terminalFocus && terminalIsOpen"
+  },
+  {
+    "key": "ctrl+shift+h",
+    "command": "workbench.action.terminal.focusPrevious",
+    "when": "terminalFocus && terminalIsOpen"
+  },
+  {
+    "key": "ctrl+shift+l",
+    "command": "workbench.action.terminal.focusNext",
+    "when": "terminalFocus && terminalIsOpen"
+  },
+  // Neovim custom escape keys: quick "jk" to leave insert mode
+  {
+    "key": "j",
+    "command": "vscode-neovim.compositeEscape1",
+    "when": "neovim.mode == insert && editorTextFocus",
+    "args": "j"
+  },
+  {
+    "key": "k",
+    "command": "vscode-neovim.compositeEscape2",
+    "when": "neovim.mode == insert && editorTextFocus",
+    "args": "k"
+  },
+  // {
+  //   "key": "space r",
+  //   "command": "code-runner.run",
+  //   "when": "neovim.mode == normal && editorTextFocus",
+  // },
+  // To match nvim extensions
+  // Coc 
+  // {
+  //   "command": "editor.action.marker.next",
+  //   "key": "]g",
+  //   "when": "neovim.mode == normal && editorTextFocus",
+  // },
+  //
+  //
+  // 
   // {
   //   "key": "ctrl+t",
   //   "command": "workbench.action.terminal.toggleTerminal",
@@ -49,16 +153,6 @@
   //   "when": "terminalFocus && terminalIsOpen"
   // },
   // {
-  //   "key": "ctrl+shift+t",
-  //   "command": "workbench.action.terminal.new",
-  //   "when": "terminalFocus && terminalIsOpen"
-  // },
-  // {
-  //   "key": "ctrl+shift+w",
-  //   "command": "workbench.action.terminal.kill",
-  //   "when": "terminalFocus && terminalIsOpen"
-  // },
-  // {
   //   "key": "shift+up",
   //   "command": "workbench.action.terminal.scrollUpPage",
   //   "when": "terminalFocus && terminalProcessSupported && !terminalAltBufferActive"
@@ -67,21 +161,6 @@
   //   "key": "shift+down",
   //   "command": "workbench.action.terminal.scrollDownPage",
   //   "when": "terminalFocus && terminalProcessSupported && !terminalAltBufferActive"
-  // },
-  // {
-  //   "key": "ctrl+shift+\\",
-  //   "command": "workbench.action.terminal.split",
-  //   "when": "terminalFocus && terminalProcessSupported"
-  // },
-  // {
-  //   "key": "ctrl+shift+1",
-  //   "command": "workbench.action.terminal.focusAtIndex1",
-  //   "when": "terminalFocus && terminalProcessSupported"
-  // },
-  // {
-  //   "key": "ctrl+shift+2",
-  //   "command": "workbench.action.terminal.focusAtIndex2",
-  //   "when": "terminalFocus && terminalProcessSupported"
   // },
   // {
   //   "key": "tab",

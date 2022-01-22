@@ -12,9 +12,11 @@
     "typescript.tsx",
     "graphql",
     "c",
-    "java"
+    "java",
+    "python"
   ],
   "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/13.0.0/clangd_13.0.0/bin/clangd",
+  "python.pythonPath": "/usr/bin/python3",
   "snippets.ultisnips.enable": true,
   "diagnostic.displayByAle": true,
   "suggest.completionItemKindLabels": {

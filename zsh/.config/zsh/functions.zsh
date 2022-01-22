@@ -1,6 +1,6 @@
-########################
-### Simple functions ###
-########################
+##########################
+###  Simple functions  ###
+##########################
 
 # Copy current directory into clipboard
 copydir() {
@@ -25,9 +25,9 @@ cl() {
         ls -F --color=auto
 }
 
-#############################
-###  Functions with curl  ###
-#############################
+##############################
+###  Functions using curl  ###
+##############################
 
 # Upload and share formatted code file
 sharecode() {
@@ -55,12 +55,12 @@ speedtest() {
     curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -;
 }
 
-# Expand a short url
+# Expand a shortened url
 expand() {
     curl -sIL "$1" | grep -i ^location;
 }
 
-# Grab a qr code
+# Create a qr code
 qrcode() {
     curl qrenco.de/"$1";
 }

@@ -1,17 +1,10 @@
-#################
-###  Aliases  ###
-#################
-
-# Enable aliases to be sudo’ed
+# Enable aliases to be sudo'ed
 alias su='sudo '
-
-# Empty trash
-alias emptytrash="rm -rf ~/.local/share/Trash/*"
 
 # Print each PATH entry on a separate line
 alias path="echo -e ${PATH//:/\\n}"
 
-# Valgrind output to file
+# Valgrind and redirect output to a file
 alias vg='valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt'
 
 # Search through command history

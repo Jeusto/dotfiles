@@ -29,4 +29,3 @@ configuration {
 listview {
     lines: 6;
 }
-

@@ -1,4 +1,3 @@
-
 "####################"
 "###  UI Options  ###"
 "####################"
@@ -11,14 +10,6 @@ set ruler
 set wildmenu
 "Maximum number of tab pages that can be opened from the command line"
 set tabpagemax=50
-"Show line numbers on the sidebar"
-set number
-set nuw=2
-:augroup numbertoggle
-:  autocmd!
-:  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i"| set rnu   | endif
-:  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                 | set nornu | endif
-:augroup END
 "Disable beep on errors"
 set noerrorbells
 "Enable mouse for scrolling and resizing"
@@ -27,7 +18,15 @@ set mouse=a
 set title
 "80 character limit line"
 set colorcolumn=80
-"Theme"
+"Show line numbers on the sidebar"
+set number
+set nuw=2
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i"| set rnu | endif
+:  autocmd BufLeave,FocusLost,InsertEnter,WinLeave * if &nu | set nornu | endif
+:augroup END
+"Custom theme"
 set background=dark
 colorscheme onedark
 if (empty($TMUX))
@@ -92,11 +91,6 @@ set noshowmode
 "###############"
 "###  Other  ###"
 "###############"
-
-map q: <Nop>
-nnoremap Q <Nop>
-
-set cursorline
 
 "Use system clipboard by default"
 set clipboard=unnamedplus

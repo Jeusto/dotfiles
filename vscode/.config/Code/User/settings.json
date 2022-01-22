@@ -15,24 +15,25 @@
   "workbench.preferredLightColorTheme": "Atom One Light",
   "workbench.preferredDarkColorTheme": "Atom One Dark",
   "workbench.colorCustomizations": {
+    "list.highlightForeground": "#61afef",
     "editorCursor.foreground": "#bfc4ce",
     "editorCursor.background": "#000000",
-    "terminal.ansiBlack": "#3f4451",
-    "terminal.ansiBlue": "#4aa5f0",
-    "terminal.ansiBrightBlack": "#4f5666",
+    "terminal.ansiBlack": "#282c34",
+    "terminal.ansiBlue": "#61afef",
+    "terminal.ansiBrightBlack": "#393e48",
     "terminal.ansiBrightBlue": "#4dc4ff",
     "terminal.ansiBrightCyan": "#4cd1e0",
     "terminal.ansiBrightGreen": "#a5e075",
     "terminal.ansiBrightMagenta": "#de73ff",
-    "terminal.ansiBrightRed": "#ff616e",
+    "terminal.ansiBrightRed": "#e06c75",
     "terminal.ansiBrightWhite": "#d7dae0",
-    "terminal.ansiBrightYellow": "#f0a45d",
+    "terminal.ansiBrightYellow": "#e5c07b",
     "terminal.ansiCyan": "#42b3c2",
     "terminal.ansiGreen": "#8cc265",
     "terminal.ansiMagenta": "#c162de",
-    "terminal.ansiRed": "#e05561",
+    "terminal.ansiRed": "#e06c75",
     "terminal.ansiWhite": "#e6e6e6",
-    "terminal.ansiYellow": "#d18f52"
+    "terminal.ansiYellow": "#e5c07b"
   },
   // ################
   // ###  Cursor  ###
@@ -46,11 +47,11 @@
   "editor.minimap.renderCharacters": false,
   "window.title": "${activeEditorShort} ${dirty}",
   "workbench.editor.pinnedTabSizing": "shrink",
-  "workbench.sideBar.location": "right",
   "zenMode.hideTabs": false,
-  "window.menuBarVisibility": "toggle",
   "window.titleBarStyle": "custom",
-  "editor.rulers": [80],
+  "editor.rulers": [
+    80
+  ],
   // ###########################
   // ###  Life improvements  ###
   // ###########################
@@ -85,6 +86,9 @@
       "icon": "terminal-bash"
     }
   },
+  "terminal.integrated.commandsToSkipShell": [
+    "-workbench.action.quickOpen"
+  ],
   // ###################
   // ###  Languages  ###
   // ###################
@@ -99,7 +103,9 @@
     "editor.defaultFormatter": "ms-python.python",
     "editor.formatOnPaste": false
   },
-  "java.project.sourcePaths": [""],
+  "java.project.sourcePaths": [
+    ""
+  ],
   "[c]": {
     "editor.defaultFormatter": "ms-vscode.cpptools"
   },
@@ -134,14 +140,16 @@
   "leetcode.hint.commandShortcut": false,
   "leetcode.hint.configWebviewMarkdown": false,
   "leetcode.hint.commentDescription": false,
-  "leetcode.defaultLanguage": "c",
+  "leetcode.defaultLanguage": "java",
   "leetcode.editor.shortcuts": [],
-  "leetcode.workspaceFolder": "c:\\Users\\arhun\\Documents\\Projets\\leetcode-problems",
   "liveServer.settings.donotVerifyTags": true,
   "liveServer.settings.root": "/",
   "liveServer.settings.donotShowInfoMsg": true,
   "liveSassCompile.settings.showOutputWindow": false,
-  "liveSassCompile.settings.autoprefix": ["> 1%", "last 2 versions"],
+  "liveSassCompile.settings.autoprefix": [
+    "> 1%",
+    "last 2 versions"
+  ],
   "liveSassCompile.settings.formats": [
     {
       "format": "compressed",
@@ -177,11 +185,15 @@
     "[ ]",
     "[x]"
   ],
-  "projectManager.git.baseFolders": ["~/Universite", "~/Perso"],
+  "projectManager.git.baseFolders": [
+    "~/Universite",
+    "~/Perso"
+  ],
   "code-runner.runInTerminal": true,
   "code-runner.terminalRoot": "/",
   "code-runner.clearPreviousOutput": true,
   "code-runner.executorMap": {
+    "python": "python3 $dir$fileName",
     "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt -Wall -Wextra && $dir$fileNameWithoutExt"
   },
   "react-native-tools.showUserTips": false,
@@ -189,7 +201,12 @@
   "remote.SSH.remotePlatform": {
     "turing.u-strasbg.fr": "linux"
   },
-  "C_Cpp_Runner.warnings": ["-Wall", "-Wextra", "-Wpedantic", "-Werror"],
+  "C_Cpp_Runner.warnings": [
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Werror"
+  ],
   // ####################
   // ###  Minimal UI  ###
   // ####################
@@ -224,7 +241,6 @@
   "diffEditor.renderSideBySide": false,
   "search.useReplacePreview": false,
   "debug.inlineValues": true,
-  "workbench.startupEditor": "newUntitledFile",
   "editor.quickSuggestions": {
     "strings": true
   },
@@ -241,7 +257,9 @@
   "window.restoreWindows": "none",
   "explorer.compactFolders": false,
   "explorer.confirmDelete": false,
-  "settingsSync.ignoredSettings": ["-window.zoomLevel"],
+  "settingsSync.ignoredSettings": [
+    "-window.zoomLevel"
+  ],
   "editor.autoClosingBrackets": "always",
   "editor.autoClosingQuotes": "always",
   "security.workspace.trust.untrustedFiles": "open",
@@ -254,7 +272,7 @@
   "conf.view.showOnWindowOpen": "debug",
   "editor.formatOnType": true,
   "editor.accessibilitySupport": "off",
-  "terminal.integrated.lineHeight": 1.2,
+  "terminal.integrated.lineHeight": 0,
   "update.mode": "none",
   "git.confirmEmptyCommits": false,
   "settingsSync.keybindingsPerPlatform": false,
@@ -275,8 +293,6 @@
     "plaintext": false,
     "markdown": false
   },
-  "code-runner.ignoreSelection": true,
-  "breadcrumbs.enabled": false,
   "window.autoDetectColorScheme": true,
   "terminal.external.linuxExec": "",
   "workbench.colorTheme": "One Dark Pro",
@@ -284,7 +300,18 @@
   "vscode-neovim.neovimInitVimPaths.linux": "/home/asaday/.config/nvim/init.vim",
   "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
   "vscode-neovim.neovimWidth": 700,
-  "vscode-neovim.mouseSelectionStartVisualMode": true,
   "editor.lineNumbers": "relative",
-  "editor.occurrencesHighlight": false
+  "editor.occurrencesHighlight": false,
+  "jupyter.askForKernelRestart": false,
+  "vscode-neovim.textDecorationsAtTop": true,
+  "window.menuBarVisibility": "toggle",
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "workbench.sideBar.location": "right",
+  "terminal.integrated.scrollback": 2500,
+  "terminal.integrated.persistentSessionScrollback": 250,
+  "leetcode.workspaceFolder": "/home/asaday/Repos/leetcode-problems",
+  "editor.minimap.enabled": false,
+  "vscode-neovim.mouseSelectionStartVisualMode": true
 }
