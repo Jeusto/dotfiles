@@ -6,7 +6,7 @@
 set laststatus=2
 "Always show cursor position"
 set ruler
-"Display command line’s tab complete options as a menu"
+"Display command line's tab complete options as a menu"
 set wildmenu
 "Maximum number of tab pages that can be opened from the command line"
 set tabpagemax=50
@@ -14,7 +14,7 @@ set tabpagemax=50
 set noerrorbells
 "Enable mouse for scrolling and resizing"
 set mouse=a
-"Set the window’s title, reflecting the file currently being edited"
+"Set the window's title, reflecting the file currently being edited"
 set title
 "80 character limit line"
 set colorcolumn=80
@@ -53,14 +53,14 @@ set smartcase
 
 "Limit the files searched for auto-completes"
 set complete-=i
-"Don’t update screen during macro and script execution"
+"Don't update screen during macro and script execution"
 set lazyredraw
 
 "################################"
 "###  Text rendering options  ###"
 "################################"
 
-"Always try to show a paragraph’s last line"
+"Always try to show a paragraph's last line"
 set display+=lastline
 "Use an encoding that supports unicode"
 set encoding=utf-8
@@ -69,7 +69,7 @@ set linebreak
 "The number of screen lines to keep above and below the cursor"
 set scrolloff=1
 "The number of screen columns to keep to the left and right of the cursor"
-set sidescrolloff=5
+set sidescrolloff=3
 "Enable syntax highlighting"
 syntax enable
 "Enable line wrapping"
@@ -79,18 +79,19 @@ set wrap
 "###  Indentation and tabulation  ###"
 "####################################"
 
+set tabstop=8
+set softtabstop=2
+set shiftwidth=2
 set autoindent
 set smartindent
 set smarttab
 set expandtab
-set tabstop=8
-set softtabstop=2
-set shiftwidth=2
-set noshowmode
 
 "###############"
 "###  Other  ###"
 "###############"
+
+set noshowmode
 
 "Use system clipboard by default"
 set clipboard=unnamedplus

@@ -3,7 +3,6 @@ call plug#begin('~/.config/nvim-plugins')
 "Plugins for both neovim & vscode-neovim"
 source $HOME/.config/nvim/plugins/vim-easymotion.vim
 source $HOME/.config/nvim/plugins/vim-cutlass.vim "d and c operations don't affect clipboard"
-Plug 'tpope/vim-sensible' "Good default settings"
 Plug 'tpope/vim-surround' "Easily add/remove brackets/tags etc"
 Plug 'tpope/vim-unimpaired' "Pairs of handy bracket mappings"
 Plug 'terryma/vim-expand-region'
@@ -27,6 +26,7 @@ if !exists('g:vscode')
   Plug 'ryanoasis/vim-devicons' "Adds file type icons"
   Plug 'tpope/vim-fugitive' "Git wrapper"
   Plug '0x84/vim-coderunner'
+  "Plug 'sheerun/vim-sensible' "Good default settings"
   "Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
   "Plug 'ianding1/leetcode.vim'
   "Plug 'nvim-lua/plenary.nvim'

@@ -6,8 +6,9 @@
 nnoremap <SPACE> <Nop>
 let mapleader = "\<space>"
 
-"Map replace all to S"
-nnoremap S :%s//g<Left><Left>
+"Map replace all to leader s"
+" nnoremap S :%s//g<Left><Left>
+nnoremap <leader>s :%s//g<Left><Left>
 
 "Moving text"
 vnoremap J :m '>+1<CR>gv=gv

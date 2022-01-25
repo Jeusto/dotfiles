@@ -13,7 +13,7 @@
   // #########################
   "material-icon-theme.showWelcomeMessage": false,
   "workbench.preferredLightColorTheme": "Atom One Light",
-  "workbench.preferredDarkColorTheme": "Atom One Dark",
+  "workbench.preferredDarkColorTheme": "One Dark Pro",
   "workbench.colorCustomizations": {
     "list.highlightForeground": "#61afef",
     "editorCursor.foreground": "#bfc4ce",
@@ -61,7 +61,6 @@
   "editor.renderWhitespace": "none",
   "git.enableSmartCommit": true,
   "git.decorations.enabled": false,
-  "editor.wordWrap": "wordWrapColumn",
   "workbench.editor.tabCloseButton": "off",
   "files.exclude": {
     "**/.classpath": true,
@@ -101,7 +100,7 @@
   },
   "[python]": {
     "editor.defaultFormatter": "ms-python.python",
-    "editor.formatOnPaste": false
+    "editor.tabSize": 4
   },
   "java.project.sourcePaths": [
     ""
@@ -134,14 +133,7 @@
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter.notebook.ipynb"
   },
-  // ############################
-  // ###  Extension settings  ###
-  // ############################
-  "leetcode.hint.commandShortcut": false,
-  "leetcode.hint.configWebviewMarkdown": false,
-  "leetcode.hint.commentDescription": false,
-  "leetcode.defaultLanguage": "java",
-  "leetcode.editor.shortcuts": [],
+  "leetcode.defaultLanguage": "python3",
   "liveServer.settings.donotVerifyTags": true,
   "liveServer.settings.root": "/",
   "liveServer.settings.donotShowInfoMsg": true,
@@ -167,7 +159,6 @@
   "gitlens.codeLens.enabled": false,
   "latex-workshop.view.pdf.viewer": "browser",
   "numberedBookmarks.saveBookmarksInProject": true,
-  "C_Cpp.updateChannel": "Insiders",
   "sqltools.useNodeRuntime": true,
   "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
   "C_Cpp.clang_format_fallbackStyle": "Google",
@@ -197,7 +188,6 @@
     "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt -Wall -Wextra && $dir$fileNameWithoutExt"
   },
   "react-native-tools.showUserTips": false,
-  "python.formatting.provider": "yapf",
   "remote.SSH.remotePlatform": {
     "turing.u-strasbg.fr": "linux"
   },
@@ -233,7 +223,6 @@
   // ###  Other  ###
   // ###############
   "window.openFilesInNewWindow": "default",
-  "editor.tabSize": 2,
   "files.eol": "\n",
   "window.newWindowDimensions": "inherit",
   "explorer.confirmDragAndDrop": false,
@@ -313,5 +302,18 @@
   "terminal.integrated.persistentSessionScrollback": 250,
   "leetcode.workspaceFolder": "/home/asaday/Repos/leetcode-problems",
   "editor.minimap.enabled": false,
-  "vscode-neovim.mouseSelectionStartVisualMode": true
+  "vscode-neovim.mouseSelectionStartVisualMode": true,
+  "breadcrumbs.enabled": false,
+  "oneDarkPro.italic": true,
+  "leetcode.editor.shortcuts": [
+    "test",
+    "submit",
+    "description",
+    "solution"
+  ],
+  "leetcode.hint.commandShortcut": false,
+  "leetcode.hint.commentDescription": false,
+  "leetcode.hint.configWebviewMarkdown": false,
+  "editor.tabSize": 2,
+  "editor.linkedEditing": true
 }

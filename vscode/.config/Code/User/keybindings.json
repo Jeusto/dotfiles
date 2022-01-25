@@ -1,5 +1,5 @@
 [
-  // Ctrl+j, ctrl+k as well as tab, shift-tab for all options list
+  // Ctrl+j + ctrl+k as well as tab + shift-tab to navigate lists
   {
     "key": "ctrl+j",
     "command": "selectNextSuggestion",
@@ -40,14 +40,21 @@
     "command": "list.focusUp",
     "when": "listFocus && !inputFocus"
   },
-  // General navigation
+  // Matching neovim mappings using <leader>
   {
-    "key": "alt+b",
-    "command": "workbench.action.toggleSidebarVisibility"
+    "key": "alt+n",
+    "command": "workbench.view.explorer",
+    "when": "neovim.mode == normal && !explorerViewletVisible"
   },
   {
     "key": "alt+n",
-    "command": "workbench.view.explorer"
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "neovim.mode == normal && explorerViewletVisible"
+  },
+  {
+    "key": "alt+r",
+    "command": "code-runner.run",
+    "when": "neovim.mode == normal && editorTextFocus",
   },
   // Editors management and navigation
   {
@@ -65,6 +72,21 @@
   {
     "key": "ctrl+shift+w",
     "command": "workbench.action.closeActiveEditor"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "workbench.action.closeGroup",
+    "when": "activeEditorGroupEmpty && multipleEditorGroups"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "vscode-neovim.send",
+    "args": "<C-h>"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "vscode-neovim.send",
+    "args": "<C-l>"
   },
   // Editor actions
   {
@@ -122,11 +144,27 @@
     "when": "neovim.mode == insert && editorTextFocus",
     "args": "k"
   },
-  // {
-  //   "key": "space r",
-  //   "command": "code-runner.run",
-  //   "when": "neovim.mode == normal && editorTextFocus",
-  // },
+  // Leetcode extension
+  {
+    "key": "alt+l l",
+    "command": "leetcode.switchDefaultLanguage",
+    "when": ""
+  },
+  {
+    "key": "alt+l t",
+    "command": "leetcode.testSolution",
+    "when": ""
+  },
+  {
+    "key": "alt+l s",
+    "command": "leetcode.submitSolution",
+    "when": ""
+  },
+  {
+    "key": "alt+l f",
+    "command": "leetcode.searchProblem",
+    "when": ""
+  },
   // To match nvim extensions
   // Coc 
   // {

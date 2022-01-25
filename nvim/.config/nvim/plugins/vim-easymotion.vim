@@ -12,7 +12,7 @@ let g:EasyMotion_enter_jump_first = 1
 let g:EasyMotion_space_jump_first = 1
 let g:EasyMotion_prompt = 'Search for {n} character(s): '
 let g:EasyMotion_use_upper = 1
-let g:EasyMotion_keys = 'ASDGHKLQWERTYUIOPZXCVBNMFJ;'
+let g:EasyMotion_keys = 'ASDFJKL;GHQWERUITYZXCVBNM'
 let g:EasyMotion_verbose = 0
 let g:EasyMotion_move_highlight = 0
 
