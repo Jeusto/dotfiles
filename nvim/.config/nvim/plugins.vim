@@ -25,7 +25,7 @@ if !exists('g:vscode')
   Plug 'joshdick/onedark.vim' "Theme"
   Plug 'ryanoasis/vim-devicons' "Adds file type icons"
   Plug 'tpope/vim-fugitive' "Git wrapper"
-  Plug '0x84/vim-coderunner'
+  Plug '0x84/vim-coderunner' "Code runner"
   "Plug 'sheerun/vim-sensible' "Good default settings"
   "Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
   "Plug 'ianding1/leetcode.vim'

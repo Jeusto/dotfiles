@@ -30,8 +30,8 @@ map <Leader>t <Plug>(easymotion-bd-t2)
 
 map <Leader>w <Plug>(easymotion-bd-w)
 
-map ; <Plug>(easymotion-next)
-map . <Plug>(easymotion-previous)
+nmap ; <Plug>(easymotion-next)
+nmap . <Plug>(easymotion-previous)
 
 autocmd User EasyMotionPromptEnd silent! CocEnable
 autocmd User EasyMotionPromptBegin silent! CocDisable

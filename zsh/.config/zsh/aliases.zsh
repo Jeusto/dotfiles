@@ -10,29 +10,30 @@ alias vg='valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -
 # Search through command history
 alias hs='history | grep'
 
-# Show files sorted by size
-alias lt='ls --human-readable --size -1 -S --classify'
-
 # Other
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias dot='git -C $HOME/Dotfiles'
-alias g="git"
-alias bat="batcat"
-alias gs="git status"
-alias gf="git fetch"
 alias la='ls -A'
 alias l='ls -CF'
 alias ll='ls -alF'
+alias lt='ls --human-readable --size -1 -S --classify'
 alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
+alias gendir="mkdir -p {a,b}/{e,f,g}/{h,i,j}"
+
+alias dot='git -C $HOME/Dotfiles'
+alias g="git"
+alias gs="git status"
+alias gf="git fetch"
+
+alias fzfp="fzf --preview 'batcat --style=numbers --color=always --line-range :500 {}'"
+alias fzfc="fzf | xclip -selection clipboard"
+alias fzfv="fzf | xargs -I{} nvim {}"
 alias vim='nvim'
 alias v='nvim'
-alias fzfp="fzf --preview 'batcat --style=numbers --color=always --line-range :500 {}'"
-alias fzfc="find | fzf | xclip -selection clipboard"
-alias fzfv="find | fzf | xargs -I{} nvim {}"
-alias gendir="mkdir -p {a,b}/{e,f,g}/{h,i,j}"
+alias py="python3"
+alias bat="batcat"
 alias del="trash-put"
 alias fd="fdfind"

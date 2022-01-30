@@ -6,12 +6,25 @@ Plug 'mhinz/vim-startify'
 " map <silent><leader>sd :SDelete<CR>
 
 " Settings
+let g:startify_enable_special = 0
+let g:startify_fortune_use_unicode = 1
+let g:startify_relative_path = 1
+
+" Commits list
+function! s:list_commits()
+      let git = 'git -C ~/Dotfiles'
+      let commits = systemlist(git .' log --oneline | head -n10')
+      let git = 'G'. git[1:]
+      return map(commits, '{"line": matchstr(v:val, "\\s\\zs.*"), "cmd": "'. git .' show ". matchstr(v:val, "^\\x\\+") }')
+endfunction
+
 let g:startify_lists = [
-      \ { 'type': 'files',     'header': ['   ⌛ Recent files']            },
-      \ { 'type': 'dir',       'header': ['   🗃️ Current directory: '. getcwd()] },
-      \ { 'type': 'sessions',  'header': ['   💾 Sessions']       },
-      \ { 'type': 'bookmarks', 'header': ['   ⭐ Bookmarks']      },
-      \ { 'type': 'commands',  'header': ['   📢 Commands']       },
+      \ { 'type': 'files', 'header': ['   ⌛ Recent files'] },
+      \ { 'type': 'dir', 'header': ['   🗃️ Current directory: '. getcwd()] },
+      \ { 'type': 'sessions', 'header': ['   💾 Sessions'] },
+      \ { 'type': 'bookmarks', 'header': ['   ⭐ Bookmarks'] },
+      \ { 'type': 'commands', 'header': ['   📢 Commands'] },
+      \ { 'header': ['   📜 Commits'], 'type': function('s:list_commits') },
       \ ]
 
 let g:startify_bookmarks = [
@@ -19,5 +32,11 @@ let g:startify_bookmarks = [
             \ { 'cz': '~/.zshrc' },
             \ ]
 
-let g:startify_enable_special = 0
-let g:startify_fortune_use_unicode = 1
+let g:startify_custom_header = [
+\ '                                                     ',
+\ '   ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗',
+\ '   ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║',
+\ '   ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║',
+\ '   ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║',
+\ '   ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║',
+\ ]

@@ -453,14 +453,6 @@ menupopup > menu {
 /***   Old icons   ***/
 /*********************/
 
-/* Standard Folder - Open */
-:-moz-any(#PlacesToolbar, #BMB_bookmarksPopup, #bookmarksMenu)
-  .bookmark-item[container="true"]:not([query="true"], [tagContainer], [dayContainer])[open="true"],
-:-moz-any(#bookmarks-view, #historyTree, #editBMPanel_folderTree, #placesList, #placeContent)
-  treechildren::-moz-tree-image(title, container, open) {
-  list-style-image: url("./icons/folder-open.svg") !important;
-}
-
 /*= Other Folder - Inbox Icon ================================================*/
 /* on Menus */
 #PlacesToolbar #OtherBookmarks,
@@ -779,7 +771,7 @@ menupopup > menu {
   list-style-image: url("chrome://global/skin/icons/search-glass.svg");
 }
 #appMenu-zoom-controls2::before {
-  content: url("./icons/screenshot.svg");
+  content: url("chrome://global/skin/icons/plus.svg");
 }
 
 #appMenu-settings-button {
@@ -793,7 +785,7 @@ menupopup > menu {
 }
 
 #appMenu-quit-button2 {
-  list-style-image: url("./icons/quit.svg");
+  list-style-image: url("chrome://global/skin/icons/close.svg");
 }
 
 /*= Panel - Account ==========================================================*/
@@ -933,62 +925,52 @@ panelMenuBookmarkThisPage[starred] {
   list-style-image: url("chrome://browser/skin/customize.svg");
 }
 
-/* Web Developer Tools */
-#appmenu-developer-tools-view .subviewbutton:nth-child(1),
+/* #appmenu-developer-tools-view .subviewbutton:nth-child(1),
 #PanelUI-developer-tools-view .subviewbutton:nth-child(1) {
-  list-style-image: url("./icons/developer.svg");
+  list-style-image: url("chrome://devtools/skin/images/developer.svg");
 }
-/* Task Manager */
 #appmenu-developer-tools-view .subviewbutton:nth-child(2),
 #PanelUI-developer-tools-view .subviewbutton:nth-child(2) {
   list-style-image: url("./icons/performance.svg");
 }
-/* Remote Debugging - Edge bug.svg */
 #appmenu-developer-tools-view .subviewbutton:nth-child(3),
 #PanelUI-developer-tools-view .subviewbutton:nth-child(3) {
   list-style-image: url("./icons/bug.svg");
 }
-/* Browser Toolbox - Edge webdeveloper.svg */
 #appmenu-developer-tools-view .subviewbutton:nth-child(4),
 #PanelUI-developer-tools-view .subviewbutton:nth-child(4) {
   list-style-image: url("./icons/window-dev-tools.svg");
 }
-/* Browser Content Toolbaox -  */
 #appmenu-developer-tools-view .subviewbutton:nth-child(5),
 #PanelUI-developer-tools-view .subviewbutton:nth-child(5) {
   list-style-image: url("./icons/command-frames.svg");
 }
-/* Browser Console */
 #appmenu-developer-tools-view .subviewbutton:nth-last-child(5),
 #PanelUI-developer-tools-view .subviewbutton:nth-last-child(5) {
   list-style-image: url("chrome://devtools/skin/images/command-console.svg");
 }
-/* Responsive Design Mode */
 #appmenu-developer-tools-view .subviewbutton:nth-last-child(4),
 #PanelUI-developer-tools-view .subviewbutton:nth-last-child(4) {
   list-style-image: url("./icons/command-responsivemode.svg");
 }
-/* Eyedropper */
 #appmenu-developer-tools-view .subviewbutton:nth-last-child(3),
 #PanelUI-developer-tools-view .subviewbutton:nth-last-child(3) {
   list-style-image: url("chrome://devtools/skin/images/command-eyedropper.svg");
 }
-/* Page Source - Edge file-search.svg */
 #appmenu-developer-tools-view .subviewbutton:nth-last-child(2),
 #PanelUI-developer-tools-view .subviewbutton:nth-last-child(2) {
   list-style-image: url("./icons/document-search.svg");
 }
-/* Extensions for Devel */
 #appmenu-developer-tools-view .subviewbutton:nth-last-child(1),
 #PanelUI-developer-tools-view .subviewbutton:nth-last-child(1) {
   list-style-image: url("chrome://devtools/skin/images/debugging-addons.svg");
 }
 #appmenu-developer-tools-view .subviewbutton:last-child {
   margin-bottom: 6px !important;
-}
+} */
 
 /*= Panel - Help =============================================================*/
-#appMenu_menu_openHelp {
+/* #appMenu_menu_openHelp {
   list-style-image: url("chrome://global/skin/icons/help.svg");
 }
 #appMenu_feedbackPage {
@@ -1008,7 +990,7 @@ panelMenuBookmarkThisPage[starred] {
 }
 #appMenu_aboutName {
   list-style-image: url("chrome://global/skin/icons/info.svg");
-}
+} */
 
 /*= Panel - Library ==========================================================*/
 #appMenu-library-bookmarks-button {
@@ -1207,7 +1189,7 @@ menupopup:is(#context_sendTabToDevicePopupMenu, #context-sendpagetodevice-popup)
 }
 
 /* Menubar */
-#main-menubar > menu {
+/* #main-menubar > menu {
   background-position: left var(--context-menu-background-padding-default)
     center !important;
   padding-inline-start: calc(
@@ -1223,8 +1205,8 @@ menupopup:is(#context_sendTabToDevicePopupMenu, #context-sendpagetodevice-popup)
   ) !important;
 }
 #main-menubar > menu > menupopup {
-  --menuitem-image: none; /* Prevent Image Inheritance */
-}
+  --menuitem-image: none;
+} */
 
 /* Padding - Windows */
 @media (-moz-os-version: windows-win7),
@@ -2283,7 +2265,7 @@ menupopup:is(#context_sendTabToDevicePopupMenu, #context-sendpagetodevice-popup)
   --menuitem-image: url("chrome://browser/skin/sidebars.svg");
 }
 
-#viewFullZoomMenu {
+#viewFullMenu {
   --menuitem-image: url("./icons/screenshot.svg");
 }
 #pageStyleMenu {
@@ -2460,7 +2442,7 @@ menupopup:is(#context_sendTabToDevicePopupMenu, #context-sendpagetodevice-popup)
 #helpPolicySupport {
 }
 
-/** Libray Menu ***************************************************************/
+/** Library Menu ***************************************************************/
 /*= organizeButtonPopup ======================================================*/
 #newbookmark {
   --menuitem-image: url("chrome://browser/skin/bookmark.svg");

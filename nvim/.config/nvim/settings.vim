@@ -87,6 +87,16 @@ set smartindent
 set smarttab
 set expandtab
 
+"#######################"
+"###  Custom colors  ###"
+"#######################"
+
+hi link StartifyPath Comment
+hi link StartifySlash Comment
+hi link StartifyFile Delimiter
+hi link StartifySection Directory
+hi link StartifyNumber Number
+
 "###############"
 "###  Other  ###"
 "###############"

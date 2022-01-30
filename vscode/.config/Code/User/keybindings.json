@@ -54,7 +54,16 @@
   {
     "key": "alt+r",
     "command": "code-runner.run",
+    "when": "neovim.mode == normal && editorTextFoc s",
+  },
+  {
+    "key": "alt+e",
+    "command": "workbench.action.quickOpen",
     "when": "neovim.mode == normal && editorTextFocus",
+  },
+  {
+    "key": "alt+t",
+    "command": "workbench.action.gotoSymbol"
   },
   // Editors management and navigation
   {
@@ -74,7 +83,7 @@
     "command": "workbench.action.closeActiveEditor"
   },
   {
-    "key": "ctrl+w",
+    "key": "ctrl+shift+w",
     "command": "workbench.action.closeGroup",
     "when": "activeEditorGroupEmpty && multipleEditorGroups"
   },
@@ -87,6 +96,10 @@
     "key": "ctrl+l",
     "command": "vscode-neovim.send",
     "args": "<C-l>"
+  },
+  {
+    "key": "alt+b",
+    "command": "workbench.action.toggleSidebarVisibility"
   },
   // Editor actions
   {
@@ -172,9 +185,7 @@
   //   "key": "]g",
   //   "when": "neovim.mode == normal && editorTextFocus",
   // },
-  //
-  //
-  // 
+  // Old keybindings
   // {
   //   "key": "ctrl+t",
   //   "command": "workbench.action.terminal.toggleTerminal",
@@ -686,9 +697,4 @@
   //   "command": "-selectPrevSuggestion",
   //   "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
   // },
-  {
-    "key": "ctrl+shift+c",
-    "command": "-workbench.action.terminal.openNativeConsole",
-    "when": "!terminalFocus"
-  }
 ]

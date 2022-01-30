@@ -18,6 +18,7 @@ vnoremap K :m '<-2<CR>gv=gv
 nmap <leader>u :nohlsearch<CR>
 
 "Buffers manipulation"
+nnoremap <silent> <Leader>bu :Buffers<CR>
 nmap <leader>bd :bdel <cr>
 nmap <leader>bq :bufdo bdelete <cr>
 nmap <leader>bp :bprevious <cr>
@@ -72,7 +73,9 @@ nnoremap Q <Nop>
 if exists('g:vscode')
   nnoremap <leader>n <Cmd>call VSCodeNotify('workbench.view.explorer')<CR>
   nnoremap <leader>b <Cmd>call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>
-
+  nnoremap <leader>e <Cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>
+  nnoremap <leader>t <Cmd>call VSCodeNotify('workbench.action.goToSymbol')<CR>
+  
   "Code runner extension"
   nnoremap <leader>r <Cmd>call VSCodeNotify('code-runner.run')<CR>
 
