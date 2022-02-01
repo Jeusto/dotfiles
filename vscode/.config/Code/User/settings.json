@@ -305,5 +305,6 @@
   "jupyter.askForKernelRestart": false,
   "window.menuBarVisibility": "toggle",
   "workbench.startupEditor": "none",
-  "workbench.list.automaticKeyboardNavigation": false
+  "workbench.list.automaticKeyboardNavigation": false,
+  "diffEditor.ignoreTrimWhitespace": false
 }

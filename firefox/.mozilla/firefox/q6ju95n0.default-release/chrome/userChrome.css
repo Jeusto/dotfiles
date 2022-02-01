@@ -55,6 +55,24 @@
   padding-bottom: 3px !important;
 }
 
+/**********************************/
+/***   Add bookmark drop-down   ***/
+/**********************************/
+
+/* Hide Giant Thumbnail and Favicon */
+#editBookmarkPanelImage, 
+*|div#editBookmarkPanelFaviconContainer {
+  display: none !important;
+}
+
+/* Unhide URL field */
+#editBMPanel_locationRow[collapsed="true"] {
+  visibility: visible !important;
+}
+
+/* Show more folders */
+#editBMPanel_folderTree { min-height: 42vh !important; }
+
 /*************************/
 /***   Downloads.css   ***/
 /*************************/

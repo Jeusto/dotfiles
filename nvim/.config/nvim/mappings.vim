@@ -7,7 +7,6 @@ nnoremap <SPACE> <Nop>
 let mapleader = "\<space>"
 
 "Map replace all to leader s"
-" nnoremap S :%s//g<Left><Left>
 nnoremap <leader>s :%s//g<Left><Left>
 
 "Moving text"
@@ -65,6 +64,9 @@ vnoremap > >gv
 "Useless"
 map q: <Nop>
 nnoremap Q <Nop>
+
+"Different escape key"
+" imap jk <esc>
 
 "######################################################"
 "###  Trigger vscode commands through vim mappings  ###"
