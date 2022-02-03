@@ -7,7 +7,7 @@ nnoremap <SPACE> <Nop>
 let mapleader = "\<space>"
 
 "Map replace all to leader s"
-nnoremap <leader>s :%s//g<Left><Left>
+nmap <leader>s :%s//g<Left><Left>
 
 "Moving text"
 vnoremap J :m '>+1<CR>gv=gv
@@ -75,12 +75,18 @@ nnoremap Q <Nop>
 if exists('g:vscode')
   nnoremap <leader>n <Cmd>call VSCodeNotify('workbench.view.explorer')<CR>
   nnoremap <leader>b <Cmd>call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>
-  nnoremap <leader>e <Cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>
-  nnoremap <leader>t <Cmd>call VSCodeNotify('workbench.action.goToSymbol')<CR>
+  nnoremap <leader>t <Cmd>call VSCodeNotify('workbench.action.focusAuxiliaryBar')<CR>
+  nmap <leader>s :%s/
   
-  "Code runner extension"
+  "Match neovim extensions"
+  nnoremap <leader>e <Cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>
   nnoremap <leader>r <Cmd>call VSCodeNotify('code-runner.run')<CR>
 
+  nnoremap [g <Cmd>call VSCodeNotify('editor.action.marker.prev')<CR>
+  nnoremap ]g <Cmd>call VSCodeNotify('editor.action.marker.next')<CR>
+  
+  nmap <leader>cr <Cmd>call VSCodeNotify('editor.action.rename')<CR>
+  
   "Use vscode's own comment commands"
   nmap gc  <Plug>VSCodeCommentary
   xmap gc  <Plug>VSCodeCommentary

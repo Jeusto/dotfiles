@@ -13,7 +13,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Plugins
 plugins=(git fzf fzf-tab zsh-syntax-highlighting 
-  zsh-autosuggestions vi-mode command-not-found)
+  zsh-autosuggestions command-not-found)
 
 # Other
 source $HOME/.oh-my-zsh/oh-my-zsh.sh
@@ -21,30 +21,7 @@ PROMPT_EOL_MARK=''
 setopt globdots
 
 # Vi mode cursor
-bindkey -v
-
-# Remove mode switching delay.
-KEYTIMEOUT=5
-
-# Change cursor shape for different vi modes.
-function zle-keymap-select {
-  if [[ ${KEYMAP} == vicmd ]] ||
-      [[ $1 = 'block' ]]; then
-    echo -ne '\e[1 q'
-
-  elif [[ ${KEYMAP} == main ]] ||
-        [[ ${KEYMAP} == viins ]] ||
-        [[ ${KEYMAP} = '' ]] ||
-        [[ $1 = 'beam' ]]; then
-    echo -ne '\e[5 q'
-  fi
-}
-zle -N zle-keymap-select
-
-# Use beam shape cursor for each new prompt.
-preexec() {
-    echo -ne '\e[5 q'
-}
+# bindkey -v
 
 ###############
 ###  Other  ###
@@ -67,3 +44,8 @@ autoload -U compinit && compinit -u
 
 # FZF 
 source /usr/share/doc/fzf/examples/key-bindings.zsh
+bindkey '\ef' fzf-file-widget
+bindkey '^F' fzf-file-widget
+bindkey '\eh' fzf-history-widget
+bindkey '^H' fzf-history-widget
+bindkey '\ec' fzf-cd-widget

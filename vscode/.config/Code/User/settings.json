@@ -113,16 +113,6 @@
   "terminal.integrated.lineHeight": 0,
   "terminal.integrated.scrollback": 2500,
   "terminal.integrated.persistentSessionScrollback": 250,
-  "terminal.integrated.profiles.windows": {
-    "PowerShell": {
-      "source": "Git Bash",
-      "icon": "terminal-bash"
-    },
-    "Git Bash": {
-      "source": "Git Bash",
-      "icon": "terminal-bash"
-    }
-  },
   "terminal.integrated.commandsToSkipShell": [
     "-workbench.action.quickOpen"
   ],
@@ -177,25 +167,21 @@
   // ####################
   // ###  Minimal UI  ###
   // ####################
-  // "editor.minimap.enabled": false, // removes minimap
-  // "editor.renderWhitespace": "none", // removes whitespace chars
-  // "editor.renderIndentGuides": false, // removes indent guides
-  // "editor.renderLineHighlight": "none", // removes line highlight
-  // "editor.overviewRulerBorder": false, // removes border from overview ruler (located on the right, same position as the scrollbar)
-  // "editor.hideCursorInOverviewRuler": true, // hides cursor mark in the overview ruler
-  // "editor.folding": false, // removes the folding feature
-  // "editor.occurrencesHighlight": false, // removes highlights occurrences (still works when you select a word)
-  // "editor.matchBrackets": false, // removes the highlight of matching brackets (I use Subtle Match Brackets extension for this)
-  // "editor.glyphMargin": false, // removes the space used mainly for debugging indicators
-  // "workbench.activityBar.visible": false, // removes the activity bar (the 4 icons at the left of the screen), so now you will have to open the explorer, git, debugger and extension with shortcuts or through the Command Palette
-  // "workbench.editor.showIcons": false, // removes icon from opened files in tabs
-  // "workbench.editor.tabCloseButton": "off", // removes cross icon from tabs
-  // "workbench.statusBar.visible": false, // removes the status bar
-  // "indenticator.color.dark": "rgba(255,255,255,.1)", // adds a subtle indent guide (needs Indenticator extension)
-  // "explorer.openEditors.visible": 0, // removes the open editors section at the top of the sidebar, you can see the opened files with ⌘ + ⌥ + Tab
-  // "workbench.colorCustomizations": { // object that allows you to customize your color theme: https://code.visualstudio.com/docs/getstarted/theme-color-reference
-  //   "tab.activeBorder": "#0000" // removes border to highlight active tabs (the colors formats are: #RGB, #RGBA, #RRGGBB or #RRGGBBAA)
-  // },
+  // "editor.minimap.enabled": false,
+  // "editor.renderWhitespace": "none",
+  // "editor.renderIndentGuides": false,
+  // "editor.renderLineHighlight": "none",
+  // "editor.overviewRulerBorder": false,
+  // "editor.hideCursorInOverviewRuler": true,
+  // "editor.folding": false,
+  // "editor.occurrencesHighlight": false,
+  // "editor.glyphMargin": false,
+  // "workbench.activityBar.visible":
+  // "workbench.editor.showIcons": false,
+  // "workbench.editor.tabCloseButton": "off",
+  // "workbench.statusBar.visible": false,
+  // "indenticator.color.dark": "rgba(255,255,255,.1)",
+  // "explorer.openEditors.visible": 0,
   // ####################
   // ###  Extensions  ###
   // ####################
@@ -251,12 +237,6 @@
   "material-icon-theme.showWelcomeMessage": false,
   "codesnap.showWindowControls": false,
   "react-native-tools.showUserTips": false,
-  "material-ui-snippets.showNotesOnStartup": false,
-  "thunder-client.codeSnippetLanguage": "js-axios",
-  "latex-workshop.view.pdf.viewer": "browser",
-  "numberedBookmarks.saveBookmarksInProject": true,
-  "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)",
-  "tailwindCSS.emmetCompletions": true,
   "oneDarkPro.italic": true,
   "svgviewer.showzoominout": true,
   "github.copilot.enable": {
@@ -265,21 +245,6 @@
     "plaintext": false,
     "markdown": false
   },
-  "remote.SSH.remotePlatform": {
-    "turing.u-strasbg.fr": "linux"
-  },
-  "tailwindCSS.includeLanguages": {
-    "plaintext": "html"
-  },
-  "todo-tree.general.tags": [
-    "BUG",
-    "HACK",
-    "FIXME",
-    "TODO",
-    "XXX",
-    "[ ]",
-    "[x]"
-  ],
   // ###############
   // ###  Other  ###
   // ###############
@@ -304,7 +269,7 @@
   "window.autoDetectColorScheme": true,
   "jupyter.askForKernelRestart": false,
   "window.menuBarVisibility": "toggle",
-  "workbench.startupEditor": "none",
   "workbench.list.automaticKeyboardNavigation": false,
-  "diffEditor.ignoreTrimWhitespace": false
+  "diffEditor.ignoreTrimWhitespace": false,
+  "workbench.startupEditor": "welcomePageInEmptyWorkbench"
 }

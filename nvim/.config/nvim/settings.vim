@@ -130,3 +130,7 @@ set shortmess+=c
 "Indicators on the same column as line numbers"
 set signcolumn=yes:1
 hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
+
+if exists('g:vscode')
+  nnoremap <C-f> <Nop>
+endif
