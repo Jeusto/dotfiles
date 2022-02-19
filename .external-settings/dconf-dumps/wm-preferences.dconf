@@ -5,6 +5,6 @@ focus-mode='click'
 mouse-button-modifier='<Super>'
 num-workspaces=4
 resize-with-right-button=false
-titlebar-font='Inter Bold 11'
+titlebar-font='JetBrainsMono NF Medium 11'
 visual-bell=false
 workspace-names=['Workspace 1', 'Workspace 2']

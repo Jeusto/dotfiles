@@ -65,6 +65,19 @@ vnoremap > >gv
 map q: <Nop>
 nnoremap Q <Nop>
 
+"Saner behavior of n and N, always use the same direction for n and N"
+nnoremap <expr> n  'Nn'[v:searchforward]
+xnoremap <expr> n  'Nn'[v:searchforward]
+onoremap <expr> n  'Nn'[v:searchforward]
+
+nnoremap <expr> N  'nN'[v:searchforward]
+xnoremap <expr> N  'nN'[v:searchforward]
+onoremap <expr> N  'nN'[v:searchforward]
+
+"Saner command-line history"
+cnoremap <expr> <c-n> wildmenumode() ? "\<c-n>" : "\<down>"
+cnoremap <expr> <c-p> wildmenumode() ? "\<c-p>" : "\<up>"
+
 "Different escape key"
 " imap jk <esc>
 
@@ -77,16 +90,16 @@ if exists('g:vscode')
   nnoremap <leader>b <Cmd>call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>
   nnoremap <leader>t <Cmd>call VSCodeNotify('workbench.action.focusAuxiliaryBar')<CR>
   nmap <leader>s :%s/
-  
+
   "Match neovim extensions"
   nnoremap <leader>e <Cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>
   nnoremap <leader>r <Cmd>call VSCodeNotify('code-runner.run')<CR>
 
   nnoremap [g <Cmd>call VSCodeNotify('editor.action.marker.prev')<CR>
   nnoremap ]g <Cmd>call VSCodeNotify('editor.action.marker.next')<CR>
-  
+
   nmap <leader>cr <Cmd>call VSCodeNotify('editor.action.rename')<CR>
-  
+
   "Use vscode's own comment commands"
   nmap gc  <Plug>VSCodeCommentary
   xmap gc  <Plug>VSCodeCommentary

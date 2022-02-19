@@ -131,6 +131,18 @@ set shortmess+=c
 set signcolumn=yes:1
 hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 
+"Vscode specific settings"
 if exists('g:vscode')
   nnoremap <C-f> <Nop>
+  set showmode
 endif
+
+"Firenvim specific settings"
+if exists('g:started_by_firenvim')
+  set noshowmode
+  set noruler
+  set laststatus=0
+  set noshowcmd
+endif
+
+set cursorline

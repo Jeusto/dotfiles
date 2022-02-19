@@ -1,21 +1,31 @@
 [compact-view]
+all-columns-have-same-width=false
 default-zoom-level='standard'
 
 [extensions/nemo-terminal]
 default-visible=false
 
 [icon-view]
+captions=['none', 'size', 'date_modified']
 default-zoom-level='small'
+labels-beside-icons=false
+
+[list-view]
+default-column-order=['name', 'size', 'type', 'date_modified', 'date_created_with_time', 'date_accessed', 'date_created', 'detailed_type', 'group', 'where', 'mime_type', 'date_modified_with_time', 'octal_permissions', 'owner', 'permissions']
+default-visible-columns=['name', 'size', 'type', 'date_modified', 'mime_type']
 
 [plugins]
 disabled-actions=@as []
 disabled-extensions=['NemoShare', 'SeahorseNemo', 'FontManagerMenuProvider', 'FMAMenuPlugin', 'GSConnectShareExtension+NemoPython', 'NemoTerminalProvider+NemoPython', 'PastebinitExtension+NemoPython', 'NemoCompareExtension+NemoPython', 'FMATrackerPlugin']
 
 [preferences]
+always-use-browser=true
 bulk-rename-tool=b''
 click-double-parent-folder=true
 date-format='iso'
 default-folder-viewer='icon-view'
+default-sort-order='name'
+executable-text-activation='ask'
 ignore-view-metadata=true
 quick-renames-with-pause-in-between=true
 show-advanced-permissions=true
@@ -31,15 +41,18 @@ show-next-icon-toolbar=true
 show-open-in-terminal-toolbar=true
 show-reload-icon-toolbar=false
 show-up-icon-toolbar=true
+size-prefixes='base-10'
+sort-directories-first=true
+sort-favorites-first=true
 start-with-dual-pane=false
-thumbnail-limit=uint64 3145728
-tooltips-in-icon-view=false
+thumbnail-limit=uint64 10485760
+tooltips-in-icon-view=true
 tooltips-in-list-view=false
 tooltips-on-desktop=false
-tooltips-show-access-date=false
+tooltips-show-access-date=true
 tooltips-show-birth-date=false
 tooltips-show-file-type=false
-tooltips-show-mod-date=false
+tooltips-show-mod-date=true
 tooltips-show-path=false
 
 [preferences/menu-config]
@@ -47,17 +60,17 @@ selection-menu-duplicate=true
 selection-menu-make-link=true
 
 [sidebar-panels/tree]
-show-only-directories=true
+show-only-directories=false
 
 [window-state]
 bookmarks-expanded=true
 devices-expanded=true
-geometry='1896x998+12+303'
+geometry='948x1006+964+299'
 maximized=false
 my-computer-expanded=true
 network-expanded=true
 side-pane-view='places'
-sidebar-bookmark-breakpoint=3
+sidebar-bookmark-breakpoint=4
 sidebar-width=159
 start-with-menu-bar=false
-start-with-sidebar=false
+start-with-sidebar=true

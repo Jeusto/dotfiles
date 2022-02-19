@@ -154,9 +154,6 @@
     "*.pl": "prolog",
     "*.jsx": "javascriptreact"
   },
-  "python.formatting.yapfArgs": [
-    "--style={based_on_style: google, column_limit: 80, indent_width: 2}"
-  ],
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
   },
@@ -239,6 +236,15 @@
   "react-native-tools.showUserTips": false,
   "oneDarkPro.italic": true,
   "svgviewer.showzoominout": true,
+  "l13Projects.autoRemoveDeletedProjects": true,
+  "l13Projects.git.maxDepthRecursion": 4,
+  "l13Projects.confirmDeleteProject": false,
+  "l13Projects.sortWorkspacesBy": "category",
+  "l13Projects.git.folders": [
+    "/home/asaday/Repos/",
+    "/home/asaday/Dotfiles"
+  ],
+  "l13Projects.groupDescriptionFormat": "both",
   "github.copilot.enable": {
     "*": false,
     "yaml": false,
@@ -260,7 +266,6 @@
   "problems.showCurrentInStatus": true,
   "security.workspace.trust.banner": "never",
   "search.searchEditor.doubleClickBehaviour": "selectWord",
-  "window.restoreWindows": "none",
   "explorer.compactFolders": false,
   "security.workspace.trust.untrustedFiles": "open",
   "debug.onTaskErrors": "debugAnyway",
@@ -271,5 +276,10 @@
   "window.menuBarVisibility": "toggle",
   "workbench.list.automaticKeyboardNavigation": false,
   "diffEditor.ignoreTrimWhitespace": false,
-  "workbench.startupEditor": "welcomePageInEmptyWorkbench"
+  "terminal.integrated.cursorBlinking": true,
+  "workbench.startupEditor": "none",
+  "explorer.confirmDelete": false,
+  "workbench.productIconTheme": "icons-carbon",
+  "files.autoSave": "afterDelay",
+  "python.formatting.provider": "black",
 }

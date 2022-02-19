@@ -88,6 +88,11 @@
     "command": "workbench.action.toggleSidebarVisibility"
   },
   {
+    "key": "alt+v",
+    "command": "workbench.action.toggleAuxiliaryBar",
+    "when": ""
+  },
+  {
     "key": "alt+t",
     "command": "workbench.action.toggleAuxiliaryBar",
     "when": "auxiliaryBarVisible"
@@ -208,6 +213,11 @@
     "command": "workbench.action.toggleMaximizedPanel",
     "when": "terminalFocus && terminalIsOpen"
   },
+  {
+    "key": "ctrl+shift+enter",
+    "command": "workbench.action.terminal.split",
+    "when": "terminalFocus && terminalProcessSupported || terminalFocus && terminalWebExtensionContributedProfile"
+  },
   // Neovim custom escape keys: quick "jk" to leave insert mode
   {
     "key": "j",
@@ -242,19 +252,15 @@
     "key": "alt+l r",
     "command": "leetcode.pickOne"
   },
+  {
+    "key": "alt+l e",
+    "command": "leetCodeExplorer.focus"
+  },
   // Remove some conflicting keybindings
   {
     "key": "alt+c",
     "command": "-workbench.action.terminal.toggleFindCaseSensitive",
     "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
-  },
-  {
-    "key": "ctrl+shift+f",
-    "command": "-workbench.action.findInFiles"
-  },
-  {
-    "key": "ctrl+shift+h",
-    "command": "-workbench.action.replaceInFiles"
   },
   // Search and replace
   {
@@ -302,5 +308,17 @@
   {
     "key": "ctrl+shift+-",
     "command": "workbench.action.zoomOut"
+  },
+  {
+    "key": "ctrl+shift+f",
+    "command": "-workbench.action.findInFiles"
+  },
+  {
+    "key": "ctrl+shift+h",
+    "command": "-workbench.action.replaceInFiles"
+  },
+  {
+    "key": "ctrl+alt+f",
+    "command": "workbench.action.findInFiles"
   }
 ]

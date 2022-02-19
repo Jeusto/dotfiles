@@ -59,7 +59,7 @@ org.gnome.system.proxy.ftp host ''
 com.ubuntu.update-notifier regular-auto-launch-interval 7
 com.ubuntu.update-notifier end-system-uids 500
 com.ubuntu.update-notifier no-show-notifications false
-com.ubuntu.update-notifier release-check-time uint32 1641505084
+com.ubuntu.update-notifier release-check-time uint32 1645134845
 com.ubuntu.update-notifier show-livepatch-status-icon true
 com.ubuntu.update-notifier show-apport-crashes true
 com.ubuntu.user-interface scale-factor @a{si} {}
@@ -439,6 +439,7 @@ org.gnome.settings-daemon.plugins.housekeeping min-notify-period 10
 org.gnome.settings-daemon.plugins.housekeeping active true
 org.gnome.settings-daemon.plugins.housekeeping free-percent-notify-again 0.01
 org.blueman.plugins.powermanager auto-power-on @mb true
+me.vinsce.gneelight enable-appindicator true
 org.gnome.settings-daemon.plugins.a11y-keyboard priority 0
 org.gnome.settings-daemon.plugins.a11y-keyboard active true
 org.gnome.desktop.a11y.applications screen-keyboard-enabled false
@@ -503,14 +504,14 @@ org.cinnamon.desktop.media-handling automount true
 org.cinnamon.desktop.media-handling autorun-x-content-start-app ['x-content/unix-software']
 org.gnome.calculator source-currency ''
 org.gnome.calculator source-units 'degree'
-org.gnome.calculator button-mode 'programming'
+org.gnome.calculator button-mode 'advanced'
 org.gnome.calculator target-currency ''
 org.gnome.calculator base 16
 org.gnome.calculator angle-units 'degrees'
 org.gnome.calculator word-size 64
 org.gnome.calculator accuracy 9
 org.gnome.calculator show-thousands false
-org.gnome.calculator window-position (543, 499)
+org.gnome.calculator window-position (2004, 712)
 org.gnome.calculator refresh-interval 604800
 org.gnome.calculator target-units 'radian'
 org.gnome.calculator precision 2000
@@ -660,11 +661,11 @@ org.gnome.gnome-system-monitor solaris-mode false
 org.gnome.gnome-system-monitor graph-update-interval 1000
 org.gnome.gnome-system-monitor swap-color '#49A835'
 org.gnome.gnome-system-monitor network-in-bits false
-org.gnome.gnome-system-monitor maximized false
+org.gnome.gnome-system-monitor maximized true
 org.gnome.gnome-system-monitor disks-interval 5000
 org.gnome.gnome-system-monitor show-dependencies false
 org.gnome.gnome-system-monitor kill-dialog true
-org.gnome.gnome-system-monitor window-state (561, 470, 1443, 303)
+org.gnome.gnome-system-monitor window-state (1920, 1014, 0, 291)
 org.gnome.gnome-system-monitor net-in-color '#2D7DB3'
 org.gnome.gnome-system-monitor mem-color '#AB1852'
 org.gnome.gnome-system-monitor cpu-smooth-graph true
@@ -716,10 +717,10 @@ org.x.apps.statusicon sn-watcher-replace-tooltip ['qbittorrent']
 org.x.apps.statusicon status-notifier-enabled-desktops ['Cinnamon', 'X-Cinnamon']
 org.x.apps.statusicon sn-watcher-debug false
 org.x.apps.statusicon left-click-activate-apps ['onboard']
-org.nemo.sidebar-panels.tree show-only-directories true
+org.nemo.sidebar-panels.tree show-only-directories false
 org.gnome.settings-daemon.plugins.sound priority 0
 org.gnome.settings-daemon.plugins.sound active true
-org.gnome.ControlCenter last-panel 'bluetooth'
+org.gnome.ControlCenter last-panel 'keyboard'
 org.gnome.ControlCenter show-development-warning true
 org.gnome.system.dns_sd extra-domains ''
 org.gnome.system.dns_sd display-local 'merged'
@@ -922,7 +923,7 @@ org.gnome.gedit.plugins.filebrowser filter-mode ['hide-hidden', 'hide-binary']
 org.gnome.gedit.plugins.filebrowser filter-pattern ''
 org.gnome.gedit.plugins.filebrowser enable-remote false
 org.gnome.gedit.plugins.filebrowser root 'file:///'
-org.gnome.gedit.plugins.filebrowser virtual-root 'file:///usr/share/icons/XCursor-Pro-Light'
+org.gnome.gedit.plugins.filebrowser virtual-root 'file:///home/asaday/Dotfiles/.external-settings/firefox-extensions'
 org.gnome.gedit.plugins.filebrowser binary-patterns ['*.la', '*.lo']
 org.gnome.gedit.plugins.filebrowser open-at-first-doc true
 org.cinnamon.desktop.keybindings custom-list @as []
@@ -939,10 +940,10 @@ org.gnome.system.proxy.http port 8080
 org.gnome.system.proxy.http host ''
 org.gnome.system.proxy.http authentication-user ''
 org.gnome.FileRoller.UI sidebar-width 200
-org.gnome.FileRoller.UI window-width 942
+org.gnome.FileRoller.UI window-width 528
 org.gnome.FileRoller.UI view-sidebar false
-org.gnome.FileRoller.UI window-height 470
-org.gnome.desktop.notifications application-children ['snap-store-ubuntu-software-local-file', 'snap-store-ubuntu-software', 'org-gnome-nautilus', 'apport-gtk', 'gcr-prompter', 'ulauncher', 'gnome-printers-panel', 'org-gnome-gedit', 'org-gnome-terminal', 'steam', 'intellij-idea-ultimate-intellij-idea-ultimate', 'google-chrome', 'krita-krita', 'insync', 'nemo', 'update-manager', 'firefox', 'org-gnome-chromegnomeshell', 'org-gnome-extensions-desktop', 'libreoffice-writer', 'org-gnome-evince', 'org-gnome-software', 'org-gnome-eog', 'clion-clion', 'org-gnome-shell-extensions', 'code-code', 'org-gnome-extensions', 'org-gnome-tweaks', 'ccsm', 'gnome-control-center', 'xdg-desktop-portal-gtk', 'org-gnome-dejadup', 'wireshark', 'org-gnome-fileroller', 'libreoffice-draw', 'vivaldi-stable', 'okular-okular', 'blueman-manager', 'org-gnome-shell-extensions-gsconnect', 'discord', 'thunderbird-thunderbird', 'org-qbittorrent-qbittorrent', 'spotify-spotify', 'flameshot', 'ca-desrt-dconf-editor']
+org.gnome.FileRoller.UI window-height 896
+org.gnome.desktop.notifications application-children ['snap-store-ubuntu-software-local-file', 'snap-store-ubuntu-software', 'org-gnome-nautilus', 'apport-gtk', 'gcr-prompter', 'ulauncher', 'gnome-printers-panel', 'org-gnome-gedit', 'org-gnome-terminal', 'steam', 'intellij-idea-ultimate-intellij-idea-ultimate', 'google-chrome', 'krita-krita', 'insync', 'nemo', 'update-manager', 'firefox', 'org-gnome-chromegnomeshell', 'org-gnome-extensions-desktop', 'libreoffice-writer', 'org-gnome-evince', 'org-gnome-software', 'org-gnome-eog', 'clion-clion', 'org-gnome-shell-extensions', 'code-code', 'org-gnome-extensions', 'org-gnome-tweaks', 'ccsm', 'gnome-control-center', 'xdg-desktop-portal-gtk', 'org-gnome-dejadup', 'wireshark', 'org-gnome-fileroller', 'libreoffice-draw', 'vivaldi-stable', 'okular-okular', 'blueman-manager', 'org-gnome-shell-extensions-gsconnect', 'discord', 'thunderbird-thunderbird', 'org-qbittorrent-qbittorrent', 'spotify-spotify', 'flameshot', 'ca-desrt-dconf-editor', 'com-uploadedlobster-peek']
 org.gnome.desktop.notifications show-banners true
 org.gnome.desktop.notifications show-in-lock-screen false
 org.gnome.settings-daemon.plugins.background priority 0
@@ -1081,7 +1082,7 @@ org.gnome.settings-daemon.plugins.wwan unlock-sim false
 org.gnome.Evince.Default enable-spellchecking true
 org.gnome.Evince.Default show-toolbar true
 org.gnome.Evince.Default fullscreen false
-org.gnome.Evince.Default window-ratio (1.5824485956188683, 1.1699865778189551)
+org.gnome.Evince.Default window-ratio (1.7873941674506113, 1.0357647673686585)
 org.gnome.Evince.Default dual-page-odd-left true
 org.gnome.Evince.Default sidebar-size 148
 org.gnome.Evince.Default continuous true
@@ -1164,11 +1165,11 @@ com.ubuntu.touch.system brightness-needs-hardware-default true
 com.ubuntu.touch.system brightness 80
 com.ubuntu.touch.system orientation-lock 'none'
 com.github.johnfactotum.Foliate.library use-tracker true
-com.github.johnfactotum.Foliate.library width 1896
+com.github.johnfactotum.Foliate.library width 1920
 com.github.johnfactotum.Foliate.library page 'library'
 com.github.johnfactotum.Foliate.library opds-action 'auto'
-com.github.johnfactotum.Foliate.library maximized false
-com.github.johnfactotum.Foliate.library height 982
+com.github.johnfactotum.Foliate.library maximized true
+com.github.johnfactotum.Foliate.library height 1006
 com.github.johnfactotum.Foliate.library view-mode 'grid'
 org.gnome.baobab.preferences excluded-uris @as []
 org.gnome.settings-daemon.plugins.color night-light-temperature uint32 4315
@@ -1176,7 +1177,7 @@ org.gnome.settings-daemon.plugins.color night-light-enabled true
 org.gnome.settings-daemon.plugins.color recalibrate-display-threshold uint32 0
 org.gnome.settings-daemon.plugins.color night-light-schedule-automatic false
 org.gnome.settings-daemon.plugins.color night-light-schedule-to 5.9833333333333334
-org.gnome.settings-daemon.plugins.color night-light-last-coordinates (48.550400719942402, 7.6782000000000004)
+org.gnome.settings-daemon.plugins.color night-light-last-coordinates (48.541401439884808, 7.6782000000000004)
 org.gnome.settings-daemon.plugins.color active true
 org.gnome.settings-daemon.plugins.color priority 0
 org.gnome.settings-daemon.plugins.color night-light-schedule-from 6.0
@@ -1187,12 +1188,12 @@ org.gtk.Settings.FileChooser date-format 'regular'
 org.gtk.Settings.FileChooser show-hidden false
 org.gtk.Settings.FileChooser sidebar-width 203
 org.gtk.Settings.FileChooser clock-format '24h'
-org.gtk.Settings.FileChooser window-position (484, 564)
+org.gtk.Settings.FileChooser window-position (65, 481)
 org.gtk.Settings.FileChooser startup-mode 'cwd'
 org.gtk.Settings.FileChooser expand-folders false
-org.gtk.Settings.FileChooser window-size (951, 452)
+org.gtk.Settings.FileChooser window-size (994, 452)
 org.gtk.Settings.FileChooser show-type-column true
-org.gtk.Settings.FileChooser sort-order 'ascending'
+org.gtk.Settings.FileChooser sort-order 'descending'
 org.gtk.Settings.FileChooser type-format 'category'
 org.gtk.Settings.FileChooser show-size-column true
 org.gtk.Settings.FileChooser location-mode 'path-bar'
@@ -1201,8 +1202,8 @@ org.gnome.gedit.state.window bottom-panel-size 291
 org.gnome.gedit.state.window side-panel-size 250
 org.gnome.gedit.state.window side-panel-active-page 'GeditFileBrowserPanel'
 org.gnome.gedit.state.window bottom-panel-active-page 'GeditPythonConsolePanel'
-org.gnome.gedit.state.window size (942, 990)
-org.gnome.gedit.state.window state 87040
+org.gnome.gedit.state.window size (960, 488)
+org.gnome.gedit.state.window state 87168
 org.gnome.desktop.media-handling autorun-never false
 org.gnome.desktop.media-handling autorun-x-content-open-folder @as []
 org.gnome.desktop.media-handling automount-open true
@@ -1221,7 +1222,7 @@ org.gnome.Evince show-caret-navigation-message true
 org.gnome.Evince allow-links-change-zoom true
 org.gnome.Characters font 'Cantarell 50'
 org.gnome.Characters max-recent-characters uint32 100
-org.gnome.Characters recent-characters @as []
+org.gnome.Characters recent-characters ['🔔', '👸']
 org.gnome.DejaDup.Google folder 'asadayDesktop'
 org.blueman.plugins.recentconns recent-connections [{'adapter': '00:1A:7D:DA:71:15', 'address': 'DC:2C:26:CD:20:5E', 'alias': 'Keychron K2', 'icon': 'input-keyboard', 'name': 'Auto connect profiles', 'uuid': '00000000-0000-0000-0000-000000000000', 'time': '1642185094.7134433', 'device': '', 'mitem': ''}]
 org.blueman.plugins.recentconns max-items 6
@@ -1316,12 +1317,12 @@ org.freedesktop.Tracker.Extract wait-for-miner-fs false
 org.freedesktop.Tracker.Extract max-bytes 1048576
 org.freedesktop.Tracker.Extract verbosity 'errors'
 org.freedesktop.Tracker.Extract sched-idle 'first-index'
-org.gnome.calendar window-size (1056, 890)
+org.gnome.calendar window-size (1064, 1838)
 org.gnome.calendar follow-night-light false
 org.gnome.calendar weather-settings (true, true, '', @mv nothing)
 org.gnome.calendar active-view 'month'
 org.gnome.calendar window-maximized false
-org.gnome.calendar window-position (1932, 952)
+org.gnome.calendar window-position (1928, 8)
 org.gnome.libgnomekbd.keyboard layouts @as []
 org.gnome.libgnomekbd.keyboard options @as []
 org.gnome.libgnomekbd.keyboard model ''
@@ -1385,13 +1386,13 @@ org.nemo.window-state start-with-location-bar true
 org.nemo.window-state my-computer-expanded true
 org.nemo.window-state bookmarks-expanded true
 org.nemo.window-state start-with-menu-bar false
-org.nemo.window-state geometry '1896x998+12+303'
-org.nemo.window-state sidebar-bookmark-breakpoint 3
+org.nemo.window-state geometry '948x1006+964+299'
+org.nemo.window-state sidebar-bookmark-breakpoint 4
 org.nemo.window-state network-expanded true
 org.nemo.window-state sidebar-width 159
 org.nemo.window-state maximized false
 org.nemo.window-state side-pane-view 'places'
-org.nemo.window-state start-with-sidebar false
+org.nemo.window-state start-with-sidebar true
 org.nemo.window-state start-with-toolbar true
 org.nemo.window-state start-with-status-bar true
 com.ubuntu.notifications.settings.applications vibrate-silent-mode true
@@ -1410,11 +1411,11 @@ org.gnome.shell command-history ['neofetch', 'xrandr', 'gksu nautilus /etc/xdg/a
 org.gnome.shell disable-user-extensions false
 org.gnome.shell always-show-log-out true
 org.gnome.shell disable-extension-version-validation true
-org.gnome.shell favorite-apps ['firefox.desktop', 'kitty.desktop', 'ranger.desktop', 'nemo.desktop', 'code.desktop', 'nvim.desktop']
+org.gnome.shell favorite-apps ['firefox.desktop', 'google-chrome.desktop', 'kitty.desktop', 'ranger.desktop', 'nemo.desktop', 'code.desktop', 'nvim.desktop']
 org.gnome.shell had-bluetooth-devices-setup true
 org.gnome.shell looking-glass-history ['echo test']
-org.gnome.shell enabled-extensions ['tactile@lundal.io', 'ShellTile@emasab.it', 'audio-switcher@AndresCidoncha', 'audio-switcher@albertomosconi', 'audio-selector@bjarosze.gmail.com', 'output-audio-devices@muflone', 'Media_Controls@katsarov.org', 'MprisControl@zdyb.tk', 'transparency@franglais125.gmail.com', 'babar@fthx', 'panel-indicators@leavitals', 'dash-to-dock@micxgx.gmail.com', 'drop-down-terminal@gs-extensions.zzrough.org', 'activities-config@nls1729', 'extension-list@tu.berry', 'hideTopBarWindow@kinzoku.one', 'putWindow@clemens.lab21.org', 'no-title-bar@franglais125.gmail.com', 'gtktitlebar@velitasali.github.io', 'order-extensions@wa4557.github.com', 'TaskBar@zpydr', 'top-bar-organizer@julian.gse.jsts.xyz', 'CoverflowAltTab@palatis.blogspot.com', 'fully-transparent-top-bar@aunetx', 'snap-manager@fthx', 'jiggle@jeffchannell.com', 'date-menu-formatter@marcinjakubowski.github.com', 'TaskBar@c0ldplasma', 'arcmenu@arcmenu.com', 'tray-icons@zhangkaizhao.com', 'unite@hardpixel.eu', 'sound-output-device-chooser@kgshank.net', 'gnome-fuzzy-search@gnome-shell-exstensions.fffilo.github.com', 'extend-panel-menu@julio641742', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'temperature@xtranophilist', 'freon@UshakovVasilii_Github.yahoo.com', 'pomodoro@arun.codito.in', 'window-corner-preview@fabiomereu.it', 'transparent-window@pbxqdown.github.com', 'miniview@thesecretaryofwar.com', 'gnomesome@chwick.github.com', 'quake-mode@repsac-by.github.com', 'better-osd@hllvc', 'pop-shell@system76.com', 'icon-hider@kalnitsky.org', 'Recents@leonardo.bartoli.gmail.com', 'windowIsReady_Remover@nunofarruca@gmail.com', 'clipboard-indicator@tudmotu.com', 'ddterm@amezin.github.com', 'overview-improved@human.experience', 'transparent-window-moving@noobsai.github.com', 'timepp@zagortenay333', 'gnome-shell-screenshot@ttll.de', 'EvilStatusIconForever@bone.twbbs.org.tw', 'impatience@gfxmonk.net', 'logomenu@aryan_k', 'disable-workspace-switcher-popup@github.com', 'just-perfection-desktop@just-perfection', 'vertical-overview@RensAlthuis.github.com', 'gnomespotifylabel@mheine.github.com', 'sp-tray@sp-tray.esenliyim.github.com', 'mprispanel@kennedn.msn.com', 'mediacontrols@cliffniff.github.com', 'panel-osd@berend.de.schouwer.gmail.com', 'transparentosd@ipaq3870', 'caffeine@patapon.info', 'blur-my-shell@aunetx', 'clock-override@gnomeshell.kryogenix.org', 'argos@pew.worldwidemann.com', 'workspaces-to-dock@passingthru67.gmail.com', 'gnome-visuals-top-bar@evendanan.net', 'user-theme', 'blur-me@nunchucks', 'better-osd', 'workspaces-bar@fthx', 'horizontal-workspace-indicator@tty22.io', 'empty-workspace-app', 'horizontal-workspace-indicator@tty2.io', 'remove-alt-tab-delay@tetrafox.pw', 'blur-provider@corvettecole.github.com', 'color-picker@tuberry', 'dash-to-panel@jderose9.github.com', 'blyr@yozoon.dev.gmail.com', 'Vitals@CoreCoding.com']
-org.gnome.shell disabled-extensions ['drive-menu@gnome-shell-extensions.gcampax.github.com', 'ubuntu-appindicators@ubuntu.com', 'transparent-gnome-panel@ttomovcik.com', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'desktop-icons@csoriano', 'ding@rastersoft.com', 'gsconnect@andyholmes.github.io', 'gTile@vibou', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com', 'ubuntu-dock@ubuntu.com', 'compiz-alike-windows-effect@hermes83.github.com', 'remove-dropdown-arrows@mpdeimos.com', 'native-window-placement@gnome-shell-extensions.gcampax.github.com', 'appindicatorsupport@rgcjonas.gmail.com', 'tiling-assistant@leleat-on-github', 'trayIconsReloaded@selfmade.pl', 'status-area-horizontal-spacing@mathematical.coffee.gmail.com', 'bluetooth-quick-connect@bjarosze.gmail.com', 'escape-overview@raelgc', 'noannoyance@daase.net', 'notification-banner-position@Selenium-H', 'glassygnome@emiapwil', 'middleclickclose@paolo.tranquilli.gmail.com', 'runcat@kolesnikov.se', 'multi-monitors-add-on@spin83', 'media-keys@mafflin', 'fq@megh', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'window-list@gnome-shell-extensions.gcampax.github.com', 'windowsNavigator@gnome-shell-extensions.gcampax.github.com', 'horizontal-workspaces@gnome-shell-extensions.gcampax.github.com', 'emoji-selector@maestroschan.fr', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com', 'simply.workspaces@andyrichardson.dev']
+org.gnome.shell enabled-extensions ['tactile@lundal.io', 'ShellTile@emasab.it', 'audio-switcher@AndresCidoncha', 'audio-switcher@albertomosconi', 'audio-selector@bjarosze.gmail.com', 'output-audio-devices@muflone', 'Media_Controls@katsarov.org', 'MprisControl@zdyb.tk', 'transparency@franglais125.gmail.com', 'babar@fthx', 'panel-indicators@leavitals', 'dash-to-dock@micxgx.gmail.com', 'drop-down-terminal@gs-extensions.zzrough.org', 'activities-config@nls1729', 'extension-list@tu.berry', 'hideTopBarWindow@kinzoku.one', 'putWindow@clemens.lab21.org', 'no-title-bar@franglais125.gmail.com', 'gtktitlebar@velitasali.github.io', 'order-extensions@wa4557.github.com', 'TaskBar@zpydr', 'top-bar-organizer@julian.gse.jsts.xyz', 'CoverflowAltTab@palatis.blogspot.com', 'fully-transparent-top-bar@aunetx', 'snap-manager@fthx', 'jiggle@jeffchannell.com', 'date-menu-formatter@marcinjakubowski.github.com', 'TaskBar@c0ldplasma', 'arcmenu@arcmenu.com', 'tray-icons@zhangkaizhao.com', 'unite@hardpixel.eu', 'sound-output-device-chooser@kgshank.net', 'gnome-fuzzy-search@gnome-shell-exstensions.fffilo.github.com', 'extend-panel-menu@julio641742', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'temperature@xtranophilist', 'freon@UshakovVasilii_Github.yahoo.com', 'pomodoro@arun.codito.in', 'window-corner-preview@fabiomereu.it', 'transparent-window@pbxqdown.github.com', 'miniview@thesecretaryofwar.com', 'gnomesome@chwick.github.com', 'quake-mode@repsac-by.github.com', 'better-osd@hllvc', 'pop-shell@system76.com', 'icon-hider@kalnitsky.org', 'Recents@leonardo.bartoli.gmail.com', 'windowIsReady_Remover@nunofarruca@gmail.com', 'clipboard-indicator@tudmotu.com', 'ddterm@amezin.github.com', 'overview-improved@human.experience', 'transparent-window-moving@noobsai.github.com', 'timepp@zagortenay333', 'gnome-shell-screenshot@ttll.de', 'EvilStatusIconForever@bone.twbbs.org.tw', 'impatience@gfxmonk.net', 'logomenu@aryan_k', 'just-perfection-desktop@just-perfection', 'vertical-overview@RensAlthuis.github.com', 'gnomespotifylabel@mheine.github.com', 'sp-tray@sp-tray.esenliyim.github.com', 'mprispanel@kennedn.msn.com', 'panel-osd@berend.de.schouwer.gmail.com', 'transparentosd@ipaq3870', 'caffeine@patapon.info', 'blur-my-shell@aunetx', 'clock-override@gnomeshell.kryogenix.org', 'argos@pew.worldwidemann.com', 'gnome-visuals-top-bar@evendanan.net', 'user-theme', 'blur-me@nunchucks', 'better-osd', 'workspaces-bar@fthx', 'horizontal-workspace-indicator@tty22.io', 'empty-workspace-app', 'horizontal-workspace-indicator@tty2.io', 'remove-alt-tab-delay@tetrafox.pw', 'blur-provider@corvettecole.github.com', 'color-picker@tuberry', 'todo.txt@bart.libert.gmail.com', 'dash-to-panel@jderose9.github.com', 'Vitals@CoreCoding.com', 'advanced-alt-tab@G-dH.github.com', 'blyr@yozoon.dev.gmail.com', 'workspaces-to-dock@passingthru67.gmail.com', 'GmailMessageTray@shuming0207.gmail.com']
+org.gnome.shell disabled-extensions ['drive-menu@gnome-shell-extensions.gcampax.github.com', 'ubuntu-appindicators@ubuntu.com', 'transparent-gnome-panel@ttomovcik.com', 'auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'desktop-icons@csoriano', 'ding@rastersoft.com', 'gsconnect@andyholmes.github.io', 'gTile@vibou', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com', 'ubuntu-dock@ubuntu.com', 'compiz-alike-windows-effect@hermes83.github.com', 'remove-dropdown-arrows@mpdeimos.com', 'native-window-placement@gnome-shell-extensions.gcampax.github.com', 'appindicatorsupport@rgcjonas.gmail.com', 'tiling-assistant@leleat-on-github', 'trayIconsReloaded@selfmade.pl', 'status-area-horizontal-spacing@mathematical.coffee.gmail.com', 'bluetooth-quick-connect@bjarosze.gmail.com', 'escape-overview@raelgc', 'noannoyance@daase.net', 'notification-banner-position@Selenium-H', 'glassygnome@emiapwil', 'middleclickclose@paolo.tranquilli.gmail.com', 'runcat@kolesnikov.se', 'multi-monitors-add-on@spin83', 'media-keys@mafflin', 'fq@megh', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'window-list@gnome-shell-extensions.gcampax.github.com', 'windowsNavigator@gnome-shell-extensions.gcampax.github.com', 'horizontal-workspaces@gnome-shell-extensions.gcampax.github.com', 'emoji-selector@maestroschan.fr', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com', 'simply.workspaces@andyrichardson.dev', 'disable-workspace-switcher-popup@github.com']
 org.gnome.shell development-tools true
 org.gnome.shell introspect false
 org.gnome.shell remember-mount-password false
@@ -1456,7 +1457,7 @@ org.gnome.desktop.wm.preferences raise-on-click true
 org.gnome.desktop.wm.preferences num-workspaces 4
 org.gnome.desktop.wm.preferences disable-workarounds false
 org.gnome.desktop.wm.preferences titlebar-uses-system-font false
-org.gnome.desktop.wm.preferences titlebar-font 'Inter Bold 11'
+org.gnome.desktop.wm.preferences titlebar-font 'JetBrainsMono NF Medium 11'
 org.gnome.desktop.wm.preferences mouse-button-modifier '<Super>'
 org.gnome.desktop.wm.preferences auto-raise false
 org.gnome.desktop.wm.preferences action-middle-click-titlebar 'lower'
@@ -1599,8 +1600,8 @@ org.cinnamon.keyboard keyboard-position 'top'
 org.cinnamon.keyboard keyboard-size 3
 org.cinnamon.keyboard keyboard-type 'tablet'
 org.nemo.list-view default-zoom-level 'smaller'
-org.nemo.list-view default-visible-columns ['name', 'size', 'type', 'date_modified']
-org.nemo.list-view default-column-order ['name', 'size', 'type', 'date_modified']
+org.nemo.list-view default-visible-columns ['name', 'size', 'type', 'date_modified', 'mime_type']
+org.nemo.list-view default-column-order ['name', 'size', 'type', 'date_modified', 'date_created_with_time', 'date_accessed', 'date_created', 'detailed_type', 'group', 'where', 'mime_type', 'date_modified_with_time', 'octal_permissions', 'owner', 'permissions']
 org.gnome.gnome-system-monitor.memmapstree sort-order 0
 org.gnome.gnome-system-monitor.memmapstree sort-col 0
 org.gnome.crypto.cache gpg-cache-ttl 300
@@ -1742,8 +1743,8 @@ org.gnome.software official-repos ['ubuntu-*']
 org.gnome.software download-updates-notify true
 org.gnome.software filter-default-branch true
 org.gnome.software download-updates true
-org.gnome.software online-updates-timestamp int64 1642161187
-org.gnome.software check-timestamp int64 1642161162
+org.gnome.software online-updates-timestamp int64 1645268765
+org.gnome.software check-timestamp int64 1645268758
 org.gnome.software review-karma-required 0
 org.gnome.software installed-page-show-size true
 org.gnome.software nonfree-software-uri 'https://en.wikipedia.org/wiki/Proprietary_software'
@@ -1823,12 +1824,12 @@ org.blueman.general plugin-list @as []
 org.blueman.general sort-by 'timestamp'
 org.blueman.general sort-order 'ascending'
 org.blueman.general services-last-item 0
-org.blueman.general window-properties [942, 998, 966, 303]
+org.blueman.general window-properties [1896, 998, 12, 303]
 org.cinnamon.desktop.default-applications.office.tasks exec 'evolution -c tasks'
 org.cinnamon.desktop.default-applications.office.tasks needs-term false
 org.gnome.settings-daemon.plugins.xsettings antialiasing 'grayscale'
 org.gnome.settings-daemon.plugins.xsettings rgba-order 'rgb'
-org.gnome.settings-daemon.plugins.xsettings hinting 'medium'
+org.gnome.settings-daemon.plugins.xsettings hinting 'full'
 org.gnome.settings-daemon.plugins.xsettings overrides @a{sv} {}
 org.gnome.settings-daemon.plugins.xsettings disabled-gtk-modules @as []
 org.gnome.settings-daemon.plugins.xsettings enabled-gtk-modules @as []
@@ -1836,17 +1837,17 @@ org.gnome.settings-daemon.plugins.xsettings priority 0
 org.gnome.settings-daemon.plugins.xsettings active true
 org.freedesktop.Tracker.DB journal-rotate-destination ''
 org.freedesktop.Tracker.DB journal-chunk-size 50
-com.ubuntu.update-manager window-width 1
-com.ubuntu.update-manager launch-count 15
+com.ubuntu.update-manager window-width 948
+com.ubuntu.update-manager launch-count 20
 com.ubuntu.update-manager autoclose-install-window true
 com.ubuntu.update-manager check-new-release-ignore ''
 com.ubuntu.update-manager first-run false
 com.ubuntu.update-manager check-dist-upgrades true
 com.ubuntu.update-manager summary-before-name true
 com.ubuntu.update-manager show-versions false
-com.ubuntu.update-manager show-details false
-com.ubuntu.update-manager launch-time int64 1641985333
-com.ubuntu.update-manager window-height 400
+com.ubuntu.update-manager show-details true
+com.ubuntu.update-manager launch-time int64 1645116151
+com.ubuntu.update-manager window-height 1006
 ca.desrt.dconf-editor.Demo.Conflict1 default-value-conflict 1
 ca.desrt.dconf-editor.Demo.Conflict1 range-conflict uint32 0
 ca.desrt.dconf-editor.Demo.Conflict1 warning-similar true
@@ -1931,9 +1932,9 @@ org.gnome.desktop.interface document-font-name 'Arial 11'
 org.gnome.desktop.interface menubar-accel 'F10'
 org.gnome.desktop.interface clock-format '24h'
 org.gnome.desktop.interface enable-animations true
-org.gnome.desktop.interface gtk-enable-primary-paste true
+org.gnome.desktop.interface gtk-enable-primary-paste false
 org.gnome.desktop.interface locate-pointer false
-org.gnome.desktop.interface font-name 'Inter Medium 11'
+org.gnome.desktop.interface font-name 'Inter 11'
 org.gnome.desktop.interface show-battery-percentage true
 org.gnome.gedit.plugins.time prompt-type 'prompt-selected-format'
 org.gnome.gedit.plugins.time custom-format '%d/%m/%Y %H:%M:%S'
@@ -1990,7 +1991,7 @@ org.nemo.preferences.menu-config selection-menu-open-in-terminal true
 org.gnome.FontManager preview-page 1
 org.gnome.FontManager wide-layout-on-maximize true
 org.gnome.FontManager sidebar-size 275
-org.gnome.FontManager window-position (966, 303)
+org.gnome.FontManager window-position (966, 327)
 org.gnome.FontManager preview-mode 'Waterfall'
 org.gnome.FontManager preview-text "\n    Voix ambiguë d'un cœur qui, au zéphyr, préfère les jattes de kiwis.\n\n    ABCDEFGHIJKLMNOPQRSTUVWXYZ\n    abcdefghijklmnopqrstuvwxyz\n    1234567890.:,;(*!?')\n\n    "
 org.gnome.FontManager prefer-dark-theme false
@@ -1999,7 +2000,7 @@ org.gnome.FontManager wide-layout true
 org.gnome.FontManager compare-background-color 'rgb(255,255,255)'
 org.gnome.FontManager compare-font-size 12.0
 org.gnome.FontManager browse-font-size 12.0
-org.gnome.FontManager window-size (942, 990)
+org.gnome.FontManager window-size (942, 446)
 org.gnome.FontManager selected-collection '0'
 org.gnome.FontManager last-horizontal-content-pane-position 200
 org.gnome.FontManager compare-foreground-color 'rgb(0,0,0)'
@@ -2199,14 +2200,14 @@ org.freedesktop.Tracker.Miner.Files verbosity 'errors'
 org.freedesktop.Tracker.Miner.Files enable-writeback true
 org.freedesktop.Tracker.Miner.Files initial-sleep 15
 com.github.johnfactotum.Foliate.window-state fullscreen false
-com.github.johnfactotum.Foliate.window-state last-file '/home/asaday/.local/share/com.github.johnfactotum.Foliate/books/urn%3Agutenberg%3A35084%3A2@2022-01-08T22%3A16%3A44Z@pg35084.epub'
+com.github.johnfactotum.Foliate.window-state last-file '/home/asaday/Gdrive/Books/Automate the boring stuff with Python.epub'
 com.github.johnfactotum.Foliate.window-state sidebar-size 240
 com.github.johnfactotum.Foliate.window-state show-sidebar true
 com.github.johnfactotum.Foliate.window-state maximized false
-com.github.johnfactotum.Foliate.window-state height 470
+com.github.johnfactotum.Foliate.window-state height 990
 com.github.johnfactotum.Foliate.window-state width 942
-org.gtk.Settings.ColorChooser custom-colors [(1.0, 1.0, 1.0, 0.50889679715302494), (1.0, 1.0, 1.0, 0.64056900000000006), (0.96470588235294119, 0.95294117647058818, 0.97647058823529409, 0.64056900000000006), (0.9652722222222222, 0.95387777777777782, 0.97666666666666668, 0.64056939501779364), (0.83529411764705885, 0.77254901960784317, 0.89803921568627454, 0.77580099999999996), (0.83529411764705885, 0.77254901960784317, 0.89803921568627454, 0.77580071174377219), (0.83529411764705885, 0.77254901960784317, 0.89803921568627454, 0.66192200000000001), (0.0, 1.0, 1.0, 1.0)]
-org.gtk.Settings.ColorChooser selected-color (true, 0.0, 0.0, 0.0, 1.0)
+org.gtk.Settings.ColorChooser custom-colors [(1.0, 1.0, 1.0, 0.37722419928825623), (1.0, 1.0, 1.0, 0.451957), (1.0, 1.0, 1.0, 0.45195729537366547), (1.0, 1.0, 1.0, 0.39501799999999998), (1.0, 1.0, 1.0, 0.39501779359430605), (1.0, 1.0, 1.0, 0.49110300000000001), (1.0, 1.0, 1.0, 0.49110320284697506), (1.0, 1.0, 1.0, 0.359431)]
+org.gtk.Settings.ColorChooser selected-color (true, 1.0, 1.0, 1.0, 0.37722419928825623)
 org.gnome.mutter workspaces-only-on-primary true
 org.gnome.mutter overlay-key 'Super_R'
 org.gnome.mutter focus-change-on-pointer-rest true
@@ -2220,7 +2221,7 @@ org.gnome.mutter edge-tiling true
 org.gnome.mutter locate-pointer-key 'Control_L'
 org.gnome.mutter check-alive-timeout uint32 5000
 org.gnome.mutter no-tab-popup false
-org.gnome.FileRoller.Dialogs.New default-extension '.tar.gz'
+org.gnome.FileRoller.Dialogs.New default-extension '.zip'
 org.gnome.FileRoller.Dialogs.New volume-size 0
 org.gnome.FileRoller.Dialogs.New encrypt-header false
 org.gnome.FileRoller.Dialogs.New other-options false
@@ -2283,7 +2284,7 @@ org.nemo.preferences show-home-icon-toolbar true
 org.nemo.preferences show-reload-icon-toolbar false
 org.nemo.preferences enable-delete true
 org.nemo.preferences tooltips-on-desktop false
-org.nemo.preferences thumbnail-limit uint64 3145728
+org.nemo.preferences thumbnail-limit uint64 10485760
 org.nemo.preferences show-previous-icon-toolbar true
 org.nemo.preferences inherit-folder-viewer false
 org.nemo.preferences bulk-rename-tool b''
@@ -2292,9 +2293,9 @@ org.nemo.preferences start-with-dual-pane false
 org.nemo.preferences never-queue-file-ops false
 org.nemo.preferences show-new-folder-icon-toolbar false
 org.nemo.preferences default-sort-in-reverse-order false
-org.nemo.preferences tooltips-show-mod-date false
+org.nemo.preferences tooltips-show-mod-date true
 org.nemo.preferences tooltips-show-path false
-org.nemo.preferences tooltips-show-access-date false
+org.nemo.preferences tooltips-show-access-date true
 org.nemo.preferences treat-root-as-normal false
 org.nemo.preferences date-format 'iso'
 org.nemo.preferences show-bookmarks-in-to-menus true
@@ -2303,7 +2304,7 @@ org.nemo.preferences show-list-view-icon-toolbar true
 org.nemo.preferences enable-mime-actions-make-executable false
 org.nemo.preferences confirm-trash true
 org.nemo.preferences click-policy 'double'
-org.nemo.preferences tooltips-in-icon-view false
+org.nemo.preferences tooltips-in-icon-view true
 org.nemo.preferences default-sort-order 'name'
 org.nemo.preferences mouse-use-extra-buttons true
 org.nemo.preferences show-root-warning true
@@ -2388,9 +2389,9 @@ ca.desrt.dconf-editor.Settings refresh-settings-schema-source true
 ca.desrt.dconf-editor.Settings relocatable-schemas-enabled-mappings ['User', 'Built-in', 'Internal', 'Startup']
 ca.desrt.dconf-editor.Settings mouse-back-button 8
 ca.desrt.dconf-editor.Settings mouse-use-extra-buttons true
-ca.desrt.dconf-editor.Settings saved-pathbar-path '/org/gnome/desktop/notifications/application/okular-okular/application-id'
+ca.desrt.dconf-editor.Settings saved-pathbar-path '/org/gnome/mutter/'
 ca.desrt.dconf-editor.Settings relocatable-schemas-user-paths {'ca.desrt.dconf-editor.Demo.Relocatable': '/ca/desrt/dconf-editor/Demo/relocatable/'}
-ca.desrt.dconf-editor.Settings saved-view '/org/gnome/desktop/notifications/application/okular-okular/application-id'
+ca.desrt.dconf-editor.Settings saved-view '/org/gnome/mutter/'
 ca.desrt.dconf-editor.Settings behaviour 'always-confirm-implicit'
 ca.desrt.dconf-editor.Settings mouse-forward-button 9
 ca.desrt.dconf-editor.Settings use-shortpaths false
@@ -2454,7 +2455,7 @@ com.github.johnfactotum.Foliate.view margin 40
 com.github.johnfactotum.Foliate.view bg-color '#2e3440'
 com.github.johnfactotum.Foliate.view justify true
 com.github.johnfactotum.Foliate.view hyphenate true
-com.github.johnfactotum.Foliate.view zoom-level 1.0
+com.github.johnfactotum.Foliate.view zoom-level 1.1000000000000001
 com.github.johnfactotum.Foliate.view skeuomorphism false
 com.github.johnfactotum.Foliate.view enable-devtools false
 com.github.johnfactotum.Foliate.view fg-color '#d8dee9'

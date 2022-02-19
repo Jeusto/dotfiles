@@ -1,0 +1,39 @@
+" " Binds
+bind H tabprev
+bind L tabnext
+bind <A-h> back
+bind <A-l> forward
+
+bind --mode=normal i mode ignore
+bind --mode=ignore <Escape> mode normal
+bind / fillcmdline find
+bind ? fillcmdline find -?
+
+bind n findnext 1
+bind N findnext -1
+bind <A-u> nohlsearch
+
+unbind <C-f>
+unbind <C-a>
+bind <C-o> editor
+
+bind f hint -J
+bind F hint -Jb
+
+" " Git{Hub,Lab} git clone via SSH yank
+bind yg composite js "git clone " + document.location.href.replace(/https?:\/\//,"git@").replace("/",":").replace(/$/,".git") | clipboard yank
+
+" " Handy multiwindow/multitasking binds
+bind gd tabdetach
+bind gD composite tabduplicate; tabdetach
+
+" " Defaults to 300ms
+set hintdelay 100
+
+" " Make Tridactyl work on more sites at the expense of some security. For
+fixamo_quiet
+
+" " Inject Google Translate
+command translate js let googleTranslateCallback = document.createElement('script'); googleTranslateCallback.innerHTML = "function googleTranslateElementInit(){ new google.translate.TranslateElement(); }"; document.body.insertBefore(googleTranslateCallback, document.body.firstChild); let googleTranslateScript = document.createElement('script'); googleTranslateScript.charset="UTF-8"; googleTranslateScript.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit&tl=&sl=&hl="; document.body.insertBefore(googleTranslateScript, document.body.firstChild);
+
+" vim: set filetype=vim:

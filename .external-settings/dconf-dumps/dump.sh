@@ -5,7 +5,6 @@ dconf dump /org/gnome/shell/keybindings/ > $HOME/Dotfiles/.external-settings/dco
 
 dconf dump /org/nemo/ > $HOME/Dotfiles/.external-settings/dconf-dumps/nemo.dconf
 dconf dump /org/gtk/ > $HOME/Dotfiles/.external-settings/dconf-dumps/gtk.dconf
-dconf dump /org/gnome/gedit/ > $HOME/Dotfiles/.external-settings/dconf-dumps/gedit.dconf
 dconf dump /org/gnome/evince/ > $HOME/Dotfiles/.external-settings/dconf-dumps/evince.dconf
 dconf dump /org/gnome/fileroller/ > $HOME/Dotfiles/.external-settings/dconf-dumps/fileroller.dconf
 

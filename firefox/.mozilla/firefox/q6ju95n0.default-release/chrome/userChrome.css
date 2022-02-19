@@ -1,15 +1,39 @@
 /****************/
 /***   Misc   ***/
 /****************/
+@document url("https://www.example.com/") {
+  h1 {
+    display:none;
+  }
+}
 
-.titlebar-spacer[type="pre-tabs"] { display: none; }
+
+/* Move container color bar to bottom of tab */
+.tabbrowser-tab[usercontextid]
+  > .tab-stack
+  > .tab-background
+  > .tab-context-line {
+  margin-top: calc(var(--tab-min-height) - 4px) !important;
+}
+
+.titlebar-spacer {
+  display: none;
+}
+
+.titlebar-spacer[type="pre-tabs"] {
+  display: none;
+}
 
 #TabsToolbar {
-    padding-inline-start: initial !important;
+  padding-inline-start: initial !important;
 }
-.tabbrowser-tabs:not([movingtab]) .tabbrowser-tab[first-visible-tab] .tab-background,
-.tabbrowser-tabs[movingtab] .tabbrowser-tab[first-visible-tab][style*="translateX(0px)"] .tab-background {
-    border-inline-start: initial !important;
+.tabbrowser-tabs:not([movingtab])
+  .tabbrowser-tab[first-visible-tab]
+  .tab-background,
+.tabbrowser-tabs[movingtab]
+  .tabbrowser-tab[first-visible-tab][style*="translateX(0px)"]
+  .tab-background {
+  border-inline-start: initial !important;
 }
 
 #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs])
@@ -60,7 +84,7 @@
 /**********************************/
 
 /* Hide Giant Thumbnail and Favicon */
-#editBookmarkPanelImage, 
+#editBookmarkPanelImage,
 *|div#editBookmarkPanelFaviconContainer {
   display: none !important;
 }
@@ -71,10 +95,12 @@
 }
 
 /* Show more folders */
-#editBMPanel_folderTree { min-height: 42vh !important; }
+#editBMPanel_folderTree {
+  min-height: 42vh !important;
+}
 
 /*************************/
-/***   Downloads.css   ***/
+/***   downloads.css   ***/
 /*************************/
 
 #emptyDownloads {
@@ -86,6 +112,59 @@
   min-width: 20em !important;
   max-width: 30em !important;
   padding: 0.62em !important;
+}
+
+/***********************/
+/***   findbar.css   ***/
+/***********************/
+
+findbar {
+  border-top: none !important;
+  transition: transform 82ms linear, opacity 82ms linear 32ms !important;
+  background: none !important;
+  pointer-events: none;
+  z-index: 1;
+  padding: 0px !important;
+}
+
+.findbar-container > .findbar-find-fast {
+  padding: var(--toolbarbutton-inner-padding) 1px;
+  margin: 0 !important;
+}
+
+findbar > .findbar-container,
+findbar > .close-icon {
+  border-width: 0 0 1px 0px;
+  pointer-events: auto;
+}
+
+.findbar-find-status {
+  display: -moz-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -moz-box-flex: 1;
+}
+
+.findbar-closebutton {
+  margin: 0 !important;
+  border-radius: 0 !important;
+  padding: 5px !important;
+}
+
+.findbar-closebutton > image {
+  padding: 3px;
+}
+.findbar-closebutton:hover > image {
+  background: var(--toolbarbutton-hover-background) !important;
+  border-radius: 4px;
+}
+findbar > .findbar-container > hbox {
+  margin: 0 5px;
+}
+
+findbar::before {
+  display: -moz-box;
+  -moz-box-flex: 100;
 }
 
 /*********************************************/
@@ -103,19 +182,21 @@
 }
 
 .tab-icon-image,
-.tab-throbber{ opacity: 1 !important; }
-
-.tab-icon-overlay:not([crashed]){
-    top: -5.5px;
-    inset-inline-end: -6px;
-    fill-opacity: 1 !important;
-    color: white !important;
-    z-index: 1;
-    padding: 2px;
-    opacity: 1 !important;
-    stroke: var(--tab-icon-overlay-stroke, rgba(0, 0, 0, 0.5)) !important;
+.tab-throbber {
+  opacity: 1 !important;
 }
-.tab-icon-overlay:not([crashed]):hover{
+
+.tab-icon-overlay:not([crashed]) {
+  top: -5.5px;
+  inset-inline-end: -6px;
+  fill-opacity: 1 !important;
+  color: white !important;
+  z-index: 1;
+  padding: 2px;
+  opacity: 1 !important;
+  stroke: var(--tab-icon-overlay-stroke, rgba(0, 0, 0, 0.5)) !important;
+}
+.tab-icon-overlay:not([crashed]):hover {
   background-color: var(--tab-icon-overlay-stroke, transparent) !important;
   border-radius: 10px !important;
 }
@@ -125,11 +206,11 @@
 /*************************************/
 
 /* Always show tab close button on hover and never otherwise */
-.tabbrowser-tab .tab-close-button{
-  display:none;
+.tabbrowser-tab .tab-close-button {
+  display: none;
 }
-.tabbrowser-tab:not([pinned]):hover .tab-close-button{
-  display:-moz-box !important;
+.tabbrowser-tab:not([pinned]):hover .tab-close-button {
+  display: -moz-box !important;
 }
 
 /**********************************/

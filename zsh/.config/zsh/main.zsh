@@ -16,6 +16,7 @@ plugins=(git fzf fzf-tab zsh-syntax-highlighting
   zsh-autosuggestions command-not-found)
 
 # Other
+. "$HOME/.cargo/env"
 source $HOME/.oh-my-zsh/oh-my-zsh.sh
 PROMPT_EOL_MARK=''
 setopt globdots
