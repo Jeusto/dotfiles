@@ -1,6 +1,6 @@
 /.git
 /.gitignore
-/README.MD
+/README.md
 /install.sh
 /uninstall.sh
 
@@ -14,3 +14,4 @@
 /nvim
 /pop-shell
 /okular
+/ulauncher

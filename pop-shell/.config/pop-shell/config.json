@@ -23,6 +23,9 @@
     },
     {
       "class": "Peek"
+    },
+    {
+      "class": "Ulauncher"
     }
   ],
   "skiptaskbarhidden": [],

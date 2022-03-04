@@ -13,7 +13,7 @@
   > .tab-stack
   > .tab-background
   > .tab-context-line {
-  margin-top: calc(var(--tab-min-height) - 4px) !important;
+  margin-top: calc(var(--tab-min-height) - 0px) !important;
 }
 
 .titlebar-spacer {
