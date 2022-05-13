@@ -13,7 +13,7 @@ included so I don't advise using them but you can take some inspiration.
 - **Tiling window manager**: Pop Shell
 - **Terminal**: Kitty
 - **Shell**: Zsh
-- **App launcher/dynamic menu**: Rofi
+- **App launcher/dynamic menu**: Ulauncher
 - **Browser**: Firefox (with Tridactyl extension and custom css)
 - **Editor 1**: Neovim
 - **Editor 2**: Vscode (with vscode-neovim extension which embeds a full Neovim instance)

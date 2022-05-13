@@ -68,6 +68,10 @@ win-switcher-popup-ws-indexes=true
 ws-switch-indicator=true
 ws-switch-wrap=true
 
+[app-view-columns]
+columns-max=11
+compact-layout=true
+
 [arcmenu]
 alphabetize-all-programs=true
 application-shortcuts-list=[['Software', 'system-software-install-symbolic', 'ArcMenu_Software'], ['Settings', 'preferences-system-symbolic', 'gnome-control-center.desktop'], ['Tweaks', 'org.gnome.tweaks-symbolic', 'org.gnome.tweaks.desktop'], ['Terminal', 'utilities-terminal-symbolic', 'org.gnome.Terminal.desktop']]
@@ -135,7 +139,7 @@ size=20
 vertical=36
 
 [blur-me]
-window-class-overrides='{"x-terminal-emul":true,"GeckoMain":false,"gjs":true,"gnome-control-c":false,"nemo":false,"kitty":false}'
+window-class-overrides='{"x-terminal-emul":true,"GeckoMain":false,"gjs":true,"gnome-control-c":false,"nemo":false,"kitty":false,"firefox":true}'
 
 [blur-my-shell]
 dash-opacity=0.16
@@ -224,7 +228,7 @@ middle-click-action='LAUNCH'
 multi-monitors=true
 overview-click-to-exit=true
 panel-anchors='{"0":"MIDDLE","1":"MIDDLE"}'
-panel-element-positions='{"0":[{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedTL"},{"element":"dateMenu","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"centerMonitor"},{"element":"leftBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}],"1":[{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"showAppsButton","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedTL"},{"element":"dateMenu","visible":true,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"centerMonitor"},{"element":"leftBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"}]}'
+panel-element-positions='{"0":[{"element":"systemMenu","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedTL"},{"element":"dateMenu","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"centerMonitor"},{"element":"leftBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"},{"element":"showAppsButton","visible":false,"position":"stackedBR"}],"1":[{"element":"systemMenu","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":true,"position":"stackedTL"},{"element":"dateMenu","visible":true,"position":"stackedTL"},{"element":"activitiesButton","visible":false,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"centerMonitor"},{"element":"leftBox","visible":true,"position":"stackedBR"},{"element":"rightBox","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":false,"position":"stackedBR"},{"element":"showAppsButton","visible":false,"position":"stackedBR"}]}'
 panel-element-positions-monitors-sync=true
 panel-lengths='{"0":100,"1":100}'
 panel-positions='{"0":"BOTTOM","1":"BOTTOM"}'
@@ -255,7 +259,7 @@ taskbar-locked=false
 trans-bg-color='#000000'
 trans-gradient-bottom-color='#204a87'
 trans-gradient-top-color='#ef2929'
-trans-panel-opacity=0.35000000000000003
+trans-panel-opacity=0.70000000000000007
 trans-use-custom-bg=false
 trans-use-custom-gradient=false
 trans-use-custom-opacity=true
@@ -314,7 +318,7 @@ background-inactive-color='rgb(0,0,0)'
 text-is-default-color=true
 
 [gmailmessagetray]
-messagesshown=['tag:gmail.google.com,2004:1724933523010331227', 'tag:gmail.google.com,2004:1724933561689745413', 'tag:gmail.google.com,2004:1724938324095293224', 'tag:gmail.google.com,2004:1724941790335046516', 'tag:gmail.google.com,2004:1724943600795470936', 'tag:gmail.google.com,2004:1724947326242607204', 'tag:gmail.google.com,2004:1724947638230087350', 'tag:gmail.google.com,2004:1724951361321051468', 'tag:gmail.google.com,2004:1724951469617448183', 'tag:gmail.google.com,2004:1724951469966458445', 'tag:gmail.google.com,2004:1724951634694982430', 'tag:gmail.google.com,2004:1724952774301735136', 'tag:gmail.google.com,2004:1724958114968925260', 'tag:gmail.google.com,2004:1724965570222987250', 'tag:gmail.google.com,2004:1724982070203631958', 'tag:gmail.google.com,2004:1724990536539930999', 'tag:gmail.google.com,2004:1724996496380648781', 'tag:gmail.google.com,2004:1725026438098322667', 'tag:gmail.google.com,2004:1725029871090406981', 'tag:gmail.google.com,2004:1725031003135792679', 'tag:gmail.google.com,2004:1725034059357561854', 'tag:gmail.google.com,2004:1725034906236530591', 'tag:gmail.google.com,2004:1725049199864773552', 'tag:gmail.google.com,2004:1725049428491813299', 'tag:gmail.google.com,2004:1725049478466080452', 'tag:gmail.google.com,2004:1725060673749806395', 'tag:gmail.google.com,2004:1725080730463810022', 'tag:gmail.google.com,2004:1725086347124441942', 'tag:gmail.google.com,2004:1725091218795441536', 'tag:gmail.google.com,2004:1725105097454238841', 'tag:gmail.google.com,2004:1725124318328223972', 'tag:gmail.google.com,2004:1725124519940774373', 'tag:gmail.google.com,2004:1725142309612173998', 'tag:gmail.google.com,2004:1725187618604636752']
+messagesshown=['tag:gmail.google.com,2004:1724933523010331227', 'tag:gmail.google.com,2004:1724933561689745413', 'tag:gmail.google.com,2004:1724938324095293224', 'tag:gmail.google.com,2004:1724941790335046516', 'tag:gmail.google.com,2004:1724943600795470936', 'tag:gmail.google.com,2004:1724947326242607204', 'tag:gmail.google.com,2004:1724947638230087350', 'tag:gmail.google.com,2004:1724951361321051468', 'tag:gmail.google.com,2004:1724951469617448183', 'tag:gmail.google.com,2004:1724951469966458445', 'tag:gmail.google.com,2004:1724951634694982430', 'tag:gmail.google.com,2004:1724952774301735136', 'tag:gmail.google.com,2004:1724958114968925260', 'tag:gmail.google.com,2004:1724965570222987250', 'tag:gmail.google.com,2004:1724982070203631958', 'tag:gmail.google.com,2004:1724990536539930999', 'tag:gmail.google.com,2004:1724996496380648781', 'tag:gmail.google.com,2004:1725026438098322667', 'tag:gmail.google.com,2004:1725029871090406981', 'tag:gmail.google.com,2004:1725031003135792679', 'tag:gmail.google.com,2004:1725034059357561854', 'tag:gmail.google.com,2004:1725034906236530591', 'tag:gmail.google.com,2004:1725049199864773552', 'tag:gmail.google.com,2004:1725049428491813299', 'tag:gmail.google.com,2004:1725049478466080452', 'tag:gmail.google.com,2004:1725060673749806395', 'tag:gmail.google.com,2004:1725080730463810022', 'tag:gmail.google.com,2004:1725086347124441942', 'tag:gmail.google.com,2004:1725091218795441536', 'tag:gmail.google.com,2004:1725105097454238841', 'tag:gmail.google.com,2004:1725124318328223972', 'tag:gmail.google.com,2004:1725124519940774373', 'tag:gmail.google.com,2004:1725142309612173998', 'tag:gmail.google.com,2004:1725187618604636752', 'tag:gmail.google.com,2004:1725216492238768952', 'tag:gmail.google.com,2004:1725221091536626597', 'tag:gmail.google.com,2004:1725232858330502367', 'tag:gmail.google.com,2004:1725288793743822746', 'tag:gmail.google.com,2004:1725296054529068906', 'tag:gmail.google.com,2004:1725299500802900374', 'tag:gmail.google.com,2004:1725304469999399328', 'tag:gmail.google.com,2004:1725304769586412502', 'tag:gmail.google.com,2004:1725304784994114029', 'tag:gmail.google.com,2004:1725304870632505078', 'tag:gmail.google.com,2004:1725312800848169607', 'tag:gmail.google.com,2004:1725314268271740845', 'tag:gmail.google.com,2004:1725314296664111575', 'tag:gmail.google.com,2004:1725315032161482303', 'tag:gmail.google.com,2004:1725315388106504963', 'tag:gmail.google.com,2004:1725315421734508219', 'tag:gmail.google.com,2004:1725315426077525907', 'tag:gmail.google.com,2004:1725315433475170156', 'tag:gmail.google.com,2004:1725320084268125761', 'tag:gmail.google.com,2004:1725320589526368484', 'tag:gmail.google.com,2004:1725321950503142937', 'tag:gmail.google.com,2004:1725322332705200273', 'tag:gmail.google.com,2004:1725322336190106658', 'tag:gmail.google.com,2004:1725322379213565317', 'tag:gmail.google.com,2004:1725322488489099220', 'tag:gmail.google.com,2004:1725352923722571049', 'tag:gmail.google.com,2004:1725355028120055527', 'tag:gmail.google.com,2004:1725355056826196102', 'tag:gmail.google.com,2004:1725358080219014836', 'tag:gmail.google.com,2004:1725362155373690386', 'tag:gmail.google.com,2004:1725362230127589261', 'tag:gmail.google.com,2004:1725362672519321554', 'tag:gmail.google.com,2004:1725363376531794368', 'tag:gmail.google.com,2004:1725363956016122332', 'tag:gmail.google.com,2004:1725369917699362869', 'tag:gmail.google.com,2004:1725374094210877676', 'tag:gmail.google.com,2004:1725381582705891000', 'tag:gmail.google.com,2004:1725381707487538026', 'tag:gmail.google.com,2004:1725384639126590307', 'tag:gmail.google.com,2004:1725385679557107312', 'tag:gmail.google.com,2004:1725392021589130487', 'tag:gmail.google.com,2004:1725392948683278030', 'tag:gmail.google.com,2004:1725394919484634605', 'tag:gmail.google.com,2004:1725395444142922886', 'tag:gmail.google.com,2004:1725414941505656729', 'tag:gmail.google.com,2004:1725416464285725349', 'tag:gmail.google.com,2004:1725441318808881794', 'tag:gmail.google.com,2004:1725445654660442255', 'tag:gmail.google.com,2004:1725465894930629411', 'tag:gmail.google.com,2004:1725476396472148918', 'tag:gmail.google.com,2004:1725480625947232846', 'tag:gmail.google.com,2004:1725481132038708538', 'tag:gmail.google.com,2004:1725482580393133834', 'tag:gmail.google.com,2004:1725487836351699267', 'tag:gmail.google.com,2004:1725495795129851110', 'tag:gmail.google.com,2004:1725506255481822480']
 
 [gnome-fuzzy-search]
 applications=true
@@ -353,6 +357,11 @@ show-icon=true
 theme='Default'
 window-margin-fullscreen-enabled=false
 
+[hidetopbar]
+mouse-sensitive=false
+shortcut-keybind=['<Super>z']
+show-in-overview=true
+
 [icon-hider]
 hidden=['a11y', 'dwellClick', 'keyboard', 'Caffeine']
 is-indicator-shown=false
@@ -368,11 +377,11 @@ spotlight-size=180
 
 [just-perfection]
 accessibility-menu=true
-activities-button=false
+activities-button=true
 activities-button-icon-monochrome=true
 activities-button-label=true
 aggregate-menu=true
-app-menu=false
+app-menu=true
 app-menu-icon=true
 background-menu=true
 clock-menu=true
@@ -385,16 +394,22 @@ panel=true
 panel-arrow=true
 panel-in-overview=false
 panel-notification-icon=true
-panel-size=9
+panel-size=25
 power-icon=true
 ripple-box=true
 search=true
-show-apps-button=false
+show-apps-button=true
 theme=true
 top-panel-position=0
 window-preview-close-button=true
 workspace=true
 workspace-popup=true
+
+[laine]
+icon-position=false
+merge-controls=false
+open-settings=false
+show-port-label=false
 
 [mediacontrols]
 mouse-actions=['toggle_play', 'toggle_menu', 'none', 'none', 'none', 'none', 'none', 'none']
@@ -425,13 +440,13 @@ night='file:///home/asaday/Pictures/Wallpapers/8d98wrhcwlp51.png'
 
 [nightthemeswitcher/commands]
 enabled=true
-sunrise="gsettings set org.gnome.Terminal.ProfilesList default '74a91f84-e486-47e4-a19c-dc1a4a19e6c7' && notify-send hello"
-sunset="gsettings set org.gnome.Terminal.ProfilesList default '3dc72ae0-f29f-4430-a7e7-afdc38276921'"
+sunrise="gsettings set org.gnome.Terminal.ProfilesList default '74a91f84-e486-47e4-a19c-dc1a4a19e6c7' && notify-send \"Day mode enabled\""
+sunset="gsettings set org.gnome.Terminal.ProfilesList default '74a91f84-e486-47e4-a19c-dc1a4a19e6c7' && notify-send \"Dark mode enabled\""
 
 [nightthemeswitcher/cursor-variants]
-day='Qogir-cursors'
+day='XCursor-Pro-Light'
 enabled=true
-night='Qogir-white-cursors'
+night='XCursor-Pro-Light'
 
 [nightthemeswitcher/gtk-variants]
 day='Qogir-light'
@@ -440,7 +455,7 @@ manual=true
 night='Qogir-dark'
 
 [nightthemeswitcher/icon-variants]
-day='Papirus-Dark'
+day='Papirus-Light'
 enabled=true
 night='Papirus-Dark'
 
@@ -480,6 +495,7 @@ recents-shortcut=['']
 show-arrow=true
 
 [screenshot]
+capture-delay=40
 enable-imgur=true
 enable-indicator=false
 enable-notification=true
@@ -506,6 +522,9 @@ ports-settings='{"version":3,"ports":[{"human_name":"Casque audio","name":"analo
 show-input-devices=false
 show-input-slider=false
 show-profiles=false
+
+[status-area-horizontal-spacing]
+hpadding=6
 
 [tactile]
 col-0=1

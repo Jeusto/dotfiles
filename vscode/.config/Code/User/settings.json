@@ -73,7 +73,6 @@
   "editor.linkedEditing": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.parameterHints.enabled": false,
-  "editor.minimap.enabled": false,
   "editor.minimap.maxColumn": 100,
   "editor.minimap.renderCharacters": false,
   "editor.minimap.showSlider": "always",
@@ -201,6 +200,10 @@
   "vscode-neovim.neovimWidth": 700,
   "vscode-neovim.textDecorationsAtTop": true,
   "vscode-neovim.mouseSelectionStartVisualMode": true,
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1,
+    "asvetliakov.vscode-neovim": 1
+  },
   // Code runner
   "code-runner.runInTerminal": true,
   "code-runner.terminalRoot": "/",
@@ -246,10 +249,12 @@
   ],
   "l13Projects.groupDescriptionFormat": "both",
   "github.copilot.enable": {
-    "*": false,
+    "*": true,
     "yaml": false,
-    "plaintext": false,
-    "markdown": false
+    "plaintext": true,
+    "markdown": false,
+    "python": true,
+    "javascriptreact": true
   },
   // ###############
   // ###  Other  ###
@@ -282,4 +287,17 @@
   "workbench.productIconTheme": "icons-carbon",
   "files.autoSave": "afterDelay",
   "python.formatting.provider": "black",
+  "where-am-i.colorful": false,
+  "where-am-i.textTransfrom": "none",
+  "explorer.experimental.fileNesting.enabled": true,
+  "explorer.experimental.fileNesting.expand": false,
+  "explorer.experimental.fileNesting.patterns": {
+    "//": "Last update at 5/11/2022, 11:20:57 AM"
+  },
+  "everforest.darkWorkbench": "flat",
+  "terminal.integrated.persistentSessionReviveProcess": "never",
+  "open-php-html-js-in-browser.selectedBrowser": "Firefox",
+  "workbench.layoutControl.enabled": false,
+  "warmUp.changeCount": "30",
+  "warmUp.changeTypingMode": "words (fixed amount)",
 }

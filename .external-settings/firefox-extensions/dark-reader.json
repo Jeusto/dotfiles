@@ -62,22 +62,6 @@
     "www.awwwards.com",
     "www.totem.earth",
     "www.dariaizbash.com",
-    "www.ju.st",
-    "advanced.team",
-    "www.columbifarms.com",
-    "destinilocators.com",
-    "www.flaticon.com",
-    "book.huihoo.com",
-    "mtgdev-old.netlify.app",
-    "mtg2000.github.io",
-    "mtgdev.netlify.app",
-    "gol-conway.vercel.app",
-    "twitter-opinion.vercel.app",
-    "tukif.com",
-    "website2k3.free.fr",
-    "lucas-blampied.fr",
-    "www.programiz.com",
-    "tabby.sh",
     "oauth.unistra.fr",
     "browsers.page",
     "www.youtube.com",
@@ -195,7 +179,9 @@
     "arhunsad.notion.site",
     "github.com"
   ],
-  "siteListEnabled": ["spec.draculatheme.com"],
+  "siteListEnabled": [
+    "spec.draculatheme.com"
+  ],
   "applyToListedOnly": false,
   "changeBrowserTheme": false,
   "syncSettings": true,
@@ -236,4 +222,3 @@
     "chrome-favorites-2021"
   ]
 }
-

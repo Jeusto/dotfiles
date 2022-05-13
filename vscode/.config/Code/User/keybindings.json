@@ -169,6 +169,11 @@
     "key": "ctrl+shift+x",
     "command": "editor.action.clipboardCutAction"
   },
+  {
+    "key": "backspace",
+    "command": "deleteLeft",
+    "when": "textInputFocus"
+  },
   // Terminal management and navigation
   {
     "key": "ctrl+t",
@@ -217,19 +222,6 @@
     "key": "ctrl+shift+enter",
     "command": "workbench.action.terminal.split",
     "when": "terminalFocus && terminalProcessSupported || terminalFocus && terminalWebExtensionContributedProfile"
-  },
-  // Neovim custom escape keys: quick "jk" to leave insert mode
-  {
-    "key": "j",
-    "command": "vscode-neovim.compositeEscape1",
-    "when": "neovim.mode == insert && editorTextFocus",
-    "args": "j"
-  },
-  {
-    "key": "k",
-    "command": "vscode-neovim.compositeEscape2",
-    "when": "neovim.mode == insert && editorTextFocus",
-    "args": "k"
   },
   // Leetcode extension
   {
@@ -320,5 +312,15 @@
   {
     "key": "ctrl+alt+f",
     "command": "workbench.action.findInFiles"
+  },
+  {
+    "key": "alt+\\",
+    "command": "editor.action.showHover",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+k ctrl+i",
+    "command": "-editor.action.showHover",
+    "when": "editorTextFocus"
   }
 ]

@@ -105,4 +105,8 @@ if exists('g:vscode')
   xmap gc  <Plug>VSCodeCommentary
   omap gc  <Plug>VSCodeCommentary
   nmap gcc <Plug>VSCodeCommentaryLine
+
+  "Fix moving cursor unfolds a folded section of the code"
+  nmap j gj
+  nmap k gk
 endif
