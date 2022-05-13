@@ -2,6 +2,10 @@
 "###  Keybindings  ###"
 "#####################"
 
+"Make 0 act like Home: first click gets you to the first non-blank char,
+"second click gets you to the start of the line.
+nnoremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
+
 "Use space as leader key"
 nnoremap <SPACE> <Nop>
 let mapleader = "\<space>"
