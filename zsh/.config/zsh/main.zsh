@@ -13,7 +13,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Plugins
 plugins=(git fzf fzf-tab zsh-syntax-highlighting 
-  zsh-autosuggestions command-not-found)
+  zsh-autosuggestions command-not-found zsh-z)
 
 # Other
 . "$HOME/.cargo/env"
@@ -50,3 +50,9 @@ bindkey '^F' fzf-file-widget
 bindkey '\eh' fzf-history-widget
 bindkey '^H' fzf-history-widget
 bindkey '\ec' fzf-cd-widget
+
+# Z Plugin
+zstyle ':completion:*' menu select
+
+# Autosuggest plugin
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#4e5666"
