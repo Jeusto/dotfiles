@@ -1,6 +1,5 @@
 configuration {
     modi: "combi";
-    font: "JetBrainsMono Nerd Font 12";
     show-icons: true;
     icon-theme: "Papirus";
     drun-match-fields: "name,generic,exec,categories";
@@ -8,7 +7,7 @@ configuration {
     sort: true;
     sorting-method: "fzf";
     matching: "normal";
-    combi-modi: "drun,window,emoji, p:~/Dotfiles/rofi/.config/rofi/rofi-power-menu";
+    combi-modi: "drun,window,emoji, p:~/.config/rofi/rofi-power-menu";
     kb-remove-word-forward: "Control+Alt+d";
     kb-remove-char-forward: "Delete";
     kb-remove-char-back: "BackSpace,Shift+BackSpace";
@@ -24,8 +23,8 @@ configuration {
     kb-cancel: "Escape,Control+g,Control+bracketleft";
 }
 
-@theme "molecule-theme"
+@theme "spotlight-dark"
 
 listview {
-    lines: 6;
+    lines: 5;
 }
