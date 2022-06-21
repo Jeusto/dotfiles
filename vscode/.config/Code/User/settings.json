@@ -13,7 +13,7 @@
   // #########################
   "workbench.preferredLightColorTheme": "Atom One Light",
   "workbench.preferredDarkColorTheme": "One Dark Pro",
-  "workbench.colorTheme": "Atom One Light",
+  "workbench.colorTheme": "One Dark Pro",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorCustomizations": {
     "tab.activeBorder": "#0000",

@@ -34,7 +34,6 @@ alias gf="git fetch"
 alias fzfp="fzf --preview 'batcat --style=numbers --color=always --line-range :500 {}'"
 alias fzfc="fzf | xclip -selection clipboard"
 alias fzfv="fzf | xargs -I{} nvim {}"
-alias vim='nvim'
 alias v='nvim'
 alias py="python3"
 alias bat="batcat"
