@@ -55,7 +55,7 @@
 [submodule "nvim/.config/nvim-plugins/vim-sneak"]
 	path = nvim/.config/nvim-plugins/vim-sneak
 	url = https://github.com/searleser97/vim-sneak
-[submodule "nvim/.config/nvim-plugins/vim-sneak"]
+[submodule "nvim/.config/nvim-plugins/vim-cutlass"]
 	path = nvim/.config/nvim-plugins/vim-cutlass
 	url = https://github.com/svermeulen/vim-cutlass
 [submodule "nvim/.config/nvim-plugins/vim-snippets"]
@@ -73,3 +73,6 @@
 [submodule "nvim/.config/nvim-plugins/vim-coderunner"]
 	path = nvim/.config/nvim-plugins/vim-coderunner
 	url = git@github.com:0x84/vim-coderunner.git
+[submodule "nvim/.config/nvim-plugins/vim-easymotion"]
+	path = nvim/.config/nvim-plugins/vim-easymotion
+	url = https://github.com/easymotion/vim-easymotion
