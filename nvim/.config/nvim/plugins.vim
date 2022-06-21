@@ -6,7 +6,7 @@ source $HOME/.config/nvim/plugins/vim-cutlass.vim "d and c operations don't affe
 Plug 'tpope/vim-surround' "Easily add/remove brackets/tags etc"
 Plug 'tpope/vim-unimpaired' "Pairs of handy bracket mappings"
 Plug 'terryma/vim-expand-region'
-Plug 'searleser97/vim-sneak'
+Plug 'justinmk/vim-sneak'
 
 if !exists('g:vscode')
   Plug 'joshdick/onedark.vim' "Theme"

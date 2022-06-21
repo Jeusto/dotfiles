@@ -54,7 +54,7 @@
 	url = https://github.com/sheerun/vim-polyglot
 [submodule "nvim/.config/nvim-plugins/vim-sneak"]
 	path = nvim/.config/nvim-plugins/vim-sneak
-	url = https://github.com/searleser97/vim-sneak
+	url = https://github.com/justinmk/vim-sneak
 [submodule "nvim/.config/nvim-plugins/vim-cutlass"]
 	path = nvim/.config/nvim-plugins/vim-cutlass
 	url = https://github.com/svermeulen/vim-cutlass

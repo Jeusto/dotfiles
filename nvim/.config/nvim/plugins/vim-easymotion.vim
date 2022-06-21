@@ -2,7 +2,7 @@
 if exists('g:vscode')
   Plug 'asvetliakov/vim-easymotion', {'as': 'vsc-easymotion'}
 else
-  Plug 'easymotion/vim-easymotion', {'as': 'nvim-easymotion'}
+  Plug 'easymotion/vim-easymotion', {'as': 'vim-easymotion'}
 endif
 
 let g:EasyMotion_do_mapping = 0
