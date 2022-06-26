@@ -1,0 +1,140 @@
+"##################
+"###  Mappings  ### 
+"##################
+
+"Use space as leader key
+nnoremap <SPACE> <Nop>
+let mapleader = "\<space>"
+
+"Moving text (TOFIX)
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+"Hide search higlights
+nmap <leader>u :nohlsearch<CR>
+
+"Quicker switching between windows
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+nmap <A-l> gt
+nmap <A-h> gT
+nmap <A-w> :tabclose<CR>
+
+"Map replace all to leader s
+nmap <leader>s :%s//g<Left><Left>
+
+"Paste and indent by default and leader+p to paste without indenting
+:nnoremap p ]p
+:nnoremap <leader>p p
+
+"Make capital y behave like everything else
+nnoremap Y y$
+
+"Keep it centered
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJz
+
+"Reselect visual selection after indenting
+vnoremap < <gv
+vnoremap > >gv
+
+"Useless
+map q: <Nop>
+nnoremap Q <Nop>
+
+"D and c only deletes, use x for delete and yank, use dl for removing letter
+nnoremap x d
+xnoremap x d
+nnoremap xx dd
+nnoremap X D
+
+nnoremap d "_d
+vnoremap d "_d
+nnoremap D "_D
+vnoremap D "_D
+
+nnoremap c "_c
+vnoremap c "_c
+nnoremap C "_C
+vnoremap C "_C
+
+"###################################
+"###  Ideavim specific mappings  ###
+"###################################
+
+map <leader>e <Action>(GotoFile)
+
+"#################
+"###  Plugins  ###
+"#################
+
+source ~/.config/nvim/plugins/vim-easymotion.vim
+set surround
+set commentary
+set nerdtree
+set multiple-cursors
+
+"Vim unimpaired emulation
+nnoremap [<Space> O<Esc>j
+nnoremap ]<Space> o<Esc>k
+nnoremap ]b :action GotoNextBookmark<CR>
+nnoremap [b :action GotoPreviousBookmark<CR>
+nnoremap [c :action VcsShowPrevChangeMarker<CR>
+nnoremap ]c :action VcsShowNextChangeMarker<CR>
+nnoremap ]e :action GotoNextError<CR>
+nnoremap [e :action GotoPreviousError<CR>
+nnoremap ]m :action MethodDown<CR>
+nnoremap [m :action MethodUp<CR>
+nnoremap ]o :action SelectNextOccurrence<CR>
+nnoremap [o :action SelectPreviousOccurrence<CR>
+nnoremap ]u :action GotoNextElementUnderCaretUsage<CR>
+nnoremap [u :action GotoPrevElementUnderCaretUsage<CR>
+nnoremap ]p :action org.intellij.plugins.markdown.ui.actions.editorLayout.EditorOnlyLayoutChangeAction<CR>
+nnoremap [p :action org.intellij.plugins.markdown.ui.actions.editorLayout.EditorAndPreviewLayoutChangeAction<CR>
+nnoremap ]P :action org.intellij.plugins.markdown.ui.actions.editorLayout.EditorOnlyLayoutChangeAction<CR>
+nnoremap [P :action org.intellij.plugins.markdown.ui.actions.editorLayout.PreviewOnlyLayoutChangeAction<CR>
+
+"##################
+"###  Settings  ###
+"##################
+
+"Enable search highlighting
+set hlsearch
+"Ignore case when searching
+set ignorecase
+"Incremental search that shows partial matches
+set incsearch
+"Auto switch search to case-sensitive if search contains an uppercase letter
+set smartcase
+
+"The number of screen lines to keep above and below the cursor
+set scrolloff=1
+
+"Indentation and tabulation
+set tabstop=8
+set softtabstop=2
+set shiftwidth=2
+set autoindent
+set smartindent
+set smarttab
+set expandtab
+
+"The number of screen lines to keep above and below the cursor
+set scrolloff=1
+
+"Use system clipboard by default
+set clipboard=unnamedplus
+
+"Show the line number relative to the line with the cursor
+set relativenumber
+
+"####################################
+"###  Idea vim specific settings  ###
+"####################################
+
+set ideastatusicon=gray
+set idearefactormode=keep
+set ideajoin
