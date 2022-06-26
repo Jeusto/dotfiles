@@ -16,9 +16,6 @@
 [submodule "nvim/.config/nvim-plugins/nerdtree-git-plugin"]
 	path = nvim/.config/nvim-plugins/nerdtree-git-plugin
 	url = https://github.com/Xuyuanp/nerdtree-git-plugin
-[submodule "nvim/.config/nvim-plugins/onedark.vim"]
-	path = nvim/.config/nvim-plugins/onedark.vim
-	url = https://github.com/joshdick/onedark.vim
 [submodule "nvim/.config/nvim-plugins/tagbar"]
 	path = nvim/.config/nvim-plugins/tagbar
 	url = https://github.com/preservim/tagbar
@@ -82,3 +79,9 @@
 [submodule "zsh/.config/zsh/plugins/zsh-syntax-highlighting"]
 	path = zsh/.config/zsh/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "nvim/.config/nvim-plugins/onehalf"]
+	path = nvim/.config/nvim-plugins/onehalf
+	url = git@github.com:sonph/onehalf.git
+[submodule "nvim/.config/nvim-plugins/vim-multiple-cursors"]
+	path = nvim/.config/nvim-plugins/vim-multiple-cursors
+	url = https://github.com/terryma/vim-multiple-cursors
