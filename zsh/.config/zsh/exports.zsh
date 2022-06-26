@@ -4,6 +4,7 @@ export THEME=dark
 export PATH=\
 /home/linuxbrew/.linuxbrew/bin/:\
 /usr/share/code/:\
+$HOME/.cargo/bin:\
 $HOME/.scripts:\
 $HOME/.local:\ $HOME/.local/bin:\ $PATH
 
