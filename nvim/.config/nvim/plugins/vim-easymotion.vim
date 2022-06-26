@@ -1,8 +1,12 @@
 "Load the correct version of the extension
-if exists('g:vscode')
+if has('ide')
+  set easymotion
+elseif exists('g:vscode')
   Plug 'asvetliakov/vim-easymotion', {'as': 'vsc-easymotion'}
 else
   Plug 'easymotion/vim-easymotion', {'as': 'vim-easymotion'}
+  autocmd User EasyMotionPromptEnd silent! CocEnable
+  autocmd User EasyMotionPromptBegin silent! CocDisable
 endif
 
 let g:EasyMotion_do_mapping = 0
@@ -17,21 +21,11 @@ let g:EasyMotion_verbose = 0
 let g:EasyMotion_move_highlight = 0
 
 map f <Plug>(easymotion-f)
-map F <Plug>(easymotion-F)
-map t <Plug>(easymotion-t)
-map T <Plug>(easymotion-T)
 
-map <Leader>l <Plug>(easymotion-bd-wl)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
 map <Leader>f <Plug>(easymotion-bd-f2)
 map <Leader>t <Plug>(easymotion-bd-t2)
 
-map <Leader>w <Plug>(easymotion-bd-w)
-
-nmap ; <Plug>(easymotion-next)
-nmap . <Plug>(easymotion-previous)
-
-autocmd User EasyMotionPromptEnd silent! CocEnable
-autocmd User EasyMotionPromptBegin silent! CocDisable
+map <silent> <Leader>w <Plug>(easymotion-bd-w)

@@ -1,0 +1,20 @@
+if [ $# -ne 1 ]
+  then
+    echo "1 argument expected"
+    exit 22
+  elif [ $1 = "install" ] ; then
+    echo "Installing dotfiles...."
+    ls -d -- */ | xargs -I {} stow -vt ~ {}
+    stow -v . 
+    exit 0
+  elif [ $1 = "uninstall" ] ; then
+    echo "Uninstalling dotfiles...."
+    ls -d -- */ | xargs -I {} stow -Dvt ~ {}
+    stow -Dv . 
+    exit 0
+  else
+    echo "Wrong argument, install or uninstall expected"
+    exit 22
+fi
+
+

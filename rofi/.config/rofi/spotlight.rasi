@@ -5,7 +5,7 @@
  *******************************************************************************/
 
 * {
-    font:   "Inter 12";
+    font:   "Inter 11";
 
     bg0:     #F5F5F5BF;
     bg1:     #7E7E7E80;
@@ -14,6 +14,8 @@
     fg0:     #242424;
     fg1:     #FFFFFF;
     fg2:     #24242480;
+    
+    bd0:     #d0d0d0bf;
 
     background-color:   transparent;
     text-color:         @fg0;
@@ -26,6 +28,9 @@
 window {
     background-color:   @bg0;
 
+    border:             2px  2px 2px;
+    border-color:       @bd0;
+
     location:       center;
     width:          640;
     y-offset:       -200;
@@ -33,9 +38,9 @@ window {
 }
 
 inputbar {
-    font:       "Inter 15";
-    padding:    12px;
-    spacing:    12px;
+    font:       "Inter 12";
+    padding:    6px;
+    spacing:    6px;
     children:   [ icon-search, entry ];
 }
 
@@ -68,7 +73,7 @@ textbox {
 
 listview {
     lines:      10;
-    columns:    1;
+    columns:    2;
 
     fixed-height:   false;
     border:         1px 0 0;
@@ -76,8 +81,8 @@ listview {
 }
 
 element {
-    padding:            8px 16px;
-    spacing:            16px;
+    padding:            6px 10px;
+    spacing:            8px;
     background-color:   transparent;
 }
 

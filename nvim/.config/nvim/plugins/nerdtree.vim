@@ -2,6 +2,7 @@ Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
+let g:NERDTreeWinPos="right"
 let NERDTreeShowHidden=1
 let NERDTreeQuitOnOpen=1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1

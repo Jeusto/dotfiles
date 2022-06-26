@@ -76,3 +76,9 @@
 [submodule "nvim/.config/nvim-plugins/vim-easymotion"]
 	path = nvim/.config/nvim-plugins/vim-easymotion
 	url = https://github.com/easymotion/vim-easymotion
+[submodule "zsh/.config/zsh/plugins/fzf-tab"]
+	path = zsh/.config/zsh/plugins/fzf-tab
+	url = git@github.com:Aloxaf/fzf-tab.git
+[submodule "zsh/.config/zsh/plugins/zsh-syntax-highlighting"]
+	path = zsh/.config/zsh/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git

@@ -1,8 +1,10 @@
 /.git
 /.gitignore
+/.gitmodules
 /README.md
 /install.sh
 /uninstall.sh
+/dotfiles
 
 /kitty
 /qimgv
@@ -16,3 +18,7 @@
 /okular
 /ulauncher
 /dunst
+/git
+/intellij
+/bash
+/starship

@@ -1,0 +1,14 @@
+[
+  {
+    "name": "⏯️ Play/pause",
+    "command": "xdotool key XF86AudioPlay"
+  },
+  {
+    "name": "⏮️ Previous",
+    "command": "xdotool key XF86AudioPrev"
+  },
+  {
+    "name": "⏭️ Next",
+    "command": "xdotool key XF86AudioNext"
+  }
+]

@@ -1,0 +1,76 @@
+[core]
+  editor = nvim
+
+[user]
+  name = Arhun Saday
+  email = arhunsad@gmail.com
+
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+
+[init]
+  defaultBranch = master
+
+[help]
+  autocorrect = 01
+  
+[alias]
+  # One letters
+  a = add
+  b = branch
+  c = commit
+  d = diff
+  f = fetch
+  g = grep
+  l = log
+  m = merge
+  o = checkout
+  p = pull
+  r = remote
+  s = status
+  w = whatchanged
+
+  undo = reset HEAD~1 --mixed
+  unstage = reset --soft HEAD^
+  rv = revert
+
+  co = checkout
+  coo = !git fetch && git checkout
+  rom = !git fetch && git rebase -i origin/master --autosquash
+
+  res = !git reset --hard
+  done = !git push origin HEAD
+
+  cm = commit -m
+  cam = commit -a -m
+  fix = commit --fixup
+  amend = commit --amend -m
+  rv = remote -v
+  pushf = push --force-with-lease <remote> <branch>
+  commitamend = commit --amend --no-edit
+
+  rb = rebase
+  rbc = rebase --continue
+  rba = rebase --abort
+  rbs = rebase --skip
+
+  save = stash push
+  pop = stash pop
+  apply = stash apply
+
+  st = status -sb
+  aa = add -A .
+  cp = cherry-pick
+  pu = !git push origin `git branch --show-current`
+  fush = push -f
+  mg = merge --no-ff
+
+  last = log -1 HEAD --stat
+  lg = log --graph --all --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)%an%Creset %C(yellow)%d%Creset'
+
+  br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
+  br = branch
+  brd = branch -d

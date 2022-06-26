@@ -1,13 +1,14 @@
 configuration {
-    modi: "combi";
+    modi: "drun,window,windowcd,run,ssh,emoji,combi";
     show-icons: true;
     icon-theme: "Papirus";
     drun-match-fields: "name,generic,exec,categories";
-    drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+    drun-display-format: "{name} [<span weight='light' size='small'>({generic})</span>]";
     sort: true;
     sorting-method: "fzf";
     matching: "normal";
-    combi-modi: "drun,window,emoji, p:~/.config/rofi/rofi-power-menu";
+    combi-modi: "drun,window,windowcd,run,ssh,emoji";
+    show: "combi";
     kb-remove-word-forward: "Control+Alt+d";
     kb-remove-char-forward: "Delete";
     kb-remove-char-back: "BackSpace,Shift+BackSpace";
@@ -21,10 +22,10 @@ configuration {
     kb-page-prev: "Control+u,Page_Up";
     kb-page-next: "Control+d,Page_Down";
     kb-cancel: "Escape,Control+g,Control+bracketleft";
+    kb-mode-previous: "Alt+h";
+    kb-mode-next: "Alt+l";
+    kb-row-left:"Control+h";
+    kb-row-right:"Control+l";
 }
 
-@theme "spotlight-dark"
-
-listview {
-    lines: 5;
-}
+@theme "spotlight-dark.rasi"

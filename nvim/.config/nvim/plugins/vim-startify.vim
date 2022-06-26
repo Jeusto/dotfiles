@@ -30,6 +30,7 @@ let g:startify_lists = [
 let g:startify_bookmarks = [
             \ { 'cv': '~/.config/nvim/init.vim' },
             \ { 'cz': '~/.zshrc' },
+            \ { 'cd': '~/Dotfiles' },
             \ ]
 
 let g:startify_custom_header = ['']

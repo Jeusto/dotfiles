@@ -1,4 +1,172 @@
 [
+  // Coordinate with Neovim and Intellij
+  {
+    "key": "alt+=",
+    "command": "editor.action.smartSelect.expand",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+-",
+    "command": "editor.action.smartSelect.shrink",
+    "when": "editorTextFocus"
+  },
+  //
+  {
+    "key": "alt+a",
+    "command": "vscode-neovim.send",
+    "args": "<a-a>",
+    "when": "editorTextFocus && neovim.init"
+  },
+  {
+    "key": "alt+b",
+    "command": "vscode-neovim.send",
+    "args": "<a-b>",
+    "when": "editorTextFocus && neovim.init"
+  },
+  {
+    "key": "alt+c",
+    "command": "vscode-neovim.send",
+    "args": "<a-c>",
+    "when": "editorTextFocus && neovim.init"
+  },
+  {
+    "key": "alt+d",
+    "command": "vscode-neovim.send",
+    "args": "<a-d>",
+    "when": "editorTextFocus && neovim.init"
+  },
+  {
+    "key": "alt+e",
+    "command": "vscode-neovim.send",
+    "args": "<a-e>",
+    "when": "editorTextFocus && neovim.init"
+  },
+  {
+    "key": "alt+f",
+    "command": "vscode-neovim.send",
+    "args": "<a-f>",
+    "when": "editorTextFocus && neovim.init"
+  },
+  {
+    "key": "alt+g",
+    "command": "vscode-neovim.send",
+    "args": "<a-g>",
+    "when": "editorTextFocus && neovim.init"
+  },
+  {
+    "key": "alt+h",
+    "command": "vscode-neovim.send",
+    "args": "<a-h>",
+    "when": "editorTextFocus && neovim.init"
+  },
+  {
+    "key": "alt+i",
+    "command": "vscode-neovim.send",
+    "args": "<a-i>",
+    "when": "editorTextFocus && neovim.init"
+  },
+  {
+    "key": "alt+j",
+    "command": "vscode-neovim.send",
+    "args": "<a-j>",
+    "when": "editorTextFocus && neovim.init"
+  },
+  {
+    "key": "alt+k",
+    "command": "vscode-neovim.send",
+    "args": "<a-k>",
+    "when": "editorTextFocus && neovim.init"
+  },
+  {
+    "key": "alt+l",
+    "command": "vscode-neovim.send",
+    "args": "<a-l>",
+    "when": "editorTextFocus && neovim.init"
+  },
+  {
+    "key": "alt+m",
+    "command": "vscode-neovim.send",
+    "args": "<a-m>",
+    "when": "editorTextFocus && neovim.init"
+  },
+  {
+    "key": "alt+n",
+    "command": "vscode-neovim.send",
+    "args": "<a-n>",
+    "when": "editorTextFocus && neovim.init"
+  },
+  {
+    "key": "alt+o",
+    "command": "vscode-neovim.send",
+    "args": "<a-o>",
+    "when": "editorTextFocus && neovim.init"
+  },
+  {
+    "key": "alt+p",
+    "command": "vscode-neovim.send",
+    "args": "<a-p>",
+    "when": "editorTextFocus && neovim.init"
+  },
+  {
+    "key": "alt+q",
+    "command": "vscode-neovim.send",
+    "args": "<a-q>",
+    "when": "editorTextFocus && neovim.init"
+  },
+  {
+    "key": "alt+r",
+    "command": "vscode-neovim.send",
+    "args": "<a-r>",
+    "when": "editorTextFocus && neovim.init"
+  },
+  {
+    "key": "alt+s",
+    "command": "vscode-neovim.send",
+    "args": "<a-s>",
+    "when": "editorTextFocus && neovim.init"
+  },
+  {
+    "key": "alt+t",
+    "command": "vscode-neovim.send",
+    "args": "<a-t>",
+    "when": "editorTextFocus && neovim.init"
+  },
+  {
+    "key": "alt+u",
+    "command": "vscode-neovim.send",
+    "args": "<a-u>",
+    "when": "editorTextFocus && neovim.init"
+  },
+  {
+    "key": "alt+v",
+    "command": "vscode-neovim.send",
+    "args": "<a-v>",
+    "when": "editorTextFocus && neovim.init"
+  },
+  {
+    "key": "alt+w",
+    "command": "vscode-neovim.send",
+    "args": "<a-w>",
+    "when": "editorTextFocus && neovim.init"
+  },
+  {
+    "key": "alt+x",
+    "command": "vscode-neovim.send",
+    "args": "<a-x>",
+    "when": "editorTextFocus && neovim.init"
+  },
+  {
+    "key": "alt+y",
+    "command": "vscode-neovim.send",
+    "args": "<a-y>",
+    "when": "editorTextFocus && neovim.init"
+  },
+  {
+    "key": "alt+z",
+    "command": "vscode-neovim.send",
+    "args": "<a-z>",
+    "when": "editorTextFocus && neovim.init"
+  },
   // Ctrl+j + ctrl+k as well as tab + shift-tab to navigate lists
   {
     "key": "ctrl+j",
@@ -98,33 +266,10 @@
     "when": "auxiliaryBarVisible"
   },
   {
-    "key": "alt+t",
-    "command": "extension.multiCommand.execute",
-    "args": {
-      "sequence": [
-        "workbench.action.toggleAuxiliaryBar",
-        "outline.focus"
-      ]
-    },
-    "when": "editorFocus && !auxiliaryBarVisible"
-  },
-  {
     "key": "alt+h",
     "command": "workbench.action.toggleAuxiliaryBar",
     "when": "auxiliaryBarVisible"
   },
-  {
-    "key": "alt+h",
-    "command": "extension.multiCommand.execute",
-    "args": {
-      "sequence": [
-        "workbench.action.toggleAuxiliaryBar",
-        "timeline.focus"
-      ]
-    },
-    "when": "editorFocus && !auxiliaryBarVisible"
-  },
-  // Editors management and navigation
   {
     "key": "ctrl+shift+h",
     "command": "workbench.action.previousEditor"
@@ -224,31 +369,6 @@
     "when": "terminalFocus && terminalProcessSupported || terminalFocus && terminalWebExtensionContributedProfile"
   },
   // Leetcode extension
-  {
-    "key": "alt+l l",
-    "command": "leetcode.switchDefaultLanguage",
-  },
-  {
-    "key": "alt+l t",
-    "command": "leetcode.testSolution",
-  },
-  {
-    "key": "alt+l s",
-    "command": "leetcode.submitSolution",
-  },
-  {
-    "key": "alt+l f",
-    "command": "leetcode.searchProblem",
-  },
-  {
-    "key": "alt+l r",
-    "command": "leetcode.pickOne"
-  },
-  {
-    "key": "alt+l e",
-    "command": "leetCodeExplorer.focus"
-  },
-  // Remove some conflicting keybindings
   {
     "key": "alt+c",
     "command": "-workbench.action.terminal.toggleFindCaseSensitive",

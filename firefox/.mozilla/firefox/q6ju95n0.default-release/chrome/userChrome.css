@@ -1,97 +1,60 @@
-/******************************************/
-/***   To use with Sidebery extension   ***/
-/******************************************/
-
-#sidebar-header {
-  display: none !important;;
-}
-
-/* adding whitespace around url field for better highlight */
-/* #nav-bar-customization-target {
-	padding: 6px 0 4px 5px;
-} */
-#PanelUI-button {
-	padding-left: 5px;
-}
-
-/* push nav buttons to the right to make space for window controls */
-/* #nav-bar-customization-target {
-	padding-left: 50px;
-} */
-/* #navigator-toolbox {
-  padding-right: 7rem;
-} */
-
-/* #main-window #TabsToolbar {
-	height: 0px !important;
-	min-height: 0!important;
-	overflow: hidden;
-	transition: height .3s .3s !important;
-} */
-
-/* push those pesky window controls to the urlbar, where they belong */
-/* #TabsToolbar .titlebar-buttonbox {
-	position: fixed!important;
-	top: 14px;
-	display: inline;
-} */
-
-/* push those pesky window controls to the urlbar, where they belong */
-/* #TabsToolbar .titlebar-buttonbox {
-	position: fixed !important;
-	display: flex;
-  position: absolute;
-  right: 0px;
-  justify-content: flex-end;
-  right: 0px;
-} */
-
-
-
 /****************/
 /***   Misc   ***/
 /****************/
 
 /* Custom page action icons for some extensions */
-#pageAction-urlbar-_0d49b33c-467a-4897-bea4-c82d6756e5c4_ {  
- --pageAction-image-16px: url("https://api.iconify.design/bx:rocket.svg?color=%23ffffff") !important;
- --pageAction-image-32px: url("https://api.iconify.design/bx:rocket.svg?color=%23ffffff") !important;
+#pageAction-urlbar-_0d49b33c-467a-4897-bea4-c82d6756e5c4_ {
+  --pageAction-image-16px: url("https://api.iconify.design/bx:rocket.svg?color=%23ffffff") !important;
+  --pageAction-image-32px: url("https://api.iconify.design/bx:rocket.svg?color=%23ffffff") !important;
 }
 @media (prefers-color-scheme: light) {
-  #pageAction-urlbar-_0d49b33c-467a-4897-bea4-c82d6756e5c4_ {  
- --pageAction-image-16px: url("https://api.iconify.design/bx:rocket.svg?color=%23292929") !important;
- --pageAction-image-32px: url("https://api.iconify.design/bx:rocket.svg?color=%23292929") !important;
-}
+  #pageAction-urlbar-_0d49b33c-467a-4897-bea4-c82d6756e5c4_ {
+    --pageAction-image-16px: url("https://api.iconify.design/bx:rocket.svg?color=%23292929") !important;
+    --pageAction-image-32px: url("https://api.iconify.design/bx:rocket.svg?color=%23292929") !important;
+  }
 }
 #pageAction-urlbar-_testpilot-containers {
- --pageAction-image-16px: url("https://api.iconify.design/ph:arrow-square-out-bold.svg?color=%23fffff") !important;
- --pageAction-image-32px: url("https://api.iconify.design/ph:arrow-square-out-bold.svg?color=%23fffff") !important;
+  --pageAction-image-16px: url("https://api.iconify.design/ph:arrow-square-out-bold.svg?color=%23fffff") !important;
+  --pageAction-image-32px: url("https://api.iconify.design/ph:arrow-square-out-bold.svg?color=%23fffff") !important;
 }
 
 /* Make close button square */
 .titlebar-button:-moz-lwtheme {
-  border-radius: 0% !important;;
+  border-radius: 0% !important;
 }
 
 /* Make pinned tabs wider */
-.tabbrowser-tab[pinned] { width: 70px !important; }
-.tab-label-container[pinned] { visibility: default !important; }
-.tab-throbber, .tab-icon-pending, .tab-icon-image, .tab-sharing-icon-overlay, .tab-icon-overlay {
+.tabbrowser-tab[pinned] {
+  width: 70px !important;
+}
+.tab-label-container[pinned] {
+  visibility: default !important;
+}
+.tab-throbber,
+.tab-icon-pending,
+.tab-icon-image,
+.tab-sharing-icon-overlay,
+.tab-icon-overlay {
   margin-inline-end: 5.5px;
 }
-.tab-label-container[textoverflow][labeldirection="ltr"], .tab-label-container[textoverflow]:not([labeldirection]):-moz-locale-dir(ltr) {
+.tab-label-container[textoverflow][labeldirection="ltr"],
+.tab-label-container[textoverflow]:not([labeldirection]):-moz-locale-dir(ltr) {
   direction: ltr;
-  mask-image: linear-gradient(to left, transparent, black var(--tab-label-mask-size));
+  mask-image: linear-gradient(
+    to left,
+    transparent,
+    black var(--tab-label-mask-size)
+  );
 }
 
 /* Add more padding to bookmark folders in the toolbar */
 .bookmark-item {
-  padding: 3px 2.5px !important;;
+  padding: 3px 2.5px !important;
 }
 
 /* Reduce addon page action opacity */
 .urlbar-addon-page-action {
-  opacity: 70% !important;;
+  opacity: 70% !important;
 }
 
 /* Move container color bar to bottom of tab */
@@ -311,31 +274,6 @@ findbar::before {
 .tabbrowser-tab:not([pinned]):hover .tab-close-button {
   display: -moz-box !important;
 }
-
-/**********************************/
-/***   Tab close over favicon   ***/
-/**********************************/
-
-/*.tab-close-button{
-  -moz-box-ordinal-group: 0;
-  display: -moz-box !important;
-  position: relative;
-  margin-inline: -4px -20px !important;
-  padding-inline-start: 7px !important;
-  z-index: -1;
-  visibility: hidden;
-  width: unset !important;
-}
-.tabbrowser-tab[pinned] .tab-close-button{ display: auto !important; }
-.tabbrowser-tab:hover .tab-close-button{
-  background-color: var(--lwt-selected-tab-background-color,var(--toolbar-bgcolor)) !important;
-  background-image: linear-gradient(var(--toolbarbutton-hover-background),var(--toolbarbutton-hover-background))
-}
-.tab-icon-stack:hover ~ .tab-close-button,
-.tab-close-button:hover,
-.tabbrowser-tab:not([image]) .tab-close-button{ visibility: visible; z-index: 1 }
-.tabbrowser-tab:not([image]) .tab-close-button{ margin-inline-end: 0 !important; }
-*/
 
 /*******************************************************/
 /***   Megabar Styler General - version 2021-09-09   ***/
@@ -601,6 +539,9 @@ menupopup > menu {
 }
 
 /* Indicate current open tab with a gradient top border */
+.tab-background {
+  border-radius: 0px !important;;
+}
 .tab-background[selected="true"] {
   background: linear-gradient(
       to bottom,
@@ -611,6 +552,7 @@ menupopup > menu {
     linear-gradient(90deg, #9059ff 0%, #ff4aa2 52.08%, #ffbd4f 100%) !important;
 }
 .tab-background:is([selected], [multiselected]):-moz-lwtheme {
-  border: 0px solid var(--lwt-tab-line-color, var(--lwt-tabs-border-color, currentColor)) !important;
+  border: 0px solid
+    var(--lwt-tab-line-color, var(--lwt-tabs-border-color, currentColor)) !important;
   border-radius: 0 !important;
 }
