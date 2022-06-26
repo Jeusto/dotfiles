@@ -18,6 +18,12 @@ bindkey -e
 PROMPT_EOL_MARK=''
 setopt globdots
 
+# Save commands history to a file
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
+
 #################
 ###  Plugins  ###
 #################
