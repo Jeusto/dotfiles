@@ -26,17 +26,19 @@ nmap <leader>bd :bdel <cr>
 nmap <leader>bq :bufdo bdelete <cr>
 nmap <leader>bp :bprevious <cr>
 nmap <leader>bn :bnext <cr>
+nmap <leader>be :%bd\|e#<cr>
 nnoremap <leader>bf :bfirst<CR>
 nnoremap <leader>bl :blast<CR>
+
+nmap <A-h> :bprevious <cr>
+nmap <A-l> :bnext <cr>
+nmap <A-w> :bdel <cr>
 
 "Quicker switching between windows
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
-nmap <A-l> gt
-nmap <A-h> gT
-nmap <A-w> :tabclose<CR>
 
 "Better autocompletion mappings
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
