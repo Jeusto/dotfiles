@@ -41,6 +41,9 @@ alias next="xdotool key XF86AudioNext"
 alias ye="yeelight-cli 192.168.1.20"
 alias y="yarn"
 alias r="ranger"
+alias emptytrash="rm -pr -f ~/.local/share/Trash/files/*"
+
+[[ "$TERM" == "xterm-kitty" ]] && alias ssh="kitty +kitten ssh"
 
 # Enable aliases to be sudo'ed
 alias su='sudo '

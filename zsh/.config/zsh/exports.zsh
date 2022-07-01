@@ -6,7 +6,9 @@ export PATH=\
 /usr/share/code/:\
 $HOME/.cargo/bin:\
 $HOME/.scripts:\
-$HOME/.local:\ $HOME/.local/bin:\ $PATH
+$HOME/.local:\
+$HOME/.local/bin:\
+$PATH
 
 # Environment variables
 export BROWSER=firefox
