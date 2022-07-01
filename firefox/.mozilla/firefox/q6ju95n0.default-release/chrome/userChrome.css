@@ -24,7 +24,7 @@
 }
 
 /* Make pinned tabs wider */
-.tabbrowser-tab[pinned] {
+/* .tabbrowser-tab[pinned] {
   width: 70px !important;
 }
 .tab-label-container[pinned] {
@@ -46,7 +46,7 @@
     black var(--tab-label-mask-size)
   );
 }
-
+ */
 /* Add more padding to bookmark folders in the toolbar */
 .bookmark-item {
   padding: 3px 2.5px !important;
