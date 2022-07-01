@@ -1,3 +1,5 @@
+# TODO: Add all apps, fonts, themes, icons etc installation to automatically install and configure
+
 #################################
 # KITTY
 #################################

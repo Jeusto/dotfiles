@@ -49,6 +49,7 @@ bindkey '^l' forward-word
 bindkey '^h' backward-word
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
+bindkey '^L' clear-screen
 
 # Case insesitive autocompletion
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'

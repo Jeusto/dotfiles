@@ -1,6 +1,8 @@
 /.git
 /.gitignore
 /.gitmodules
+/.Dotfiles.iml
+/.idea
 /README.md
 /install.sh
 /uninstall.sh
