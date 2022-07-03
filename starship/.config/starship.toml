@@ -46,6 +46,8 @@ style = " bg:#e06c75 fg:#282c34"
 [character]
 format = " $symbol"
 
+[package]
+disabled = true
 [java]
 disabled = true
 [nodejs]
