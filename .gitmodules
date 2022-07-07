@@ -85,3 +85,6 @@
 [submodule "nvim/.config/nvim-plugins/vim-multiple-cursors"]
 	path = nvim/.config/nvim-plugins/vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors
+[submodule "nvim/.config/nvim-plugins/vim-rooter"]
+	path = nvim/.config/nvim-plugins/vim-rooter
+	url = https://github.com/airblade/vim-rooter

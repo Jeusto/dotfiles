@@ -21,6 +21,7 @@ call plug#begin('~/.config/nvim-plugins')
   Plug 'iamcco/markdown-preview.nvim', {'do': 'cd app && yarn install'}
   Plug 'terryma/vim-expand-region'
   Plug 'terryma/vim-multiple-cursors'
+  Plug 'airblade/vim-rooter'
 call plug#end()
 
 "Random plugin settings/mappings
