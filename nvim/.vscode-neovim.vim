@@ -103,6 +103,12 @@ nmap gcc <Plug>VSCodeCommentaryLine
 nmap j gj
 nmap k gk
 
+"Fix ctrl+d and u not affecting selection in visual mode
+nnoremap <C-d> 27j
+vnoremap <C-d> 27j
+nnoremap <C-u> 27k
+vnoremap <C-u> 27k
+
 "#################
 "###  Plugins  ###
 "#################
@@ -114,6 +120,9 @@ call plug#begin('~/.config/nvim-plugins')
   Plug 'terryma/vim-expand-region'
   Plug 'justinmk/vim-sneak'
 call plug#end()
+
+map <A-=> <Plug>(expand_region_expand)
+map <A--> <Plug>(expand_region_shrink)
 
 "##################
 "###  Settings  ###
