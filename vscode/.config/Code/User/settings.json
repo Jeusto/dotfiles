@@ -44,7 +44,6 @@
   "window.title": "${activeEditorShort} ${dirty}",
   "window.titleBarStyle": "custom",
   "workbench.editor.pinnedTabSizing": "shrink",
-  "workbench.editor.tabCloseButton": "off",
   "workbench.sideBar.location": "right",
   "workbench.editor.tabSizing": "shrink",
   "zenMode.fullScreen": false,
@@ -168,7 +167,7 @@
   ],
   // Vscode-neovim
   "vscode-neovim.neovimInitVimPaths.linux": "/home/asaday/.vscode-neovim.vim",
-  "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+  "vscode-neovim.neovimExecutablePaths.linux": "/snap/bin/nvim",
   "vscode-neovim.neovimWidth": 700,
   "vscode-neovim.textDecorationsAtTop": true,
   "vscode-neovim.mouseSelectionStartVisualMode": true,
@@ -200,11 +199,8 @@
       "savePath": "~"
     }
   ],
-  // Git lens
-  "gitlens.currentLine.enabled": false,
   "gitlens.hovers.currentLine.over": "line",
   "gitlens.keymap": "alternate",
-  "gitlens.codeLens.enabled": false,
   // Other extensions
   "material-icon-theme.showWelcomeMessage": false,
   "codesnap.showWindowControls": false,
@@ -235,7 +231,6 @@
   "files.eol": "\n",
   "window.newWindowDimensions": "inherit",
   "explorer.confirmDragAndDrop": false,
-  "diffEditor.renderSideBySide": false,
   "search.useReplacePreview": false,
   "debug.inlineValues": true,
   "workbench.editor.untitled.hint": "hidden",
@@ -255,7 +250,7 @@
   "terminal.integrated.cursorBlinking": true,
   "workbench.startupEditor": "none",
   "explorer.confirmDelete": false,
-  "files.autoSave": "afterDelay",
+  "files.autoSave": "onFocusChange",
   "python.formatting.provider": "black",
   "where-am-i.colorful": false,
   "where-am-i.textTransfrom": "none",
@@ -273,11 +268,12 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "//": "Last update at 7/1/2022, 7:58:52 PM",
+    "//": "Last update at 7/10/2022, 4:56:34 PM",
     "*.asax": "$(capture).*.cs, $(capture).*.vb",
     "*.ascx": "$(capture).*.cs, $(capture).*.vb",
     "*.ashx": "$(capture).*.cs, $(capture).*.vb",
     "*.aspx": "$(capture).*.cs, $(capture).*.vb",
+    "*.bloc.dart": "$(capture).event.dart, $(capture).state.dart",
     "*.c": "$(capture).h",
     "*.cc": "$(capture).hpp, $(capture).h, $(capture).hxx",
     "*.component.ts": "$(capture).component.html, $(capture).component.spec.ts, $(capture).component.css, $(capture).component.scss, $(capture).component.sass, $(capture).component.less",
@@ -337,7 +333,6 @@
   "leetcode.hint.commandShortcut": false,
   "leetcode.hint.commentDescription": false,
   "leetcode.hint.configWebviewMarkdown": false,
-  "editor.minimap.enabled": false,
   "[sql]": {
     "editor.defaultFormatter": "inferrinizzard.prettier-sql-vscode"
   },
@@ -346,4 +341,15 @@
   "breadcrumbs.enabled": false,
   "window.enableMenuBarMnemonics": false,
   "window.customMenuBarAltFocus": false,
+  "workbench.editor.tabCloseButton": "off",
+  "codestream.serverUrl": "https://api.codestream.com",
+  "diffEditor.renderSideBySide": false,
+  "gitlens.defaultDateFormat": "D MMM YY -- dddd",
+  "gitlens.defaultTimeFormat": "hh:mm",
+  "gitlens.defaultDateShortFormat": "D/MM/YY",
+  "gitlens.currentLine.enabled": false,
+  "gitlens.codeLens.enabled": false,
+  "gitlens.statusBar.command": "gitlens.showQuickCommitFileDetails",
+  "gitlens.hovers.enabled": false,
+  "gitlens.defaultDateLocale": null,
 }
