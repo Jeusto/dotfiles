@@ -3,7 +3,7 @@ Plug 'junegunn/fzf.vim'
 
 "Mappings"
 nnoremap <silent> <C-p> :Files<CR>
-nnoremap <silent> <Leader>e :Files<CR>
+nnoremap <silent> <Leader>e :Buffers<CR>
 nnoremap <silent> <Leader>/ :BLines<CR>
 nnoremap <silent> <Leader>g :Commits<CR>
 nnoremap <silent> <Leader>hf :History<CR>

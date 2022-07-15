@@ -14,10 +14,6 @@ nmap <leader>s :%s//g<Left><Left>
 nnoremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 
 "Moving text
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
@@ -25,18 +21,13 @@ vnoremap K :m '<-2<CR>gv=gv
 nmap <leader>u :nohlsearch<CR>
 
 "Buffers manipulation
-nnoremap <silent> <Leader>bu :Buffers<CR>
-nmap <leader>bd :bdel <cr>
-nmap <leader>bq :bufdo bdelete <cr>
-nmap <leader>bp :bprevious <cr>
-nmap <leader>bn :bnext <cr>
-nmap <leader>be :%bd\|e#<cr>
-nnoremap <leader>bf :bfirst<CR>
-nnoremap <leader>bl :blast<CR>
-
-nmap <A-h> :bprevious <cr>
-nmap <A-l> :bnext <cr>
-nmap <A-w> :bdel <cr>
+nnoremap <silent> <A>e :Buffers<CR>
+nmap <A>w :bdel <cr>
+nmap <A>q :bufdo bdelete <cr>
+nmap <A>h :bprevious <cr>
+nmap <A>l :bnext <cr>
+nnoremap <A>0 :bfirst<CR>
+nnoremap <A>9 :blast<CR>
 
 "Quicker switching between windows
 nmap <C-h> <C-w>h

@@ -11,10 +11,6 @@ let mapleader = "\<space>"
 nnoremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 
 "Moving text
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
@@ -78,22 +74,27 @@ vnoremap C "_C
 "Saner  ctrl-l
 nnoremap <leader>l :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
 
+"Temporarily bind ; to command-line mode 
+nnoremap ; :
+xnoremap ; :
+
 "##################################
 "###  Vscode specific mappings  ### 
 "##################################
-
-nnoremap <leader>n <Cmd>call VSCodeNotify('workbench.view.explorer')<CR>
-nnoremap <leader>b <Cmd>call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>
-nnoremap <leader>t <Cmd>call VSCodeNotify('workbench.action.focusAuxiliaryBar')<CR>
 
 "Map replace all to leader s
 nmap <leader>s :%s/
 
 "Match neovim 
 nnoremap <leader>e <Cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>
+nnoremap <leader>n <Cmd>call VSCodeNotify('workbench.view.explorer')<CR>
+nnoremap <leader>b <Cmd>call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>
+nnoremap <leader>t <Cmd>call VSCodeNotify('workbench.action.focusAuxiliaryBar')<CR>
+
+"Match neovim plugins
+"coderunner
 nnoremap <leader>r <Cmd>call VSCodeNotify('code-runner.run')<CR>
 
-"Use vscode's own comment commands
 nmap gc  <Plug>VSCodeCommentary
 xmap gc  <Plug>VSCodeCommentary
 omap gc  <Plug>VSCodeCommentary
@@ -109,6 +110,9 @@ vnoremap <C-d> 27j
 nnoremap <C-u> 27k
 vnoremap <C-u> 27k
 
+"Remove some binds to let vscode handle them 
+nnoremap <C-f> <Nop>
+
 "#################
 "###  Plugins  ###
 "#################
@@ -117,7 +121,6 @@ call plug#begin('~/.config/nvim-plugins')
   source $HOME/.config/nvim/plugins/vim-easymotion.vim
   Plug 'tpope/vim-surround' "Easily add/remove brackets/tags etc"
   Plug 'tpope/vim-unimpaired' "Pairs of handy bracket mappings"
-  Plug 'terryma/vim-expand-region'
   Plug 'justinmk/vim-sneak'
 call plug#end()
 
@@ -149,15 +152,17 @@ set smartindent
 set smarttab
 set expandtab
 
+"Hide current mode text in status bar
+set noshowmode
+
 "Use system clipboard by default
 set clipboard=unnamedplus
 
 "Show the line number relative to the line with the cursor
 set relativenumber
 
-"##################################
-"###  Vscode specific settings  ###
-"##################################
-
-nnoremap <C-f> <Nop>
-set showmode
+"Higlight yank
+augroup highlight_yank
+  autocmd!
+  autocmd TextYankPost * silent! lua vim.highlight.on_yank { higroup="Search", timeout=200 }
+augroup END

@@ -124,10 +124,6 @@ set updatetime=300
 "TextEdit might fail if hidden is not set
 set hidden
 
-"Some servers have issues with backup files, see #649
-set nobackup
-set nowritebackup
-
 "Give more space for displaying messages
 set cmdheight=2
 
@@ -137,3 +133,9 @@ set shortmess+=c
 "Indicators on the same column as line numbers
 set signcolumn=yes
 hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
+
+"Higlight yank
+augroup highlight_yank
+  autocmd!
+  autocmd TextYankPost * silent! lua vim.highlight.on_yank { higroup="Search", timeout=200 }
+augroup END
