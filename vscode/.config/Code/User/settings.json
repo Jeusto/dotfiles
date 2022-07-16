@@ -223,7 +223,6 @@
       "savePath": "~"
     }
   ],
-  "gitlens.hovers.currentLine.over": "line",
   "gitlens.keymap": "alternate",
   // Other extensions
   "material-icon-theme.showWelcomeMessage": false,
@@ -287,7 +286,7 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "//": "Last update at 7/15/2022, 11:14:45 PM",
+    "//": "Last update at 7/16/2022, 2:14:43 PM",
     "*.asax": "$(capture).*.cs, $(capture).*.vb",
     "*.ascx": "$(capture).*.cs, $(capture).*.vb",
     "*.ashx": "$(capture).*.cs, $(capture).*.vb",
@@ -366,11 +365,16 @@
   "gitlens.defaultDateFormat": "D MMM YY -- dddd",
   "gitlens.defaultTimeFormat": "hh:mm",
   "gitlens.defaultDateShortFormat": "D/MM/YY",
-  "gitlens.statusBar.command": "gitlens.showQuickCommitFileDetails",
-  "gitlens.hovers.enabled": false,
   "gitlens.defaultDateLocale": null,
   "explorer.compactFolders": false,
   "warmUp.changeCount": "30",
-  "gitlens.currentLine.enabled": false,
   "gitlens.codeLens.enabled": false,
+  "commands.commands": {
+    "Git Graph: View Git Graph": {
+      "command": "git-graph.view"
+    }
+  },
+  "gitlens.advanced.externalDiffTool": "meld",
+  "gitlens.advanced.externalDirectoryDiffTool": "meld",
+  "gitlens.currentLine.enabled": false,
 }
