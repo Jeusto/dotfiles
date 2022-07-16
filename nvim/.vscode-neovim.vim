@@ -121,7 +121,6 @@ call plug#begin('~/.config/nvim-plugins')
   source $HOME/.config/nvim/plugins/vim-easymotion.vim
   Plug 'tpope/vim-surround' "Easily add/remove brackets/tags etc"
   Plug 'tpope/vim-unimpaired' "Pairs of handy bracket mappings"
-  Plug 'justinmk/vim-sneak'
 call plug#end()
 
 map <A-=> <Plug>(expand_region_expand)

@@ -21,13 +21,13 @@ vnoremap K :m '<-2<CR>gv=gv
 nmap <leader>u :nohlsearch<CR>
 
 "Buffers manipulation
-nnoremap <silent> <A>e :Buffers<CR>
-nmap <A>w :bdel <cr>
-nmap <A>q :bufdo bdelete <cr>
-nmap <A>h :bprevious <cr>
-nmap <A>l :bnext <cr>
-nnoremap <A>0 :bfirst<CR>
-nnoremap <A>9 :blast<CR>
+nnoremap <silent> <A-e> :Buffers<CR>
+nmap <A-w> :bdel <cr>
+nmap <A-q> :bufdo bdelete <cr>
+nmap <A-h> :bprevious <cr>
+nmap <A-l> :bnext <cr>
+nnoremap <A-0> :bfirst<CR>
+nnoremap <A-9> :blast<CR>
 
 "Quicker switching between windows
 nmap <C-h> <C-w>h
