@@ -1,18 +1,53 @@
 [
   {
-    "name": "🔔 Audio",
-    "command": "zsh ~/.config/rofi/plugins/myrmidon ~/.config/rofi/myrmidon-tasks/audio.json"
-  },
-  {
     "name": "📻 Rofi beats",
     "command": "zsh ~/.config/rofi/plugins/rofi-beats"
   },
   {
-    "name": "💡 Yeelight",
-    "command": "zsh ~/.config/rofi/plugins/myrmidon ~/.config/rofi/myrmidon-tasks/yeelight.json"
+    "name": "🔔⏯️ Audio: Play/pause",
+    "command": "xdotool key XF86AudioPlay"
   },
   {
-    "name": "🖥️ Power menu",
-    "command": "zsh ~/.config/rofi/plugins/myrmidon ~/.config/rofi/myrmidon-tasks/power.json"
+    "name": "🔔⏮️ Audio: Previous",
+    "command": "xdotool key XF86AudioPrev"
+  },
+  {
+    "name": "🔔⏭️ Audio: Next",
+    "command": "xdotool key XF86AudioNext"
+  },
+  {
+    "name": "🖥️🛑 Power menu: Power off",
+    "confirm": true,
+    "command": "systemctl poweroff"
+  },
+  {
+    "name": "🖥️♻️ Power menu: Reboot",
+    "confirm": true,
+    "command": "systemctl reboot"
+  },
+  {
+    "name": "🖥️🔒 Power menu: Lock",
+    "command": "gnome-screensaver-command -l"
+  },
+  {
+    "name": "🖥️💤 Power menu: Suspend",
+    "confirm": true,
+    "command": "systemctl suspend"
+  },
+  {
+    "name": "💡🎛️ Yeelight: Toggle on/off",
+    "command": "yeelight-cli 192.168.1.20 toggle"
+  },
+  {
+    "name": "💡🌃 Yeelight: Night preset",
+    "command": "yeelight-cli 192.168.1.20 preset Night"
+  },
+  {
+    "name": "💡🏠 Yeelight: Cosy home preset",
+    "command": "yeelight-cli 192.168.1.20 CosyHome"
+  },
+  {
+    "name": "💡🌇 Yeelight: PC mode preset",
+    "command": "yeelight-cli 192.168.1.20 PcHome"
   }
 ]
