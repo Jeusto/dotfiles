@@ -286,7 +286,7 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "//": "Last update at 7/16/2022, 2:14:43 PM",
+    "//": "Last update at 7/17/2022, 11:59:38 AM",
     "*.asax": "$(capture).*.cs, $(capture).*.vb",
     "*.ascx": "$(capture).*.cs, $(capture).*.vb",
     "*.ashx": "$(capture).*.cs, $(capture).*.vb",
@@ -372,9 +372,69 @@
   "commands.commands": {
     "Git Graph: View Git Graph": {
       "command": "git-graph.view"
-    }
+    },
+    "Git: Revert Selected Ranges": {
+      "command": "git.revertSelectedRanges"
+    },
+    "GitLens: Open Changes with Previous Revision": {
+      "command": "gitlens.diffWithPreviousInDiffLeft"
+    },
+    "Warm Up: Start typing test": {
+      "command": "warmUp.start"
+    },
+    "Fold All": {
+      "command": "editor.foldAll"
+    },
+    "Fold Recursively": {
+      "command": "editor.foldRecursively"
+    },
+    "GitLens: Toggle File Blame": {
+      "command": "gitlens.toggleFileBlame"
+    },
+    "GitLens: Toggle File Changes": {
+      "command": "gitlens.toggleFileChanges"
+    },
+    "GitLens: Toggle Line Blame": {
+      "command": "gitlens.toggleLineBlame"
+    },
+    "Codesnap": {
+      "command": "codesnap.start"
+    },
+    "View: Toggle Zen Mode": {
+      "command": "workbench.action.toggleZenMode"
+    },
+    "Show Definition Preview Hover": {
+      "command": "editor.action.showDefinitionPreviewHover"
+    },
+    "Peek Definition": {
+      "command": "editor.action.peekDefinition"
+    },
+    "Peek Implementations": {
+      "command": "editor.action.peekImplementation"
+    },
+    "Peek Declaration": {
+      "command": "editor.action.peekDeclaration"
+    },
+    "Peek References": {
+      "command": "editor.action.referenceSearch.trigger"
+    },
+    "Peek Type Definition": {
+      "command": "editor.action.peekTypeDefinition"
+    },
+    "Go to Definition": {
+      "command": "editor.action.revealDefinition"
+    },
+    "Go to Type Definition": {
+      "command": "editor.action.goToTypeDefinition"
+    },
   },
   "gitlens.advanced.externalDiffTool": "meld",
   "gitlens.advanced.externalDirectoryDiffTool": "meld",
   "gitlens.currentLine.enabled": false,
+  "[scss]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "gitlens.advanced.messages": {
+    "suppressLineUncommittedWarning": true
+  },
 }
