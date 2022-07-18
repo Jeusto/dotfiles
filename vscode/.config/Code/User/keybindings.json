@@ -129,7 +129,7 @@
   },
   {
     "key": "alt+]",
-    "command": "editor.unfoldAllExcept",
+    "command": "editor.unfoldAll",
     "when": "editorTextFocus && foldingEnabled"
   },
   {
