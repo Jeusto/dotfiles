@@ -1,1 +1,1 @@
-dconf dump / > $HOME/Dotfiles/.external-settings/dconf-dumps/global-dconf.dump
+dconf dump / > $HOME/Dotfiles/.external/dconf-dumps/global-dconf.dump
