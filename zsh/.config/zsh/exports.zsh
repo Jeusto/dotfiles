@@ -1,4 +1,4 @@
-export THEME=dark
+export THEME=light
 
 # Path
 export PATH=\

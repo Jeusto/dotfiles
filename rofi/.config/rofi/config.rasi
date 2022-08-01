@@ -1,5 +1,5 @@
 configuration {
-    modi: "drun,window,windowcd,run,ssh,emoji,combi";
+    modi: "drun,window,windowcd,run,ssh,combi";
     show-icons: true;
     icon-theme: "Papirus";
     drun-match-fields: "name,generic,exec,categories";
@@ -7,7 +7,7 @@ configuration {
     sort: true;
     sorting-method: "fzf";
     matching: "normal";
-    combi-modi: "drun,window,windowcd,run,ssh,emoji";
+    combi-modi: "drun,window,windowcd,run,ssh";
     show: "combi";
     kb-remove-word-forward: "Control+Alt+d";
     kb-remove-char-forward: "Delete";
@@ -28,4 +28,4 @@ configuration {
     kb-row-right:"Control+l";
 }
 
-@theme "spotlight-dark.rasi"
+@theme "spotlight.rasi"

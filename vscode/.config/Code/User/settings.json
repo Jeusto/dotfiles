@@ -13,7 +13,6 @@
   // #########################
   "workbench.preferredLightColorTheme": "Atom One Light",
   "workbench.preferredDarkColorTheme": "One Dark Pro",
-  "workbench.colorTheme": "One Dark Pro",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorCustomizations": {
     "tab.activeBorder": "#0000",
@@ -158,7 +157,7 @@
   },
   "C_Cpp.clang_format_fallbackStyle": "Google",
   // Vscode-neovim
-  "vscode-neovim.neovimInitVimPaths.linux": "/home/asaday/.vscode-neovim.vim",
+  "vscode-neovim.neovimInitVimPaths.linux": "/home/asaday/.config/Code/.vscode-neovim.vim",
   "vscode-neovim.neovimExecutablePaths.linux": "/snap/bin/nvim",
   "vscode-neovim.mouseSelectionStartVisualMode": true,
   "extensions.experimental.affinity": {
@@ -286,7 +285,7 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "//": "Last update at 7/18/2022, 11:55:25 PM",
+    "//": "Last update at 8/1/2022, 10:22:28 AM",
     "*.asax": "$(capture).*.cs, $(capture).*.vb",
     "*.ascx": "$(capture).*.cs, $(capture).*.vb",
     "*.ashx": "$(capture).*.cs, $(capture).*.vb",
@@ -310,7 +309,7 @@
     "*.pubxml": "$(capture).pubxml.user",
     "*.resx": "$(capture).*.resx, $(capture).designer.cs, $(capture).designer.vb",
     "*.tex": "$(capture).acn, $(capture).acr, $(capture).alg, $(capture).aux, $(capture).bbl, $(capture).blg, $(capture).fdb_latexmk, $(capture).fls, $(capture).glg, $(capture).glo, $(capture).gls, $(capture).idx, $(capture).ind, $(capture).ist, $(capture).lof, $(capture).log, $(capture).lot, $(capture).out, $(capture).pdf, $(capture).synctex.gz, $(capture).toc, $(capture).xdv",
-    "*.ts": "$(capture).js, $(capture).*.ts, $(capture)_*.js, $(capture)_*.ts",
+    "*.ts": "$(capture).js, $(capture).d.ts.map, $(capture).*.ts, $(capture)_*.js, $(capture)_*.ts",
     "*.tsx": "$(capture).ts, $(capture).*.tsx, $(capture)_*.ts, $(capture)_*.tsx",
     "*.vbproj": "*.config, *proj.user, appsettings.*, bundleconfig.json",
     "*.vue": "$(capture).*.ts, $(capture).*.js",
@@ -437,4 +436,8 @@
   "gitlens.advanced.messages": {
     "suppressLineUncommittedWarning": true
   },
+  "workbench.colorTheme": "Atom One Light",
+  "settingsSync.ignoredSettings": [
+    "vscode-neovim.neovimExecutablePaths.linux"
+  ],
 }
