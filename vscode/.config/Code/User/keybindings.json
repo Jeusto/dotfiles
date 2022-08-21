@@ -323,13 +323,25 @@
   // Match neovim plugin mappings
   // ===========================================================================
   // expand-region
+  // {
+  //   "key": "alt+=",
+  //   "command": "editor.action.smartSelect.expand",
+  // },
+  // {
+  //   "key": "alt+-",
+  //   "command": "editor.action.smartSelect.shrink",
+  // },
   {
     "key": "alt+=",
-    "command": "editor.action.smartSelect.expand",
+    "args": "<A-=>",
+    "command": "vscode-neovim.send",
+    "when": "editorTextFocus && neovim.init && neovim.mode != insert || neovim.recording"
   },
   {
     "key": "alt+-",
-    "command": "editor.action.smartSelect.shrink",
+    "args": "<A-->",
+    "command": "vscode-neovim.send",
+    "when": "editorTextFocus && neovim.init && neovim.mode != insert || neovim.recording"
   },
   // code-runner
   {
