@@ -20,6 +20,7 @@ export HISTCONTROL=ignoreboth
 export QT_QPA_PLATFORMTHEME=gtk2
 export FZF_DEFAULT_COMMAND="fdfind --type f --hidden --follow --exclude .git"
 export FZF_COMPLETION_TRIGGER=''
+export TERM="xterm-256color"
 
 # Change FZF and Bat color scheme depending on system theme
 if [[ $THEME == "dark" ]]

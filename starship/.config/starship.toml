@@ -39,7 +39,7 @@ untracked = "  ${count}"
 
 [status]
 disabled = false
-symbol = "✖"
+symbol = " "
 format = "[ $symbol$status ]($style)"
 style = " bg:#e06c75 fg:#282c34"
 
