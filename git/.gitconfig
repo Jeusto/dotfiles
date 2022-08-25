@@ -1,5 +1,13 @@
 [core]
-  editor = nvim
+  editor = code --wait
+[diff]
+  tool = vscode
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
+[merge]
+  tool = vscode
+[mergetool "vscode"]
+  cmd = code --wait $MERGED
 
 [user]
   name = Arhun Saday
@@ -18,7 +26,6 @@
   autocorrect = 01
   
 [alias]
-  # One letters
   a = add
   b = branch
   c = commit

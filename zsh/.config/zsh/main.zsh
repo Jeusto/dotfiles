@@ -5,14 +5,6 @@
 # Starship prompt
 eval "$(starship init zsh)"
 
-# Plugins
-source $HOME/.config/zsh/plugins/command-not-found.plugin.zsh
-source $HOME/.config/zsh/plugins/colored-man-pages.plugin.zsh
-source $HOME/.config/zsh/plugins/zsh-autosuggestions.zsh
-source $HOME/.config/zsh/plugins/zsh-z.plugin.zsh
-source $HOME/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
-source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # Other
 bindkey -e
 PROMPT_EOL_MARK=''
@@ -28,9 +20,15 @@ setopt incappendhistory
 ###  Plugins  ###
 #################
 
+source $HOME/.config/zsh/plugins/command-not-found.plugin.zsh
+source $HOME/.config/zsh/plugins/colored-man-pages.plugin.zsh
+source $HOME/.config/zsh/plugins/zsh-autosuggestions.zsh
+source $HOME/.config/zsh/plugins/zsh-z.plugin.zsh
+source $HOME/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
+source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 # FZF keybindings
 source /usr/share/doc/fzf/examples/key-bindings.zsh
-export FZF_COMPLETION_TRIGGER=''
 bindkey '\ef' fzf-file-widget
 bindkey '^F' fzf-file-widget
 

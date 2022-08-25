@@ -28,4 +28,4 @@ configuration {
     kb-row-right:"Control+l";
 }
 
-@theme "spotlight.rasi"
+@theme "spotlight-dark.rasi"

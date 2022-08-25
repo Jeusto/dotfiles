@@ -25,9 +25,9 @@ alias l1a="l -1 -a"
 alias lla="ll -a"
 
 # FZF
-alias fzfp="fzf --preview 'batcat --style=numbers --color=always --line-range :500 {}'"
-alias fzfc="fzf | xclip -selection clipboard"
-alias fzfv="fzf | xargs -I{} nvim {}"
+alias fp="fzf --preview 'batcat --style=numbers --color=always --line-range :500 {}'"
+alias fc="fzf | xclip -selection clipboard"
+alias fv="fzf | xargs -I{} nvim {}"
 
 # Other
 alias v='nvim'
@@ -42,6 +42,7 @@ alias ye="yeelight-cli 192.168.1.20"
 alias y="yarn"
 alias r="ranger"
 alias emptytrash="rm -pr -f ~/.local/share/Trash/files/*"
+alias gc="gcc -Wall -Wextra -Werror -std=c99 -pedantic"
 
 [[ "$TERM" == "xterm-kitty" ]] && alias ssh="kitty +kitten ssh"
 

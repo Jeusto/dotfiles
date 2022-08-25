@@ -7,14 +7,14 @@ My personal dotfiles for Linux managed using [GNU Stow](https://www.gnu.org/soft
 
 ### Main points
 
-- **OS**: Ubuntu
+- **OS**: Pop OS
 - **Tiling window manager**: Pop Shell
 - **Terminal**: Kitty
 - **Shell**: Zsh
 - **Prompt**: Starship
-- **App launcher/dynamic menu**: Rofi
-- **Browser**: Firefox
-- **Editor**: Nvim, Vscode (with embedded full Neovim instance) and Intellij (with vim emulation)
+- **App launcher/dynamic menu**: Rofi & Pop Launcher
+- **Browser**: Firefox with Vimium-C extension
+- **Editor**: Nvim, Vscode (with full Neovim instance embedded)
 - **File manager**: Nemo (gui-based) and Ranger (console based)
 
 ### Visual tweaks

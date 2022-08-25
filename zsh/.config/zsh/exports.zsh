@@ -1,4 +1,4 @@
-export THEME=light
+export THEME=dark
 
 # Path
 export PATH=\
@@ -19,6 +19,7 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 export HISTCONTROL=ignoreboth
 export QT_QPA_PLATFORMTHEME=gtk2
 export FZF_DEFAULT_COMMAND="fdfind --type f --hidden --follow --exclude .git"
+export FZF_COMPLETION_TRIGGER=''
 
 # Change FZF and Bat color scheme depending on system theme
 if [[ $THEME == "dark" ]]
