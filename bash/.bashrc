@@ -2,8 +2,10 @@
 eval "$(starship init bash)"
 
 # FZF 
-source /usr/share/doc/fzf/examples/key-bindings.bash
-source /usr/share/doc/fzf/examples/completion.bash
+# source /usr/share/doc/fzf/examples/key-bindings.bash
+# source /usr/share/doc/fzf/examples/completion.bash
+source $HOME/.bash-plugins/fzf-key-bindings.bash
+source $HOME/.bash-plugins/fzf-completion.bash
 
 # _fzf_compgen_path() {
 #   fd --hidden --follow --exclude ".git" . "$1"

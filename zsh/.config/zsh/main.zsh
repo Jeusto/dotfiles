@@ -28,7 +28,7 @@ source $HOME/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
 source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # FZF keybindings
-source /usr/share/doc/fzf/examples/key-bindings.zsh
+source $HOME/.config/zsh/plugins/fzf-key-bindings.zsh
 bindkey '\ef' fzf-file-widget
 bindkey '^F' fzf-file-widget
 

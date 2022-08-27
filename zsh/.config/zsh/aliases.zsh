@@ -43,6 +43,8 @@ alias y="yarn"
 alias r="ranger"
 alias emptytrash="rm -pr -f ~/.local/share/Trash/files/*"
 alias gc="gcc -Wall -Wextra -Werror -std=c99 -pedantic"
+alias python="python3"
+alias pip="pip3"
 
 [[ "$TERM" == "xterm-kitty" ]] && alias ssh="kitty +kitten ssh"
 
