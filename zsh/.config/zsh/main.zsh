@@ -27,6 +27,7 @@ function zle-keymap-select {
   fi
 }
 zle -N zle-keymap-select
+bindkey '^W' backward-delete-word
 
 # Use beam shape cursor for each new prompt.
 _fix_cursor() {
