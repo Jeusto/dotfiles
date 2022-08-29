@@ -44,7 +44,6 @@
   "workbench.editor.pinnedTabSizing": "shrink",
   "workbench.sideBar.location": "right",
   "workbench.editor.tabSizing": "shrink",
-  "zenMode.fullScreen": false,
   "zenMode.hideLineNumbers": false,
   // ################
   // ###  Editor  ###
@@ -58,7 +57,6 @@
   "editor.occurrencesHighlight": false,
   "editor.scrollbar.horizontalScrollbarSize": 14,
   "editor.guides.bracketPairs": true,
-  "editor.bracketPairColorization.enabled": true,
   "editor.accessibilitySupport": "off",
   "editor.inlineSuggest.enabled": true,
   "editor.tabSize": 2,
@@ -249,7 +247,6 @@
   "explorer.confirmDragAndDrop": false,
   "search.useReplacePreview": false,
   "workbench.editor.untitled.hint": "hidden",
-  "diffEditor.wordWrap": "off",
   "problems.showCurrentInStatus": true,
   "security.workspace.trust.banner": "never",
   "search.searchEditor.doubleClickBehaviour": "selectWord",
@@ -279,7 +276,7 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "//": "Last update at 8/27/2022, 6:58:18 PM",
+    "//": "Last update at 8/30/2022, 1:00:59 AM",
     "*.asax": "$(capture).*.cs, $(capture).*.vb",
     "*.ascx": "$(capture).*.cs, $(capture).*.vb",
     "*.ashx": "$(capture).*.cs, $(capture).*.vb",
@@ -356,7 +353,6 @@
   "window.customMenuBarAltFocus": false,
   "workbench.editor.tabCloseButton": "off",
   "codestream.serverUrl": "https://api.codestream.com",
-  "diffEditor.renderSideBySide": false,
   "gitlens.defaultDateFormat": "D MMM YY -- dddd",
   "gitlens.defaultTimeFormat": "hh:mm",
   "gitlens.defaultDateShortFormat": "D/MM/YY",

@@ -5,8 +5,36 @@
 # Starship prompt
 eval "$(starship init zsh)"
 
+# Vi mode cursor
+bindkey -v 
+
+# Remove mode switching delay.
+KEYTIMEOUT=5
+
+# Change cursor shape for different vi modes.
+function zle-keymap-select {
+  zle reset-prompt
+  zle -R
+  if [[ ${KEYMAP} == vicmd ]] ||
+      [[ $1 = 'block' ]]; then
+    echo -ne '\e[1 q'
+
+  elif [[ ${KEYMAP} == main ]] ||
+        [[ ${KEYMAP} == viins ]] ||
+        [[ ${KEYMAP} = '' ]] ||
+        [[ $1 = 'beam' ]]; then
+    echo -ne '\e[5 q'
+  fi
+}
+zle -N zle-keymap-select
+
+# Use beam shape cursor for each new prompt.
+_fix_cursor() {
+   echo -ne '\e[5 q'
+}
+precmd_functions+=(_fix_cursor)
+
 # Other
-bindkey -e
 PROMPT_EOL_MARK=''
 setopt globdots
 
@@ -37,6 +65,7 @@ zstyle ':completion:*' menu select
 
 # Autosuggest 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#4e5666"
+bindkey '^E' autosuggest-accept
 
 ###############
 ###  Other  ###

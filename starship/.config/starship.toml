@@ -4,7 +4,7 @@ format = """
 (fg:#61afef bg:#98c379)$git_branch[\uE0B0]\
 (fg:#98c379 bg:#e5c07b)$git_status[\uE0B0]\
 (#e5c07b bg:#e06c75)$status[\uE0B0]\
-(#e06c75 bg:) $all$character """
+(#e06c75 bg:) $all$character"""
 
 add_newline = true
 
@@ -44,7 +44,8 @@ format = "[ $symbol$status ]($style)"
 style = " bg:#e06c75 fg:#282c34"
 
 [character]
-format = " $symbol"
+format = " $symbol "
+vicmd_symbol = "[⬢](bold green)"
 
 [package]
 disabled = true
@@ -55,4 +56,6 @@ disabled = true
 [python]
 disabled = true
 [c]
+disabled = true
+[battery]
 disabled = true
