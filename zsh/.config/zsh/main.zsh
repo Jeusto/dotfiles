@@ -65,7 +65,13 @@ bindkey '^F' fzf-file-widget
 zstyle ':completion:*' menu select
 
 # Autosuggest 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#4e5666"
+if [[ $THEME = "light" ]]; then
+  ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#7a8599"
+else
+  ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#4e5666"
+fi
+
+
 bindkey '^E' autosuggest-accept
 
 ###############
