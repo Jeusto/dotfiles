@@ -27,13 +27,17 @@ function zle-keymap-select {
   fi
 }
 zle -N zle-keymap-select
-bindkey '^W' backward-delete-word
 
 # Use beam shape cursor for each new prompt.
 _fix_cursor() {
    echo -ne '\e[5 q'
 }
 precmd_functions+=(_fix_cursor)
+
+# Readd some emacs keubindings
+bindkey '^W' backward-delete-word
+bindkey '^P' history-beginning-search-backward
+bindkey '^N' history-beginning-search-forward
 
 # Other
 PROMPT_EOL_MARK=''
