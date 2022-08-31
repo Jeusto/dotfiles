@@ -1,3 +1,9 @@
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.config/nvim-plugins')
   source $HOME/.config/nvim/plugins/vim-easymotion.vim
   source $HOME/.config/nvim/plugins/vim-airline.vim "Status/tabline
@@ -5,7 +11,7 @@ call plug#begin('~/.config/nvim-plugins')
   source $HOME/.config/nvim/plugins/vim-gitgutter.vim "Show git gutters
   source $HOME/.config/nvim/plugins/nerdtree.vim "File navigation window
   source $HOME/.config/nvim/plugins/ale.vim "Linting
-  source $HOME/.config/nvim/plugins/coc.vim "Intellisense
+  source $HOME/.config/nvim/plugins/coc.vim "Intellisense 
   source $HOME/.config/nvim/plugins/fzf.vim "Fuzzy search
   Plug 'tpope/vim-surround' "Easily add/remove brackets/tags etc
   Plug 'tpope/vim-unimpaired' "Pairs of handy bracket mappings
