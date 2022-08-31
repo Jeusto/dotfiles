@@ -27,15 +27,17 @@ if [[ $THEME == "dark" ]]
 then
   export BAT_THEME="OneHalfDark"
   export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
-   --color=fg:#abb2bf,bg:#282c34,hl:#326996
+   --color=dark
+   --color=fg:#abb2bf,hl:#326996
    --color=fg+:#d3dae6,bg+:#3b414d,hl+:#61afef
    --color=info:#e5c07b,prompt:#e06c75,pointer:#c678dd
    --color=marker:#98c379,spinner:#c678dd,header:#56b6c2'
 else
   export BAT_THEME="OneHalfLight"
   export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
-   --color=fg:#696c77,bg:#fafafa,hl:#4078f2
+   --color=light
+   --color=fg:#696c77,hl:#4078f2
    --color=fg+:#202227,bg+:#f0f0f1,hl+:#4078f2
-   --color=info:#c18401,prompt:#c18401,pointer:#0184bc
+   --color=info:#c18401,prompt:#202227,pointer:#0184bc
    --color=marker:#0184bc,spinner:#0184bc,header:#4078f2'
 fi
