@@ -45,13 +45,24 @@ bindkey '^E' autosuggest-accept
 ###  Other  ###
 ###############
 
+# Case insensitive autocompletion
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+autoload -Uz compinit && compinit
+# Disable sort when completing 'git checkout'
+zstyle ':completion:*:git-checkout:*' sort false
+# Set descriptions format to enable group support
+zstyle ':completion:*:descriptions' format '[%d]'
+# Set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# Preview directory's content with exa when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+
 # Vi with some Emacs flavor control keys.
 bindkey -v
 bindkey "^A" beginning-of-line
 bindkey "^E" end-of-line
 bindkey "^K" kill-line
 bindkey "^L" clear-screen
-bindkey "^R" history-incremental-search-backward
 bindkey "^U" kill-whole-line
 bindkey "^W" backward-kill-word
 bindkey "^Y" yank
