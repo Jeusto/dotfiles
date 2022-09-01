@@ -2,46 +2,10 @@
 ###  General configuration  ###
 ###############################
 
+setopt globdots
+
 # Starship prompt
 eval "$(starship init zsh)"
-
-# Vi mode cursor
-bindkey -v 
-
-# Remove mode switching delay.
-KEYTIMEOUT=5
-
-# Change cursor shape for different vi modes.
-function zle-keymap-select {
-  zle reset-prompt
-  zle -R
-  if [[ ${KEYMAP} == vicmd ]] ||
-      [[ $1 = 'block' ]]; then
-    echo -ne '\e[1 q'
-
-  elif [[ ${KEYMAP} == main ]] ||
-        [[ ${KEYMAP} == viins ]] ||
-        [[ ${KEYMAP} = '' ]] ||
-        [[ $1 = 'beam' ]]; then
-    echo -ne '\e[5 q'
-  fi
-}
-zle -N zle-keymap-select
-
-# Use beam shape cursor for each new prompt.
-_fix_cursor() {
-   echo -ne '\e[5 q'
-}
-precmd_functions+=(_fix_cursor)
-
-# Readd some emacs keubindings
-bindkey '^W' backward-delete-word
-bindkey '^P' history-beginning-search-backward
-bindkey '^N' history-beginning-search-forward
-
-# Other
-PROMPT_EOL_MARK=''
-setopt globdots
 
 # Save commands history to a file
 HISTFILE=~/.zsh_history
@@ -75,28 +39,48 @@ else
   ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#4e5666"
 fi
 
-
 bindkey '^E' autosuggest-accept
 
 ###############
 ###  Other  ###
 ###############
 
-# Some keymaps
-bindkey '^l' forward-word
-bindkey '^h' backward-word
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
-bindkey '^L' clear-screen
+# Vi with some Emacs flavor control keys.
+bindkey -v
+bindkey "^A" beginning-of-line
+bindkey "^E" end-of-line
+bindkey "^K" kill-line
+bindkey "^L" clear-screen
+bindkey "^R" history-incremental-search-backward
+bindkey "^U" kill-whole-line
+bindkey "^W" backward-kill-word
+bindkey "^Y" yank
+bindkey '^P' history-beginning-search-backward
+bindkey '^N' history-beginning-search-forward
 
-# Case insesitive autocompletion
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
-autoload -Uz compinit && compinit
-# Disable sort when completing 'git checkout'
-zstyle ':completion:*:git-checkout:*' sort false
-# Set descriptions format to enable group support
-zstyle ':completion:*:descriptions' format '[%d]'
-# Set list-colors to enable filename colorizing
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-# Preview directory's content with exa when completing cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+function zle-line-init() {
+  # Note: this initial mode must match the $VIMODE initial value above.
+  zle -K viins
+}
+
+zle -N zle-line-init
+
+# Show insert/command mode in vi.
+# zle-keymap-select is executed every time KEYMAP changes.
+function zle-keymap-select {
+  VIMODE="${${KEYMAP/vicmd/ C}/(main|viins)/ I}"
+  zle reset-prompt
+  zle -R
+
+  if [[ ${KEYMAP} == vicmd ]] ||
+      [[ $1 = 'block' ]]; then
+    echo -ne '\e[1 q'
+
+  elif [[ ${KEYMAP} == main ]] ||
+        [[ ${KEYMAP} == viins ]] ||
+        [[ ${KEYMAP} = '' ]] ||
+        [[ $1 = 'beam' ]]; then
+    echo -ne '\e[5 q'
+  fi
+}
+zle -N zle-keymap-select
