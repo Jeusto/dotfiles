@@ -151,15 +151,15 @@
   },
   "C_Cpp.clang_format_fallbackStyle": "Google",
   // Vscode-neovim
-  "vscode-neovim.neovimInitVimPaths.linux": "/home/asaday/.config/Code/.vscode-neovim.vim",
-  "vscode-neovim.neovimExecutablePaths.linux": "/snap/bin/nvim",
+  "vscode-neovim.neovimInitVimPaths.linux": "/home/asaday/.vscode-neovim.vim",
+  "vscode-neovim.neovimExecutablePaths.linux": "/home/linuxbrew/.linuxbrew/bin//nvim",
   "vscode-neovim.mouseSelectionStartVisualMode": true,
   "extensions.experimental.affinity": {
     "vscodevim.vim": 1,
     "asvetliakov.vscode-neovim": 1
   },
   "vscode-neovim.textDecorationsAtTop": true,
-  "vscode-neovim.neovimWidth": 50,
+  "vscode-neovim.neovimWidth": 120,
   // "vscode-neovim.highlightGroups.unknownHighlight": "vim",
   "vscode-neovim.highlightGroups.ignoreHighlights": [],
   "vscode-neovim.highlightGroups.highlights": {
@@ -276,7 +276,7 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "//": "Last update at 9/1/2022, 3:30:32 PM",
+    "//": "Last update at 9/2/2022, 11:48:25 AM",
     "*.asax": "$(capture).*.cs, $(capture).*.vb",
     "*.ascx": "$(capture).*.cs, $(capture).*.vb",
     "*.ashx": "$(capture).*.cs, $(capture).*.vb",
@@ -429,9 +429,6 @@
     "suppressLineUncommittedWarning": true
   },
   "workbench.colorTheme": "One Dark Pro",
-  "settingsSync.ignoredSettings": [
-    "vscode-neovim.neovimExecutablePaths.linux"
-  ],
   "trunk.trunkGrayOutNonBlockingIssues": false,
   "clangd.path": "/home/asaday/.config/Code/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/14.0.3/clangd_14.0.3/bin/clangd",
   "window.titleBarStyle": "custom",

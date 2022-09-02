@@ -1,7 +1,8 @@
 Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'yarn install --frozen-lockfile' }
 
 let g:coc_preferences_enableFloatHighLight = 0
-let g:coc_config_home = '$HOME/.coc'
+let g:coc_config_home = '$HOME/vim/.coc'
+let g:coc_disable_startup_warning = 1
 
 "Coc extensions"
 let g:coc_global_extensions = [
