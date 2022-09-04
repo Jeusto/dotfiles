@@ -16,6 +16,10 @@ lvim.colorscheme = "onedark"
 if os.getenv('theme') == 'light' then
   vim.o.background = 'light'
 end
+vim.opt.relativenumber = true
+vim.opt.nuw = 2
+vim.opt.smartcase = true
+vim.opt.wrap = false
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -25,6 +29,39 @@ lvim.leader = "space"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
+vim.cmd([[
+  "Make 0 act like Home
+  nnoremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
+
+  "D and c only deletes, use x for delete and yank, use dl for removing letter
+  nnoremap x d
+  xnoremap x d
+  nnoremap xx dd
+  nnoremap X D
+
+  nnoremap d "_d
+  vnoremap d "_d
+  nnoremap D "_D
+  vnoremap D "_D
+
+  nnoremap c "_c
+  vnoremap c "_c
+  nnoremap C "_C
+  vnoremap C "_C
+
+  "Easier command-line mode 
+  nnoremap ; :
+  xnoremap ; :
+
+  "Buffers manipulation
+  nnoremap <silent> <A-e> :Buffers<CR>
+  nmap <A-w> :bdel <cr>
+  nmap <A-q> :bufdo bdelete <cr>
+  nmap <A-h> :bprevious <cr>
+  nmap <A-l> :bnext <cr>
+  nnoremap <A-0> :bfirst<CR>
+  nnoremap <A-9> :blast<CR>
+]])
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
 -- override a default keymapping
@@ -66,7 +103,7 @@ lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "right"
-lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
+lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
@@ -86,6 +123,17 @@ lvim.builtin.treesitter.ensure_installed = {
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
+
+-- lvim.builtin.gitsigns.opts = {
+--   signs = {
+--     add          = { hl = 'GitSignsAdd', text = '▋', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' },
+--     change       = { hl = 'GitSignsChange', text = '▋', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
+--     delete       = { hl = 'GitSignsDelete', text = '▸', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
+--     topdelete    = { hl = 'GitSignsDelete', text = '▸', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
+--     changedelete = { hl = 'GitSignsChange', text = '▋', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
+--   },
+--   numhl = true,
+-- }
 
 -- generic LSP settings
 
@@ -183,6 +231,16 @@ lvim.plugins = {
   { "tpope/vim-surround" },
   { "p00f/nvim-ts-rainbow", },
   {
+    "folke/trouble.nvim",
+    cmd = "TroubleToggle",
+  },
+  {
+    "simrat39/symbols-outline.nvim",
+    config = function()
+      require('symbols-outline').setup()
+    end
+  },
+  {
     "romgrk/nvim-treesitter-context",
     config = function()
       require("treesitter-context").setup {
@@ -201,26 +259,46 @@ lvim.plugins = {
       }
     end
   },
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    config = function()
-      local opts = {
-        filetype_exclude = {
-          "alpha",
-          "help",
-          "terminal",
-          "dashboard",
-          "lspinfo",
-          "lsp-installer",
-          "mason",
-        },
-        buftype_exclude = { "terminal" },
-        bufname_exclude = { "config.lua" },
-      }
+  { "psliwka/vim-smoothie" },
+  -- {
+  --   "karb94/neoscroll.nvim",
+  --   event = "WinScrolled",
+  --   config = function()
+  --     require('neoscroll').setup({
+  --       -- All these keys will be mapped to their corresponding default scrolling animation
+  --       mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-f>',
+  --         '<C-y>', '<C-e>', 'zt', 'zz', 'zb' },
+  --       hide_cursor = true, -- Hide cursor while scrolling
+  --       stop_eof = true, -- Stop at <EOF> when scrolling downwards
+  --       use_local_scrolloff = false, -- Use the local scope of scrolloff instead of the global scope
+  --       respect_scrolloff = false, -- Stop scrolling when the cursor reaches the scrolloff margin of the file
+  --       cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
+  --       easing_function = nil, -- Default easing function
+  --       pre_hook = nil, -- Function to run before the scrolling animation starts
+  --       post_hook = nil, -- Function to run after the scrolling animation ends
+  --     })
+  --   end
+  -- },
+  -- {
+  --   "lukas-reineke/indent-blankline.nvim",
+  --   config = function()
+  --     local opts = {
+  --       filetype_exclude = {
+  --         "alpha",
+  --         "help",
+  --         "terminal",
+  --         "dashboard",
+  --         "lspinfo",
+  --         "lsp-installer",
+  --         "mason",
+  --       },
+  --       buftype_exclude = { "terminal" },
+  --       bufname_exclude = { "config.lua" },
+  --     }
 
-      require("indent_blankline").setup(opts)
-    end
-  },
+  --     require("indent_blankline").setup(opts)
+  --   end
+  -- },
 }
 -- lvim.builtin.cmp.formatting.source_names["copilot"] = "(Copilot)"
 -- table.insert(lvim.builtin.cmp.sources, 1, { name = "copilot" })
@@ -238,42 +316,3 @@ lvim.plugins = {
 --     require("nvim-treesitter.highlight").attach(0, "bash")
 --   end,
 -- })
-
-vim.opt.relativenumber = true
-vim.opt.nuw = 2
-vim.opt.smartcase = true
-vim.opt.wrap = false
-
-vim.cmd([[
-  "Make 0 act like Home
-  nnoremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
-
-  "D and c only deletes, use x for delete and yank, use dl for removing letter
-  nnoremap x d
-  xnoremap x d
-  nnoremap xx dd
-  nnoremap X D
-
-  nnoremap d "_d
-  vnoremap d "_d
-  nnoremap D "_D
-  vnoremap D "_D
-
-  nnoremap c "_c
-  vnoremap c "_c
-  nnoremap C "_C
-  vnoremap C "_C
-
-  "Easier command-line mode 
-  nnoremap ; :
-  xnoremap ; :
-
-  "Buffers manipulation
-  nnoremap <silent> <A-e> :Buffers<CR>
-  nmap <A-w> :bdel <cr>
-  nmap <A-q> :bufdo bdelete <cr>
-  nmap <A-h> :bprevious <cr>
-  nmap <A-l> :bnext <cr>
-  nnoremap <A-0> :bfirst<CR>
-  nnoremap <A-9> :blast<CR>
-]])

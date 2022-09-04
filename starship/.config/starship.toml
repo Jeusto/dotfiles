@@ -47,6 +47,9 @@ style = " bg:#e06c75 fg:#282c34"
 format = " $symbol "
 vicmd_symbol = "[⬢](bold green)"
 
+[jobs]
+format = "[ $symbol$number]($style)"
+
 [package]
 disabled = true
 [java]

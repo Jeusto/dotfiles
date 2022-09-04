@@ -5,9 +5,9 @@ export PATH=\
 /home/linuxbrew/.linuxbrew/bin/:\
 /usr/share/code/:\
 $HOME/.cargo/bin:\
-$HOME/.scripts:\
 $HOME/.local:\
 $HOME/.local/bin:\
+$HOME/bin:\
 $PATH
 
 # Environment variables

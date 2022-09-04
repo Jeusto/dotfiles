@@ -15,7 +15,7 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
 "Hide search higlights
-nmap <leader>u :nohlsearch<CR>
+nmap <leader>h :nohlsearch<CR>
 
 "Quicker switching between windows
 nmap <C-h> <C-w>h

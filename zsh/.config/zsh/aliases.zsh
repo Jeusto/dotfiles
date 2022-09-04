@@ -12,6 +12,7 @@ alias 5..='cd ../../../../..'
 
 # Git
 alias dot='git -C $HOME/Dotfiles'
+alias dotfiles='~/Dotfiles/dotfiles'
 alias g="git"
 alias gs="git status"
 alias gf="git fetch"
@@ -31,6 +32,7 @@ alias fv="fzf | xargs -I{} nvim {}"
 
 # Other
 alias v='nvim'
+alias lv='lvim'
 alias py="python3"
 alias bat="batcat"
 alias del="trash-put"
@@ -50,9 +52,6 @@ alias pip="pip3"
 
 # Enable aliases to be sudo'ed
 alias su='sudo '
-
-# Print each PATH entry on a separate line
-alias path="echo -e ${PATH//:/\\n}"
 
 # Valgrind and redirect output to a file
 alias vg='valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt'

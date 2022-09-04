@@ -25,6 +25,11 @@ cl() {
         ls -F --color=auto
 }
 
+# Print each PATH entry on a separate line
+path() {
+  echo "${PATH//:/$'\n'}"
+}
+
 ##############################
 ###  Functions using curl  ###
 ##############################

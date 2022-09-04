@@ -4,9 +4,8 @@
 /.Dotfiles.iml
 /.idea
 /README.md
-/install.sh
-/dotfiles
 
+/scripts
 /bash
 /git
 /intellij
@@ -17,3 +16,4 @@
 /vscode
 /zsh
 /vim
+/ranger

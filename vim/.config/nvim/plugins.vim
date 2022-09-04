@@ -28,6 +28,7 @@ call plug#begin('~/.config/nvim-plugins')
   Plug 'terryma/vim-expand-region'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'airblade/vim-rooter'
+  Plug 'psliwka/vim-smoothie'
 call plug#end()
 
 "Random plugin settings/mappings

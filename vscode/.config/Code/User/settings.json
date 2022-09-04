@@ -3,10 +3,10 @@
   // ###  Font  ###
   // ###############
   "editor.fontLigatures": false,
-  "editor.fontFamily": "'JetBrainsMono Nerd Font'",
+  "editor.fontFamily": "'JetBrainsMono Nerd Font', monospace",
   "editor.fontWeight": "500",
-  "editor.inlayHints.fontFamily": "'JetBrainsMono Nerd Font'",
-  "editor.codeLensFontFamily": "'JetBrainsMono Nerd Font'",
+  "editor.inlayHints.fontFamily": "'JetBrainsMono Nerd Font', monospace",
+  "editor.codeLensFontFamily": "'JetBrainsMono Nerd Font', monospace",
   "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font', monospace",
   // #########################
   // ###  Theme and style  ###
@@ -36,7 +36,6 @@
     "terminal.ansiWhite": "#e6e6e6",
     "terminal.ansiYellow": "#e5c07b"
   },
-  "terminal.integrated.cursorStyle": "line",
   // ###################
   // ###  Interface  ###
   // ###################
@@ -82,7 +81,7 @@
   "editor.formatOnType": true,
   "editor.renderWhitespace": "none",
   "git.enableSmartCommit": true,
-  "git.decorations.enabled": false,
+  "git.decorations.enabled": true,
   "git.confirmEmptyCommits": false,
   "git.confirmSync": false,
   "workbench.editor.languageDetection": true,
@@ -104,6 +103,7 @@
   "terminal.integrated.commandsToSkipShell": [
     "-workbench.action.quickOpen"
   ],
+  "terminal.integrated.cursorStyle": "line",
   // ###################
   // ###  Languages  ###
   // ###################
@@ -158,7 +158,6 @@
     "vscodevim.vim": 1,
     "asvetliakov.vscode-neovim": 1
   },
-  "vscode-neovim.textDecorationsAtTop": true,
   "vscode-neovim.neovimWidth": 120,
   // "vscode-neovim.highlightGroups.unknownHighlight": "vim",
   "vscode-neovim.highlightGroups.ignoreHighlights": [],
@@ -204,36 +203,19 @@
   "liveServer.settings.donotVerifyTags": true,
   "liveServer.settings.root": "/",
   "liveServer.settings.donotShowInfoMsg": true,
-  "liveSassCompile.settings.showOutputWindow": false,
   "liveSassCompile.settings.autoprefix": [
     "> 1%",
     "last 2 versions"
   ],
-  "liveSassCompile.settings.formats": [
-    {
-      "format": "compressed",
-      "extensionName": ".css",
-      "savePath": "~"
-    }
-  ],
-  "gitlens.keymap": "alternate",
   // Other extensions
+  "gitlens.keymap": "alternate",
   "material-icon-theme.showWelcomeMessage": false,
   "codesnap.showWindowControls": false,
-  "react-native-tools.showUserTips": false,
   "oneDarkPro.italic": true,
   "svgviewer.showzoominout": true,
-  "l13Projects.autoRemoveDeletedProjects": true,
-  "l13Projects.git.maxDepthRecursion": 4,
-  "l13Projects.confirmDeleteProject": false,
-  "l13Projects.sortWorkspacesBy": "category",
-  "l13Projects.git.folders": [
-    "/home/asaday/Repos/",
-    "/home/asaday/Dotfiles"
-  ],
-  "l13Projects.groupDescriptionFormat": "both",
   "github.copilot.enable": {
-    "*": true,
+    "*": false,
+    "yaml": false,
     "plaintext": true,
     "markdown": true,
     "javascriptreact": true
@@ -241,42 +223,10 @@
   // ###############
   // ###  Other  ###
   // ###############
-  "window.openFilesInNewWindow": "default",
-  "files.eol": "\n",
-  "window.newWindowDimensions": "inherit",
-  "explorer.confirmDragAndDrop": false,
-  "search.useReplacePreview": false,
-  "workbench.editor.untitled.hint": "hidden",
-  "problems.showCurrentInStatus": true,
-  "security.workspace.trust.banner": "never",
-  "search.searchEditor.doubleClickBehaviour": "selectWord",
-  "security.workspace.trust.untrustedFiles": "open",
-  "debug.onTaskErrors": "debugAnyway",
-  "update.mode": "none",
-  "debug.toolBarLocation": "docked",
-  "window.autoDetectColorScheme": true,
-  "jupyter.askForKernelRestart": false,
-  "workbench.list.automaticKeyboardNavigation": false,
-  "diffEditor.ignoreTrimWhitespace": false,
-  "terminal.integrated.cursorBlinking": true,
-  "workbench.startupEditor": "none",
-  "explorer.confirmDelete": false,
-  "files.autoSave": "onFocusChange",
-  "python.formatting.provider": "black",
-  "where-am-i.colorful": false,
-  "where-am-i.textTransfrom": "none",
-  "explorer.experimental.fileNesting.enabled": true,
-  "explorer.experimental.fileNesting.expand": false,
-  "explorer.experimental.fileNesting.patterns": {
-    "//": "Last update at 5/11/2022, 11:20:57 AM"
-  },
-  "everforest.darkWorkbench": "flat",
-  "terminal.integrated.persistentSessionReviveProcess": "never",
-  "open-php-html-js-in-browser.selectedBrowser": "Firefox",
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "//": "Last update at 9/2/2022, 11:48:25 AM",
+    "//": "Last update at 9/4/2022, 11:38:40 AM",
     "*.asax": "$(capture).*.cs, $(capture).*.vb",
     "*.ascx": "$(capture).*.cs, $(capture).*.vb",
     "*.ashx": "$(capture).*.cs, $(capture).*.vb",
@@ -339,6 +289,28 @@
     "vite.config.*": "*.env, .babelrc*, .codecov, .cssnanorc*, .env.*, .envrc, .htmlnanorc*, .lighthouserc.*, .mocha*, .postcssrc*, .terserrc*, api-extractor.json, ava.config.*, babel.config.*, contentlayer.config.*, cssnano.config.*, cypress.*, env.d.ts, formkit.config.*, formulate.config.*, histoire.config.*, htmlnanorc.*, jasmine.*, jest.config.*, jsconfig.*, karma*, lighthouserc.*, playwright.config.*, postcss.config.*, puppeteer.config.*, svgo.config.*, tailwind.config.*, tsconfig.*, tsdoc.*, unocss.config.*, vitest.config.*, webpack.config.*, windi.config.*",
     "vue.config.*": "*.env, .babelrc*, .codecov, .cssnanorc*, .env.*, .envrc, .htmlnanorc*, .lighthouserc.*, .mocha*, .postcssrc*, .terserrc*, api-extractor.json, ava.config.*, babel.config.*, contentlayer.config.*, cssnano.config.*, cypress.*, env.d.ts, formkit.config.*, formulate.config.*, histoire.config.*, htmlnanorc.*, jasmine.*, jest.config.*, jsconfig.*, karma*, lighthouserc.*, playwright.config.*, postcss.config.*, puppeteer.config.*, svgo.config.*, tailwind.config.*, tsconfig.*, tsdoc.*, unocss.config.*, vitest.config.*, webpack.config.*, windi.config.*"
   },
+  "window.openFilesInNewWindow": "default",
+  "files.eol": "\n",
+  "window.newWindowDimensions": "inherit",
+  "explorer.confirmDragAndDrop": false,
+  "search.useReplacePreview": false,
+  "workbench.editor.untitled.hint": "hidden",
+  "problems.showCurrentInStatus": true,
+  "security.workspace.trust.banner": "never",
+  "search.searchEditor.doubleClickBehaviour": "selectWord",
+  "security.workspace.trust.untrustedFiles": "open",
+  "debug.onTaskErrors": "debugAnyway",
+  "update.mode": "none",
+  "debug.toolBarLocation": "docked",
+  "window.autoDetectColorScheme": true,
+  "jupyter.askForKernelRestart": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "terminal.integrated.cursorBlinking": true,
+  "workbench.startupEditor": "none",
+  "explorer.confirmDelete": false,
+  "files.autoSave": "onFocusChange",
+  "python.formatting.provider": "black",
+  "terminal.integrated.persistentSessionReviveProcess": "never",
   "editor.wordWrap": "wordWrapColumn",
   "leetcode.hint.commandShortcut": false,
   "leetcode.hint.commentDescription": false,
@@ -352,13 +324,12 @@
   "window.enableMenuBarMnemonics": false,
   "window.customMenuBarAltFocus": false,
   "workbench.editor.tabCloseButton": "off",
-  "codestream.serverUrl": "https://api.codestream.com",
   "gitlens.defaultDateFormat": "D MMM YY -- dddd",
   "gitlens.defaultTimeFormat": "hh:mm",
   "gitlens.defaultDateShortFormat": "D/MM/YY",
   "gitlens.defaultDateLocale": null,
   "explorer.compactFolders": false,
-  "warmUp.changeCount": "30",
+  "warmUp.changeCount": "15",
   "gitlens.codeLens.enabled": false,
   "commands.commands": {
     "Git Graph: View Git Graph": {
@@ -429,9 +400,10 @@
     "suppressLineUncommittedWarning": true
   },
   "workbench.colorTheme": "One Dark Pro",
-  "trunk.trunkGrayOutNonBlockingIssues": false,
-  "clangd.path": "/home/asaday/.config/Code/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/14.0.3/clangd_14.0.3/bin/clangd",
   "window.titleBarStyle": "custom",
   "workbench.layoutControl.enabled": false,
   "terminal.integrated.shellIntegration.decorationsEnabled": "overviewRuler",
+  "editor.experimental.stickyScroll.enabled": true,
+  "editor.smoothScrolling": true,
+  "editor.mouseWheelScrollSensitivity": 2,
 }

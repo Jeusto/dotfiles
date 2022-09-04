@@ -274,6 +274,14 @@
     "command": "workbench.action.nextEditorInGroup"
   },
   {
+    "key": "shift+h",
+    "command": "workbench.action.previousEditorInGroup"
+  },
+  {
+    "key": "shift+l",
+    "command": "workbench.action.nextEditorInGroup"
+  },
+  {
     "key": "alt+t",
     "command": "workbench.action.files.newUntitledFile"
   },
