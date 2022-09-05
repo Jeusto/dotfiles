@@ -226,7 +226,13 @@ lvim.plugins = {
   -- { "zbirenbaum/copilot-cmp",
   --   after = { "copilot.lua", "nvim-cmp" },
   -- },
-  { "navarasu/onedark.nvim" },
+  { "navarasu/onedark.nvim",
+    config = function()
+      require('onedark').setup {
+        style = 'darker'
+      }
+    end
+  },
   { "tpope/vim-unimpaired" },
   { "tpope/vim-surround" },
   { "p00f/nvim-ts-rainbow", },

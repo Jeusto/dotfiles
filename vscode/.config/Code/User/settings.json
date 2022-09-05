@@ -12,7 +12,7 @@
   // ###  Theme and style  ###
   // #########################
   "workbench.preferredLightColorTheme": "Atom One Light",
-  "workbench.preferredDarkColorTheme": "One Dark Pro",
+  "workbench.preferredDarkColorTheme": "One Dark Pro Darker",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorCustomizations": {
     "tab.activeBorder": "#0000",
@@ -226,7 +226,7 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "//": "Last update at 9/4/2022, 11:38:40 AM",
+    "//": "Last update at 9/5/2022, 1:52:05 PM",
     "*.asax": "$(capture).*.cs, $(capture).*.vb",
     "*.ascx": "$(capture).*.cs, $(capture).*.vb",
     "*.ashx": "$(capture).*.cs, $(capture).*.vb",
@@ -320,7 +320,6 @@
   },
   "git.detectSubmodules": false,
   "git.detectSubmodulesLimit": 99999,
-  "breadcrumbs.enabled": false,
   "window.enableMenuBarMnemonics": false,
   "window.customMenuBarAltFocus": false,
   "workbench.editor.tabCloseButton": "off",
@@ -399,11 +398,12 @@
   "gitlens.advanced.messages": {
     "suppressLineUncommittedWarning": true
   },
-  "workbench.colorTheme": "One Dark Pro",
+  "workbench.colorTheme": "One Dark Pro Darker",
   "window.titleBarStyle": "custom",
   "workbench.layoutControl.enabled": false,
   "terminal.integrated.shellIntegration.decorationsEnabled": "overviewRuler",
   "editor.experimental.stickyScroll.enabled": true,
   "editor.smoothScrolling": true,
   "editor.mouseWheelScrollSensitivity": 2,
+  "editor.minimap.enabled": false,
 }
