@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ~/Dotfiles/
+cd ~/dotfiles/
 
 if [ $# -ne 1 ]
   then
@@ -9,12 +9,12 @@ if [ $# -ne 1 ]
   elif [ $1 = "install" ] ; then
     echo "Installing dotfiles...."
     ls -d -- */ | xargs -I {} stow -vt ~ {}
-    stow -v --dir=/home/asaday/Dotfiles --target=/home/asaday/
+    stow -v --dir=/home/asaday/dotfiles --target=/home/asaday/
     exit 0
   elif [ $1 = "uninstall" ] ; then
     echo "Uninstalling dotfiles...."
     ls -d -- */ | xargs -I {} stow -Dvt ~ {}
-    stow -Dv --dir=/home/asaday/Dotfiles --target=/home/asaday/
+    stow -Dv --dir=/home/asaday/dotfiles --target=/home/asaday/
     exit 0
   else
     echo "Wrong argument, install or uninstall expected"

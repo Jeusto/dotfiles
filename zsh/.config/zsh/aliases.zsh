@@ -11,8 +11,8 @@ alias 4..='cd ../../../..'
 alias 5..='cd ../../../../..'
 
 # Git
-alias dot='git -C $HOME/Dotfiles'
-alias dotfiles='~/Dotfiles/dotfiles'
+alias dot='git -C $HOME/dotfiles'
+alias dotfiles='~/dotfiles/dotfiles'
 alias g="git"
 alias gs="git status"
 alias gf="git fetch"

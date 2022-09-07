@@ -12,7 +12,7 @@ let g:startify_relative_path = 1
 
 " Commits list
 function! s:list_commits()
-      let git = 'git -C ~/Dotfiles'
+      let git = 'git -C ~/dotfiles'
       let commits = systemlist(git .' log --oneline | head -n10')
       let git = 'G'. git[1:]
       return map(commits, '{"line": matchstr(v:val, "\\s\\zs.*"), "cmd": "'. git .' show ". matchstr(v:val, "^\\x\\+") }')
@@ -30,7 +30,7 @@ let g:startify_lists = [
 let g:startify_bookmarks = [
             \ { 'cv': '~/.config/nvim/init.vim' },
             \ { 'cz': '~/.zshrc' },
-            \ { 'cd': '~/Dotfiles/.gitignore' },
+            \ { 'cd': '~/dotfiles/.gitignore' },
             \ ]
 
 let g:startify_custom_header = ['']
