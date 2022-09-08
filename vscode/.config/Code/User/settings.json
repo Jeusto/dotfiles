@@ -224,7 +224,7 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "//": "Last update at 9/8/2022, 11:14:16 AM",
+    "//": "Last update at 9/8/2022, 3:02:14 PM",
     "*.asax": "$(capture).*.cs, $(capture).*.vb",
     "*.ascx": "$(capture).*.cs, $(capture).*.vb",
     "*.ashx": "$(capture).*.cs, $(capture).*.vb",
@@ -404,7 +404,6 @@
   "terminal.integrated.shellIntegration.decorationsEnabled": "overviewRuler",
   "editor.mouseWheelScrollSensitivity": 2,
   "editor.stickyScroll.enabled": true,
-  "editor.minimap.enabled": false,
   "terminal.integrated.scrollback": 2500,
   "editor.cursorSurroundingLines": 8,
   "editor.smoothScrolling": true,
@@ -417,4 +416,5 @@
   "errorLens.statusBarMessageTemplate": "$message",
   "errorLens.statusBarMessageEnabled": true,
   "errorLens.statusBarIconsUseBackground": false,
+  "C_Cpp.codeAnalysis.updateDelay": 500,
 }
