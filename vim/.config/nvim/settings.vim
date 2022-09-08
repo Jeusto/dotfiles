@@ -15,8 +15,6 @@ set tabpagemax=50
 set mouse=a
 "Set the window's title, reflecting the file currently being edited
 set title
-"80 character limit line
-set colorcolumn=80
 "Show line numbers on the sidebar
 set number
 set nuw=2

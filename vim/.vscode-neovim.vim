@@ -90,6 +90,10 @@ nnoremap <leader>e <Cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>
 nnoremap <leader>n <Cmd>call VSCodeNotify('workbench.view.explorer')<CR>
 nnoremap <leader>b <Cmd>call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>
 nnoremap <leader>t <Cmd>call VSCodeNotify('workbench.action.focusAuxiliaryBar')<CR>
+nnoremap <leader>f <Cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>
+nnoremap <leader>c <Cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<CR>
+nnoremap <leader>P <Cmd>call VSCodeNotify('workbench.action.openRecent')<CR>
+nnoremap <leader>sr <Cmd>call VSCodeNotify('workbench.action.openRecent')<CR>
 
 "Match neovim plugins
 "coderunner
@@ -139,9 +143,6 @@ set ignorecase
 set incsearch
 "Auto switch search to case-sensitive if search contains an uppercase letter
 set smartcase
-
-"The number of screen lines to keep above and below the cursor
-set scrolloff=1
 
 "Indentation and tabulation
 set tabstop=8

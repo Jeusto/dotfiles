@@ -14,12 +14,11 @@ My personal dotfiles for Linux managed using [GNU Stow](https://www.gnu.org/soft
 - **Prompt**: Starship
 - **App launcher/dynamic menu**: Rofi & Pop Launcher
 - **Browser**: Firefox with Vimium-C extension
-- **Editor**: Nvim, Vscode (with full Neovim instance embedded)
+- **Editor**: Lunarvim (neovim ide layer), Vscode (with full neovim instance embedded)
 - **File manager**: Nemo (gui-based) and Ranger (console based)
 
 ### Visual tweaks
 
 - **Icon theme**: Papirus
 - **Gtk & shell theme**: Qogir
-- **Cursor theme**: Custom (inspired by xcursor-pro & qogir)
-- **Fonts**: Inter (os interface) & JetBrainsMono Nerd Font (terminal/editor)
+- **Mono font**: JetBrainsMono Nerd Font
