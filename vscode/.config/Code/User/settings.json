@@ -12,7 +12,7 @@
   // ###  Theme and style  ###
   // #########################
   "workbench.preferredLightColorTheme": "Atom One Light",
-  "workbench.preferredDarkColorTheme": "One Dark Pro Darker",
+  "workbench.preferredDarkColorTheme": "One Dark Pro",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorCustomizations": {
     "tab.activeBorder": "#0000",
@@ -224,7 +224,7 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "//": "Last update at 9/8/2022, 3:02:14 PM",
+    "//": "Last update at 9/11/2022, 2:25:22 PM",
     "*.asax": "$(capture).*.cs, $(capture).*.vb",
     "*.ascx": "$(capture).*.cs, $(capture).*.vb",
     "*.ashx": "$(capture).*.cs, $(capture).*.vb",
@@ -398,7 +398,7 @@
   "gitlens.advanced.messages": {
     "suppressLineUncommittedWarning": true
   },
-  "workbench.colorTheme": "One Dark Pro Darker",
+  "workbench.colorTheme": "One Dark Pro",
   "window.titleBarStyle": "custom",
   "workbench.layoutControl.enabled": false,
   "terminal.integrated.shellIntegration.decorationsEnabled": "overviewRuler",
@@ -417,4 +417,7 @@
   "errorLens.statusBarMessageEnabled": true,
   "errorLens.statusBarIconsUseBackground": false,
   "C_Cpp.codeAnalysis.updateDelay": 500,
+  "editor.minimap.enabled": false,
+  "git.autofetch": true,
+  "fileNestingUpdater.promptOnAutoUpdate": false,
 }

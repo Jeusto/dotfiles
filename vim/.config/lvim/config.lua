@@ -25,15 +25,27 @@ vim.opt.wrap = false
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
--- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
--- TODO:
 lvim.keys.normal_mode["<leader>n"] = "<Cmd>NvimTreeToggle<CR>"
 lvim.keys.normal_mode["<leader>e"] = false
 lvim.keys.normal_mode["<leader>e"] = "<Cmd>Telescope buffers<CR>"
 lvim.keys.normal_mode["<C-p>"] = "<Cmd>Telescope find_files<CR>"
+-- hop.nvim plugin
+vim.api.nvim_set_keymap('', 'f',
+  "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>"
+  , {})
+vim.api.nvim_set_keymap('', 'F',
+  "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>"
+  , {})
+vim.api.nvim_set_keymap('', 't',
+  "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })<cr>"
+  , {})
+vim.api.nvim_set_keymap('', 'T',
+  "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>"
+  , {})
+-- old vim mappings
 vim.cmd([[
   "Make 0 act like Home
   nnoremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
@@ -91,6 +103,7 @@ lvim.builtin.telescope.defaults.mappings = { -- for input mode
 
 -- Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
+lvim.builtin.which_key.mappings["j"] = { "<cmd>HopWord<cr>", "Hop to word" }
 lvim.builtin.which_key.mappings["t"] = {
   name = "+Trouble",
   r = { "<cmd>Trouble lsp_references<cr>", "References" },
@@ -101,7 +114,7 @@ lvim.builtin.which_key.mappings["t"] = {
   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
 }
 
--- TODO: User Config for predefined plugins
+-- User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
@@ -128,17 +141,6 @@ lvim.builtin.treesitter.ensure_installed = {
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
-
--- lvim.builtin.gitsigns.opts = {
---   signs = {
---     add          = { hl = 'GitSignsAdd', text = '▋', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' },
---     change       = { hl = 'GitSignsChange', text = '▋', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
---     delete       = { hl = 'GitSignsDelete', text = '▸', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
---     topdelete    = { hl = 'GitSignsDelete', text = '▸', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
---     changedelete = { hl = 'GitSignsChange', text = '▋', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
---   },
---   numhl = true,
--- }
 
 -- generic LSP settings
 
@@ -217,16 +219,10 @@ linters.setup {
 
 -- Additional Plugins
 lvim.plugins = {
-  { "navarasu/onedark.nvim",
-    config = function()
-      require('onedark').setup {
-        style = 'darker'
-      }
-    end
-  },
+  { "navarasu/onedark.nvim", },
   { "tpope/vim-unimpaired" },
   { "tpope/vim-surround" },
-  { "p00f/nvim-ts-rainbow", },
+  { "psliwka/vim-smoothie" },
   {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
@@ -256,28 +252,39 @@ lvim.plugins = {
       }
     end
   },
-  { "psliwka/vim-smoothie" },
-  -- {
-  --   "lukas-reineke/indent-blankline.nvim",
-  --   config = function()
-  --     local opts = {
-  --       filetype_exclude = {
-  --         "alpha",
-  --         "help",
-  --         "terminal",
-  --         "dashboard",
-  --         "lspinfo",
-  --         "lsp-installer",
-  --         "mason",
-  --       },
-  --       buftype_exclude = { "terminal" },
-  --       bufname_exclude = { "config.lua" },
-  --     }
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    config = function()
+      local opts = {
+        filetype_exclude = {
+          "alpha",
+          "help",
+          "terminal",
+          "dashboard",
+          "lspinfo",
+          "lsp-installer",
+          "mason",
+        },
+        buftype_exclude = { "terminal" },
+        bufname_exclude = { "config.lua" },
+        space_char_blankline = " ",
+        show_current_context = true,
+        show_current_context_start = true,
+        show_trailing_blankline_indent = false
+      }
 
-  --     require("indent_blankline").setup(opts)
-  --   end
-  -- },
+      require("indent_blankline").setup(opts)
+    end
+  },
+  {
+    "phaazon/hop.nvim",
+    event = "BufRead",
+    config = function()
+      require("hop").setup()
+    end,
+  },
 }
+
 -- lvim.builtin.cmp.formatting.source_names["copilot"] = "(Copilot)"
 -- table.insert(lvim.builtin.cmp.sources, 1, { name = "copilot" })
 

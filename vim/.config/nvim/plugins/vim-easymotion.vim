@@ -24,4 +24,4 @@ let g:EasyMotion_off_screen_search = 0
 map f <Plug>(easymotion-f)
 map t <Plug>(easymotion-t)
 
-map <silent> <Leader>w <Plug>(easymotion-bd-w)
+map <silent> <Leader>j <Plug>(easymotion-bd-w)

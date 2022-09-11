@@ -115,7 +115,7 @@ nnoremap <C-u> 27k
 vnoremap <C-u> 27k
 
 "Remove some binds to let vscode handle them 
-nnoremap <C-f> <Nop>
+nnoremap <C-f> <Nop:>
 
 "#################
 "###  Plugins  ###
@@ -166,4 +166,17 @@ set relativenumber
 augroup highlight_yank
   autocmd!
   autocmd TextYankPost * silent! lua vim.highlight.on_yank { higroup="Search", timeout=200 }
+augroup END
+
+" Disable parentheses matching depends on system. 
+set noshowmatch
+function! g:FckThatMatchParen ()
+    if exists(":NoMatchParen")
+        :NoMatchParen
+    endif
+endfunction
+
+augroup plugin_initialize
+    autocmd!
+    autocmd VimEnter * call FckThatMatchParen()
 augroup END
