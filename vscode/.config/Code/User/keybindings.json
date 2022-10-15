@@ -477,21 +477,31 @@
     "command": "-selectNextSuggestion",
     "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
   },
+  // {
+  //   "key": "ctrl+l",
+  //   "command": "workbench.action.terminal.focusNextPane",
+  //   "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  // },
   {
     "key": "ctrl+l",
-    "command": "workbench.action.terminal.focusNextPane",
-    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+    "command": "workbench.action.focusRightGroup",
+    "when": "multipleEditorGroups && editorFocus",
+  },
+  {
+    "key": "escape",
+    "command": "workbench.action.terminal.clearSelection",
+    "when": "terminalFocus && terminalHasBeenCreated && terminalTextSelected && !terminalFindVisible || terminalFocus && terminalProcessSupported && terminalTextSelected && !terminalFindVisible"
   },
   {
     "key": "alt+down",
     "command": "-workbench.action.terminal.focusNextPane",
     "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
   },
-  {
-    "key": "ctrl+h",
-    "command": "workbench.action.terminal.focusPreviousPane",
-    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
-  },
+  // {
+  //   "key": "ctrl+h",
+  //   "command": "workbench.action.terminal.focusPreviousPane",
+  //   "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+  // },
   {
     "key": "alt+up",
     "command": "-workbench.action.terminal.focusPreviousPane",

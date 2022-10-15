@@ -11,10 +11,9 @@
   // #########################
   // ###  Theme and style  ###
   // #########################
-  "workbench.preferredLightColorTheme": "Atom One Light",
-  "workbench.preferredDarkColorTheme": "One Dark Pro",
-  "workbench.colorTheme": "One Dark Pro",
-  "workbench.iconTheme": "material-icon-theme",
+  "workbench.preferredLightColorTheme": "GitHub Light",
+  "workbench.preferredDarkColorTheme": "GitHub Dark",
+  "workbench.colorTheme": "GitHub Dark",
   "workbench.colorCustomizations": {
     "tab.activeBorder": "#0000",
     "list.highlightForeground": "#61afef",
@@ -35,7 +34,7 @@
     "terminal.ansiMagenta": "#c162de",
     "terminal.ansiRed": "#e06c75",
     "terminal.ansiWhite": "#e6e6e6",
-    "terminal.ansiYellow": "#e5c07b"
+    "terminal.ansiYellow": "#e5c07b",
   },
   // ###################
   // ###  Interface  ###
@@ -64,7 +63,6 @@
   "editor.parameterHints.enabled": false,
   "editor.minimap.maxColumn": 100,
   "editor.minimap.renderCharacters": false,
-  "editor.minimap.showSlider": "always",
   "editor.rulers": [
     80,
     120
@@ -81,7 +79,6 @@
   "editor.formatOnType": true,
   "editor.renderWhitespace": "none",
   "git.enableSmartCommit": true,
-  "git.decorations.enabled": true,
   "git.confirmEmptyCommits": false,
   "git.confirmSync": false,
   "workbench.editor.languageDetection": true,
@@ -210,7 +207,7 @@
   "oneDarkPro.italic": true,
   "svgviewer.showzoominout": true,
   "github.copilot.enable": {
-    "*": true,
+    "*": false,
     "yaml": false,
     "plaintext": true,
     "markdown": true,
@@ -222,7 +219,7 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "//": "Last update at 10/6/2022, 2:01:03 PM",
+    "//": "Last update at 10/14/2022, 2:17:00 PM",
     "*.asax": "$(capture).*.cs, $(capture).*.vb",
     "*.ascx": "$(capture).*.cs, $(capture).*.vb",
     "*.ashx": "$(capture).*.cs, $(capture).*.vb",
@@ -291,8 +288,6 @@
   "files.eol": "\n",
   "window.newWindowDimensions": "inherit",
   "explorer.confirmDragAndDrop": false,
-  "search.useReplacePreview": false,
-  "workbench.editor.untitled.hint": "hidden",
   "problems.showCurrentInStatus": true,
   "security.workspace.trust.banner": "never",
   "search.searchEditor.doubleClickBehaviour": "selectWord",
@@ -319,12 +314,10 @@
   "git.detectSubmodulesLimit": 99999,
   "window.enableMenuBarMnemonics": false,
   "window.customMenuBarAltFocus": false,
-  "workbench.editor.tabCloseButton": "off",
   "gitlens.defaultDateFormat": "D MMM YY -- dddd",
   "gitlens.defaultTimeFormat": "hh:mm",
   "gitlens.defaultDateShortFormat": "D/MM/YY",
   "gitlens.defaultDateLocale": null,
-  "explorer.compactFolders": false,
   "warmUp.changeCount": "15",
   "gitlens.codeLens.enabled": false,
   "commands.commands": {
@@ -393,9 +386,9 @@
     "editor.defaultFormatter": "vscode.css-language-features"
   },
   "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": true,
     "suppressLineUncommittedWarning": true
   },
-  "window.titleBarStyle": "custom",
   "workbench.layoutControl.enabled": false,
   "terminal.integrated.shellIntegration.decorationsEnabled": "overviewRuler",
   "editor.mouseWheelScrollSensitivity": 2,
@@ -403,17 +396,9 @@
   "terminal.integrated.scrollback": 2500,
   "editor.cursorSurroundingLines": 8,
   "editor.smoothScrolling": true,
-  "errorLens.gutterIconSize": "75%",
-  "errorLens.gutterIconSet": "defaultOutline",
-  "errorLens.messageBackgroundMode": "message",
-  "errorLens.messageTemplate": "██ $message ",
   "errorLens.gutterIconsEnabled": true,
-  "errorLens.statusBarIconsEnabled": true,
-  "errorLens.statusBarMessageTemplate": "$message",
-  "errorLens.statusBarMessageEnabled": true,
-  "errorLens.statusBarIconsUseBackground": false,
+  "errorLens.statusBarMessageTemplate": "$severity : $message",
   "C_Cpp.codeAnalysis.updateDelay": 500,
-  "editor.minimap.enabled": false,
   "git.autofetch": true,
   "fileNestingUpdater.promptOnAutoUpdate": false,
   "settingsSync.ignoredSettings": [
@@ -423,4 +408,44 @@
     "-workbench.action.quickOpen"
   ],
   "lldb.suppressUpdateNotifications": true,
+  "oracledevtools.bookmarkFileFolder": "/home/asaday/Oracle/oracle.oracledevtools",
+  "oracledevtools.download.otherFolder": "/home/asaday/downloads",
+  "oracledevtools.connectionConfiguration.configFilesFolder": "/home/asaday/Oracle/network/admin",
+  "oracledevtools.connectionConfiguration.walletFileFolder": "/home/asaday/Oracle/network/admin",
+  "tabnine.experimentalAutoImports": true,
+  "[plsql]": {
+    "editor.defaultFormatter": "inferrinizzard.prettier-sql-vscode"
+  },
+  "workbench.experimental.settingsProfiles.enabled": true,
+  "breadcrumbs.enabled": false,
+  "explorer.compactFolders": false,
+  "window.titleBarStyle": "custom",
+  "editor.minimap.showSlider": "always",
+  "editor.minimap.enabled": false,
+  "workbench.editor.tabCloseButton": "off",
+  "workbench.editor.untitled.hint": "hidden",
+  "activitusbar.alignment": "Right",
+  "errorLens.messageTemplate": "██ $message ",
+  "errorLens.margin": "2ch",
+  "errorLens.severityText": [
+    "Error",
+    "Warning",
+    "Info",
+    "Hint"
+  ],
+  "errorLens.fontWeight": "bold",
+  "errorLens.enabledDiagnosticLevels": [
+    "error",
+    "warning",
+    "info",
+    "hint"
+  ],
+  "errorLens.statusBarIconsUseBackground": false,
+  "errorLens.statusBarMessageEnabled": true,
+  "errorLens.onSaveTimeout": 0,
+  "excalidraw.theme": "auto",
+  "errorLens.messageBackgroundMode": "message",
+  "remoteHub.uncommittedChangesOnEntry": "none",
+  "extensions.autoUpdate": "onlyEnabledExtensions",
+  "workbench.iconTheme": "material-icon-theme"
 }

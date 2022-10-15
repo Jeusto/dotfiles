@@ -1,31 +1,29 @@
 format = """
-[$directory]\
-(bg:#61afef)[\uE0B0]\
-(fg:#61afef bg:#98c379)$git_branch[\uE0B0]\
-(fg:#98c379 bg:#e5c07b)$git_status[\uE0B0]\
-(#e5c07b bg:#e06c75)$status[\uE0B0]\
-(#e06c75 bg:) $all$character"""
+$directory\
+$git_branch\
+$git_status\
+$status\
+$all$character"""
 
 add_newline = true
 
 [directory]
-style = " bg:#61afef fg:#282c34"
+style = "bold fg:#61afef"
 format = "[ $read_only$path ]($style)"
 read_only = " "
-read_only_style = "bg:#FF6E79 fg:#EEEEEE"
 fish_style_pwd_dir_length = 3
 truncate_to_repo = true
 truncation_length = 3
 truncation_symbol = "…/"
 
 [git_branch]
-format = "[ $symbol$branch ]($style)"
+style = "bold fg:#818cf8"
+format = "on [$symbol$branch]($style)"
 symbol = " "
-style = " bg:#98c379 fg:#282c34"
 
 [git_status]
+style = "bold fg:#a78bfa"
 format = "[$all_status$ahead_behind ]($style)"
-style = " bg:#e5c07b fg:#282c34"
 stashed = "  ${count}"
 ahead = " ﲗ ${count}"
 behind = " ﲔ ${count}"
@@ -38,14 +36,16 @@ staged = "  ${count}"
 untracked = "  ${count}"
 
 [status]
-disabled = false
+disabled = true
 symbol = " "
 format = "[ $symbol$status ]($style)"
-style = " bg:#e06c75 fg:#282c34"
+style = " fg:#e06c75 "
 
 [character]
 format = " $symbol "
-vicmd_symbol = "[⬢](bold green)"
+success_symbol = "[❯](bold #98c379)"
+error_symbol = "[❯](bold #e06c75)"
+vicmd_symbol = "[⬢](bold #98c379)"
 
 [jobs]
 format = "[ $symbol$number]($style)"
