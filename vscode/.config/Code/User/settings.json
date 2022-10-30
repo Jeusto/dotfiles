@@ -83,11 +83,7 @@
   "git.confirmSync": false,
   "workbench.editor.languageDetection": true,
   "files.exclude": {
-    "**/.classpath": true,
-    "**/.project": true,
-    "**/.settings": true,
-    "**/.factorypath": true,
-    "node_modules": true
+    "**/.trunk/*out": true
   },
   // ##################
   // ###  Terminal  ###
@@ -137,7 +133,9 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "files.associations": {
     "*.pl": "prolog",
-    "*.jsx": "javascriptreact"
+    "*.jsx": "javascriptreact",
+    // Temporay
+    "*.sql": "plsql"
   },
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
@@ -210,7 +208,7 @@
     "*": false,
     "yaml": false,
     "plaintext": true,
-    "markdown": true,
+    "markdown": false,
     "javascriptreact": true
   },
   // ###############
@@ -219,7 +217,7 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "//": "Last update at 10/14/2022, 2:17:00 PM",
+    "//": "Last update at 10/30/2022, 12:28:36 PM",
     "*.asax": "$(capture).*.cs, $(capture).*.vb",
     "*.ascx": "$(capture).*.cs, $(capture).*.vb",
     "*.ashx": "$(capture).*.cs, $(capture).*.vb",
@@ -297,7 +295,6 @@
   "debug.toolBarLocation": "docked",
   "window.autoDetectColorScheme": true,
   "jupyter.askForKernelRestart": false,
-  "diffEditor.ignoreTrimWhitespace": false,
   "terminal.integrated.cursorBlinking": true,
   "workbench.startupEditor": "none",
   "explorer.confirmDelete": false,
@@ -378,6 +375,9 @@
     "Go to Type Definition": {
       "command": "editor.action.goToTypeDefinition"
     },
+    "editor.action.selectHighlights": {
+      "command": "editor.action.selectHighlights"
+    }
   },
   "gitlens.advanced.externalDiffTool": "meld",
   "gitlens.advanced.externalDirectoryDiffTool": "meld",
@@ -389,7 +389,6 @@
     "suppressCommitHasNoPreviousCommitWarning": true,
     "suppressLineUncommittedWarning": true
   },
-  "workbench.layoutControl.enabled": false,
   "terminal.integrated.shellIntegration.decorationsEnabled": "overviewRuler",
   "editor.mouseWheelScrollSensitivity": 2,
   "editor.stickyScroll.enabled": true,
@@ -417,7 +416,6 @@
     "editor.defaultFormatter": "inferrinizzard.prettier-sql-vscode"
   },
   "workbench.experimental.settingsProfiles.enabled": true,
-  "breadcrumbs.enabled": false,
   "explorer.compactFolders": false,
   "window.titleBarStyle": "custom",
   "editor.minimap.showSlider": "always",
@@ -447,5 +445,36 @@
   "errorLens.messageBackgroundMode": "message",
   "remoteHub.uncommittedChangesOnEntry": "none",
   "extensions.autoUpdate": "onlyEnabledExtensions",
-  "workbench.iconTheme": "material-icon-theme"
+  "javascript.suggest.autoImports": true,
+  "typescript.suggest.autoImports": true,
+  "workbench.iconTheme": "material-icon-theme",
+  "files.trimTrailingWhitespace": true,
+  "trunk.trunkGrayOutNonBlockingIssues": false,
+  "files.watcherExclude": {
+    "**/.trunk/*out": true
+  },
+  "diffEditor.ignoreTrimWhitespace": false,
+  "javascript.inlayHints.variableTypes.enabled": true,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.inlayHints.parameterTypes.enabled": true,
+  "C_Cpp.inlayHints.autoDeclarationTypes.enabled": true,
+  "C_Cpp.inlayHints.parameterNames.enabled": true,
+  "C_Cpp.inlayHints.autoDeclarationTypes.showOnLeft": true,
+  "C_Cpp.inlayHints.referenceOperator.showSpace": true,
+  "C_Cpp.inlayHints.referenceOperator.enabled": true,
+  "python.analysis.inlayHints.variableTypes": true,
+  "typescript.inlayHints.variableTypes.enabled": true,
+  "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "typescript.inlayHints.enumMemberValues.enabled": true,
+  "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "javascript.inlayHints.parameterTypes.enabled": true,
+  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "javascript.inlayHints.enumMemberValues.enabled": true,
+  "editor.inlayHints.enabled": "offUnlessPressed",
+  "javascript.inlayHints.parameterNames.enabled": "all",
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "python.analysis.inlayHints.functionReturnTypes": true,
+  "workbench.layoutControl.enabled": false,
+  "Prettier-SQL.expressionWidth": 80,
+  "Prettier-SQL.SQLFlavourOverride": "plsql"
 }

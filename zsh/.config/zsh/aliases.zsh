@@ -47,8 +47,15 @@ alias emptytrash="rm -pr -f ~/.local/share/Trash/files/*"
 alias gc="gcc -Wall -Wextra -Werror -std=c99 -pedantic"
 alias python="python3"
 alias pip="pip3"
-
-[[ "$TERM" == "xterm-kitty" ]] && alias ssh="kitty +kitten ssh"
+alias yee-toggle="yeelight-cli 192.168.1.20 toggle &"
+alias yee-home="yeelight-cli 192.168.1.20 preset CosyHome"
+alias yee-night="yeelight-cli 192.168.1.20 preset Night"
+alias lofi-start="mpv --volume=60 --title=\"radio-mpv\" https://play.streamafrica.net/lofiradio &"
+alias lofi-stop="pkill -f radio-mpv || main"
+alias remap="xset r rate 300 50 ; xcape -e 'Super_L=Escape' "
+alias pause="xdotool key XF86AudioPlay"
+alias prev="xdotool key XF86AudioPrev"
+alias next="xdotool key XF86AudioNext"
 
 # Enable aliases to be sudo'ed
 alias su='sudo '
