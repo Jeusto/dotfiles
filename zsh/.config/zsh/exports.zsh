@@ -21,6 +21,7 @@ export QT_QPA_PLATFORMTHEME=gtk2
 export FZF_DEFAULT_COMMAND="fdfind --type f --hidden --follow --exclude .git"
 export FZF_COMPLETION_TRIGGER=''
 export TERM="xterm-256color"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # Change FZF and Bat color scheme depending on system theme
 if [[ $THEME == "dark" ]]
