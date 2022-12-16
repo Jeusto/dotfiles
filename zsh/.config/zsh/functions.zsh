@@ -94,3 +94,9 @@ news() {
   done
   curl getnews.tech/${query}
 }
+
+# Safer rm
+trash() {
+  echo "[x] moving files to trash..."
+  mv "$@" "$HOME/.trash"
+}
