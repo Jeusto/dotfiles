@@ -5,12 +5,12 @@
 # Copy current directory into clipboard
 copydir() {
   DIR=$(pwd)
-  echo "Copied current directory into clipboard: $DIR"; pwd | xclip -selection clipboard 
+  echo "Copied current directory into clipboard: $DIR"; pwd | xclip -selection clipboard
 }
 
 # Copy file content into clipboard
 copyfile() {
-  echo "Copied file content into clipboard: $1"; cat $1 | xclip -selection clipboard 
+  echo "Copied file content into clipboard: $1"; cat $1 | xclip -selection clipboard
 }
 
 # Change directories and view the contents
@@ -46,7 +46,7 @@ sharetxt() {
 }
 
 # Upload and transfer all types of file (max 5gb)
-transfer() { 
+transfer() {
     if [ $# -eq 0 ];then echo "No arguments specified.\nUsage:\n transfer <file|directory>\n ... | transfer <file_name>">&2;return 1;fi;if tty -s;then file="$1";file_name=$(basename "$file");if [ ! -e "$file" ];then echo "$file: No such file or directory">&2;return 1;fi;if [ -d "$file" ];then file_name="$file_name.zip" ,;(cd "$file"&&zip -r -q - .)|curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null,;else cat "$file"|curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null;fi;else file_name=$1;curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null;fi;
 }
 
@@ -99,4 +99,14 @@ news() {
 trash() {
   echo "[x] moving files to trash..."
   mv "$@" "$HOME/.trash"
+}
+
+# Launch vscode
+code() {
+  if [ $# -eq 0 ]
+  then
+    flatpak run com.visualstudio.code .
+  else
+    flatpak run com.visualstudio.code "$@"
+  fi
 }
