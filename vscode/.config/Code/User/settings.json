@@ -5,7 +5,6 @@
   "editor.fontLigatures": false,
   "editor.fontFamily": "'JetBrainsMono Nerd Font', monospace",
   "editor.fontWeight": "500",
-  "editor.inlayHints.fontFamily": "'JetBrainsMono Nerd Font', monospace",
   "editor.codeLensFontFamily": "'JetBrainsMono Nerd Font', monospace",
   "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font', monospace",
   // #########################
@@ -15,10 +14,9 @@
   "workbench.preferredDarkColorTheme": "GitHub Dark",
   "workbench.colorTheme": "GitHub Dark",
   "workbench.colorCustomizations": {
-    "tab.activeBorder": "#0000",
     "list.highlightForeground": "#61afef",
-    "editorCursor.foreground": "#bfc4ce",
-    "editorCursor.background": "#000000",
+    // "editorCursor.foreground": "#bfc4ce",
+    // "editorCursor.background": "#000000",
     "terminal.ansiBlack": "#282c34",
     "terminal.ansiBlue": "#61afef",
     "terminal.ansiBrightBlack": "#393e48",
@@ -34,14 +32,13 @@
     "terminal.ansiMagenta": "#c162de",
     "terminal.ansiRed": "#e06c75",
     "terminal.ansiWhite": "#e6e6e6",
-    "terminal.ansiYellow": "#e5c07b",
+    "terminal.ansiYellow": "#e5c07b"
   },
   // ###################
   // ###  Interface  ###
   // ###################
   "window.title": "${activeEditorShort} ${dirty}",
   "workbench.editor.pinnedTabSizing": "shrink",
-  "workbench.sideBar.location": "right",
   "workbench.editor.tabSizing": "shrink",
   "zenMode.hideLineNumbers": false,
   // ################
@@ -63,10 +60,7 @@
   "editor.parameterHints.enabled": false,
   "editor.minimap.maxColumn": 100,
   "editor.minimap.renderCharacters": false,
-  "editor.rulers": [
-    80,
-    120
-  ],
+  "editor.rulers": [80],
   "editor.quickSuggestions": {
     "strings": true
   },
@@ -74,10 +68,8 @@
   // ###  Life improvements  ###
   // ###########################
   "editor.quickSuggestionsDelay": 100,
-  "editor.formatOnPaste": true,
-  "editor.formatOnSave": true,
-  "editor.formatOnType": true,
-  "editor.renderWhitespace": "none",
+  "editor.formatOnPaste": false,
+  "editor.formatOnType": false,
   "git.enableSmartCommit": true,
   "git.confirmEmptyCommits": false,
   "git.confirmSync": false,
@@ -124,7 +116,7 @@
     "editor.defaultFormatter": "ms-vscode.cpptools"
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "json.format.enable": true,
   "html.format.wrapAttributes": "force-aligned",
@@ -188,16 +180,13 @@
   "code-runner.clearPreviousOutput": true,
   "code-runner.executorMap": {
     "python": "python3 $dir$fileName",
-    "c": "cd $dir && gcc -pthread $fileName -o $fileNameWithoutExt -Wall -Wextra && $dir$fileNameWithoutExt"
+    "c": "cd $dir && gcc -pthread $fileName -o $fileNameWithoutExt.out -Wall -Wextra -Werror && $dir$fileNameWithoutExt.out"
   },
   // Live server
   "liveServer.settings.donotVerifyTags": true,
   "liveServer.settings.root": "/",
   "liveServer.settings.donotShowInfoMsg": true,
-  "liveSassCompile.settings.autoprefix": [
-    "> 1%",
-    "last 2 versions"
-  ],
+  "liveSassCompile.settings.autoprefix": ["> 1%", "last 2 versions"],
   // Other extensions
   "gitlens.keymap": "alternate",
   "material-icon-theme.showWelcomeMessage": false,
@@ -205,8 +194,7 @@
   "oneDarkPro.italic": true,
   "svgviewer.showzoominout": true,
   "github.copilot.enable": {
-    "*": false,
-    "yaml": false,
+    "*": true,
     "plaintext": true,
     "markdown": false,
     "javascriptreact": true
@@ -217,7 +205,7 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "//": "Last update at 10/30/2022, 12:28:36 PM",
+    "//": "Last update at 12/19/2022, 11:21:11 AM",
     "*.asax": "$(capture).*.cs, $(capture).*.vb",
     "*.ascx": "$(capture).*.cs, $(capture).*.vb",
     "*.ashx": "$(capture).*.cs, $(capture).*.vb",
@@ -234,6 +222,7 @@
     "*.cxx": "$(capture).hpp, $(capture).h, $(capture).hxx",
     "*.dart": "$(capture).freezed.dart, $(capture).g.dart",
     "*.ex": "$(capture).html.eex, $(capture).html.heex, $(capture).html.leex",
+    "*.go": "$(capture)_test.go",
     "*.java": "$(capture).class",
     "*.js": "$(capture).js.map, $(capture).*.js, $(capture)_*.js",
     "*.jsx": "$(capture).js, $(capture).*.jsx, $(capture)_*.js, $(capture)_*.jsx",
@@ -267,6 +256,7 @@
     "gatsby-config.*": "*.env, .babelrc*, .codecov, .cssnanorc*, .env.*, .envrc, .htmlnanorc*, .lighthouserc.*, .mocha*, .postcssrc*, .terserrc*, api-extractor.json, ava.config.*, babel.config.*, contentlayer.config.*, cssnano.config.*, cypress.*, env.d.ts, formkit.config.*, formulate.config.*, gatsby-browser.*, gatsby-node.*, gatsby-ssr.*, gatsby-transformer.*, histoire.config.*, htmlnanorc.*, jasmine.*, jest.config.*, jsconfig.*, karma*, lighthouserc.*, playwright.config.*, postcss.config.*, puppeteer.config.*, svgo.config.*, tailwind.config.*, tsconfig.*, tsdoc.*, unocss.config.*, vitest.config.*, webpack.config.*, windi.config.*",
     "gemfile": ".ruby-version, gemfile.lock",
     "go.mod": ".air*, go.sum",
+    "go.work": "go.work.sum",
     "mix.exs": ".credo.exs, .dialyzer_ignore.exs, .formatter.exs, .iex.exs, .tool-versions, mix.lock",
     "next.config.*": "*.env, .babelrc*, .codecov, .cssnanorc*, .env.*, .envrc, .htmlnanorc*, .lighthouserc.*, .mocha*, .postcssrc*, .terserrc*, api-extractor.json, ava.config.*, babel.config.*, contentlayer.config.*, cssnano.config.*, cypress.*, env.d.ts, formkit.config.*, formulate.config.*, histoire.config.*, htmlnanorc.*, jasmine.*, jest.config.*, jsconfig.*, karma*, lighthouserc.*, next-env.d.ts, playwright.config.*, postcss.config.*, puppeteer.config.*, svgo.config.*, tailwind.config.*, tsconfig.*, tsdoc.*, unocss.config.*, vitest.config.*, webpack.config.*, windi.config.*",
     "nuxt.config.*": "*.env, .babelrc*, .codecov, .cssnanorc*, .env.*, .envrc, .htmlnanorc*, .lighthouserc.*, .mocha*, .postcssrc*, .terserrc*, api-extractor.json, ava.config.*, babel.config.*, contentlayer.config.*, cssnano.config.*, cypress.*, env.d.ts, formkit.config.*, formulate.config.*, histoire.config.*, htmlnanorc.*, jasmine.*, jest.config.*, jsconfig.*, karma*, lighthouserc.*, playwright.config.*, postcss.config.*, puppeteer.config.*, svgo.config.*, tailwind.config.*, tsconfig.*, tsdoc.*, unocss.config.*, vitest.config.*, webpack.config.*, windi.config.*",
@@ -291,7 +281,6 @@
   "search.searchEditor.doubleClickBehaviour": "selectWord",
   "security.workspace.trust.untrustedFiles": "open",
   "debug.onTaskErrors": "debugAnyway",
-  "update.mode": "none",
   "debug.toolBarLocation": "docked",
   "window.autoDetectColorScheme": true,
   "jupyter.askForKernelRestart": false,
@@ -377,6 +366,9 @@
     },
     "editor.action.selectHighlights": {
       "command": "editor.action.selectHighlights"
+    },
+    "formattingToggle.toggleFormat_32": {
+      "command": "formattingToggle.toggleFormat"
     }
   },
   "gitlens.advanced.externalDiffTool": "meld",
@@ -400,12 +392,8 @@
   "C_Cpp.codeAnalysis.updateDelay": 500,
   "git.autofetch": true,
   "fileNestingUpdater.promptOnAutoUpdate": false,
-  "settingsSync.ignoredSettings": [
-    "workbench.colorTheme"
-  ],
-  "terminal.integrated.commandsToSkipShell": [
-    "-workbench.action.quickOpen"
-  ],
+  "settingsSync.ignoredSettings": ["workbench.colorTheme"],
+  "terminal.integrated.commandsToSkipShell": ["-workbench.action.quickOpen"],
   "lldb.suppressUpdateNotifications": true,
   "oracledevtools.bookmarkFileFolder": "/home/asaday/Oracle/oracle.oracledevtools",
   "oracledevtools.download.otherFolder": "/home/asaday/downloads",
@@ -419,32 +407,20 @@
   "explorer.compactFolders": false,
   "window.titleBarStyle": "custom",
   "editor.minimap.showSlider": "always",
-  "editor.minimap.enabled": false,
   "workbench.editor.tabCloseButton": "off",
   "workbench.editor.untitled.hint": "hidden",
   "activitusbar.alignment": "Right",
   "errorLens.messageTemplate": "██ $message ",
   "errorLens.margin": "2ch",
-  "errorLens.severityText": [
-    "Error",
-    "Warning",
-    "Info",
-    "Hint"
-  ],
+  "errorLens.severityText": ["Error", "Warning", "Info", "Hint"],
   "errorLens.fontWeight": "bold",
-  "errorLens.enabledDiagnosticLevels": [
-    "error",
-    "warning",
-    "info",
-    "hint"
-  ],
+  "errorLens.enabledDiagnosticLevels": ["error", "warning", "info", "hint"],
   "errorLens.statusBarIconsUseBackground": false,
   "errorLens.statusBarMessageEnabled": true,
   "errorLens.onSaveTimeout": 0,
   "excalidraw.theme": "auto",
   "errorLens.messageBackgroundMode": "message",
   "remoteHub.uncommittedChangesOnEntry": "none",
-  "extensions.autoUpdate": "onlyEnabledExtensions",
   "javascript.suggest.autoImports": true,
   "typescript.suggest.autoImports": true,
   "workbench.iconTheme": "material-icon-theme",
@@ -470,11 +446,54 @@
   "javascript.inlayHints.parameterTypes.enabled": true,
   "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
   "javascript.inlayHints.enumMemberValues.enabled": true,
-  "editor.inlayHints.enabled": "offUnlessPressed",
   "javascript.inlayHints.parameterNames.enabled": "all",
   "typescript.inlayHints.parameterNames.enabled": "all",
   "python.analysis.inlayHints.functionReturnTypes": true,
   "workbench.layoutControl.enabled": false,
   "Prettier-SQL.expressionWidth": 80,
-  "Prettier-SQL.SQLFlavourOverride": "plsql"
+  // TEMPORARY
+  "settings.cycle": [
+    {
+      "id": "copilot",
+      "overrideWorkspaceSettings": true,
+      "values": [
+        {
+          "github.copilot.inlineSuggest.enable": false
+        },
+        {
+          "github.copilot.inlineSuggest.enable": true
+        }
+      ]
+    }
+  ],
+  "errorLens.gutterIconSet": "defaultOutline",
+  "errorLens.gutterIconSize": "80%",
+  "editor.minimap.enabled": false,
+  "settingsSync.ignoredExtensions": [
+    "ms-vscode.anycode-typescript",
+    "ms-vscode.anycode-rust",
+    "ms-vscode.anycode-python",
+    "ms-vscode.anycode-php",
+    "ms-vscode.anycode-kotlin",
+    "ms-vscode.anycode-java",
+    "ms-vscode.anycode-go",
+    "ms-vscode.anycode-cpp",
+    "ms-vscode.anycode-c-sharp",
+    "ms-vscode.anycode"
+  ],
+  "workbench.sideBar.location": "right",
+  "errorLens.onSave": true,
+  "editor.formatOnSave": false,
+  "github.copilot.inlineSuggest.enable": true,
+  // Config gfk
+  "editor.suggest.insertMode": "replace",
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "files.autoSave": "onFocusChange",
+  "files.defaultLanguage": "markdown",
+  "explorer.autoReveal": false,
+  "workbench.tree.renderIndentGuides": "always",
+  "workbench.editor.enablePreview": false,
+  "workbench.tree.indent": 10,
+  "warmUp.switchNaturalLanguage": "turkish",
+  "editor.inlayHints.enabled": "offUnlessPressed"
 }

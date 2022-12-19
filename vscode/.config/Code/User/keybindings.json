@@ -47,12 +47,12 @@
   {
     "key": "ctrl+k",
     "command": "workbench.action.focusFirstEditorGroup",
-    "when": "terminalFocus",
+    "when": "terminalFocus"
   },
   {
     "key": "ctrl+j",
     "command": "terminal.focus",
-    "when": "editorFocus && terminal.visible",
+    "when": "editorFocus && terminal.visible"
   },
   // Terminal management and navigation
   {
@@ -110,7 +110,7 @@
   },
   {
     "key": "ctrl+f",
-    "command": "-vscode-neovim.send",
+    "command": "-vscode-neovim.send"
   },
   {
     "key": "ctrl+f",
@@ -120,7 +120,7 @@
   // Other
   {
     "key": "alt+e",
-    "command": "workbench.action.quickOpen",
+    "command": "workbench.action.quickOpen"
   },
   {
     "key": "ctrl+,",
@@ -251,7 +251,7 @@
     "key": "ctrl+b t", // focus timeline
     "command": "timeline.focus"
   },
-  // Activity bar navigation 
+  // Activity bar navigation
   {
     "key": "ctrl+j",
     "command": "workbench.action.nextSideBarView",
@@ -268,7 +268,7 @@
   // Other
   {
     "key": "alt+e",
-    "command": "workbench.action.quickOpen",
+    "command": "workbench.action.quickOpen"
   },
   // Buffer manipulation
   {
@@ -277,7 +277,7 @@
   },
   {
     "key": "alt+h",
-    "command": "workbench.action.previousEditorInGroup",
+    "command": "workbench.action.previousEditorInGroup"
   },
   {
     "key": "alt+l",
@@ -309,22 +309,32 @@
   {
     "key": "ctrl+k",
     "command": "workbench.action.focusAboveGroup",
-    "when": "multipleEditorGroups && editorFocus",
+    "when": "multipleEditorGroups && editorFocus"
   },
   {
     "key": "ctrl+j",
     "command": "workbench.action.focusBelowGroup",
-    "when": "multipleEditorGroups && editorFocus",
+    "when": "multipleEditorGroups && editorFocus"
   },
   {
     "key": "ctrl+h",
     "command": "workbench.action.focusLeftGroup",
-    "when": "multipleEditorGroups && editorFocus",
+    "when": "multipleEditorGroups && editorFocus"
   },
   {
     "key": "ctrl+l",
     "command": "workbench.action.focusRightGroup",
-    "when": "multipleEditorGroups && editorFocus",
+    "when": "multipleEditorGroups && editorFocus"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.focusActivityBar",
+    "when": "sideBarFocus"
+  },
+  {
+    "key": "ctrl+right",
+    "command": "workbench.action.focusActivityBar",
+    "when": "sideBarFocus"
   },
   // Vscode-neovim bug workaround: use neovim's scrolling
   {
@@ -386,19 +396,29 @@
   {
     "key": "ctrl+l",
     "command": "workbench.action.focusSideBar",
-    "when": "activeEditorGroupLast && editorFocus",
+    "when": "activeEditorGroupLast && editorFocus"
   },
   {
     "key": "ctrl+h",
     "command": "workbench.action.focusLastEditorGroup",
-    "when": "sideBarFocus",
+    "when": "sideBarFocus"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.focusAuxiliaryBar",
+    "when": "activeEditorGroupIndex == 1 && editorFocus && auxiliaryBarVisible"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.focusFirstEditorGroup",
+    "when": "auxiliaryBarFocus"
   },
   // ===========================================================================
   // Other
   // ===========================================================================
   {
     "key": "alt+p",
-    "command": "commands.openAsQuickPick",
+    "command": "commands.openAsQuickPick"
   },
   // Lists navigation
   {
@@ -485,7 +505,7 @@
   {
     "key": "ctrl+l",
     "command": "workbench.action.focusRightGroup",
-    "when": "multipleEditorGroups && editorFocus",
+    "when": "multipleEditorGroups && editorFocus"
   },
   {
     "key": "escape",
@@ -507,4 +527,28 @@
     "command": "-workbench.action.terminal.focusPreviousPane",
     "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
   },
+  // TEMPORARY
+  {
+    "key": "ctrl+enter",
+    "command": "settings.cycle.copilot",
+    "when": "editorFocus"
+  },
+  {
+    "key": "alt+f",
+    "command": "workbench.action.findInFiles"
+  },
+  {
+    "key": "ctrl+shift+f",
+    "command": "-workbench.action.findInFiles"
+  },
+  {
+    "key": "alt+o",
+    "command": "workbench.action.files.openFolderViaWorkspace",
+    "when": "!openFolderWorkspaceSupport && workbenchState == 'workspace'"
+  },
+  {
+    "key": "ctrl+o",
+    "command": "-workbench.action.files.openFolderViaWorkspace",
+    "when": "!openFolderWorkspaceSupport && workbenchState == 'workspace'"
+  }
 ]
