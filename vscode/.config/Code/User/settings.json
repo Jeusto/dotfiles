@@ -141,7 +141,7 @@
     "vscodevim.vim": 1,
     "asvetliakov.vscode-neovim": 1
   },
-  "vscode-neovim.neovimWidth": 120,
+  "vscode-neovim.neovimWidth": 90,
   // "vscode-neovim.highlightGroups.unknownHighlight": "vim",
   "vscode-neovim.highlightGroups.ignoreHighlights": [],
   "vscode-neovim.highlightGroups.highlights": {
@@ -205,7 +205,7 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "//": "Last update at 12/19/2022, 11:21:11 AM",
+    "//": "Last update at 12/19/2022, 10:28:15 PM",
     "*.asax": "$(capture).*.cs, $(capture).*.vb",
     "*.ascx": "$(capture).*.cs, $(capture).*.vb",
     "*.ashx": "$(capture).*.cs, $(capture).*.vb",

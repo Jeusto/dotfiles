@@ -100,13 +100,3 @@ trash() {
   echo "[x] moving files to trash..."
   mv "$@" "$HOME/.trash"
 }
-
-# Launch vscode
-code() {
-  if [ $# -eq 0 ]
-  then
-    flatpak run com.visualstudio.code .
-  else
-    flatpak run com.visualstudio.code "$@"
-  fi
-}
