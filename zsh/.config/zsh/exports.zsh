@@ -7,7 +7,7 @@ export PATH=\
 $HOME/.cargo/bin:\
 $HOME/.local:\
 $HOME/.local/bin:\
-$HOME/bin:\
+$HOME/.bin:\
 $PATH
 
 # Environment variables
