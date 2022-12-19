@@ -121,7 +121,7 @@ nnoremap <C-f> <Nop:>
 "###  Plugins  ###
 "#################
 
-call plug#begin('~/.config/nvim-plugins')
+call plug#begin('~/.config/vscode-neovim-plugins')
   source $HOME/.config/nvim/plugins/vim-easymotion.vim
   Plug 'tpope/vim-surround' "Easily add/remove brackets/tags etc"
   Plug 'tpope/vim-unimpaired' "Pairs of handy bracket mappings"
