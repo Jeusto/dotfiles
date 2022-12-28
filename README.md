@@ -8,11 +8,10 @@ My personal dotfiles for Linux managed using [GNU Stow](https://www.gnu.org/soft
 ### Main points
 
 - **Distribution**: Pop OS
-- **Terminal**: Kitty
 - **Shell**: Zsh
 - **Prompt**: Starship
 - **Browser**: Firefox (with vimium-c extension)
-- **Editor**: Lunarvim (neovim ide layer) & Vscode (with full neovim instance embedded)
+- **Editor**: Lunarvim (neovim ide layer) & Vscode (with vscode-neovim extension which embeds a full neovim instance embedded)
 - **File manager**: Nemo (gui-based) & Ranger (console based)
 
 ### Visual tweaks
