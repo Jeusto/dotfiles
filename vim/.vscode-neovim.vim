@@ -1,5 +1,5 @@
 "##################
-"###  Mappings  ### 
+"###  Mappings  ###
 "##################
 
 "Use space as leader key
@@ -74,18 +74,18 @@ vnoremap C "_C
 "Saner  ctrl-l
 nnoremap <leader>l :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
 
-"Temporarily bind ; to command-line mode 
+"Temporarily bind ; to command-line mode
 nnoremap ; :
 xnoremap ; :
 
 "##################################
-"###  Vscode specific mappings  ### 
+"###  Vscode specific mappings  ###
 "##################################
 
 "Map replace all to leader s
 nmap <leader>s :%s/
 
-"Match neovim 
+"Match neovim
 nnoremap <leader>e <Cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>
 nnoremap <leader>n <Cmd>call VSCodeNotify('workbench.view.explorer')<CR>
 nnoremap <leader>b <Cmd>call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>
@@ -114,7 +114,7 @@ vnoremap <C-d> 27j
 nnoremap <C-u> 27k
 vnoremap <C-u> 27k
 
-"Remove some binds to let vscode handle them 
+"Remove some binds to let vscode handle them
 nnoremap <C-f> <Nop:>
 
 "#################
@@ -122,9 +122,9 @@ nnoremap <C-f> <Nop:>
 "#################
 
 call plug#begin('~/.config/vscode-neovim-plugins')
-  source $HOME/.config/nvim/plugins/vim-easymotion.vim
-  Plug 'tpope/vim-surround' "Easily add/remove brackets/tags etc"
-  Plug 'tpope/vim-unimpaired' "Pairs of handy bracket mappings"
+  Plug 'easymotion/vim-easymotion', {'as': 'vim-easymotion'}
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-unimpaired'
   Plug 'terryma/vim-expand-region'
 call plug#end()
 
@@ -168,7 +168,7 @@ augroup highlight_yank
   autocmd TextYankPost * silent! lua vim.highlight.on_yank { higroup="Search", timeout=200 }
 augroup END
 
-" Disable parentheses matching depends on system. 
+" Disable parentheses matching depends on system.
 set noshowmatch
 function! g:FckThatMatchParen ()
     if exists(":NoMatchParen")
@@ -180,3 +180,23 @@ augroup plugin_initialize
     autocmd!
     autocmd VimEnter * call FckThatMatchParen()
 augroup END
+
+"#########################
+"###  Plugin settings  ###
+"#########################
+
+map f <Plug>(easymotion-f)
+map t <Plug>(easymotion-t)
+map <silent> <Leader>j <Plug>(easymotion-bd-w)
+
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+let g:EasyMotion_enter_jump_first = 1
+let g:EasyMotion_space_jump_first = 1
+let g:EasyMotion_prompt = ''
+let g:EasyMotion_use_upper = 1
+let g:EasyMotion_keys = 'ASDFJKL;GHQWERUITYZXCVBNM'
+let g:EasyMotion_verbose = 0
+let g:EasyMotion_move_highlight = 0
+let g:EasyMotion_off_screen_search = 0

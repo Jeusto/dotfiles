@@ -85,16 +85,6 @@ alllinks() {
   curl -s "https://api.hackertarget.com/pagelinks/?q=$1"
 }
 
-# Fetch the latest news
-news() {
-  query=""
-  for ARG in "$@"
-  do
-    query="${query}+$ARG"
-  done
-  curl getnews.tech/${query}
-}
-
 # Safer rm
 trash() {
   echo "[x] moving files to trash..."
