@@ -54,7 +54,6 @@
   "editor.guides.bracketPairs": true,
   "editor.accessibilitySupport": "off",
   "editor.inlineSuggest.enabled": true,
-  "editor.tabSize": 2,
   "editor.linkedEditing": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.parameterHints.enabled": false,
@@ -118,6 +117,9 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
   "json.format.enable": true,
   "html.format.wrapAttributes": "force-aligned",
   "html.hover.references": false,
@@ -180,7 +182,7 @@
   "code-runner.clearPreviousOutput": true,
   "code-runner.executorMap": {
     "python": "python3 $dir$fileName",
-    "c": "cd $dir && gcc -pthread $fileName -o $fileNameWithoutExt.out -Wall -Wextra -Werror && $dir$fileNameWithoutExt.out"
+    "c": "cd $dir && gcc -pthread -fopenmp $fileName -o $fileNameWithoutExt.out -Wall -Wextra -Werror && ./$fileNameWithoutExt.out"
   },
   // Live server
   "liveServer.settings.donotVerifyTags": true,
@@ -205,7 +207,7 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "//": "Last update at 12/27/2022, 9:13:33 PM",
+    "//": "Last update at 1/3/2023, 12:18:18 PM",
     "*.asax": "$(capture).*.cs, $(capture).*.vb",
     "*.ascx": "$(capture).*.cs, $(capture).*.vb",
     "*.ashx": "$(capture).*.cs, $(capture).*.vb",
@@ -287,7 +289,6 @@
   "terminal.integrated.cursorBlinking": true,
   "workbench.startupEditor": "none",
   "explorer.confirmDelete": false,
-  "python.formatting.provider": "black",
   "terminal.integrated.persistentSessionReviveProcess": "never",
   "editor.wordWrap": "wordWrapColumn",
   "leetcode.hint.commandShortcut": false,
@@ -451,7 +452,6 @@
   "python.analysis.inlayHints.functionReturnTypes": true,
   "workbench.layoutControl.enabled": false,
   "Prettier-SQL.expressionWidth": 80,
-  // TEMPORARY
   "settings.cycle": [
     {
       "id": "copilot",
@@ -496,5 +496,7 @@
   "workbench.tree.indent": 10,
   "warmUp.switchNaturalLanguage": "turkish",
   "editor.inlayHints.enabled": "offUnlessPressed",
-  "redhat.telemetry.enabled": false
+  "redhat.telemetry.enabled": false,
+  "python.formatting.provider": "black",
+  "material-icon-theme.activeIconPack": "react"
 }

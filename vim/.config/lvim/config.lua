@@ -6,8 +6,6 @@ filled in as strings with either
 a global executable or a path to
 an executable
 ]]
--- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
-
 
 -- general
 lvim.log.level = "warn"
@@ -20,18 +18,14 @@ vim.opt.relativenumber = true
 vim.opt.nuw = 2
 vim.opt.smartcase = true
 vim.opt.wrap = false
--- to disable icons and use a minimalist setup, uncomment the following
--- lvim.use_icons = false
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
-lvim.keys.normal_mode["<leader>n"] = "<Cmd>NvimTreeToggle<CR>"
-lvim.keys.normal_mode["<leader>e"] = false
-lvim.keys.normal_mode["<leader>e"] = "<Cmd>Telescope buffers<CR>"
 lvim.keys.normal_mode["<C-p>"] = "<Cmd>Telescope find_files<CR>"
+
 -- hop.nvim plugin
 vim.api.nvim_set_keymap('', 'f',
   "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>"
@@ -45,6 +39,7 @@ vim.api.nvim_set_keymap('', 't',
 vim.api.nvim_set_keymap('', 'T',
   "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>"
   , {})
+
 -- old vim mappings
 vim.cmd([[
   "Make 0 act like Home
@@ -66,7 +61,7 @@ vim.cmd([[
   nnoremap C "_C
   vnoremap C "_C
 
-  "Easier command-line mode 
+  "Easier command-line mode
   nnoremap ; :
   xnoremap ; :
 
@@ -78,6 +73,9 @@ vim.cmd([[
   nmap <A-l> :bnext <cr>
   nnoremap <A-0> :bfirst<CR>
   nnoremap <A-9> :blast<CR>
+
+  map <A-=> <Plug>(expand_region_expand)
+  map <A--> <Plug>(expand_region_shrink)
 ]])
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
@@ -104,6 +102,10 @@ lvim.builtin.telescope.defaults.mappings = { -- for input mode
 -- Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 lvim.builtin.which_key.mappings["j"] = { "<cmd>HopWord<cr>", "Hop to word" }
+lvim.builtin.which_key.mappings["n"] = { "<cmd>NvimTreeToggle<cr>", "Nvim tree toggle" }
+lvim.builtin.which_key.mappings["e"] = { "<cmd>Telescope buffers<cr>", "Telescope buffers" }
+lvim.builtin.which_key.mappings["r"] = { "<cmd>RunCode<cr>", "Run code" }
+lvim.builtin.which_key.mappings["o"] = { "<cmd>SymbolsOutline<cr>", "Symbols outline" }
 lvim.builtin.which_key.mappings["t"] = {
   name = "+Trouble",
   r = { "<cmd>Trouble lsp_references<cr>", "References" },
@@ -137,9 +139,6 @@ lvim.builtin.treesitter.ensure_installed = {
   "java",
   "yaml",
 }
-
-lvim.builtin.treesitter.ignore_install = { "haskell" }
-lvim.builtin.treesitter.highlight.enabled = true
 
 -- generic LSP settings
 
@@ -222,14 +221,29 @@ lvim.plugins = {
   { "tpope/vim-unimpaired" },
   { "tpope/vim-surround" },
   { "psliwka/vim-smoothie" },
-  {
-    "folke/trouble.nvim",
-    cmd = "TroubleToggle",
-  },
+  { "folke/trouble.nvim", cmd = "TroubleToggle", },
+  { "sheerun/vim-polyglot", },
+  { "terryma/vim-expand-region", },
+  { "SirVer/ultisnips" },
+  { "honza/vim-snippets" },
   {
     "simrat39/symbols-outline.nvim",
     config = function()
-      require('symbols-outline').setup()
+      require('symbols-outline').setup {
+      }
+    end
+  },
+  {
+    "CRAG666/code_runner.nvim",
+    config = function()
+      require('code_runner').setup {
+        filetype = {
+          java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
+          python = "python3 -u",
+          typescript = "deno run",
+          rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt"
+        },
+      }
     end
   },
   {
@@ -251,30 +265,28 @@ lvim.plugins = {
       }
     end
   },
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    config = function()
-      local opts = {
-        filetype_exclude = {
-          "alpha",
-          "help",
-          "terminal",
-          "dashboard",
-          "lspinfo",
-          "lsp-installer",
-          "mason",
-        },
-        buftype_exclude = { "terminal" },
-        bufname_exclude = { "config.lua" },
-        space_char_blankline = " ",
-        show_current_context = true,
-        show_current_context_start = true,
-        show_trailing_blankline_indent = false
-      }
-
-      require("indent_blankline").setup(opts)
-    end
-  },
+  -- {
+  --   "lukas-reineke/indent-blankline.nvim",
+  --   config = function()
+  --     require("indent_blankline").setup {
+  --       filetype_exclude = {
+  --         "alpha",
+  --         "help",
+  --         "terminal",
+  --         "dashboard",
+  --         "lspinfo",
+  --         "lsp-installer",
+  --         "mason",
+  --       },
+  --       buftype_exclude = { "terminal" },
+  --       bufname_exclude = { "config.lua" },
+  --       space_char_blankline = " ",
+  --       show_current_context = true,
+  --       show_current_context_start = true,
+  --       show_trailing_blankline_indent = false
+  --     }
+  --   end
+  -- },
   {
     "phaazon/hop.nvim",
     event = "BufRead",
