@@ -272,6 +272,9 @@ lvim.plugins = {
     end,
   },
   {
+    "p00f/nvim-ts-rainbow",
+  },
+  {
     "karb94/neoscroll.nvim",
     event = "WinScrolled",
     config = function()
