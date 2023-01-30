@@ -26,8 +26,6 @@ source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting
 
 # FZF keybindings
 source $HOME/.config/zsh/plugins/fzf-key-bindings.zsh
-bindkey '\ef' fzf-file-widget
-bindkey '^F' fzf-file-widget
 
 # Z Plugin
 zstyle ':completion:*' menu select

@@ -13,34 +13,13 @@
   "workbench.preferredLightColorTheme": "GitHub Light",
   "workbench.preferredDarkColorTheme": "GitHub Dark",
   "workbench.colorTheme": "GitHub Dark",
-  "workbench.colorCustomizations": {
-    "list.highlightForeground": "#61afef",
-    // "editorCursor.foreground": "#bfc4ce",
-    // "editorCursor.background": "#000000",
-    "terminal.ansiBlack": "#282c34",
-    "terminal.ansiBlue": "#61afef",
-    "terminal.ansiBrightBlack": "#393e48",
-    "terminal.ansiBrightBlue": "#4dc4ff",
-    "terminal.ansiBrightCyan": "#4cd1e0",
-    "terminal.ansiBrightGreen": "#a5e075",
-    "terminal.ansiBrightMagenta": "#de73ff",
-    "terminal.ansiBrightRed": "#e06c75",
-    "terminal.ansiBrightWhite": "#d7dae0",
-    "terminal.ansiBrightYellow": "#e5c07b",
-    "terminal.ansiCyan": "#42b3c2",
-    "terminal.ansiGreen": "#8cc265",
-    "terminal.ansiMagenta": "#c162de",
-    "terminal.ansiRed": "#e06c75",
-    "terminal.ansiWhite": "#e6e6e6",
-    "terminal.ansiYellow": "#e5c07b"
-  },
+  "workbench.colorCustomizations": {},
   // ###################
   // ###  Interface  ###
   // ###################
   "window.title": "${activeEditorShort} ${dirty}",
   "workbench.editor.pinnedTabSizing": "shrink",
   "workbench.editor.tabSizing": "shrink",
-  "zenMode.hideLineNumbers": false,
   // ################
   // ###  Editor  ###
   // ################
@@ -69,8 +48,7 @@
   "editor.quickSuggestionsDelay": 100,
   "editor.formatOnPaste": true,
   "editor.formatOnType": true,
-  "git.enableSmartCommit": true,
-  "git.confirmEmptyCommits": false,
+  "git.confirmEmptyCommits": true,
   "git.confirmSync": false,
   "workbench.editor.languageDetection": true,
   "files.exclude": {
@@ -88,7 +66,7 @@
   // ###  Languages  ###
   // ###################
   "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[markdown]": {
     "editor.wordWrap": "off",
@@ -197,8 +175,9 @@
   "svgviewer.showzoominout": true,
   "github.copilot.enable": {
     "*": true,
+    "yaml": false,
     "plaintext": true,
-    "markdown": false,
+    "markdown": true,
     "javascriptreact": true
   },
   // ###############
@@ -207,7 +186,7 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "//": "Last update at 1/3/2023, 12:18:18 PM",
+    "//": "Last update at 1/28/2023, 6:58:18 PM",
     "*.asax": "$(capture).*.cs, $(capture).*.vb",
     "*.ascx": "$(capture).*.cs, $(capture).*.vb",
     "*.ashx": "$(capture).*.cs, $(capture).*.vb",
@@ -294,9 +273,6 @@
   "leetcode.hint.commandShortcut": false,
   "leetcode.hint.commentDescription": false,
   "leetcode.hint.configWebviewMarkdown": false,
-  "[sql]": {
-    "editor.defaultFormatter": "inferrinizzard.prettier-sql-vscode"
-  },
   "git.detectSubmodules": false,
   "git.detectSubmodulesLimit": 99999,
   "window.enableMenuBarMnemonics": false,
@@ -306,7 +282,6 @@
   "gitlens.defaultDateShortFormat": "D/MM/YY",
   "gitlens.defaultDateLocale": null,
   "warmUp.changeCount": "15",
-  "gitlens.codeLens.enabled": false,
   "commands.commands": {
     "Git Graph: View Git Graph": {
       "command": "git-graph.view"
@@ -374,7 +349,6 @@
   },
   "gitlens.advanced.externalDiffTool": "meld",
   "gitlens.advanced.externalDirectoryDiffTool": "meld",
-  "gitlens.currentLine.enabled": false,
   "[scss]": {
     "editor.defaultFormatter": "vscode.css-language-features"
   },
@@ -396,14 +370,7 @@
   "settingsSync.ignoredSettings": ["workbench.colorTheme"],
   "terminal.integrated.commandsToSkipShell": ["-workbench.action.quickOpen"],
   "lldb.suppressUpdateNotifications": true,
-  "oracledevtools.bookmarkFileFolder": "/home/asaday/Oracle/oracle.oracledevtools",
-  "oracledevtools.download.otherFolder": "/home/asaday/downloads",
-  "oracledevtools.connectionConfiguration.configFilesFolder": "/home/asaday/Oracle/network/admin",
-  "oracledevtools.connectionConfiguration.walletFileFolder": "/home/asaday/Oracle/network/admin",
   "tabnine.experimentalAutoImports": true,
-  "[plsql]": {
-    "editor.defaultFormatter": "inferrinizzard.prettier-sql-vscode"
-  },
   "workbench.experimental.settingsProfiles.enabled": true,
   "explorer.compactFolders": false,
   "window.titleBarStyle": "custom",
@@ -415,7 +382,7 @@
   "errorLens.margin": "2ch",
   "errorLens.severityText": ["Error", "Warning", "Info", "Hint"],
   "errorLens.fontWeight": "bold",
-  "errorLens.enabledDiagnosticLevels": ["error", "warning", "info", "hint"],
+  "errorLens.enabledDiagnosticLevels": ["error", "info", "hint"],
   "errorLens.statusBarIconsUseBackground": false,
   "errorLens.statusBarMessageEnabled": true,
   "errorLens.onSaveTimeout": 0,
@@ -458,10 +425,14 @@
       "overrideWorkspaceSettings": true,
       "values": [
         {
-          "github.copilot.inlineSuggest.enable": false
+          "github.copilot.inlineSuggest.enable": false,
+          "workbench.colorCustomizations": {
+            "editorLineNumber.activeForeground": "#61afef"
+          }
         },
         {
-          "github.copilot.inlineSuggest.enable": true
+          "github.copilot.inlineSuggest.enable": true,
+          "workbench.colorCustomizations": {}
         }
       ]
     }
@@ -498,5 +469,25 @@
   "editor.inlayHints.enabled": "offUnlessPressed",
   "redhat.telemetry.enabled": false,
   "python.formatting.provider": "black",
-  "material-icon-theme.activeIconPack": "react"
+  "material-icon-theme.activeIconPack": "react",
+  "errorLens.enabled": true,
+  "zenMode.hideLineNumbers": false,
+  "gitlens.currentLine.enabled": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.codeLens.enabled": false,
+  "totalTypeScript.hiddenTips": [
+    "basic-types",
+    "ts-object-type",
+    "type-alias-declaration",
+    "function-return-type",
+    "union-type",
+    "typing-function-parameters",
+    "interface-declaration",
+    "array-type",
+    "literal-type",
+    "passing-generics-to-types",
+    "pick-utility-type",
+    "optional-object-property"
+  ],
+  "eslint.alwaysShowStatus": true
 }

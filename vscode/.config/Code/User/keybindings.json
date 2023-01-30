@@ -47,11 +47,11 @@
   {
     "key": "ctrl+k",
     "command": "workbench.action.focusFirstEditorGroup",
-    "when": "terminalFocus"
+    "when": "panelFocus"
   },
   {
     "key": "ctrl+j",
-    "command": "terminal.focus",
+    "command": "workbench.action.focusPanel",
     "when": "editorFocus && terminal.visible"
   },
   // Terminal management and navigation
@@ -261,6 +261,27 @@
     "key": "ctrl+k",
     "command": "workbench.action.previousSideBarView",
     "when": "sideBarFocus"
+  },
+  {
+    "key": "ctrl+pageDown",
+    "command": "workbench.action.nextSideBarView",
+    "when": "sideBarFocus"
+  },
+  {
+    "key": "ctrl+pageUp",
+    "command": "workbench.action.previousSideBarView",
+    "when": "sideBarFocus"
+  },
+  // Bottom bar navigation
+  {
+    "key": "ctrl+pageDown",
+    "command": "workbench.action.nextPanelView",
+    "when": "panelFocus"
+  },
+  {
+    "key": "ctrl+pageUp",
+    "command": "workbench.action.previousPanelView",
+    "when": "panelFocus"
   },
   // ===========================================================================
   // Match neovim mappings

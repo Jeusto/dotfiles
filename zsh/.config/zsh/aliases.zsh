@@ -56,6 +56,7 @@ alias remap="xset r rate 300 50 ; xcape -e 'Super_L=Escape' "
 alias pause="xdotool key XF86AudioPlay"
 alias prev="xdotool key XF86AudioPrev"
 alias next="xdotool key XF86AudioNext"
+alias grep=grep --color=auto
 
 # Enable aliases to be sudo'ed
 alias su='sudo '
