@@ -90,3 +90,8 @@ trash() {
   echo "[x] moving files to trash..."
   mv "$@" "$HOME/.trash"
 }
+
+# Other
+sshmpirun () {
+  scp "$2" vmCalculParallelegrp1-0:/partage/arhun.saday && ssh vmCalculParallelegrp1-0 "cd /partage/arhun.saday && mpirun -hostfile /partage/hosts -n $1 ./$(basename "$2") && rm $(basename "$2")";
+}
