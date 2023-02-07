@@ -1,18 +1,7 @@
-# Starship prompt
-eval "$(starship init bash)"
-
-# FZF 
-source $HOME/.bash-plugins/fzf-key-bindings.bash
-source $HOME/.bash-plugins/fzf-completion.bash
-
-_fzf_compgen_dir() {
-  fdfind --max-depth 1
-}
-
-# Plugins
-source $HOME/.bash-plugins/z.sh
-source $HOME/.bash-plugins/fzf-tab.sh
-
-# Functions and aliases
 source $HOME/.config/zsh/functions.zsh
 source $HOME/.config/zsh/aliases.zsh
+
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] \n ❯ "
