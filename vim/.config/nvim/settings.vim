@@ -24,11 +24,6 @@ set nuw=2
 :  autocmd BufLeave,FocusLost,InsertEnter,WinLeave * if &nu | set nornu | endif
 :augroup END
 "Change theme depending on system theme
-if $THEME == "dark"
-  colorscheme onehalfdark
-else
-  colorscheme onehalflight
-endif
 if (empty($TMUX))
   if (has("nvim"))
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -105,9 +100,6 @@ hi link StartifyNumber Number
 "Hide current mode text in status bar
 set noshowmode
 
-"Highlight current line
-set cursorline
-
 "Use system clipboard by default
 set clipboard=unnamedplus
 
@@ -127,10 +119,6 @@ set cmdheight=2
 
 "Don't pass messages to |ins-completion-menu|
 set shortmess+=c
-
-"Indicators on the same column as line numbers
-set signcolumn=yes
-hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 
 "Higlight yank
 augroup highlight_yank

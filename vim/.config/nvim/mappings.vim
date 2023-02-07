@@ -100,7 +100,7 @@ vnoremap c "_c
 nnoremap C "_C
 vnoremap C "_C
 
-"Temporarily bind ; to command-line mode 
+"Temporarily bind ; to command-line mode
 nnoremap ; :
 xnoremap ; :
 
