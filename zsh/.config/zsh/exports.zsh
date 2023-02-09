@@ -10,6 +10,7 @@ $HOME/.cargo/bin:\
 $HOME/.local:\
 $HOME/.local/bin:\
 $HOME/.bin:\
+$PNPM_HOME:\
 $PATH
 
 # Environment variables
@@ -23,6 +24,7 @@ export QT_QPA_PLATFORMTHEME=gtk2
 export FZF_DEFAULT_COMMAND="fdfind --type f --hidden --follow --exclude .git"
 export FZF_COMPLETION_TRIGGER=''
 export TERM="xterm-256color"
+export PNPM_HOME="/home/asaday/.local/share/pnpm"
 
 # Change FZF and Bat color scheme depending on system theme
 if [[ $THEME == "dark" ]]

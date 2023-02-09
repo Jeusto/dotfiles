@@ -8,6 +8,8 @@
   tool = vscode
 [mergetool "vscode"]
   cmd = code --wait $MERGED
+[pull]
+  rebase = true
 
 [user]
   name = Arhun Saday
