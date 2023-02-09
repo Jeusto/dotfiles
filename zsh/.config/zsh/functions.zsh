@@ -93,5 +93,15 @@ trash() {
 
 # Other
 sshmpirun () {
-  scp "$2" vmCalculParallelegrp1-0:/partage/arhun.saday && ssh vmCalculParallelegrp1-0 "cd /partage/arhun.saday && mpirun -hostfile /partage/hosts -n $1 ./$(basename "$2") && rm $(basename "$2")";
+  scp "$2" asaday@turing.u-strasbg.fr:~ && 
+  ssh asaday@turing.u-strasbg.fr "
+    mpicc $(basename "$2") -o $(basename "$2".out) && 
+    scp $(basename "$2".out) vmCalculParallelegrp1-0:/partage/arhun.saday && 
+    ssh vmCalculParallelegrp1-0 '
+      cd /partage/arhun.saday && 
+      mpirun -hostfile /partage/hosts -n $1 ./$(basename "$2".out) && 
+      rm $(basename "$2".out)
+    ' &&
+    rm ~/$(basename "$2").out ~/$(basename "$2")
+  "
 }
