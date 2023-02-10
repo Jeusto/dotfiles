@@ -57,7 +57,7 @@ disabled = true
 [nodejs]
 disabled = true
 [python]
-disabled = true
+format = '[${symbol}(\($virtualenv\) )]($style)'
 [c]
 disabled = true
 [battery]

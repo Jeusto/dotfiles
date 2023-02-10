@@ -26,7 +26,7 @@
 
 [help]
   autocorrect = 01
-  
+
 [alias]
   a = add
   b = branch
@@ -67,7 +67,8 @@
   rba = rebase --abort
   rbs = rebase --skip
 
-  sta = "!git stash -u && git stash apply"
+  save = "!f() { stash_name=$1; git stash save -u \"$stash_name\"; }; f"
+  stashlist = "stash list --pretty=format:'%C(yellow)%h %C(red)%gd %C(green)%cr %C(bold blue)%s%d %C(reset)%b'"
   save = stash push
   pop = stash pop
   apply = stash apply
