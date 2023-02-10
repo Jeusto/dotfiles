@@ -37,9 +37,9 @@
   l = log
   m = merge
   o = checkout
+  s = status -sb
   p = pull
   r = remote
-  s = status
   w = whatchanged
 
   undo = reset HEAD~1 --mixed
@@ -47,6 +47,7 @@
   rv = revert
 
   co = checkout
+  cob = checkout -b
   coo = !git fetch && git checkout
   rom = !git fetch && git rebase -i origin/master --autosquash
 
@@ -71,7 +72,6 @@
   pop = stash pop
   apply = stash apply
 
-  st = status -sb
   aa = add -A .
   cp = cherry-pick
   pu = !git push origin `git branch --show-current`
@@ -82,5 +82,4 @@
   lg = log --graph --all --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)%an%Creset %C(yellow)%d%Creset'
 
   br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
-  br = branch
   brd = branch -d

@@ -4,6 +4,7 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias gendir="mkdir -p {a,b}/{e,f,g}/{h,i,j}"
 alias lt='ls --human-readable --size -1 -S --classify'
+alias ls='ls -F --color=auto'
 alias ..="cd .."
 alias 2..='cd ../..'
 alias 3..='cd ../../..'
@@ -28,18 +29,15 @@ alias lla="ll -a"
 # FZF
 alias fp="fzf --preview 'batcat --style=numbers --color=always --line-range :500 {}'"
 alias fc="fzf | xclip -selection clipboard"
-alias fv="fzf | xargs -I{} nvim {}"
+alias fv="fzf | xargs -I{} lvim {}"
 
 # Other
-alias v='nvim'
+alias v='vim'
 alias lv='lvim'
 alias py="python3"
 alias bat="batcat"
 alias del="trash-put"
 alias fd="fdfind"
-alias pp="xdotool key XF86AudioPlay"
-alias prev="xdotool key XF86AudioPrev"
-alias next="xdotool key XF86AudioNext"
 alias ye="yeelight-cli 192.168.1.20"
 alias y="yarn"
 alias r="ranger"
