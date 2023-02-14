@@ -83,16 +83,6 @@ set smartindent
 set smarttab
 set expandtab
 
-"#######################
-"###  Custom colors  ###
-"#######################
-
-hi link StartifyPath Comment
-hi link StartifySlash Comment
-hi link StartifyFile Delimiter
-hi link StartifySection Directory
-hi link StartifyNumber Number
-
 "###############
 "###  Other  ###
 "###############
@@ -119,9 +109,3 @@ set cmdheight=2
 
 "Don't pass messages to |ins-completion-menu|
 set shortmess+=c
-
-"Higlight yank
-augroup highlight_yank
-  autocmd!
-  autocmd TextYankPost * silent! lua vim.highlight.on_yank { higroup="Search", timeout=200 }
-augroup END
