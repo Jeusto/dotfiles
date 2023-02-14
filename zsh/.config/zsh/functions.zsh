@@ -93,15 +93,21 @@ trash() {
 
 # Other
 sshmpirun () {
-  scp "$2" asaday@turing.u-strasbg.fr:~ && 
+  num_hosts=$1
+  shift
+  program=$1
+  shift
+  program_args=("$@")
+
+  scp "$program" asaday@turing.u-strasbg.fr:~ &&
   ssh asaday@turing.u-strasbg.fr "
-    mpicc $(basename "$2") -o $(basename "$2".out) && 
-    scp $(basename "$2".out) vmCalculParallelegrp1-0:/partage/arhun.saday && 
+    mpicc $(basename "$program") -o $(basename "$program".out) &&
+    scp $(basename "$program".out) vmCalculParallelegrp1-0:/partage/arhun.saday &&
     ssh vmCalculParallelegrp1-0 '
-      cd /partage/arhun.saday && 
-      mpirun -hostfile /partage/hosts -n $1 ./$(basename "$2".out) && 
-      rm $(basename "$2".out)
+      cd /partage/arhun.saday &&
+      mpirun -hostfile /partage/hosts -n $num_hosts ./$(basename "$program".out) ${program_args[@]} &&
+      rm $(basename "$program".out)
     ' &&
-    rm ~/$(basename "$2").out ~/$(basename "$2")
+    rm ~/$(basename "$program").out ~/$(basename "$program")
   "
 }
