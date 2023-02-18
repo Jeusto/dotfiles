@@ -99,10 +99,14 @@ nnoremap <leader>sr <Cmd>call VSCodeNotify('workbench.action.openRecent')<CR>
 "coderunner
 nnoremap <leader>r <Cmd>call VSCodeNotify('code-runner.run')<CR>
 
+"comment
 nmap gc  <Plug>VSCodeCommentary
 xmap gc  <Plug>VSCodeCommentary
 omap gc  <Plug>VSCodeCommentary
 nmap gcc <Plug>VSCodeCommentaryLine
+
+"hop
+nnoremap <leader>j <Cmd>call VSCodeNotify('jump-extension.jump-to-the-start-of-a-word')<CR>
 
 "Fix moving cursor unfolds a folded section of the code
 nmap j gj
@@ -122,7 +126,6 @@ nnoremap <C-f> <Nop:>
 "#################
 
 call plug#begin('~/.config/vscode-neovim-plugins')
-  Plug 'easymotion/vim-easymotion', {'as': 'vim-easymotion'}
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
   Plug 'terryma/vim-expand-region'
@@ -180,23 +183,3 @@ augroup plugin_initialize
     autocmd!
     autocmd VimEnter * call FckThatMatchParen()
 augroup END
-
-"#########################
-"###  Plugin settings  ###
-"#########################
-
-map f <Plug>(easymotion-f)
-map t <Plug>(easymotion-t)
-map <silent> <Leader>j <Plug>(easymotion-bd-w)
-
-let g:EasyMotion_do_mapping = 0
-let g:EasyMotion_smartcase = 1
-let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
-let g:EasyMotion_enter_jump_first = 1
-let g:EasyMotion_space_jump_first = 1
-let g:EasyMotion_prompt = ''
-let g:EasyMotion_use_upper = 1
-let g:EasyMotion_keys = 'ASDFJKL;GHQWERUITYZXCVBNM'
-let g:EasyMotion_verbose = 0
-let g:EasyMotion_move_highlight = 0
-let g:EasyMotion_off_screen_search = 0
