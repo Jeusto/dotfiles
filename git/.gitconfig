@@ -53,6 +53,7 @@
 
   res = !git reset --hard
   done = !git push origin HEAD
+  resetwd = !git clean -fd && git reset --hard
 
   cm = commit -m
   cam = commit -a -m

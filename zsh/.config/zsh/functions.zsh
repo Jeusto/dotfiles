@@ -111,3 +111,14 @@ sshmpirun () {
     rm ~/$(basename "$program").out ~/$(basename "$program")
   "
 }
+
+killport () {
+  local port=$1
+  local pid=$(lsof -t -i :$port)
+  if [ -n "$pid" ]; then
+      kill -9 $pid
+      echo "Killed process with PID $pid that was using port $port"
+  else
+      echo "No process found listening on port $port"
+  fi
+}
