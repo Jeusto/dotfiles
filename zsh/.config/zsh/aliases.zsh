@@ -29,7 +29,7 @@ alias lla="ll -a"
 # FZF
 alias fp="fzf --preview 'batcat --style=numbers --color=always --line-range :500 {}'"
 alias fc="fzf | xclip -selection clipboard"
-alias fv="fzf | xargs -I{} lvim {}"
+alias fv="fzf --preview 'batcat --style=numbers --color=always --line-range :500 {}' | xargs -I{} lvim {}"
 
 # Other
 alias v='vim'
@@ -55,6 +55,7 @@ alias pause="xdotool key XF86AudioPlay"
 alias prev="xdotool key XF86AudioPrev"
 alias next="xdotool key XF86AudioNext"
 alias grep="grep --color=auto"
+alias clip="xclip -selection clipboard"
 
 # Enable aliases to be sudo'ed
 alias su='sudo '

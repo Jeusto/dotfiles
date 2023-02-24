@@ -1,7 +1,6 @@
 ###############################
 ###  General configuration  ###
 ###############################
-
 setopt globdots
 
 # Starship prompt
@@ -16,7 +15,6 @@ setopt incappendhistory
 #################
 ###  Plugins  ###
 #################
-
 source $HOME/.config/zsh/plugins/command-not-found.plugin.zsh
 source $HOME/.config/zsh/plugins/colored-man-pages.plugin.zsh
 source $HOME/.config/zsh/plugins/zsh-autosuggestions.zsh
@@ -30,30 +28,28 @@ source $HOME/.config/zsh/plugins/fzf-key-bindings.zsh
 # Z Plugin
 zstyle ':completion:*' menu select
 
-# Autosuggest 
-if [[ $THEME = "light" ]]; then
-  ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#7a8599"
-else
-  ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#4e5666"
-fi
-
+# Autosuggest
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#777777"
 bindkey '^E' autosuggest-accept
 
 ###############
 ###  Other  ###
 ###############
-
 # Case insensitive autocompletion
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 autoload -Uz compinit && compinit
-# Disable sort when completing 'git checkout'
-zstyle ':completion:*:git-checkout:*' sort false
+
 # Set descriptions format to enable group support
 zstyle ':completion:*:descriptions' format '[%d]'
+
 # Set list-colors to enable filename colorizing
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
 # Preview directory's content with exa when completing cd
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+
+# Preview file content with bat when completing cat
+zstyle ':fzf-tab:complete:lvim:*' fzf-preview 'batcat -p --color=always $realpath'
 
 # Vi with some Emacs flavor control keys.
 bindkey -v
@@ -93,3 +89,23 @@ function zle-keymap-select {
   fi
 }
 zle -N zle-keymap-select
+
+# Lazy load nvm
+nvm() {
+    unset -f nvm
+    export NVM_DIR=~/.nvm
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+    nvm "$@"
+}
+node() {
+    unset -f node
+    export NVM_DIR=~/.nvm
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+    node "$@"
+}
+npm() {
+    unset -f npm
+    export NVM_DIR=~/.nvm
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+    npm "$@"
+}

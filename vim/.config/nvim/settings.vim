@@ -24,14 +24,7 @@ set nuw=2
 :  autocmd BufLeave,FocusLost,InsertEnter,WinLeave * if &nu | set nornu | endif
 :augroup END
 "Change theme depending on system theme
-if (empty($TMUX))
-  if (has("nvim"))
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  if (has("termguicolors"))
-    set termguicolors
-  endif
-endif
+set termguicolors
 
 "Enable search highlighting
 set hlsearch

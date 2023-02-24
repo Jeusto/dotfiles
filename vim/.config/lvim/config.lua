@@ -10,10 +10,6 @@ an executable
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = true
-lvim.colorscheme = "onedark"
-if os.getenv('theme') == 'light' then
-  vim.o.background = 'light'
-end
 vim.opt.relativenumber = true
 vim.opt.nuw = 2
 vim.opt.smartcase = true
@@ -25,6 +21,10 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 lvim.keys.normal_mode["<C-p>"] = "<Cmd>Telescope find_files<CR>"
+
+-- theme
+lvim.colorscheme = "vscode"
+lvim.builtin.theme.name="vscode"
 
 -- hop.nvim plugin
 vim.api.nvim_set_keymap('', 'f',
@@ -77,6 +77,7 @@ vim.cmd([[
   map <A-=> <Plug>(expand_region_expand)
   map <A--> <Plug>(expand_region_shrink)
 ]])
+
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
 -- override a default keymapping
@@ -293,6 +294,9 @@ lvim.plugins = {
       })
     end
   },
+  {
+    "Mofiqul/vscode.nvim"
+  }
 }
 
 lvim.builtin.treesitter.rainbow.enable = true
