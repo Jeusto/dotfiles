@@ -24,7 +24,7 @@ lvim.keys.normal_mode["<C-p>"] = "<Cmd>Telescope find_files<CR>"
 
 -- theme
 lvim.colorscheme = "vscode"
-lvim.builtin.theme.name="vscode"
+lvim.builtin.theme.name = "vscode"
 
 -- hop.nvim plugin
 vim.api.nvim_set_keymap('', 'f',
@@ -76,6 +76,12 @@ vim.cmd([[
 
   map <A-=> <Plug>(expand_region_expand)
   map <A--> <Plug>(expand_region_shrink)
+
+  "Use global marks by default
+  noremap <silent> <expr> ' "'".toupper(nr2char(getchar()))
+  noremap <silent> <expr> m "m".toupper(nr2char(getchar()))
+  sunmap '
+  sunmap m
 ]])
 
 -- unmap a default keymapping
@@ -296,6 +302,9 @@ lvim.plugins = {
   },
   {
     "Mofiqul/vscode.nvim"
+  },
+  {
+    "kshenoy/vim-signature"
   }
 }
 

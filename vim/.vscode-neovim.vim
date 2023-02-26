@@ -10,10 +10,6 @@ let mapleader = "\<space>"
 "second click gets you to the start of the line.
 nnoremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 
-"Moving text
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-
 "Hide search higlights
 nmap <leader>h :nohlsearch<CR>
 
@@ -98,13 +94,11 @@ nnoremap <leader>sr <Cmd>call VSCodeNotify('workbench.action.openRecent')<CR>
 "Match neovim plugins
 "coderunner
 nnoremap <leader>r <Cmd>call VSCodeNotify('code-runner.run')<CR>
-
 "comment
 nmap gc  <Plug>VSCodeCommentary
 xmap gc  <Plug>VSCodeCommentary
 omap gc  <Plug>VSCodeCommentary
 nmap gcc <Plug>VSCodeCommentaryLine
-
 "hop
 nnoremap <leader>j <Cmd>call VSCodeNotify('jump-extension.jump-to-the-start-of-a-word')<CR>
 
@@ -118,8 +112,24 @@ vnoremap <C-d> 27j
 nnoremap <C-u> 27k
 vnoremap <C-u> 27k
 
-"Remove some binds to let vscode handle them
+"Remove some binds to let Vscode handle them
 nnoremap <C-f> <Nop:>
+
+"Move lines
+noremap <A-j> :m .+1<CR>==
+noremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+"Use global marks by default
+noremap <silent> <expr> ' "'".toupper(nr2char(getchar()))
+noremap <silent> <expr> m "m".toupper(nr2char(getchar()))
+sunmap '
+sunmap m
 
 "#################
 "###  Plugins  ###
