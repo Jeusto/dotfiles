@@ -101,7 +101,7 @@ sshmpirun () {
 
   scp "$program" asaday@turing.u-strasbg.fr:~ &&
   ssh asaday@turing.u-strasbg.fr "
-    mpicc $(basename "$program") -o $(basename "$program".out) &&
+    mpicc -03 -march=native$ (basename "$program") -o $(basename "$program".out) &&
     scp $(basename "$program".out) vmCalculParallelegrp1-0:/partage/arhun.saday &&
     ssh vmCalculParallelegrp1-0 '
       cd /partage/arhun.saday &&
