@@ -1,7 +1,6 @@
 # Path
 export PATH=\
 /home/linuxbrew/.linuxbrew/bin/:\
-/usr/share/code/:\
 $HOME/local/share/flatpak/exports/bin:\
 /var/lib/flatpak/exports/bin:\
 $HOME/.cargo/bin:\

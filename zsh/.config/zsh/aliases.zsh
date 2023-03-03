@@ -56,6 +56,8 @@ alias prev="xdotool key XF86AudioPrev"
 alias next="xdotool key XF86AudioNext"
 alias grep="grep --color=auto"
 alias clip="xclip -selection clipboard"
+alias vsc="code --profile clean"
+alias code="code --profile Default"
 
 # Enable aliases to be sudo'ed
 alias su='sudo '
