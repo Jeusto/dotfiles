@@ -90,6 +90,7 @@ nnoremap <leader>f <Cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>
 nnoremap <leader>c <Cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<CR>
 nnoremap <leader>P <Cmd>call VSCodeNotify('workbench.action.openRecent')<CR>
 nnoremap <leader>sr <Cmd>call VSCodeNotify('workbench.action.openRecent')<CR>
+nnoremap ga <Cmd>call VSCodeNotify('keyboard-quickfix.openQuickFix')<CR>
 
 "Match neovim plugins
 "coderunner
