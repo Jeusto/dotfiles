@@ -25,6 +25,7 @@ lvim.keys.normal_mode["<C-p>"] = "<Cmd>Telescope find_files<CR>"
 -- theme
 lvim.colorscheme = "vscode"
 lvim.builtin.theme.name = "vscode"
+-- lvim.transparent_window = true
 
 -- hop.nvim plugin
 vim.api.nvim_set_keymap('', 'f',
@@ -130,6 +131,7 @@ lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "right"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
+lvim.builtin.lir.show_hidden_files = true
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
