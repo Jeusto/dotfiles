@@ -127,7 +127,7 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
 "Use global marks by default
-noremap <silent> <expr> ' "'".toupper(nr2char(getchar()))
+noremap <silent> <expr> ' "`".toupper(nr2char(getchar()))
 noremap <silent> <expr> m "m".toupper(nr2char(getchar()))
 sunmap '
 sunmap m

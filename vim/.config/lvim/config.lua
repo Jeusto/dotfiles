@@ -79,7 +79,7 @@ vim.cmd([[
   map <A--> <Plug>(expand_region_shrink)
 
   "Use global marks by default
-  noremap <silent> <expr> ' "'".toupper(nr2char(getchar()))
+  noremap <silent> <expr> ' "`".toupper(nr2char(getchar()))
   noremap <silent> <expr> m "m".toupper(nr2char(getchar()))
   sunmap '
   sunmap m
