@@ -10,10 +10,12 @@
 /git
 /intellij
 /kitty
-/nvim 
+/nvim
 /rofi
 /starship
 /vscode
 /zsh
 /vim
 /ranger
+/tmux
+/ansible
