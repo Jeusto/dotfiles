@@ -25,11 +25,6 @@ cl() {
         ls -F --color=auto
 }
 
-# Print each PATH entry on a separate line
-path() {
-  echo "${PATH//:/$'\n'}"
-}
-
 ##############################
 ###  Functions using curl  ###
 ##############################
@@ -91,7 +86,9 @@ trash() {
   mv "$@" "$HOME/.trash"
 }
 
-# Other
+###############
+###  Other  ###
+###############
 sshmpirun () {
   num_hosts=$1
   shift
@@ -121,4 +118,76 @@ killport () {
   else
       echo "No process found listening on port $port"
   fi
+}
+
+copilot() {
+  eval "$(github-copilot-cli alias -- "$0")"
+}
+
+pp() {
+  local chemin="$HOME/depots"
+  local dossier='projet-pp-2223'
+  local identifiant='asaday'
+  local name='arhun.saday'
+
+  ssh ${identifiant}@turing.u-strasbg.fr "rm -rf ~/projet-pp-2223"
+  scp -r ${chemin}/${dossier} ${identifiant}@turing.u-strasbg.fr:~
+
+  ssh -t ${identifiant}@turing.u-strasbg.fr "
+    scp -r ${dossier} vmCalculParallelegrp1-0:/partage/${name}/ &&
+    ssh -t vmCalculParallelegrp1-0 '
+      cd /partage/${name}/${dossier} &&
+      cleanup() {
+        rm -rf /partage/${name}/${dossier}
+      }
+      trap cleanup EXIT
+      bash -i
+    '
+  "
+}
+
+ft() {
+  if [[ $# -eq 1 ]]; then
+    selected=$1
+  else
+    selected=$(find ~/depots/ ~/repos ~/ -mindepth 1 -maxdepth 1 -type d | fzf)
+  fi
+
+if [[ -z $selected ]]; then
+    exit 0
+  fi
+
+  selected_name=$(basename "$selected" | tr . _)
+  tmux_running=$(pgrep tmux)
+
+  if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+    tmux new-session -s $selected_name -c $selected
+    exit 0
+  fi
+
+  if [[ -z $tmux_running ]]; then
+    tmux new-session -s $selected_name -c $selected
+  else
+    if ! tmux has-session -t=$selected_name 2> /dev/null; then
+      tmux new-session -ds $selected_name -c $selected
+    fi
+
+    tmux switch-client -t $selected_name
+  fi
+}
+
+cht() {
+  languages=`echo "js rust python c ts" | tr ' ' '\n'`
+  core_utils=`echo "xargs find" | tr ' ' '\n'`
+
+  selected=`printf "$languages\n$core_utils" | fzf`
+  printf "Enter query: "
+  read query
+
+  if printf $languages | grep -qs $selected; then
+    curl cht.sh/$selected/`echo $query | tr ' ' '+'`
+  else
+    curl cht.sh/$selected~$query | less
+  fi
+
 }

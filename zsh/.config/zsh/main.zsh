@@ -8,22 +8,42 @@ eval "$(starship init zsh)"
 
 # Save commands history to a file
 HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=25000
+SAVEHIST=25000
 setopt incappendhistory
+export HISTSIZE=1000000000
+export SAVEHIST=$HISTSIZE
+setopt EXTENDED_HISTORY
+setopt SHARE_HISTORY
 
 #################
 ###  Plugins  ###
 #################
-source $HOME/.config/zsh/plugins/command-not-found.plugin.zsh
-source $HOME/.config/zsh/plugins/colored-man-pages.plugin.zsh
-source $HOME/.config/zsh/plugins/zsh-autosuggestions.zsh
-source $HOME/.config/zsh/plugins/zsh-z.plugin.zsh
-source $HOME/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
-source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Clone zcomet if necessary
+if [[ ! -f ${ZDOTDIR:-${HOME}}/.zcomet/bin/zcomet.zsh ]]; then
+  git clone https://github.com/agkozak/zcomet.git ${ZDOTDIR:-${HOME}}/.zcomet/bin
+fi
+# Source zcomet.zsh
+source ${ZDOTDIR:-${HOME}}/.zcomet/bin/zcomet.zsh
+
+zcomet load agkozak/zsh-z
+zcomet load Aloxaf/fzf-tab
+zcomet load ohmyzsh plugins/command-not-found
+zcomet load zsh-users/zsh-syntax-highlighting
+zcomet load zsh-users/zsh-autosuggestions
+zcomet snippet https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.zsh
+
+# Run compinit and compile its cache
+zcomet compinit
 
 # FZF keybindings
-source $HOME/.config/zsh/plugins/fzf-key-bindings.zsh
+zle -N fzf-redraw-prompt
+zle     -N   fzf-file-widget
+bindkey '^F' fzf-file-widget
+zle     -N    fzf-cd-widget
+bindkey '\ec' fzf-cd-widget
+zle     -N   fzf-history-widget
+bindkey '^R' fzf-history-widget
 
 # Z Plugin
 zstyle ':completion:*' menu select
@@ -90,22 +110,11 @@ function zle-keymap-select {
 }
 zle -N zle-keymap-select
 
-# Lazy load nvm
-# nvm() {
-#     unset -f nvm
-#     export NVM_DIR=~/.nvm
-#     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-#     nvm "$@"
-# }
-# node() {
-#     unset -f node
-#     export NVM_DIR=~/.nvm
-#     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-#     node "$@"
-# }
-# npm() {
-#     unset -f npm
-#     export NVM_DIR=~/.nvm
-#     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-#     npm "$@"
-# }
+# Colorful man pages
+export LESS_TERMCAP_mb=$'\e[1;32m'
+export LESS_TERMCAP_md=$'\e[1;32m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[01;33m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;4;31m'#

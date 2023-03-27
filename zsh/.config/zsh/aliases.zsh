@@ -29,7 +29,17 @@ alias lla="ll -a"
 # FZF
 alias fp="fzf --preview 'batcat --style=numbers --color=always --line-range :500 {}'"
 alias fc="fzf | xclip -selection clipboard"
+alias fo="fzf | xargs -I{} xdg-open {}"
 alias fv="fzf --preview 'batcat --style=numbers --color=always --line-range :500 {}' | xargs -I{} lvim {}"
+
+# Enable aliases to be sudo'ed
+alias su='sudo '
+
+# Valgrind and redirect output to a file
+alias vg='valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt'
+
+# Search through command history
+alias hs='history | grep'
 
 # Other
 alias v='vim'
@@ -58,12 +68,5 @@ alias grep="grep --color=auto"
 alias clip="xclip -selection clipboard"
 alias vsc="code --profile clean"
 alias code="code --profile Default"
-
-# Enable aliases to be sudo'ed
-alias su='sudo '
-
-# Valgrind and redirect output to a file
-alias vg='valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt'
-
-# Search through command history
-alias hs='history | grep'
+alias sshpp="ssh -t asaday@turing.u-strasbg.fr ssh vmCalculParallelegrp1-0"
+alias p="ssh -t asaday@turing.u-strasbg.fr ssh vmCalculParallelegrp1-0"
