@@ -67,7 +67,7 @@ vim.cmd([[
   xnoremap ; :
 
   "Buffers manipulation
-  nnoremap <silent> <A-e> :Buffers<CR>
+  nnoremap <silent> <A-e> :Telescope buffers<CR>
   nmap <A-w> :bdel <cr>
   nmap <A-q> :bufdo bdelete <cr>
   nmap <A-h> :bprevious <cr>
@@ -83,12 +83,23 @@ vim.cmd([[
   noremap <silent> <expr> m "m".toupper(nr2char(getchar()))
   sunmap '
   sunmap m
+
+  "Make file executable
+  nnoremap <silent> <leader>x :!chmod +x %<CR>
+
+  "Tmux
+  nnoremap <silent> <C-f> :silent !tmux new tmux-sessionizer<CR>
+
+  "Alternate escape key
+  inoremap jk <Esc>
+  cnoremap jk <C-C>
 ]])
 
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
 -- override a default keymapping
 -- lvim.keys.normal_mode["<C-q>"] = ":q<cr>" -- or vim.keymap.set("n", "<C-q>", ":q<cr>" )
+vim.api.nvim_set_keymap('n', 'gh', ':lua vim.lsp.buf.hover()<CR>', { noremap = true, silent = true })
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
@@ -226,14 +237,17 @@ linters.setup {
 
 -- Additional Plugins
 lvim.plugins = {
-  { "navarasu/onedark.nvim", },
+  { "navarasu/onedark.nvim" },
   { "tpope/vim-unimpaired" },
   { "tpope/vim-surround" },
+  { "sheerun/vim-polyglot" },
+  { "terryma/vim-expand-region" },
+  { "psliwka/vim-smoothie" },
   { "folke/trouble.nvim", cmd = "TroubleToggle", },
-  { "sheerun/vim-polyglot", },
-  { "terryma/vim-expand-region", },
-  { "SirVer/ultisnips" },
-  { "honza/vim-snippets" },
+  { "p00f/nvim-ts-rainbow", },
+  { "Mofiqul/vscode.nvim" },
+  { "kshenoy/vim-signature" },
+  { "christoomey/vim-tmux-navigator" },
   {
     "simrat39/symbols-outline.nvim",
     config = function()
@@ -280,40 +294,57 @@ lvim.plugins = {
       require("hop").setup()
     end,
   },
-  {
-    "p00f/nvim-ts-rainbow",
-  },
-  {
-    "karb94/neoscroll.nvim",
-    event = "WinScrolled",
+  { "zbirenbaum/copilot.lua",
+    event = { "VimEnter" },
     config = function()
-      require('neoscroll').setup({
-        -- All these keys will be mapped to their corresponding default scrolling animation
-        mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-f>',
-          '<C-y>', '<C-e>', 'zt', 'zz', 'zb' },
-        hide_cursor = true, -- Hide cursor while scrolling
-        stop_eof = true, -- Stop at <EOF> when scrolling downwards
-        use_local_scrolloff = false, -- Use the local scope of scrolloff instead of the global scope
-        respect_scrolloff = false, -- Stop scrolling when the cursor reaches the scrolloff margin of the file
-        cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
-        easing_function = nil, -- Default easing function
-        pre_hook = nil, -- Function to run before the scrolling animation starts
-        post_hook = nil, -- Function to run after the scrolling animation ends
-      })
-    end
+      vim.defer_fn(function()
+        require("copilot").setup {
+          plugin_manager_path = get_runtime_dir() .. "/site/pack/packer",
+          suggestion = {
+            enabled = true,
+            auto_trigger = true,
+            debounce = 75,
+            accept = false,
+          },
+          copilot_node_command = 'node', -- Node.js version must be > 16.x
+          server_opts_overrides = {},
+        }
+      end, 100)
+    end,
   },
-  {
-    "Mofiqul/vscode.nvim"
-  },
-  {
-    "kshenoy/vim-signature"
-  }
 }
 
 lvim.builtin.treesitter.rainbow.enable = true
 
--- lvim.builtin.cmp.formatting.source_names["copilot"] = "(Copilot)"
--- table.insert(lvim.builtin.cmp.sources, 1, { name = "copilot" })
+-- Toggle copilot
+function trigger_suggestions()
+  vim.cmd("Copilot toggle")
+end
+
+vim.api.nvim_set_keymap('i', '<C-g>', '<cmd>lua trigger_suggestions()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-g>', '<cmd>lua trigger_suggestions()<CR>', { noremap = true, silent = true })
+
+-- Tab accept
+vim.keymap.set("i", '<Tab>', function()
+  if require("copilot.suggestion").is_visible() then
+    require("copilot.suggestion").accept()
+  else
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
+  end
+end, {
+  silent = true,
+})
+
+-- Toggle diagnostics
+local diagnostics_active = true
+vim.keymap.set('n', '<M-g>', function()
+  diagnostics_active = not diagnostics_active
+  if diagnostics_active then
+    vim.diagnostic.show()
+  else
+    vim.diagnostic.hide()
+  end
+end)
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- vim.api.nvim_create_autocmd("BufEnter", {

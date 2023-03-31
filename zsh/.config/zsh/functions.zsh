@@ -25,54 +25,55 @@ cl() {
         ls -F --color=auto
 }
 
+# Safer rm
+trash() {
+  echo "[x] moving files to trash..."
+  mv "$@" "$HOME/.trash"
+}
+
 ##############################
 ###  Functions using curl  ###
 ##############################
 
 # Upload and share formatted code file
 sharecode() {
-    file="$1"
-    (cat "$1" | curl -F 'f:1=<-' ix.io) | sed "s/$/\/${file##*.}/" | xclip -selection clipboard;
+  file="$1"
+  (cat "$1" | curl -F 'f:1=<-' ix.io) | sed "s/$/\/${file##*.}/" | xclip -selection clipboard;
 }
 
 # Upload and share text file
 sharetxt() {
-    (cat "$1" | curl -F 'f:1=<-' ix.io) | xclip -selection clipboard;
-}
-
-# Upload and transfer all types of file (max 5gb)
-transfer() {
-    if [ $# -eq 0 ];then echo "No arguments specified.\nUsage:\n transfer <file|directory>\n ... | transfer <file_name>">&2;return 1;fi;if tty -s;then file="$1";file_name=$(basename "$file");if [ ! -e "$file" ];then echo "$file: No such file or directory">&2;return 1;fi;if [ -d "$file" ];then file_name="$file_name.zip" ,;(cd "$file"&&zip -r -q - .)|curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null,;else cat "$file"|curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null;fi;else file_name=$1;curl --progress-bar --upload-file "-" "https://transfer.sh/$file_name"|tee /dev/null;fi;
+  (cat "$1" | curl -F 'f:1=<-' ix.io) | xclip -selection clipboard;
 }
 
 # Cheat.sh
 ch() {
-    curl cht.sh/$1
+  curl cht.sh/$1 | more;
 }
 
 # Test internet speed
 speedtest() {
-    curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -;
+  curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -;
 }
 
 # Expand a shortened url
 expand() {
-    curl -sIL "$1" | grep -i ^location;
+  curl -sIL "$1" | grep -i ^location;
 }
 
 # Create a qr code
 qrcode() {
-    curl qrenco.de/"$1";
+  curl qrenco.de/"$1";
 }
 
 # Get the current weather
 weather() {
-    curl https://v2.wttr.in/"$1";
+  curl https://v2.wttr.in/"$1";
 }
 
 # Get random numbers
 random() {
-    curl "https://www.random.org/integers/?num=${1:-1}&min=${2:-1}&max=${3:-100}&col=1&base=10&format=plain&rnd=new"
+  curl "https://www.random.org/integers/?num=${1:-1}&min=${2:-1}&max=${3:-100}&col=1&base=10&format=plain&rnd=new"
 }
 
 # Extract all links from a page
@@ -80,15 +81,10 @@ alllinks() {
   curl -s "https://api.hackertarget.com/pagelinks/?q=$1"
 }
 
-# Safer rm
-trash() {
-  echo "[x] moving files to trash..."
-  mv "$@" "$HOME/.trash"
-}
-
 ###############
 ###  Other  ###
 ###############
+
 sshmpirun () {
   num_hosts=$1
   shift
@@ -146,48 +142,24 @@ pp() {
   "
 }
 
-ft() {
-  if [[ $# -eq 1 ]]; then
-    selected=$1
+# Go up [n] directories
+up() {
+  local cdir="$(pwd)"
+  if [[ "${1}" == "" ]]; then
+      cdir="$(dirname "${cdir}")"
+  elif ! [[ "${1}" =~ ^[0-9]+$ ]]; then
+      echo "Error: argument must be a number"
+  elif ! [[ "${1}" -gt "0" ]]; then
+      echo "Error: argument must be positive"
   else
-    selected=$(find ~/depots/ ~/repos ~/ -mindepth 1 -maxdepth 1 -type d | fzf)
+      for ((i=0; i<${1}; i++)); do
+          local ncdir="$(dirname "${cdir}")"
+          if [[ "${cdir}" == "${ncdir}" ]]; then
+              break
+          else
+              cdir="${ncdir}"
+          fi
+      done
   fi
-
-if [[ -z $selected ]]; then
-    exit 0
-  fi
-
-  selected_name=$(basename "$selected" | tr . _)
-  tmux_running=$(pgrep tmux)
-
-  if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-    tmux new-session -s $selected_name -c $selected
-    exit 0
-  fi
-
-  if [[ -z $tmux_running ]]; then
-    tmux new-session -s $selected_name -c $selected
-  else
-    if ! tmux has-session -t=$selected_name 2> /dev/null; then
-      tmux new-session -ds $selected_name -c $selected
-    fi
-
-    tmux switch-client -t $selected_name
-  fi
-}
-
-cht() {
-  languages=`echo "js rust python c ts" | tr ' ' '\n'`
-  core_utils=`echo "xargs find" | tr ' ' '\n'`
-
-  selected=`printf "$languages\n$core_utils" | fzf`
-  printf "Enter query: "
-  read query
-
-  if printf $languages | grep -qs $selected; then
-    curl cht.sh/$selected/`echo $query | tr ' ' '+'`
-  else
-    curl cht.sh/$selected~$query | less
-  fi
-
+  cd "${cdir}"
 }

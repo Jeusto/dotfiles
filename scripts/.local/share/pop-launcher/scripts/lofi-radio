@@ -1,0 +1,13 @@
+#!/usr/bin/bash
+#
+# name: Toggle lofi radio
+# keywords: lofi-radio radio lofi
+# icon: emblem-music-symbolic
+
+if pgrep -x "mpv" > /dev/null
+then
+    pkill -f radio-mpv || main
+else
+    notify-send "Playing now: Chillhop"
+    mpv --volume=60 --title="radio-mpv" "http://stream.zeno.fm/fyn8eh3h5f8uv" --no-video
+fi

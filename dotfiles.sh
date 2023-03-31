@@ -1,24 +1,20 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-cd ~/dotfiles/
+DOTFILES_DIR="$HOME/dotfiles"
+TARGET_DIR="$HOME"
 
-if [ $# -ne 1 ]
-  then
-    echo "1 argument expected"
-    exit 22
-  elif [ $1 = "install" ] ; then
+# Install or uninstall dotfiles
+case "$1" in
+  install)
     echo "Installing dotfiles...."
-    ls -d -- */ | xargs -I {} stow -vt ~ {}
-    stow -v --dir=/home/asaday/dotfiles --target=/home/asaday/
-    exit 0
-  elif [ $1 = "uninstall" ] ; then
+    ls -d -- */ | xargs -I {} stow -d "$DOTFILES_DIR" -vt "$TARGET_DIR" {}
+    ;;
+  uninstall)
     echo "Uninstalling dotfiles...."
-    ls -d -- */ | xargs -I {} stow -Dvt ~ {}
-    stow -Dv --dir=/home/asaday/dotfiles --target=/home/asaday/
-    exit 0
-  else
+    ls -d -- */ | xargs -I {} stow -d "$DOTFILES_DIR" -Dvt "$TARGET_DIR" {}
+    ;;
+  *)
     echo "Wrong argument, install or uninstall expected"
-    exit 22
-fi
-
-
+    exit 1
+    ;;
+esac

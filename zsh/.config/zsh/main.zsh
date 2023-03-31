@@ -39,7 +39,7 @@ zcomet compinit
 # FZF keybindings
 zle -N fzf-redraw-prompt
 zle     -N   fzf-file-widget
-bindkey '^F' fzf-file-widget
+bindkey '^T' fzf-file-widget
 zle     -N    fzf-cd-widget
 bindkey '\ec' fzf-cd-widget
 zle     -N   fzf-history-widget
@@ -118,3 +118,7 @@ export LESS_TERMCAP_se=$'\e[0m'
 export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'#
+
+# Tmux
+bindkey -s ^F "tmux-sessionizer\n"
+bindkey -s ^H "tmux-cht\n"
