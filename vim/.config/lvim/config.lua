@@ -21,6 +21,7 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 lvim.keys.normal_mode["<C-p>"] = "<Cmd>Telescope find_files<CR>"
+lvim.keys.normal_mode["<C-t>"] = "<Cmd>ToggleTerm direction=horizontal<CR>"
 
 -- theme
 lvim.colorscheme = "vscode"
@@ -125,6 +126,9 @@ lvim.builtin.which_key.mappings["n"] = { "<cmd>NvimTreeToggle<cr>", "Nvim tree t
 lvim.builtin.which_key.mappings["e"] = { "<cmd>Telescope buffers<cr>", "Telescope buffers" }
 lvim.builtin.which_key.mappings["r"] = { "<cmd>RunCode<cr>", "Run code" }
 lvim.builtin.which_key.mappings["o"] = { "<cmd>SymbolsOutline<cr>", "Symbols outline" }
+lvim.builtin.which_key.mappings["sc"] = {
+  "<cmd>TodoTelescope<CR>", "Todo comments"
+}
 lvim.builtin.which_key.mappings["t"] = {
   name = "+Trouble",
   r = { "<cmd>Trouble lsp_references<cr>", "References" },
@@ -133,6 +137,7 @@ lvim.builtin.which_key.mappings["t"] = {
   q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
+  c = { "<cmd>TodoTrouble<cr>", "Todo comments" },
 }
 
 -- User Config for predefined plugins
@@ -247,7 +252,22 @@ lvim.plugins = {
   { "p00f/nvim-ts-rainbow", },
   { "Mofiqul/vscode.nvim" },
   { "kshenoy/vim-signature" },
-  { "christoomey/vim-tmux-navigator" },
+  { "folke/todo-comments.nvim" },
+  { "christoomey/vim-tmux-navigator",
+    config = function()
+      require("todo-comments").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end },
+{
+  "ahmedkhalf/lsp-rooter.nvim",
+  event = "BufRead",
+  config = function()
+    require("lsp-rooter").setup()
+  end,
+},
   {
     "simrat39/symbols-outline.nvim",
     config = function()
@@ -345,6 +365,12 @@ vim.keymap.set('n', '<M-g>', function()
     vim.diagnostic.hide()
   end
 end)
+
+-- Disable format on save, can still format with leader-l-f
+lvim.format_on_save = {
+  pattern = "*",
+  timeout = 1000,
+}
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- vim.api.nvim_create_autocmd("BufEnter", {

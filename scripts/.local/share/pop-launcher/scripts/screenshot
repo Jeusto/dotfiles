@@ -1,0 +1,22 @@
+#!/usr/bin/bash
+#
+# name: Take a screenshot
+# keywords: gnome screenshot options
+# icon: camera-photo-symbolic
+
+declare -A options=(
+    ["Full screen"]="gnome-screenshot"
+    ["Current window"]="gnome-screenshot --window"
+    ["Select area"]="gnome-screenshot -a"
+)
+
+selected=$(printf '%s\n' "${!options[@]}" | rofi -dmenu -i -p "Screenshot options")
+
+if [ -n "$selected" ]; then
+    timestamp=$(date +%Y-%m-%d-%H-%M-%S)
+    filepath="$HOME/Pictures/screenshots"
+    filename=Screenshot-$timestamp-$(echo "$selected" | cut -d' ' -f1).png
+
+    ${options[$selected]} -f "$filepath/$filename"
+    notify-send "Screenshot saved"
+fi

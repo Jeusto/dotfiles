@@ -1,24 +1,25 @@
 ###############################
 ###  General configuration  ###
 ###############################
-setopt globdots
 
 # Starship prompt
 eval "$(starship init zsh)"
+
+# List hidden files by default
+setopt globdots
 
 # Save commands history to a file
 HISTFILE=~/.zsh_history
 HISTSIZE=25000
 SAVEHIST=25000
 setopt incappendhistory
-export HISTSIZE=1000000000
-export SAVEHIST=$HISTSIZE
 setopt EXTENDED_HISTORY
 setopt SHARE_HISTORY
 
 #################
 ###  Plugins  ###
 #################
+
 # Clone zcomet if necessary
 if [[ ! -f ${ZDOTDIR:-${HOME}}/.zcomet/bin/zcomet.zsh ]]; then
   git clone https://github.com/agkozak/zcomet.git ${ZDOTDIR:-${HOME}}/.zcomet/bin
@@ -26,15 +27,14 @@ fi
 # Source zcomet.zsh
 source ${ZDOTDIR:-${HOME}}/.zcomet/bin/zcomet.zsh
 
+# Plugins
 zcomet load agkozak/zsh-z
 zcomet load Aloxaf/fzf-tab
 zcomet load ohmyzsh plugins/command-not-found
 zcomet load zsh-users/zsh-syntax-highlighting
 zcomet load zsh-users/zsh-autosuggestions
+zcomet load kutsan/zsh-system-clipboard
 zcomet snippet https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.zsh
-
-# Run compinit and compile its cache
-zcomet compinit
 
 # FZF keybindings
 zle -N fzf-redraw-prompt
@@ -52,9 +52,13 @@ zstyle ':completion:*' menu select
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#777777"
 bindkey '^E' autosuggest-accept
 
+# Run compinit and compile its cache
+zcomet compinit
+
 ###############
 ###  Other  ###
 ###############
+
 # Case insensitive autocompletion
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 autoload -Uz compinit && compinit
@@ -84,14 +88,12 @@ bindkey '^P' history-beginning-search-backward
 bindkey '^N' history-beginning-search-forward
 
 function zle-line-init() {
-  # Note: this initial mode must match the $VIMODE initial value above.
   zle -K viins
 }
 
 zle -N zle-line-init
 
 # Show insert/command mode in vi.
-# zle-keymap-select is executed every time KEYMAP changes.
 function zle-keymap-select {
   VIMODE="${${KEYMAP/vicmd/ C}/(main|viins)/ I}"
   zle reset-prompt
@@ -109,15 +111,6 @@ function zle-keymap-select {
   fi
 }
 zle -N zle-keymap-select
-
-# Colorful man pages
-export LESS_TERMCAP_mb=$'\e[1;32m'
-export LESS_TERMCAP_md=$'\e[1;32m'
-export LESS_TERMCAP_me=$'\e[0m'
-export LESS_TERMCAP_se=$'\e[0m'
-export LESS_TERMCAP_so=$'\e[01;33m'
-export LESS_TERMCAP_ue=$'\e[0m'
-export LESS_TERMCAP_us=$'\e[1;4;31m'#
 
 # Tmux
 bindkey -s ^F "tmux-sessionizer\n"

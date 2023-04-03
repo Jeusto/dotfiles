@@ -48,7 +48,20 @@ sharetxt() {
 
 # Cheat.sh
 ch() {
-  curl cht.sh/$1 | more;
+  unset query
+  selected=$(cat ~/.tmux-cht-languages ~/.tmux-cht-command | fzf)
+  if [[ -z $selected ]]; then
+      exit 0
+  fi
+
+  vared -p "Enter Query: " -c query
+
+  if grep -qs "$selected" ~/.tmux-cht-languages; then
+      query=$(echo "$query" | tr ' ' '+')
+      curl -s cht.sh/$selected/$query
+  else
+      curl -s cht.sh/$selected~$query
+  fi
 }
 
 # Test internet speed
@@ -85,23 +98,42 @@ alllinks() {
 ###  Other  ###
 ###############
 
-sshmpirun () {
+# Go up [n] directories
+up() {
+  local cdir="$(pwd)"
+  if [[ "${1}" == "" ]]; then
+      cdir="$(dirname "${cdir}")"
+  elif ! [[ "${1}" =~ ^[0-9]+$ ]]; then
+      echo "Error: argument must be a number"
+  elif ! [[ "${1}" -gt "0" ]]; then
+      echo "Error: argument must be positive"
+  else
+      for ((i=0; i<${1}; i++)); do
+          local ncdir="$(dirname "${cdir}")"
+          if [[ "${cdir}" == "${ncdir}" ]]; then
+              echo "Error: reached root directory"
+              break
+          else
+              cdir="${ncdir}"
+          fi
+      done
+  fi
+  cd "${cdir}"
+}
+
+
+p () {
   num_hosts=$1
   shift
   program=$1
   shift
   program_args=("$@")
 
-  scp "$program" asaday@turing.u-strasbg.fr:~ &&
-  ssh asaday@turing.u-strasbg.fr "
-    mpicc -march=native $(basename "$program") -o $(basename "$program".out) &&
-    scp $(basename "$program".out) vmCalculParallelegrp1-0:/partage/arhun.saday &&
-    ssh vmCalculParallelegrp1-0 '
-      cd /partage/arhun.saday &&
-      mpirun -hostfile /partage/hosts -n $num_hosts ./$(basename "$program".out) ${program_args[@]} &&
-      rm $(basename "$program".out)
-    ' &&
-    rm ~/$(basename "$program").out ~/$(basename "$program")
+  scp "$program" vmCalculParallelegrp1-0:/partage/arhun.saday &&
+  ssh vmCalculParallelegrp1-0 "
+    mpicc -march=native /partage/arhun.saday/$(basename "$program") -o /partage/arhun.saday/$(basename "$program".out) &&
+    mpirun -hostfile /partage/hosts -n $num_hosts /partage/arhun.saday/$(basename "$program".out) ${program_args[@]} &&
+    rm /partage/arhun.saday/$(basename "$program".out)
   "
 }
 
@@ -126,40 +158,21 @@ pp() {
   local identifiant='asaday'
   local name='arhun.saday'
 
-  ssh ${identifiant}@turing.u-strasbg.fr "rm -rf ~/projet-pp-2223"
-  scp -r ${chemin}/${dossier} ${identifiant}@turing.u-strasbg.fr:~
+  ssh vmCalculParallelegrp1-0 "rm -rf /partage/${name}/${dossier}"
+  scp -r ${chemin}/${dossier} vmCalculParallelegrp1-0:/partage/${name}/
 
-  ssh -t ${identifiant}@turing.u-strasbg.fr "
-    scp -r ${dossier} vmCalculParallelegrp1-0:/partage/${name}/ &&
-    ssh -t vmCalculParallelegrp1-0 '
-      cd /partage/${name}/${dossier} &&
-      cleanup() {
-        rm -rf /partage/${name}/${dossier}
-      }
-      trap cleanup EXIT
-      bash -i
-    '
+  ssh -t vmCalculParallelegrp1-0 "
+    cd /partage/${name}/${dossier} &&
+    cleanup() {
+      rm -rf /partage/${name}/${dossier}
+    }
+    trap cleanup EXIT
+    bash -i
   "
 }
 
-# Go up [n] directories
-up() {
-  local cdir="$(pwd)"
-  if [[ "${1}" == "" ]]; then
-      cdir="$(dirname "${cdir}")"
-  elif ! [[ "${1}" =~ ^[0-9]+$ ]]; then
-      echo "Error: argument must be a number"
-  elif ! [[ "${1}" -gt "0" ]]; then
-      echo "Error: argument must be positive"
-  else
-      for ((i=0; i<${1}; i++)); do
-          local ncdir="$(dirname "${cdir}")"
-          if [[ "${cdir}" == "${ncdir}" ]]; then
-              break
-          else
-              cdir="${ncdir}"
-          fi
-      done
-  fi
-  cd "${cdir}"
+sharefile() {
+  file="$1"
+  url=$(curl --upload-file "$file" https://transfer.sh/"${file##*/}")
+  echo "$url" | xclip -selection clipboard
 }

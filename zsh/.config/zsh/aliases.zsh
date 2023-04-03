@@ -5,11 +5,6 @@ alias cp='cp -i'
 alias gendir="mkdir -p {a,b}/{e,f,g}/{h,i,j}"
 alias lt='ls --human-readable --size -1 -S --classify'
 alias ls='ls -F --color=auto'
-alias ..="cd .."
-alias 2..='cd ../..'
-alias 3..='cd ../../..'
-alias 4..='cd ../../../..'
-alias 5..='cd ../../../../..'
 
 # Git
 alias dot='git -C $HOME/dotfiles'
@@ -31,6 +26,9 @@ alias fp="fzf --preview 'batcat --style=numbers --color=always --line-range :500
 alias fc="fzf | xclip -selection clipboard"
 alias fo="fzf | xargs -I{} xdg-open {}"
 alias fv="fzf --preview 'batcat --style=numbers --color=always --line-range :500 {}' | xargs -I{} lvim {}"
+alias fman="man -k . | fzf"
+alias ftldr="tldr --list | tr -s ' ' '\n' | tr ',' ' ' | fzf --preview 'tldr {1}' --height=60% --layout=reverse | xargs tldr"
+alias fcht="curl cheat.sh/:list | fzf --preview 'curl cheat.sh/{1}' --height=60% --layout=reverse | xargs -I{} curl cheat.sh/{}"
 
 # Enable aliases to be sudo'ed
 alias su='sudo '
@@ -55,17 +53,8 @@ alias emptytrash="rm -pr -f ~/.local/share/Trash/files/*"
 alias gc="gcc -Wall -Wextra -Werror -std=c99 -pedantic"
 alias python="python3"
 alias pip="pip3"
-alias yee-toggle="yeelight-cli 192.168.1.20 toggle &"
-alias yee-home="yeelight-cli 192.168.1.20 preset CosyHome"
-alias yee-night="yeelight-cli 192.168.1.20 preset Night"
-alias lofi-start="mpv --volume=60 --title=\"radio-mpv\" https://play.streamafrica.net/lofiradio &"
-alias lofi-stop="pkill -f radio-mpv || main"
-alias pause="xdotool key XF86AudioPlay"
-alias prev="xdotool key XF86AudioPrev"
-alias next="xdotool key XF86AudioNext"
 alias grep="grep --color=auto"
 alias clip="xclip -selection clipboard"
 alias vsc="code --profile clean"
 alias code="code --profile Default"
-alias sshpp="ssh -t asaday@turing.u-strasbg.fr ssh vmCalculParallelegrp1-0"
-alias p="ssh -t asaday@turing.u-strasbg.fr ssh vmCalculParallelegrp1-0"
+alias cheat="cheat.sh"

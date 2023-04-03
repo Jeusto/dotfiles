@@ -1,0 +1,40 @@
+#!/usr/bin/bash
+#
+# name: Manage yeelight
+# keywords: yee
+# icon: preferences-color-symbolic
+
+# Constants
+yeelight_ip="192.168.1.20"
+yee_command="yeelight-cli $yeelight_ip"
+
+# Options
+yeelight_presets=("Night" "CosyHome" "PcMode")
+
+declare -A yeelight_options=(
+  ["💡 Toggle on/off"]="toggle"
+  ["🖼️ Set preset"]="set_preset"
+  ["🎚️ Adjust brightness"]="adjust_brightness"
+)
+
+# Selection
+selected=$(printf '%s\n' "${!yeelight_options[@]}" | rofi -dmenu -i -p "Yeelight:")
+
+# Actions
+case $selected in
+  "💡 Toggle on/off")
+    $yee_command toggle
+    ;;
+  "🖼️ Set preset")
+    selected_preset=$(printf '%s\n' "${yeelight_presets[@]}" | rofi -dmenu -i -p "Select preset:")
+    if [[ -n "${selected_preset}" ]]; then
+      $yee_command preset "$selected_preset"
+    fi
+    ;;
+  "🎚️ Adjust brightness")
+    brightness=$(rofi -dmenu -i -p "Enter brightness level:")
+    if [[ -n "${brightness}" ]]; then
+      $yee_command set bright "$brightness"
+    fi
+    ;;
+esac

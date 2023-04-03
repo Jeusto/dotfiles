@@ -9,7 +9,7 @@ read -r -p "Enter Query: " query
 
 if grep -qs "$selected" ~/.tmux-cht-languages; then
     query=$(echo "$query" | tr ' ' '+')
-    bash -c "echo \"curl cht.sh/$selected/$query/\" & curl cht.sh/$selected/$query" | less -R
+    bash -c "curl -s cht.sh/$selected/$query" | less -R
 else
-    curl -s cht.sh/"$selected"~"$query" | less -R
+    bash -c "curl -s cht.sh/$selected~$query" | less -R
 fi

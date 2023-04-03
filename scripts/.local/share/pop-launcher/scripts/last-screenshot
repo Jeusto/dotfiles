@@ -4,6 +4,6 @@
 # keywords: last screen screenshot
 # icon: accessories-screenshot-symbolic
 
-screenshotDir=$HOME/Pictures/Screenshots
+screenshotDir=$HOME/Pictures/screenshots
 
 xdg-open $screenshotDir/"$(ls -t $screenshotDir | head -1)"

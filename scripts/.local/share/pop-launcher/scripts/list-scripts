@@ -1,0 +1,18 @@
+#!/usr/bin/bash
+#
+# name: List scripts
+# keywords: sh script list
+# icon: utilities-terminal-symbolic
+
+script_path="$HOME/.local/share/pop-launcher/scripts/"
+prompt="Scripts:"
+
+run_dmenu="$(find "$script_path"/* -maxdepth 1 -type f -executable \
+          -exec grep -Iq . {} \; -print \
+          | sed 's|^'"$script_path"/'||' \
+          | sort \
+          | rofi -dmenu -p "$prompt")"
+
+eval "$script_path/$run_dmenu"
+
+exit 0

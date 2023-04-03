@@ -12,3 +12,6 @@ setxkbmap -option "caps:ctrl_modifier" -option "shift:both_capslock" -option "ct
 
 # But when it's pressed only once, treat it as escape
 xcape -e '#66=Escape'
+
+# Map extra mouse buttons to media keys
+xmodmap -e 'keycode 193 = XF86AudioPlay'

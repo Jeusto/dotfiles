@@ -1,0 +1,19 @@
+#!/usr/bin/bash
+#
+# name: Firefox search
+# keywords: fire
+# icon: firefox-symbolic
+# dependencies: firefox rofi wmctrl xdotool
+
+search_url=""
+
+query=$(rofi -dmenu -p "Search:")
+
+# If the user entered a query, open it in Firefox
+if [[ -n "$query" ]]; then
+    wmctrl -xa Firefox
+    xdotool key "ctrl+t"
+    xdotool type "!$search_url$query"
+    sleep 0.25
+    xdotool key "Return"
+fi
