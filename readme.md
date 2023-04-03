@@ -2,20 +2,18 @@
 
 My personal dotfiles for Linux managed using [GNU Stow](https://www.gnu.org/software/stow/).
 
-![example1](https://i.imgur.com/Ul9iUjE.png)
-![example2](https://i.imgur.com/uQU2ioU.png)
-
 ### Main points
 
 - **Distribution**: Pop OS
 - **Shell**: Zsh
 - **Prompt**: Starship
-- **Browser**: Firefox (with vimium-c extension)
-- **Editor**: Lunarvim (neovim ide layer) & Vscode (with vscode-neovim extension which embeds a full neovim instance)
-- **File manager**: Nemo (gui-based) & Ranger (console based)
+- **Launcher**: Pop Launcher & Rofi (mainly for scripts)
+- **Editor**: Neovim (with LunarVim as the IDE layer) & VS Code (with Vscode-neovim extension which embeds a full Neovim instance to use as a backend for the editor)
+- **File manager**: Ranger (cli based) & Nautilus (gui based)
+- **Browser**: Firefox (with Vimium-c & Sidebery extension)
 
-### Visual tweaks
+### Tweaks
 
 - **Icon theme**: Papirus
-- **Gtk & shell theme**: Fluent
 - **Mono font**: JetBrainsMono Nerd Font
+- **Gnome extensions**: Dash to panel, Ddterm and Space bar
