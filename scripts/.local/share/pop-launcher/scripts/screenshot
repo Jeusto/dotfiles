@@ -18,5 +18,4 @@ if [ -n "$selected" ]; then
     filename=Screenshot-$timestamp-$(echo "$selected" | cut -d' ' -f1).png
 
     ${options[$selected]} -f "$filepath/$filename"
-    notify-send "Screenshot saved"
 fi

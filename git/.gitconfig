@@ -1,13 +1,17 @@
 [core]
-  editor = code --wait
+  editor = lvim
 [diff]
-  tool = vscode
+  tool = nvim
 [difftool "vscode"]
   cmd = code --wait --diff $LOCAL $REMOTE
+[difftool "nvim"]
+  cmd = lvim -d $LOCAL $REMOTE
 [merge]
-  tool = vscode
+  tool = lvim
 [mergetool "vscode"]
   cmd = code --wait $MERGED
+[mergetool "nvim"]
+  cmd = lvim $MERGED
 [pull]
   rebase = true
 

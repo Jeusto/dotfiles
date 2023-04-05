@@ -124,9 +124,7 @@ up() {
 
 p () {
   num_hosts=$1
-  shift
-  program=$1
-  shift
+  program=$2
   program_args=("$@")
 
   scp "$program" vmCalculParallelegrp1-0:/partage/arhun.saday &&
@@ -160,6 +158,25 @@ pp() {
 
   ssh vmCalculParallelegrp1-0 "rm -rf /partage/${name}/${dossier}"
   scp -r ${chemin}/${dossier} vmCalculParallelegrp1-0:/partage/${name}/
+
+  ssh -t vmCalculParallelegrp1-0 "
+    cd /partage/${name}/${dossier} &&
+    cleanup() {
+      rm -rf /partage/${name}/${dossier}
+    }
+    trap cleanup EXIT
+    bash -i
+  "
+}
+
+tp() {
+  local chemin="$(pwd)"
+  local dossier="tp-note"
+  local identifiant='asaday'
+  local name='arhun.saday'
+
+  ssh vmCalculParallelegrp1-0 "rm -rf /partage/${name}/${dossier}"
+  scp -r ${chemin} vmCalculParallelegrp1-0:/partage/${name}/${dossier}
 
   ssh -t vmCalculParallelegrp1-0 "
     cd /partage/${name}/${dossier} &&
