@@ -26,5 +26,5 @@ configuration {
     sidebar-mode: true;
 }
 
-@theme "./theme/centered.rasi"
 @theme "./theme/one-line.rasi"
+@theme "./theme/centered.rasi"

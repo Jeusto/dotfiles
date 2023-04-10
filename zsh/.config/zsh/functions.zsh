@@ -28,7 +28,7 @@ cl() {
 # Safer rm
 trash() {
   echo "[x] moving files to trash..."
-  mv "$@" "$HOME/.trash"
+  mv "$@" "$HOME/.local/share/Trash/files/"
 }
 
 ##############################
@@ -122,17 +122,8 @@ up() {
 }
 
 
-p () {
-  num_hosts=$1
-  program=$2
-  program_args=("$@")
-
-  scp "$program" vmCalculParallelegrp1-0:/partage/arhun.saday &&
-  ssh vmCalculParallelegrp1-0 "
-    mpicc -march=native /partage/arhun.saday/$(basename "$program") -o /partage/arhun.saday/$(basename "$program".out) &&
-    mpirun -hostfile /partage/hosts -n $num_hosts /partage/arhun.saday/$(basename "$program".out) ${program_args[@]} &&
-    rm /partage/arhun.saday/$(basename "$program".out)
-  "
+copilot() {
+  eval "$(github-copilot-cli alias -- "$0")"
 }
 
 killport () {
@@ -144,52 +135,4 @@ killport () {
   else
       echo "No process found listening on port $port"
   fi
-}
-
-copilot() {
-  eval "$(github-copilot-cli alias -- "$0")"
-}
-
-pp() {
-  local chemin="$HOME/depots"
-  local dossier='projet-pp-2223'
-  local identifiant='asaday'
-  local name='arhun.saday'
-
-  ssh vmCalculParallelegrp1-0 "rm -rf /partage/${name}/${dossier}"
-  scp -r ${chemin}/${dossier} vmCalculParallelegrp1-0:/partage/${name}/
-
-  ssh -t vmCalculParallelegrp1-0 "
-    cd /partage/${name}/${dossier} &&
-    cleanup() {
-      rm -rf /partage/${name}/${dossier}
-    }
-    trap cleanup EXIT
-    bash -i
-  "
-}
-
-tp() {
-  local chemin="$(pwd)"
-  local dossier="tp-note"
-  local identifiant='asaday'
-  local name='arhun.saday'
-
-  ssh vmCalculParallelegrp1-0 "rm -rf /partage/${name}/${dossier}"
-  scp -r ${chemin} vmCalculParallelegrp1-0:/partage/${name}/${dossier}
-
-  ssh -t vmCalculParallelegrp1-0 "
-    cd /partage/${name}/${dossier} &&
-    cleanup() {
-      rm -rf /partage/${name}/${dossier}
-    }
-    trap cleanup EXIT
-    bash -i
-  "
-}
-
-sharefile() {
-  file="$1"
-  url=$(curl --upload-file "$file" https://transfer.sh/"${file##*/}")
-  echo "$url" | xclip -selection clipboard
 }

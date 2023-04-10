@@ -106,3 +106,13 @@ xnoremap ; :
 
 "Saner  ctrl-l
 nnoremap <leader>l :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
+
+"Use global marks by default
+noremap <silent> <expr> ' "`".toupper(nr2char(getchar()))
+noremap <silent> <expr> m "m".toupper(nr2char(getchar()))
+sunmap '
+sunmap m
+
+"Alternate escape key
+inoremap jk <Esc>
+cnoremap jk <C-C>

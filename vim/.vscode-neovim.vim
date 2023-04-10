@@ -91,6 +91,11 @@ nnoremap <leader>c <Cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<
 nnoremap <leader>P <Cmd>call VSCodeNotify('workbench.action.openRecent')<CR>
 nnoremap <leader>sr <Cmd>call VSCodeNotify('workbench.action.openRecent')<CR>
 nnoremap ga <Cmd>call VSCodeNotify('keyboard-quickfix.openQuickFix')<CR>
+"lsp
+nnoremap <leader>lj <Cmd>call VSCodeNotify('editor.action.marker.next')<CR>
+nnoremap <leader>lk <Cmd>call VSCodeNotify('editor.action.marker.prev')<CR>
+nnoremap <leader>lr <Cmd>call VSCodeNotify('editor.action.rename')<CR>
+nnoremap <leader>lf <Cmd>call VSCodeNotify('editor.action.formatDocument')<CR>
 
 "Match neovim plugins
 "coderunner
@@ -101,6 +106,7 @@ xmap gc  <Plug>VSCodeCommentary
 omap gc  <Plug>VSCodeCommentary
 nmap gcc <Plug>VSCodeCommentaryLine
 "hop
+nnoremap <leader>w <Cmd>call VSCodeNotify('jump-extension.jump-to-the-start-of-a-word')<CR>
 nnoremap <leader>j <Cmd>call VSCodeNotify('jump-extension.jump-to-the-start-of-a-word')<CR>
 
 "Fix moving cursor unfolds a folded section of the code

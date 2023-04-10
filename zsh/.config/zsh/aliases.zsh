@@ -1,8 +1,7 @@
 # Default commands
 alias mv='mv -i'
-alias rm='rm -i'
+alias rm='rm -rfi'
 alias cp='cp -i'
-alias gendir="mkdir -p {a,b}/{e,f,g}/{h,i,j}"
 alias lt='ls --human-readable --size -1 -S --classify'
 alias ls='ls -F --color=auto'
 
@@ -47,7 +46,6 @@ alias bat="batcat"
 alias del="trash-put"
 alias fd="fdfind"
 alias ye="yeelight-cli 192.168.1.20"
-alias y="yarn"
 alias r="ranger"
 alias emptytrash="rm -pr -f ~/.local/share/Trash/files/*"
 alias gc="gcc -Wall -Wextra -Werror -std=c99 -pedantic"
@@ -58,3 +56,4 @@ alias clip="xclip -selection clipboard"
 alias vsc="code --profile clean"
 alias code="code --profile Default"
 alias cht="cht.sh"
+alias gendir="mkdir -p {a,b}/{e,f,g}/{h,i,j}"

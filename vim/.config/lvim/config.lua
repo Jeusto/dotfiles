@@ -45,6 +45,7 @@ lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 lvim.keys.normal_mode["<C-p>"] = "<Cmd>Telescope find_files<CR>"
 lvim.keys.normal_mode["<C-t>"] = "<Cmd>ToggleTerm direction=horizontal<CR>"
 lvim.keys.normal_mode["ga"] = ":lua vim.lsp.buf.code_action()<CR>"
+vim.api.nvim_set_keymap('n', 'gh', ':lua vim.lsp.buf.hover()<CR>', { noremap = true, silent = true })
 
 -- hop.nvim
 vim.api.nvim_set_keymap('', 'f',
@@ -112,9 +113,10 @@ vim.cmd([[
   "Alternate escape key
   inoremap jk <Esc>
   cnoremap jk <C-C>
+
+  "set shellcmdflag=-ic
 ]])
 
-vim.api.nvim_set_keymap('n', 'gh', ':lua vim.lsp.buf.hover()<CR>', { noremap = true, silent = true })
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 local _, actions = pcall(require, "telescope.actions")
@@ -134,17 +136,14 @@ lvim.builtin.telescope.defaults.mappings = {
 
 -- Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
-lvim.builtin.which_key.mappings["j"] = { "<cmd>HopWord<cr>", "Hop to word" }
+lvim.builtin.which_key.mappings["w"] = { "<cmd>HopWord<cr>", "Hop to word" }
 lvim.builtin.which_key.mappings["n"] = { "<cmd>NvimTreeToggle<cr>", "Nvim tree toggle" }
 lvim.builtin.which_key.mappings["e"] = { "<cmd>Telescope buffers<cr>", "Telescope buffers" }
 lvim.builtin.which_key.mappings["r"] = { "<cmd>RunCode<cr>", "Run code" }
 lvim.builtin.which_key.mappings["o"] = { "<cmd>SymbolsOutline<cr>", "Symbols outline" }
-lvim.builtin.which_key.mappings["sc"] = {
-  "<cmd>TodoTelescope<CR>", "Todo comments"
-}
-lvim.builtin.which_key.mappings["ss"] = {
-  "<cmd>Telescope<CR>", "Telescope all possible options"
-}
+lvim.builtin.which_key.mappings["sc"] = { "<cmd>TodoTelescope<CR>", "Todo comments" }
+lvim.builtin.which_key.mappings["ss"] = { "<cmd>Telescope<CR>", "Telescope all possible options" }
+lvim.builtin.which_key.mappings["bq"] = { "<cmd>execute '%bd|e#|bd#'<CR>", "Close all buffers except current" }
 lvim.builtin.which_key.mappings["t"] = {
   name = "+Trouble",
   r = { "<cmd>Trouble lsp_references<cr>", "References" },
@@ -166,10 +165,15 @@ lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "right"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
 lvim.builtin.lir.show_hidden_files = true
+lvim.builtin.illuminate.active = false
+
+table.insert(lvim.builtin.project.patterns, 0, "!>packages") -- fix for js monorepos
+file_ignore_patterns = { ".git/", ".cache", "%.o", "%.a", "%.out", "%.class",
+  "%.pdf", "%.mkv", "%.mp4", "%.zip" }
 
 local components = require("lvim.core.lualine.components")
 lvim.builtin.lualine.style = "lvim"
-lvim.builtin.lualine.sections.lualine_x = { "filetype" }
+lvim.builtin.lualine.sections.lualine_x = { components.diagnostics, "filetype", }
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
@@ -212,23 +216,59 @@ lvim.plugins = {
   { "tpope/vim-surround" },
   { "sheerun/vim-polyglot" },
   { "terryma/vim-expand-region" },
-  { "psliwka/vim-smoothie" },
+  -- { "psliwka/vim-smoothie" },
+  {
+    "karb94/neoscroll.nvim",
+    config = function()
+      require('neoscroll').setup({
+        -- Set any options as needed
+      })
+
+      local mappings    = {}
+      mappings['<C-u>'] = { 'scroll', { '-vim.wo.scroll', 'true', '150' } }
+      mappings['<C-d>'] = { 'scroll', { 'vim.wo.scroll', 'true', '150' } }
+      mappings['<C-b>'] = { 'scroll', { '-vim.api.nvim_win_get_height(0)', 'true', '150' } }
+      mappings['<C-f>'] = { 'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '150' } }
+      mappings['<C-y>'] = { 'scroll', { '-0.10', 'false', '150' } }
+      mappings['<C-e>'] = { 'scroll', { '0.10', 'false', '150' } }
+      mappings['zt']    = { 'zt', { '150' } }
+      mappings['zz']    = { 'zz', { '150' } }
+      mappings['zb']    = { 'zb', { '150' } }
+
+      require('neoscroll.config').set_mappings(mappings)
+    end
+  },
   { "folke/trouble.nvim", cmd = "TroubleToggle", },
   { "p00f/nvim-ts-rainbow", },
   { "Mofiqul/vscode.nvim" },
   { "kshenoy/vim-signature" },
   { "folke/todo-comments.nvim" },
-  -- { "mg979/vim-visual-multi" },
+  { "mg979/vim-visual-multi" },
+  { "metakirby5/codi.vim" },
+  -- { "mattn/webapi-vim" },
+  -- { "mattn/vim-gist" },
+  -- { "nvim-pack/nvim-spectre" },
+  -- { "sindrets/diffview.nvim" },
+  -- { "ray-x/lsp_signature.nvim",
+  --   config = function()
+  --     require("lsp_signature").setup {}
+  --   end
+  -- },
+  -- { "rmagatti/goto-preview",
+  --   config = function()
+  --     require("goto-preview").setup {}
+  --   end
+  -- },
+  {
+    "windwp/nvim-ts-autotag",
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
+  },
   { "christoomey/vim-tmux-navigator",
     config = function()
       require("todo-comments").setup {}
-    end },
-  {
-    "ahmedkhalf/lsp-rooter.nvim",
-    event = "BufRead",
-    config = function()
-      require("lsp-rooter").setup()
-    end,
+    end
   },
   {
     "simrat39/symbols-outline.nvim",
@@ -302,6 +342,7 @@ end
 
 vim.api.nvim_set_keymap('i', '<C-g>', '<cmd>lua trigger_suggestions()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-g>', '<cmd>lua trigger_suggestions()<CR>', { noremap = true, silent = true })
+lvim.builtin.which_key.mappings["lg"] = { "<cmd>lua trigger_suggestions()<CR>", "Toggle Copilot" }
 
 -- tab accept copilot suggestion
 vim.keymap.set("i", '<Tab>', function()
