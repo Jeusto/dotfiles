@@ -96,6 +96,16 @@ nnoremap <leader>lj <Cmd>call VSCodeNotify('editor.action.marker.next')<CR>
 nnoremap <leader>lk <Cmd>call VSCodeNotify('editor.action.marker.prev')<CR>
 nnoremap <leader>lr <Cmd>call VSCodeNotify('editor.action.rename')<CR>
 nnoremap <leader>lf <Cmd>call VSCodeNotify('editor.action.formatDocument')<CR>
+"git
+nnoremap <leader>gd <Cmd>call VSCodeNotify('git.openChange')<CR>
+nnoremap <leader>gb <Cmd>call VSCodeNotify('git.checkout')<CR>
+nnoremap <leader>gl <Cmd>call VSCodeNotify('gitlens.toggleLineBlame')<CR>
+nnoremap <leader>gC <Cmd>call VSCodeNotify('gitlens.openFileRevision')<CR>
+nnoremap <leader>gj <Cmd>call VSCodeNotify('workbench.action.editor.nextChange')<CR>
+nnoremap <leader>gk <Cmd>call VSCodeNotify('workbench.action.editor.previousChange')<CR>
+nnoremap <leader>gp <Cmd>call VSCodeNotify('editor.action.dirtydiff.next')<CR>
+nnoremap <leader>gr <Cmd>call VSCodeNotify('git.revertSelectedRanges')<CR>
+nnoremap <leader>gs <Cmd>call VSCodeNotify('git.stageSelectedRanges')<CR>
 
 "Match neovim plugins
 "coderunner
@@ -135,6 +145,7 @@ vnoremap K :m '<-2<CR>gv=gv
 "Use global marks by default
 noremap <silent> <expr> ' "`".toupper(nr2char(getchar()))
 noremap <silent> <expr> m "m".toupper(nr2char(getchar()))
+noremap <silent> <expr> m "m".toupper(nr2char(getchar())).":call VSCodeNotify('bookmarks.toggle')<CR>"
 sunmap '
 sunmap m
 
