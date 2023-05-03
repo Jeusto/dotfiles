@@ -4,6 +4,7 @@ export PATH=\
 $HOME/local/share/flatpak/exports/bin:\
 /var/lib/flatpak/exports/bin:\
 $HOME/.cargo/bin:\
+$HOME/.deno/bin:\
 $HOME/.local:\
 $HOME/.local/bin:\
 $HOME/.local/scripts:\
@@ -38,4 +39,4 @@ export LESS_TERMCAP_me=$'\e[0m'
 export LESS_TERMCAP_se=$'\e[0m'
 export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
-export LESS_TERMCAP_us=$'\e[1;4;31m'#
+export LESS_TERMCAP_us=$'\e[1;4;31m'

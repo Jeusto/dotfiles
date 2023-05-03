@@ -11,6 +11,8 @@ alias dotfiles='~/dotfiles/dotfiles'
 alias g="git"
 alias gs="git status"
 alias gf="git fetch"
+alias gg="lazygit"
+alias lg="lazygit"
 
 # Exa
 alias l="exa --icons"
@@ -57,3 +59,5 @@ alias vsc="code --profile clean"
 alias code="code --profile Default"
 alias cht="cht.sh"
 alias gendir="mkdir -p {a,b}/{e,f,g}/{h,i,j}"
+alias lzd="lazydocker"
+alias updateall="sudo apt update && sudo apt upgrade && flatpak update"

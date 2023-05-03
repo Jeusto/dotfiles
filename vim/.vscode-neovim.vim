@@ -106,6 +106,7 @@ nnoremap <leader>gk <Cmd>call VSCodeNotify('workbench.action.editor.previousChan
 nnoremap <leader>gp <Cmd>call VSCodeNotify('editor.action.dirtydiff.next')<CR>
 nnoremap <leader>gr <Cmd>call VSCodeNotify('git.revertSelectedRanges')<CR>
 nnoremap <leader>gs <Cmd>call VSCodeNotify('git.stageSelectedRanges')<CR>
+nnoremap <leader>gg <Cmd>call VSCodeNotify('binocular.customCommands', 'Lazygit')<CR>
 
 "Match neovim plugins
 "coderunner
