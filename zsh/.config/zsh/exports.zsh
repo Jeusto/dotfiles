@@ -9,6 +9,9 @@ $HOME/.local:\
 $HOME/.local/bin:\
 $HOME/.local/scripts:\
 $HOME/.local/share/pop-launcher/scripts:\
+$HOME/Android/Sdk/tools/bin:\
+$HOME/Android/Sdk/platform-tools:\
+$HOME/Android/Sdk/emulator:\
 $PNPM_HOME:\
 $PATH
 
@@ -25,6 +28,7 @@ export FZF_COMPLETION_TRIGGER=''
 export PNPM_HOME="/home/asaday/.local/share/pnpm"
 export HISTSIZE=1000000000
 export SAVEHIST=1000000000
+export ANDROID_SDK_ROOT=$HOME/Android/Sdk
 
 # Colors
 export BAT_THEME="ansi"
