@@ -10,6 +10,7 @@ $HOME/.local/bin:\
 $HOME/.local/scripts:\
 $HOME/.local/share/pop-launcher/scripts:\
 $HOME/Android/Sdk/tools/bin:\
+$HOME/Android/Sdk/cmdline-tools/latest/bin:\
 $HOME/Android/Sdk/platform-tools:\
 $HOME/Android/Sdk/emulator:\
 $PNPM_HOME:\
@@ -29,6 +30,7 @@ export PNPM_HOME="/home/asaday/.local/share/pnpm"
 export HISTSIZE=1000000000
 export SAVEHIST=1000000000
 export ANDROID_SDK_ROOT=$HOME/Android/Sdk
+export JAVA_HOME=/home/asaday/.local/share/flatpak/app/com.google.AndroidStudio/x86_64/stable/b5287410e271345870a5cba62dd4b9294b091295decbc478d81baff32262fe46/files/extra/android-studio/jbr
 
 # Colors
 export BAT_THEME="ansi"

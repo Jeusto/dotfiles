@@ -121,9 +121,12 @@ up() {
   cd "${cdir}"
 }
 
-
+# Load completions on demand to avoid slowing down shell startup
 copilot() {
   eval "$(github-copilot-cli alias -- "$0")"
+}
+angular() {
+  eval "$(ng completion script)"
 }
 
 killport () {
