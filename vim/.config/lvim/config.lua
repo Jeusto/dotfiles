@@ -143,6 +143,7 @@ lvim.builtin.which_key.mappings["r"] = { "<cmd>RunCode<cr>", "Run code" }
 lvim.builtin.which_key.mappings["o"] = { "<cmd>SymbolsOutline<cr>", "Symbols outline" }
 lvim.builtin.which_key.mappings["sc"] = { "<cmd>TodoTelescope<CR>", "Todo comments" }
 lvim.builtin.which_key.mappings["ss"] = { "<cmd>Telescope<CR>", "Telescope all possible options" }
+lvim.builtin.which_key.mappings["su"] = { "<cmd>Telescope undo<CR>", "Telescope undo tree" }
 lvim.builtin.which_key.mappings["bq"] = { "<cmd>execute '%bd|e#|bd#'<CR>", "Close all buffers except current" }
 lvim.builtin.which_key.mappings["t"] = {
   name = "+Trouble",
@@ -206,6 +207,10 @@ lvim.builtin.treesitter.rainbow = {
     "#c678dd",
   },
 }
+
+lvim.builtin.telescope.on_config_done = function(telescope)
+  pcall(telescope.load_extension, ("undo"))
+end
 
 ------------------------------------
 -- Plugins
@@ -273,7 +278,9 @@ lvim.plugins = {
   {
     "simrat39/symbols-outline.nvim",
     config = function()
-      require('symbols-outline').setup {}
+      require('symbols-outline').setup {
+        position = 'left',
+      }
     end
   },
   {
@@ -333,6 +340,17 @@ lvim.plugins = {
       end, 100)
     end,
   },
+  { "debugloop/telescope-undo.nvim",
+    config = function()
+      require("telescope-undo").setup {
+        mappings = {
+          i = {
+            ["<cr>"] = require("telescope-undo.actions").restore,
+        },
+        }
+      }
+    end,
+  }
 }
 
 -- toggle copilot
