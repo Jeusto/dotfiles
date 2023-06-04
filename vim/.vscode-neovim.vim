@@ -222,3 +222,6 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 
 "Make file executable
 nnoremap <silent> <leader>x :!chmod +x %<CR>
+
+"Fix % for tsx files
+runtime macros/matchit.vim
