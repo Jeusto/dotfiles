@@ -139,3 +139,7 @@ killport () {
       echo "No process found listening on port $port"
   fi
 }
+
+batdiff() {
+  git diff --name-only --relative --diff-filter=d | xargs batcat --diff
+}

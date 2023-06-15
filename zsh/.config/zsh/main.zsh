@@ -52,16 +52,15 @@ zstyle ':completion:*' menu select
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#777777"
 bindkey '^E' autosuggest-accept
 
-# Run compinit and compile its cache
-zcomet compinit
-
 ###############
 ###  Other  ###
 ###############
 
 # Case insensitive autocompletion
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
-autoload -Uz compinit && compinit
+
+# Run compinit and compile its cache
+zcomet compinit
 
 # Set descriptions format to enable group support
 zstyle ':completion:*:descriptions' format '[%d]'
@@ -115,3 +114,4 @@ zle -N zle-keymap-select
 # Tmux
 bindkey -s ^F "tmux-sessionizer\n"
 bindkey -s ^H "tmux-cht\n"
+
