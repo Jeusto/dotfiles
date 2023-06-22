@@ -90,6 +90,8 @@ nnoremap <leader>f <Cmd>call VSCodeNotify('workbench.action.quickOpen')<CR>
 nnoremap <leader>c <Cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<CR>
 nnoremap <leader>P <Cmd>call VSCodeNotify('workbench.action.openRecent')<CR>
 nnoremap <leader>sr <Cmd>call VSCodeNotify('workbench.action.openRecent')<CR>
+nnoremap <leader>st <Cmd>call VSCodeNotify('binocular.searchFileContent')<CR>
+nnoremap <leader>P <Cmd>call VSCodeNotify('binocular.customCommands', 'Projects')<CR>
 nnoremap ga <Cmd>call VSCodeNotify('keyboard-quickfix.openQuickFix')<CR>
 "lsp
 nnoremap <leader>lj <Cmd>call VSCodeNotify('editor.action.marker.next')<CR>
@@ -212,13 +214,6 @@ augroup plugin_initialize
     autocmd!
     autocmd VimEnter * call FckThatMatchParen()
 augroup END
-
-noremap <A-j> :m .+1<CR>==
-noremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
 
 "Make file executable
 nnoremap <silent> <leader>x :!chmod +x %<CR>

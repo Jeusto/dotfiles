@@ -14,6 +14,7 @@
   cmd = lvim $MERGED
 [pull]
   rebase = true
+  autostash = true
 
 [user]
   name = Arhun Saday

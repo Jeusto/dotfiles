@@ -12,7 +12,4 @@ xset r rate 300 50
 # Shift = parentheses when held down, shift when pressed alone
 # Both shift keys together = toggle capslock
 setxkbmap -option "caps:ctrl_modifier" -option "shift:both_capslock" -option "ctrl:swap_lwin_lctl"
-xcape -t 500 -e '#66=Escape;Shift_L=parenleft;Shift_R=parenright'
-
-# Map extra mouse buttons to media keys
-xmodmap -e 'keycode 193 = XF86AudioPlay'
+xcape -t 500 -e '#66=Escape'

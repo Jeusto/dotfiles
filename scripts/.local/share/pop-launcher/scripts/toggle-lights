@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 #
 # name: Toggle yeelight
-# keywords: yee
+# keywords: yee lights toggle
 # icon: emoji-objects-symbolic
 
-yeelight-cli 192.168.1.20 toggle
+/home/asaday/.cargo/bin/yeelight-cli 192.168.1.20 toggle

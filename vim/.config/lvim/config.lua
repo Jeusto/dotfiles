@@ -9,6 +9,7 @@ vim.opt.smartcase = true
 vim.opt.wrap = false
 vim.opt.timeoutlen = 250
 vim.opt.termguicolors = true
+-- lvim.transparent_window = true
 
 ------------------------------------
 -- Theme
@@ -114,7 +115,12 @@ vim.cmd([[
   inoremap jk <Esc>
   cnoremap jk <C-C>
 
-  "set shellcmdflag=-ic
+  "Make ! work with aliases
+  set shellcmdflag=-ic
+
+  "Beginning/end of line
+  " nmap H ^
+  " nmap L $
 ]])
 
 
@@ -207,10 +213,6 @@ lvim.builtin.treesitter.rainbow = {
     "#c678dd",
   },
 }
-
-lvim.builtin.telescope.on_config_done = function(telescope)
-  pcall(telescope.load_extension, ("undo"))
-end
 
 ------------------------------------
 -- Plugins
@@ -340,17 +342,6 @@ lvim.plugins = {
       end, 100)
     end,
   },
-  { "debugloop/telescope-undo.nvim",
-    config = function()
-      require("telescope-undo").setup {
-        mappings = {
-          i = {
-            ["<cr>"] = require("telescope-undo.actions").restore,
-        },
-        }
-      }
-    end,
-  }
 }
 
 -- toggle copilot
@@ -422,6 +413,7 @@ local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
   { command = "black", filetypes = { "python" } },
   { command = "isort", filetypes = { "python" } },
+  { command = "clang-format", filetypes = { "c", "cpp", "objc", "objcpp" } },
   {
     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
     command = "prettier",

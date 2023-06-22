@@ -31,6 +31,21 @@ trash() {
   mv "$@" "$HOME/.local/share/Trash/files/"
 }
 
+# Create a new directory and cd into it
+mkcd() {
+  mkdir -p "$1" && cd "$1"
+}
+
+# Quick notes
+function note {
+  file=$HOME/Useful/notes.txt
+
+  echo "------------------" >> $file
+  echo "date: $(date)" >> $file
+  echo "$@" >> $file
+  echo "------------------\n" >> $file
+}
+
 ##############################
 ###  Functions using curl  ###
 ##############################

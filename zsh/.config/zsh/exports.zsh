@@ -1,36 +1,22 @@
-# Path
-export PATH=\
-/home/linuxbrew/.linuxbrew/bin/:\
-$HOME/local/share/flatpak/exports/bin:\
-/var/lib/flatpak/exports/bin:\
-$HOME/.cargo/bin:\
-$HOME/.deno/bin:\
-$HOME/.local:\
-$HOME/.local/bin:\
-$HOME/.local/scripts:\
-$HOME/.local/share/pop-launcher/scripts:\
-$HOME/Android/Sdk/tools/bin:\
-$HOME/Android/Sdk/cmdline-tools/latest/bin:\
-$HOME/Android/Sdk/platform-tools:\
-$HOME/Android/Sdk/emulator:\
-$PNPM_HOME:\
-$PATH
-
 # Environment variables
 export BROWSER=firefox
 export EDITOR=lvim
 export VISUAL=lvim
-export GOPATH=/home/asaday/.go
+
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export FZF_DEFAULT_COMMAND="fdfind --type f --follow --exclude node_modules"
 export HISTCONTROL=ignoreboth
 export QT_QPA_PLATFORMTHEME=gtk2
-export FZF_DEFAULT_COMMAND="fdfind --type f --follow --exclude node_modules"
 export FZF_COMPLETION_TRIGGER=''
-export PNPM_HOME="/home/asaday/.local/share/pnpm"
 export HISTSIZE=1000000000
 export SAVEHIST=1000000000
+
+export PNPM_HOME="/home/asaday/.local/share/pnpm"
+export GOPATH="$HOME/.go"
+export GOROOT="/usr/local/go"
 export ANDROID_SDK_ROOT=$HOME/Android/Sdk
 export JAVA_HOME=/home/asaday/.local/share/flatpak/app/com.google.AndroidStudio/x86_64/stable/b5287410e271345870a5cba62dd4b9294b091295decbc478d81baff32262fe46/files/extra/android-studio/jbr
+export CAPACITOR_ANDROID_STUDIO_PATH=/home/asaday/.local/share/flatpak/app/com.google.AndroidStudio/x86_64/stable/b5287410e271345870a5cba62dd4b9294b091295decbc478d81baff32262fe46/files/extra/android-studio/bin/studio.sh
 
 # Colors
 export BAT_THEME="ansi"
@@ -46,3 +32,23 @@ export LESS_TERMCAP_se=$'\e[0m'
 export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
+
+# Path
+export PATH=\
+/home/linuxbrew/.linuxbrew/bin/:\
+/home/linuxbrew/.linuxbrew/opt/node@18/bin/:\
+/var/lib/flatpak/exports/bin:\
+$HOME/.cargo/bin:\
+$HOME/.deno/bin:\
+$HOME/.local:\
+$HOME/.local/bin:\
+$HOME/.local/scripts:\
+$HOME/.local/share/pop-launcher/scripts:\
+$HOME/Android/Sdk/tools/bin:\
+$HOME/Android/Sdk/cmdline-tools/latest/bin:\
+$HOME/Android/Sdk/platform-tools:\
+$HOME/Android/Sdk/emulator:\
+$PNPM_HOME:\
+$GOPATH/bin:\
+$GOROOT/bin:\
+$PATH
