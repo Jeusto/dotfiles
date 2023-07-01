@@ -43,6 +43,7 @@ alias hs='history | grep'
 # Other
 alias v='vim'
 alias lv='lvim'
+alias tlv='export TRANSPARENT_NVIM=1 && lvim'
 alias py="python3"
 alias bat="batcat"
 alias del="trash-put"

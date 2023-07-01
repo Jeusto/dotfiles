@@ -9,13 +9,16 @@ vim.opt.smartcase = true
 vim.opt.wrap = false
 vim.opt.timeoutlen = 250
 vim.opt.termguicolors = true
--- lvim.transparent_window = true
 
 ------------------------------------
 -- Theme
 ------------------------------------
 lvim.colorscheme = "vscode"
 lvim.builtin.theme.name = "vscode"
+
+if os.getenv("TRANSPARENT_NVIM") == "1" then
+  lvim.transparent_window = true
+end
 
 -- function to update the theme based on the current gnome theme
 function update_theme_from_gnome()
@@ -143,6 +146,7 @@ lvim.builtin.telescope.defaults.mappings = {
 -- Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 lvim.builtin.which_key.mappings["w"] = { "<cmd>HopWord<cr>", "Hop to word" }
+lvim.builtin.which_key.mappings["j"] = { "<cmd>HopWord<cr>", "Hop to word" }
 lvim.builtin.which_key.mappings["n"] = { "<cmd>NvimTreeToggle<cr>", "Nvim tree toggle" }
 lvim.builtin.which_key.mappings["e"] = { "<cmd>Telescope buffers<cr>", "Telescope buffers" }
 lvim.builtin.which_key.mappings["r"] = { "<cmd>RunCode<cr>", "Run code" }
