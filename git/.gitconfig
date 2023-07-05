@@ -1,24 +1,25 @@
 [core]
   editor = lvim
 [diff]
-  tool = nvim
-[difftool "vscode"]
-  cmd = code --wait --diff $LOCAL $REMOTE
-[difftool "nvim"]
-  cmd = lvim -d $LOCAL $REMOTE
+  tool = lvim
 [merge]
   tool = lvim
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
+[difftool "lvim"]
+  cmd = lvim -d $LOCAL $REMOTE
 [mergetool "vscode"]
   cmd = code --wait $MERGED
-[mergetool "nvim"]
+[mergetool "lvim"]
   cmd = lvim $MERGED
-[pull]
-  rebase = true
-  autostash = true
 
 [user]
   name = Arhun Saday
   email = arhunsad@gmail.com
+
+[pull]
+  rebase = true
+  autostash = true
 
 [filter "lfs"]
   clean = git-lfs clean -- %f
@@ -27,7 +28,7 @@
   required = true
 
 [init]
-  defaultBranch = master
+  defaultBranch = main
 
 [help]
   autocorrect = 01
@@ -42,7 +43,7 @@
   l = log
   m = merge
   o = checkout
-  s = status -sb
+  s = status
   p = pull
   r = remote
   w = whatchanged
@@ -65,7 +66,7 @@
   fix = commit --fixup
   amend = commit --amend -m
   rv = remote -v
-  pushf = push --force-with-lease <remote> <branch>
+  forcepush = push --force-with-lease <remote> <branch>
   commitamend = commit --amend --no-edit
 
   rb = rebase
@@ -75,9 +76,9 @@
 
   save = "!f() { stash_name=$1; git stash save -u \"$stash_name\"; }; f"
   stashlist = "stash list --pretty=format:'%C(yellow)%h %C(red)%gd %C(green)%cr %C(bold blue)%s%d %C(reset)%b'"
+  sa = "!f() { stash_name=$1; git stash save -u \"$stash_name\" && git stash apply \"stash@{0}\"; }; f"
   pop = stash pop
   apply = stash apply
-  sa = "!f() { stash_name=$1; git stash save -u \"$stash_name\" && git stash apply \"stash@{0}\"; }; f"
 
   aa = add -A .
   cp = cherry-pick

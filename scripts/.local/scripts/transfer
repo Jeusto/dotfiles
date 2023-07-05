@@ -1,13 +1,6 @@
 #!/usr/bin/env bash
 
 # Upload and transfer all types of file (max 5gb)
-if [ $# -eq 0 ]; then
-  echo "No arguments specified."
-  echo "Usage: transfer <file|directory>"
-  echo "       ... | transfer <file_name>"
-  return 1
-fi
-
 if tty -s; then
   file="$1"
   file_name=$(basename "$file")

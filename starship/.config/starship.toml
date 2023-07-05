@@ -5,7 +5,11 @@ $git_status\
 $status\
 $all$character"""
 
-add_newline = true
+[character]
+format = " $symbol "
+success_symbol = "[❱](bold #98c379)"
+error_symbol = "[❱](bold #e06c75)"
+vicmd_symbol = "[◆](bold #e5c07b)"
 
 [directory]
 style = "bold fg:#61afef"
@@ -18,13 +22,13 @@ truncation_symbol = "…/"
 
 [git_branch]
 style = "bold fg:#818cf8"
-format = "on [$symbol$branch]($style)"
+format = "[$symbol$branch]($style)"
 symbol = " "
 
 [git_status]
-style = "bold fg:#a78bfa"
+style = "fg:#a78bfa"
 format = "[$all_status$ahead_behind ]($style)"
-stashed = "  ${count}"
+stashed = ""
 ahead = " ﲗ ${count}"
 behind = " ﲔ ${count}"
 diverged = " 李 ${ahead_count} ${behind_count}"
@@ -35,30 +39,29 @@ modified = " 凜${count}"
 staged = "  ${count}"
 untracked = "  ${count}"
 
-[status]
-disabled = true
-symbol = " "
-format = "[ $symbol$status ]($style)"
-style = " fg:#e06c75 "
-
-[character]
-format = " $symbol "
-success_symbol = "[❯](bold #98c379)"
-error_symbol = "[❯](bold #e06c75)"
-vicmd_symbol = "[⬢](bold #98c379)"
+[git_metrics]
+disabled = false
+added_style = "fg:#98c379"
+deleted_style = "fg:#e06c75"
+format = "([+$added]($added_style) )([-$deleted]($deleted_style)) "
 
 [jobs]
 format = "[ $symbol$number]($style)"
 
-[package]
-disabled = true
-[java]
-disabled = true
-[nodejs]
-disabled = true
-[python]
-format = '[${symbol}(\($virtualenv\) )]($style)'
-[c]
+[status]
 disabled = true
 [battery]
 disabled = true
+[package]
+disabled = true
+
+[nodejs]
+disabled = true
+[python]
+disabled = true
+[rust]
+disabled = true
+[golang]
+disabled = true
+[c]
+disabled = false

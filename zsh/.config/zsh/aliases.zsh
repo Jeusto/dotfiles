@@ -7,9 +7,8 @@ alias ls='ls -F --color=auto'
 
 # Git
 alias dot='git -C $HOME/dotfiles'
-alias dotfiles='~/dotfiles/dotfiles'
 alias g="git"
-alias gs="git status"
+alias gs="git status -sb"
 alias gf="git fetch"
 alias gg="lazygit"
 alias lg="lazygit"
@@ -27,22 +26,14 @@ alias fp="fzf --preview 'batcat --style=numbers --color=always --line-range :500
 alias fc="fzf | xclip -selection clipboard"
 alias fo="fzf | xargs -I{} xdg-open {}"
 alias fv="fzf --preview 'batcat --style=numbers --color=always --line-range :500 {}' | xargs -I{} lvim {}"
-alias fman="man -k . | fzf"
+alias fman="man -k . | fzf | xargs man"
 alias ftldr="tldr --list | tr -s ' ' '\n' | tr ',' ' ' | fzf --preview 'tldr {1}' --height=60% --layout=reverse | xargs tldr"
 alias fcht="curl cheat.sh/:list | fzf --preview 'curl cheat.sh/{1}' --height=60% --layout=reverse | xargs -I{} curl cheat.sh/{}"
-
-# Enable aliases to be sudo'ed
-alias su='sudo '
-
-# Valgrind and redirect output to a file
-alias vg='valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt'
-
-# Search through command history
-alias hs='history | grep'
 
 # Other
 alias v='vim'
 alias lv='lvim'
+alias nv='lvim'
 alias tlv='export TRANSPARENT_NVIM=1 && lvim'
 alias py="python3"
 alias bat="batcat"
@@ -64,4 +55,13 @@ alias lzd="lazydocker"
 alias updateall="sudo apt update && sudo apt upgrade && flatpak update"
 alias p="pnpm"
 alias xdg="xdg-open"
-alias dotfiles="git -C $HOME/dotfiles"
+alias gtransparent="gnome-terminal --profile Transparent"
+
+# Enable aliases to be sudo'ed
+alias su='sudo '
+
+# Valgrind and redirect output to a file
+alias vg='valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt'
+
+# Search through command history
+alias hs='history | grep'

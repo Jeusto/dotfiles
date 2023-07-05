@@ -1,25 +1,15 @@
-# Environment variables
+# Default apps
 export BROWSER=firefox
 export EDITOR=lvim
 export VISUAL=lvim
 
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+# Fzf config
 export FZF_DEFAULT_COMMAND="fdfind --type f --follow --exclude node_modules"
-export HISTCONTROL=ignoreboth
-export QT_QPA_PLATFORMTHEME=gtk2
 export FZF_COMPLETION_TRIGGER=''
-export HISTSIZE=1000000000
-export SAVEHIST=1000000000
-
-export PNPM_HOME="/home/asaday/.local/share/pnpm"
-export GOPATH="$HOME/.go"
-export GOROOT="/usr/local/go"
-export ANDROID_SDK_ROOT=$HOME/Android/Sdk
-export JAVA_HOME=/home/asaday/.local/share/flatpak/app/com.google.AndroidStudio/x86_64/stable/b5287410e271345870a5cba62dd4b9294b091295decbc478d81baff32262fe46/files/extra/android-studio/jbr
-export CAPACITOR_ANDROID_STUDIO_PATH=/home/asaday/.local/share/flatpak/app/com.google.AndroidStudio/x86_64/stable/b5287410e271345870a5cba62dd4b9294b091295decbc478d81baff32262fe46/files/extra/android-studio/bin/studio.sh
 
 # Colors
 export BAT_THEME="ansi"
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 --color fg:-1,bg:-1,hl:65,fg+:33,bg+:-1,hl+:108
 --color info:108,prompt:109,spinner:108,pointer:168,marker:168'
@@ -32,6 +22,12 @@ export LESS_TERMCAP_se=$'\e[0m'
 export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
+
+# Other
+export PNPM_HOME="/home/asaday/.local/share/pnpm"
+export GOPATH="$HOME/.go"
+export GOROOT="/usr/local/go"
+export ANDROID_SDK_ROOT=$HOME/Android/Sdk
 
 # Path
 export PATH=\

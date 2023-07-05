@@ -9,9 +9,10 @@ eval "$(starship init zsh)"
 setopt globdots
 
 # Save commands history to a file
+HISTCONTROL=ignoreboth
 HISTFILE=~/.zsh_history
-HISTSIZE=25000
-SAVEHIST=25000
+HISTSIZE=1000000000
+SAVEHIST=1000000000
 setopt incappendhistory
 setopt EXTENDED_HISTORY
 setopt SHARE_HISTORY
@@ -34,15 +35,17 @@ zcomet load ohmyzsh plugins/command-not-found
 zcomet load zsh-users/zsh-syntax-highlighting
 zcomet load zsh-users/zsh-autosuggestions
 zcomet load kutsan/zsh-system-clipboard
+
+# Snippets
 zcomet snippet https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.zsh
 
 # FZF keybindings
 zle -N fzf-redraw-prompt
-zle     -N   fzf-file-widget
+zle -N fzf-file-widget
+zle -N fzf-cd-widget
+zle -N fzf-history-widget
 bindkey '^T' fzf-file-widget
-zle     -N    fzf-cd-widget
 bindkey '\ec' fzf-cd-widget
-zle     -N   fzf-history-widget
 bindkey '^R' fzf-history-widget
 
 # Z Plugin
@@ -92,7 +95,7 @@ function zle-line-init() {
 
 zle -N zle-line-init
 
-# Show insert/command mode in vi.
+# Show vi mode indicator in prompt
 function zle-keymap-select {
   VIMODE="${${KEYMAP/vicmd/ C}/(main|viins)/ I}"
   zle reset-prompt
@@ -114,4 +117,3 @@ zle -N zle-keymap-select
 # Tmux
 bindkey -s ^F "tmux-sessionizer\n"
 bindkey -s ^H "tmux-cht\n"
-
