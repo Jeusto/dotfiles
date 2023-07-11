@@ -8,8 +8,6 @@ alias ls='ls -F --color=auto'
 # Git
 alias dot='git -C $HOME/dotfiles'
 alias g="git"
-alias gs="git status -sb"
-alias gf="git fetch"
 alias gg="lazygit"
 alias lg="lazygit"
 

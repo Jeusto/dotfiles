@@ -43,7 +43,7 @@
   l = log
   m = merge
   o = checkout
-  s = status
+  s = status -sb
   p = pull
   r = remote
   w = whatchanged
