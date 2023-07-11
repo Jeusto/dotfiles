@@ -63,3 +63,6 @@ alias vg='valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -
 
 # Search through command history
 alias hs='history | grep'
+
+# Upload file to 1pt.one
+alias 1='ncc() { cat "$1" | curl -s -X POST --data-binary @- https://1pt.one | tee /dev/tty | xclip -selection clipboard; }; ncc'
