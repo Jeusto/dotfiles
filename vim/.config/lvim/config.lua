@@ -148,6 +148,7 @@ lvim.builtin.telescope.defaults.mappings = {
 
 -- Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
+lvim.builtin.which_key.mappings["v"] = { "<cmd>vsplit<CR>", "Vertical split" }
 lvim.builtin.which_key.mappings["w"] = { "<cmd>HopWord<cr>", "Hop to word" }
 lvim.builtin.which_key.mappings["j"] = { "<cmd>HopWord<cr>", "Hop to word" }
 lvim.builtin.which_key.mappings["n"] = { "<cmd>NvimTreeToggle<cr>", "Nvim tree toggle" }

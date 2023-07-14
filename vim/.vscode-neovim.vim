@@ -34,6 +34,7 @@ nnoremap <leader>sr <Cmd>call VSCodeNotify('workbench.action.openRecent')<CR>
 nnoremap <leader>st <Cmd>call VSCodeNotify('binocular.searchFileContent')<CR>
 nnoremap <leader>P <Cmd>call VSCodeNotify('binocular.customCommands', 'Projects')<CR>
 nnoremap <leader>o <Cmd>call VSCodeNotify('outline.focus')<CR>
+nnoremap <leader>v <Cmd>call VSCodeNotify('workbench.action.splitEditor')<CR>
 nnoremap ga <Cmd>call VSCodeNotify('keyboard-quickfix.openQuickFix')<CR>
 
 "Replace all
