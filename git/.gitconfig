@@ -1,3 +1,7 @@
+[user]
+  name = Arhun Saday
+  email = arhunsad@gmail.com
+
 [core]
   editor = lvim
 [diff]
@@ -13,23 +17,18 @@
 [mergetool "lvim"]
   cmd = lvim $MERGED
 
-[user]
-  name = Arhun Saday
-  email = arhunsad@gmail.com
-
 [pull]
   rebase = true
   autostash = true
-
+[push]
+  autoSetupRemote = true
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
   required = true
-
 [init]
   defaultBranch = main
-
 [help]
   autocorrect = 01
 

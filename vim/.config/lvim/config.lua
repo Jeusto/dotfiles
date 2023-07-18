@@ -127,6 +127,9 @@ vim.cmd([[
 
   "Replace all
   nmap s :%s/
+
+  "Hide search higlights
+  nnoremap <silent> <Esc> :nohlsearch<CR>
 ]])
 
 
