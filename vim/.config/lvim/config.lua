@@ -132,6 +132,9 @@ vim.cmd([[
   nnoremap <silent> <Esc> :nohlsearch<CR>
 ]])
 
+-- Rename with LSP
+vim.api.nvim_set_keymap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<CR>', { noremap = true, silent = true })
+
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 local _, actions = pcall(require, "telescope.actions")
