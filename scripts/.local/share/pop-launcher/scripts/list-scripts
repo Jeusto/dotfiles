@@ -16,6 +16,7 @@ declare -A commands=(
     ["⏭️  Audio: Next"]="playerctl next"
     ["💾 Screenshot: Full screen"]="gnome-screenshot"
     ["💾 Screenshot: Select area"]="gnome-screenshot -a"
+    ["💾 Screenshot: To clipboard"]="gnome-screenshot -acf /tmp/scrsht/ && cat /tmp/scrsht/ | xclip -i -selection -clipboard -target image/png"
     ["💾 Screenshot: Current window"]="gnome-screenshot --window"
     ["💾 Screenshot: Open last screenshot"]="xdg-open $screenshotsDir/'$(ls -t $screenshotsDir | head -1)'"
     ["💾 Screenshot: Show folder"]="xdg-open $screenshotsDir"
