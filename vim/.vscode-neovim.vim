@@ -9,6 +9,8 @@ nnoremap <leader>lj <Cmd>call VSCodeNotify('editor.action.marker.next')<CR>
 nnoremap <leader>lk <Cmd>call VSCodeNotify('editor.action.marker.prev')<CR>
 nnoremap <leader>lr <Cmd>call VSCodeNotify('editor.action.rename')<CR>
 nnoremap <leader>lf <Cmd>call VSCodeNotify('editor.action.formatDocument')<CR>
+nnoremap <leader>li <Cmd>call VSCodeNotify('editor.action.sourceAction', 'source.addMissingImports')<CR>
+nnoremap <leader>lo <Cmd>call VSCodeNotify('editor.action.organizeImports')<CR>
 
 "Git
 nnoremap <leader>gd <Cmd>call VSCodeNotify('git.openChange')<CR>
