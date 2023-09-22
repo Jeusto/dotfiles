@@ -4,6 +4,7 @@
 
 [core]
   editor = lvim
+  autocrlf = false
 [diff]
   tool = lvim
 [merge]
