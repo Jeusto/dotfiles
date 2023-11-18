@@ -230,9 +230,10 @@ set cmdheight=2
 set shortmess+=c
 
 "Higlight yank
+hi YankHighlight guibg=#9e6a03"
 augroup highlight_yank
   autocmd!
-  autocmd TextYankPost * silent! lua vim.highlight.on_yank { higroup="Search", timeout=200 }
+  autocmd TextYankPost * silent! lua vim.highlight.on_yank { higroup="YankHighlight", timeout=200 }
 augroup END
 
 " Disable parentheses matching depends on system.
