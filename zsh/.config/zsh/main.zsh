@@ -117,3 +117,10 @@ zle -N zle-keymap-select
 # Tmux
 bindkey -s ^F "tmux-sessionizer\n"
 bindkey -s ^H "tmux-cht\n"
+
+# Sdkman
+[[ -s "/home/asaday/.sdkman/bin/sdkman-init.sh" ]] && source "/home/asaday/.sdkman/bin/sdkman-init.sh"
+
+# fnm
+export PATH="/home/asaday/.local/share/fnm:$PATH"
+eval "`fnm env`"
