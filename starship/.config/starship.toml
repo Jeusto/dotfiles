@@ -54,14 +54,3 @@ disabled = true
 disabled = true
 [package]
 disabled = true
-
-[nodejs]
-disabled = true
-[python]
-disabled = true
-[rust]
-disabled = true
-[golang]
-disabled = true
-[c]
-disabled = false
