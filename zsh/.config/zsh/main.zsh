@@ -121,6 +121,9 @@ bindkey -s ^H "tmux-cht\n"
 # Sdkman
 [[ -s "/home/asaday/.sdkman/bin/sdkman-init.sh" ]] && source "/home/asaday/.sdkman/bin/sdkman-init.sh"
 
-# fnm
+# Fnm
 export PATH="/home/asaday/.local/share/fnm:$PATH"
 eval "`fnm env`"
+
+# Phpbrew
+[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
