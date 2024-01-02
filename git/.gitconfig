@@ -91,3 +91,5 @@
 
   br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
   brd = branch -d
+  
+  find = log --all --pretty=\"format:%Cgreen%H %Cblue%s\n%b%Creset\" --name-status --grep
