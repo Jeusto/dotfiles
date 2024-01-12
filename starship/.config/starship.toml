@@ -54,3 +54,6 @@ disabled = true
 disabled = true
 [package]
 disabled = true
+
+[java]
+symbol = "\ue738 "
