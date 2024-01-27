@@ -27,7 +27,9 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 export PNPM_HOME="/home/asaday/.local/share/pnpm"
 export GOPATH="$HOME/.go"
 export GOROOT="/usr/local/go"
-export ANDROID_SDK_ROOT=$HOME/Android/Sdk
+export ANDROID_SDK_ROOT="/usr/lib/android-sdk"
+export ANDROID_HOME="/usr/lib/android-sdk/"
+# export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
 
 # Path
 export PATH=\
@@ -40,10 +42,6 @@ $HOME/.local:\
 $HOME/.local/bin:\
 $HOME/.local/scripts:\
 $HOME/.local/share/pop-launcher/scripts:\
-$HOME/Android/Sdk/tools/bin:\
-$HOME/Android/Sdk/cmdline-tools/latest/bin:\
-$HOME/Android/Sdk/platform-tools:\
-$HOME/Android/Sdk/emulator:\
 $PNPM_HOME:\
 $GOPATH/bin:\
 $GOROOT/bin:\

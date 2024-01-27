@@ -95,3 +95,6 @@
   find = log --all --pretty=\"format:%Cgreen%H %Cblue%s\n%b%Creset\" --name-status --grep
   stashgrep = "!f() { for i in `git stash list --format=\"%gd\"` ; \
               do git stash show -p $i | grep -H --label=\"$i\" \"$@\" ; done ; }; f"
+
+  mybad = git add -A && git commit --amend --no-edit && git push --force
+  resetorigin = "!git reset --hard origin/$(git rev-parse --abbrev-ref HEAD)"
