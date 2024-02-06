@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DOTFILES_DIR="$HOME/dotfiles"
+DOTFILES_DIR="$HOME/Dotfiles"
 TARGET_DIR="$HOME"
 
 # Install or uninstall dotfiles
