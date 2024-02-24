@@ -3,20 +3,20 @@
   email = arhunsad@gmail.com
 
 [core]
-  editor = lvim
+  editor = nvim
   autocrlf = false
 [diff]
-  tool = lvim
+  tool = nvim
 [merge]
-  tool = lvim
+  tool = nvim
 [difftool "vscode"]
   cmd = code --wait --diff $LOCAL $REMOTE
-[difftool "lvim"]
-  cmd = lvim -d $LOCAL $REMOTE
+[difftool "nvim"]
+  cmd = nvim -d $LOCAL $REMOTE
 [mergetool "vscode"]
   cmd = code --wait $MERGED
-[mergetool "lvim"]
-  cmd = lvim $MERGED
+[mergetool "nvim"]
+  cmd = nvim $MERGED
 
 [pull]
   rebase = true
@@ -96,5 +96,5 @@
   stashgrep = "!f() { for i in `git stash list --format=\"%gd\"` ; \
               do git stash show -p $i | grep -H --label=\"$i\" \"$@\" ; done ; }; f"
 
-  mybad = git add -A && git commit --amend --no-edit && git push --force
+  mybad = "!git add -A && git commit --amend --no-edit && git push --force"
   resetorigin = "!git reset --hard origin/$(git rev-parse --abbrev-ref HEAD)"
