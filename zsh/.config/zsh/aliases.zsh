@@ -20,26 +20,21 @@ alias l1a="l -1 -a"
 alias lla="ll -a"
 
 # FZF
-alias fp="fzf --preview 'batcat --style=numbers --color=always --line-range :500 {}'"
+alias fp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 alias fc="fzf | xclip -selection clipboard"
 alias fo="fzf | xargs -I{} xdg-open {}"
-alias fv="fzf --preview 'batcat --style=numbers --color=always --line-range :500 {}' | xargs -I{} lvim {}"
+alias fv="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}' | xargs -I{} nvim {}"
 alias fman="man -k . | fzf | xargs man"
 alias ftldr="tldr --list | tr -s ' ' '\n' | tr ',' ' ' | fzf --preview 'tldr {1}' --height=60% --layout=reverse | xargs tldr"
 alias fcht="curl cheat.sh/:list | fzf --preview 'curl cheat.sh/{1}' --height=60% --layout=reverse | xargs -I{} curl cheat.sh/{}"
 
 # Other
 alias v='vim'
-alias lv='lvim'
-alias nv='lvim'
-alias tlv='export TRANSPARENT_NVIM=1 && lvim'
+alias lv='nvim'
+alias nv='nvim'
 alias py="python3"
-alias bat="batcat"
 alias del="trash-put"
-alias fd="fdfind"
-alias ye="yeelight-cli 192.168.1.20"
 alias r="ranger"
-alias emptytrash="rm -pr -f ~/.local/share/Trash/files/*"
 alias gc="gcc -Wall -Wextra -Werror -std=c99 -pedantic"
 alias python="python3"
 alias pip="pip3"
@@ -50,10 +45,8 @@ alias code="code --profile Default"
 alias cht="cht.sh"
 alias gendir="mkdir -p {a,b}/{e,f,g}/{h,i,j}"
 alias lzd="lazydocker"
-alias updateall="sudo apt update && sudo apt upgrade && flatpak update"
 alias p="pnpm"
-alias xdg="xdg-open"
-alias gtransparent="gnome-terminal --profile Transparent"
+alias x="git add . && git commit -m 'x' && git push"
 
 # Enable aliases to be sudo'ed
 alias su='sudo '
@@ -66,3 +59,6 @@ alias hs='history | grep'
 
 # Upload file to 1pt.one
 alias 1='ncc() { cat "$1" | curl -s -X POST --data-binary @- https://1pt.one | tee /dev/tty | xclip -selection clipboard; }; ncc'
+
+alias gitlogin='eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_rsa'
+alias c='code -r'

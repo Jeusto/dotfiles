@@ -1,3 +1,5 @@
 # 🐧🔧 Personal dotfiles
 
-My personal dotfiles for ~~Linux~~ MacOS managed using [GNU Stow](https://www.gnu.org/software/stow/).
+My personal dotfiles managed using [GNU Stow](https://www.gnu.org/software/stow/).
+
+(mainly for MacOS but also Linux & Windows to some degree)

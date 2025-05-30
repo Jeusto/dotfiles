@@ -5,6 +5,9 @@ $git_status\
 $status\
 $all$character"""
 
+command_timeout = 1000
+add_newline = true
+
 [character]
 format = " $symbol "
 success_symbol = "[❱](bold #98c379)"

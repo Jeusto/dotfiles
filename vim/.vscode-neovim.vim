@@ -1,8 +1,8 @@
 source $HOME/.vimrc
 
-"####################
-"###  Keybindings ###
-"####################
+" =============================================================================
+" Keybindings 
+" =============================================================================
 
 "Lsp
 nnoremap <leader>lj <Cmd>call VSCodeNotify('editor.action.marker.next')<CR>
@@ -40,7 +40,8 @@ nnoremap <leader>v <Cmd>call VSCodeNotify('workbench.action.splitEditor')<CR>
 nnoremap ga <Cmd>call VSCodeNotify('keyboard-quickfix.openQuickFix')<CR>
 
 "Replace all
-nmap s :%s/
+"nmap s :%s/
+nnoremap <leader>s <Cmd>call VSCodeNotify('workbench.action.quickTextSearch')<CR>
 
 "Fix moving cursor unfolds a folded section of the code
 nmap j gj
@@ -65,9 +66,9 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-"#################
-"###  Plugins  ###
-"#################
+" =============================================================================
+" Plugins
+" =============================================================================
 
 call plug#begin('~/.config/vscode-neovim-plugins')
   Plug 'tpope/vim-surround'
@@ -78,9 +79,9 @@ call plug#end()
 map <A-=> <Plug>(expand_region_expand)
 map <A--> <Plug>(expand_region_shrink)
 
-"###########################
-"###  Match nvim plugins ###
-"###########################
+" =============================================================================
+" Match nvim plugins
+" =============================================================================
 
 "Coderunner
 nnoremap <leader>r <Cmd>call VSCodeNotify('code-runner.run')<CR>

@@ -1,0 +1,21 @@
+---
+- name: Copy .bashrc and .vimrc to VPS
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Copy .bashrc to user's home directory
+      copy:
+        src: .bashrc
+        dest: /home/{{ ansible_user }}/.bashrc
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: "0644"
+
+    - name: Copy .vimrc to user's home directory
+      copy:
+        src: .vimrc
+        dest: /home/{{ ansible_user }}/.vimrc
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: "0644"

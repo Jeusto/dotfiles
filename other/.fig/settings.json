@@ -1,0 +1,14 @@
+{
+  "app.beta": true,
+  "app.disableAutolaunch": true,
+  "app.disableAutoupdates": true,
+  "app.launchOnStartup": false,
+  "autocomplete.firstTokenCompletion": false,
+  "autocomplete.height": 140,
+  "autocomplete.keybindings.insertCommonPrefix": "tab",
+  "autocomplete.keybindings.insertCommonPrefixOrNavigateDown": "tab",
+  "autocomplete.keybindings.insertSelected": "tab",
+  "autocomplete.onlyShowOnTab": false,
+  "autocomplete.theme": "dark",
+  "telemetry.disabled": true
+}

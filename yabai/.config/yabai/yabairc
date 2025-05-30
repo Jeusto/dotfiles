@@ -14,11 +14,11 @@ yabai -m config window_opacity on
 yabai -m config active_window_opacity 1.0
 yabai -m config normal_window_opacity 0.9
 
-yabai -m config top_padding    12
-yabai -m config bottom_padding 12
-yabai -m config left_padding   12
-yabai -m config right_padding  12
-yabai -m config window_gap     06
+yabai -m config top_padding    10
+yabai -m config bottom_padding 10
+yabai -m config left_padding   10
+yabai -m config right_padding  10
+yabai -m config window_gap     10
 
 yabai -m config animation_duration  0.0
 yabai -m config insert_feedback_color 0xffd75f5f
@@ -36,10 +36,22 @@ yabai -m rule --add app="^Karabiner-Elements$" manage=off
 yabai -m rule --add app="^Bartender 5$" manage=off
 yabai -m rule --add app="^Simulator$" sticky=on
 yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^Activity Monitor$" manage=off
+yabai -m rule --add app="^Spotify$" manage=off
+yabai -m rule --add app="^Electron$" manage=off
+yabai -m rule --add app="^Notion$" manage=off
+yabai -m rule --add app="^Stickies$" manage=off
+yabai -m rule --add app="^Preview$" manage=off
+yabai -m rule --add app="^CLIP STUDIO PAINT$" manage=off
+yabai -m rule --add app="^League Of Legends$" manage=off
+yabai -m rule --add app="^League of Legends$" manage=off
+yabai -m rule --add app="^Unity Hub$" manage=off
+yabai -m rule --add app="^Archive Utility$" manage=off
 
 # ==============================================================================
 # Other
 # ==============================================================================
+
 yabai -m config mouse_modifier alt
 yabai -m config mouse_action1 move
 yabai -m config mouse_action2 resize

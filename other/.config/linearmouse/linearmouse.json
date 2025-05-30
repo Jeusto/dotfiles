@@ -2,33 +2,67 @@
   "$schema" : "https:\/\/schema.linearmouse.app\/0.9.5",
   "schemes" : [
     {
-      "pointer" : {
-        "disableAcceleration" : true
-      },
       "scrolling" : {
-        "reverse" : {
-          "vertical" : false
-        },
-        "distance" : {
-          "vertical" : "auto"
-        },
         "acceleration" : {
           "vertical" : 1
         },
         "speed" : {
           "vertical" : 0
+        },
+        "distance" : {
+          "vertical" : "auto"
+        },
+        "reverse" : {
+          "vertical" : false
         }
+      },
+      "pointer" : {
+        "disableAcceleration" : true
       },
       "if" : {
         "device" : {
+          "category" : "mouse",
           "productName" : "USB Receiver",
           "vendorID" : "0x46d",
-          "productID" : "0xc539",
-          "category" : "mouse"
+          "productID" : "0xc539"
         }
       }
     },
     {
+      "pointer" : {
+        "disableAcceleration" : false
+      },
+      "scrolling" : {
+        "speed" : {
+          "vertical" : 0
+        },
+        "acceleration" : {
+          "vertical" : 1
+        },
+        "modifiers" : {
+          "vertical" : {
+            "command" : {
+              "type" : "preventDefault"
+            },
+            "shift" : {
+              "type" : "preventDefault"
+            },
+            "option" : {
+              "type" : "changeSpeed",
+              "scale" : 4.5
+            }
+          },
+          "horizontal" : {
+            "option" : {
+              "scale" : 4.5,
+              "type" : "changeSpeed"
+            }
+          }
+        },
+        "distance" : {
+          "vertical" : "auto"
+        }
+      },
       "if" : {
         "device" : {
           "productName" : "Apple Internal Keyboard \/ Trackpad",
@@ -36,64 +70,71 @@
           "vendorID" : "0x0",
           "category" : "trackpad"
         }
+      }
+    },
+    {
+      "pointer" : {
+        "disableAcceleration" : false
+      },
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productName" : "Karabiner DriverKit VirtualHIDPointing 1.7.0",
+          "productID" : "0x27da",
+          "vendorID" : "0x16c0",
+          "serialNumber" : "pqrs.org:Karabiner-DriverKit-VirtualHIDPointing"
+        }
       },
       "scrolling" : {
-        "modifiers" : {
-          "vertical" : {
-            "shift" : {
-              "type" : "preventDefault"
-            },
-            "command" : {
-              "scale" : 5,
-              "type" : "changeSpeed"
-            }
-          }
-        },
-        "acceleration" : {
-          "vertical" : 1
-        },
         "distance" : {
           "vertical" : "auto"
         },
+        "modifiers" : {
+          "vertical" : {
+            "command" : {
+              "type" : "changeSpeed",
+              "scale" : 5
+            }
+          }
+        },
         "speed" : {
           "vertical" : 0
+        },
+        "acceleration" : {
+          "vertical" : 1
         }
-      },
-      "pointer" : {
-        "disableAcceleration" : false
       }
     },
     {
       "scrolling" : {
-        "speed" : {
-          "vertical" : 0
-        },
-        "distance" : {
-          "vertical" : 3
-        },
         "modifiers" : {
           "vertical" : {
+            "shift" : {
+              "type" : "auto"
+            },
             "command" : {
-              "scale" : 5,
-              "type" : "changeSpeed"
+              "type" : "zoom"
+            },
+            "option" : {
+              "type" : "changeSpeed",
+              "scale" : 2.5
             }
           }
-        },
-        "acceleration" : {
-          "vertical" : 1
-        }
-      },
-      "if" : {
-        "device" : {
-          "vendorID" : "0x16c0",
-          "category" : "mouse",
-          "serialNumber" : "pqrs.org:Karabiner-DriverKit-VirtualHIDPointing",
-          "productName" : "Karabiner DriverKit VirtualHIDPointing 1.7.0",
-          "productID" : "0x27da"
         }
       },
       "pointer" : {
-        "disableAcceleration" : false
+        "disableAcceleration" : true,
+        "acceleration" : 1.5,
+        "speed" : 0.04
+      },
+      "if" : {
+        "device" : {
+          "productName" : "Keychron M2",
+          "serialNumber" : "SN1234567890",
+          "vendorID" : "0x3434",
+          "productID" : "0xd03b",
+          "category" : "mouse"
+        }
       }
     }
   ]

@@ -97,6 +97,7 @@ const Cover = styled("img")`
   height: ${size}px;
   width: ${size}px;
   margin-right: ${size * 0.2}px;
+  border-radius: 4px;
 `;
 
 const Button = styled("div")`
@@ -119,7 +120,7 @@ const Separator = styled("div")`
   flex: 1;
   margin: 4px 0;
   position: relative;
-  max-width: 12em;
+  // max-width: 12em;
 
   box-shadow: 0px 1px 4px #000000;
 
@@ -209,7 +210,9 @@ const render = (data) => {
         src={cover}
         size={size}
         dispatch={data.dispatch}
-        onClick={() => commandSpotify(playing ? "pause" : "play", dispatch)}
+        onClick={() =>
+          commandSpotify(playing ? "pause" : "play", data.dispatch)
+        }
       />
       <div>
         <div
@@ -219,13 +222,14 @@ const render = (data) => {
             width: "100%",
           }}
         >
-          <Song>{song}</Song>
+          <Song onClick={() => commandSpotify("previous track", data.dispatch)}>
+            {song}
+          </Song>
         </div>
         <Separator position={position} />
-        <Artist>
+        <Artist onClick={() => commandSpotify("next track", data.dispatch)}>
           {artist}
-          {artist && album ? " – " : ""}
-          <em>{album}</em>
+          {/* {artist && album ? " – " : ""} <em>{album}</em> */}
         </Artist>
       </div>
     </Container>

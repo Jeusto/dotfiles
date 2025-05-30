@@ -1,14 +1,11 @@
-###############################
-###  General configuration  ###
-###############################
+# ==============================================================================
+#  General configuration  
+# ==============================================================================
 
 # Starship prompt
 eval "$(starship init zsh)"
 
-# List hidden files by default
-setopt globdots
-
-# Save commands history to a file
+# Commands history
 HISTCONTROL=ignoreboth
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000000
@@ -17,9 +14,9 @@ setopt incappendhistory
 setopt EXTENDED_HISTORY
 setopt SHARE_HISTORY
 
-#################
-###  Plugins  ###
-#################
+# ==============================================================================
+# Plugins
+# ==============================================================================
 
 # Clone zcomet if necessary
 if [[ ! -f ${ZDOTDIR:-${HOME}}/.zcomet/bin/zcomet.zsh ]]; then
@@ -31,7 +28,6 @@ source ${ZDOTDIR:-${HOME}}/.zcomet/bin/zcomet.zsh
 # Plugins
 zcomet load agkozak/zsh-z
 zcomet load Aloxaf/fzf-tab
-zcomet load ohmyzsh plugins/command-not-found
 zcomet load zsh-users/zsh-syntax-highlighting
 zcomet load zsh-users/zsh-autosuggestions
 zcomet load kutsan/zsh-system-clipboard
@@ -48,16 +44,15 @@ bindkey '^T' fzf-file-widget
 bindkey '\ec' fzf-cd-widget
 bindkey '^R' fzf-history-widget
 
-# Z Plugin
+# Z 
 zstyle ':completion:*' menu select
 
 # Autosuggest
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#777777"
 bindkey '^E' autosuggest-accept
 
-###############
-###  Other  ###
-###############
+# ==============================================================================
+# Other
+# ==============================================================================
 
 # Case insensitive autocompletion
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
@@ -68,14 +63,11 @@ zcomet compinit
 # Set descriptions format to enable group support
 zstyle ':completion:*:descriptions' format '[%d]'
 
-# Set list-colors to enable filename colorizing
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-
 # Preview directory's content with exa when completing cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -A --color=always $realpath'
 
 # Preview file content with bat when completing cat
-zstyle ':fzf-tab:complete:lvim:*' fzf-preview 'batcat -p --color=always $realpath'
+zstyle ':fzf-tab:complete:nvim:*' fzf-preview 'batcat -p --color=always $realpath'
 
 # Vi with some Emacs flavor control keys.
 bindkey -v
@@ -89,13 +81,10 @@ bindkey "^Y" yank
 bindkey '^P' history-beginning-search-backward
 bindkey '^N' history-beginning-search-forward
 
+# Show vi mode indicator in prompt
 function zle-line-init() {
   zle -K viins
 }
-
-zle -N zle-line-init
-
-# Show vi mode indicator in prompt
 function zle-keymap-select {
   VIMODE="${${KEYMAP/vicmd/ C}/(main|viins)/ I}"
   zle reset-prompt
@@ -112,18 +101,11 @@ function zle-keymap-select {
     echo -ne '\e[5 q'
   fi
 }
+zle -N zle-line-init
 zle -N zle-keymap-select
 
 # Tmux
-bindkey -s ^F "tmux-sessionizer\n"
-bindkey -s ^H "tmux-cht\n"
+# bindkey -s ^F "tmux-sessionizer\n"
+# bindkey -s ^H "tmux-cht\n"
 
-# Sdkman
-[[ -s "/home/asaday/.sdkman/bin/sdkman-init.sh" ]] && source "/home/asaday/.sdkman/bin/sdkman-init.sh"
-
-# Fnm
-export PATH="/home/asaday/.local/share/fnm:$PATH"
-eval "`fnm env`"
-
-# Phpbrew
-[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
+# ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
