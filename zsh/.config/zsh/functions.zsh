@@ -63,22 +63,12 @@ sharetxt() {
   (cat "$1" | curl -F 'f:1=<-' ix.io) | xclip -selection clipboard
 }
 
-# Cheat.sh
-ch() {
-  unset query
-  selected=$(cat ~/.tmux-cht-languages ~/.tmux-cht-command | fzf)
-  if [[ -z $selected ]]; then
-    exit 0
+cht() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: cheat <command>"
+    return 1
   fi
-
-  vared -p "Enter Query: " -c query
-
-  if grep -qs "$selected" ~/.tmux-cht-languages; then
-    query=$(echo "$query" | tr ' ' '+')
-    curl -s cht.sh/$selected/$query
-  else
-    curl -s cht.sh/$selected~$query
-  fi
+  curl "https://cheat.sh/$1"
 }
 
 # Test internet speed

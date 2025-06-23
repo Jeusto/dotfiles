@@ -42,11 +42,13 @@ alias grep="grep --color=auto"
 alias clip="xclip -selection clipboard"
 alias vsc="code --profile clean"
 alias code="code --profile Default"
-alias cht="cht.sh"
 alias gendir="mkdir -p {a,b}/{e,f,g}/{h,i,j}"
 alias lzd="lazydocker"
 alias p="pnpm"
 alias x="git add . && git commit -m 'x' && git push"
+alias gitlogin='eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_rsa'
+alias c='code -r'
+alias k='kubectl'
 
 # Enable aliases to be sudo'ed
 alias su='sudo '
@@ -59,6 +61,3 @@ alias hs='history | grep'
 
 # Upload file to 1pt.one
 alias 1='ncc() { cat "$1" | curl -s -X POST --data-binary @- https://1pt.one | tee /dev/tty | xclip -selection clipboard; }; ncc'
-
-alias gitlogin='eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_rsa'
-alias c='code -r'
