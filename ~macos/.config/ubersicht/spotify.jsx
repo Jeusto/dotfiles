@@ -80,6 +80,11 @@ const Song = styled("h1")`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  // text-transform: lowercase;
+
+  // &::first-letter {
+  //   text-transform: uppercase;
+  // }
 `;
 
 const Artist = styled("h2")`
@@ -90,6 +95,11 @@ const Artist = styled("h2")`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  // text-transform: lowercase;
+
+  // &::first-letter {
+  //   text-transform: uppercase;
+  // }
 `;
 
 const Cover = styled("img")`

@@ -3,12 +3,13 @@ This is default and very simple styles file for Yasb.
 For more information about configuration options, please visit the Wiki https://github.com/amnweb/yasb/wiki
 */
 :root {
-  --mauve: #cba6f7;
-  --red: #f38ba8;
-  --yellow: #f9e2af;
-  --blue: #89b4fa;
+  --mauve: #c678dd; /* Atom One Dark purple */
+  --red: #e06c75; /* Atom One Dark red */
+  --yellow: #e5c07b; /* Atom One Dark yellow */
+  --blue: #61afef; /* Atom One Dark blue */
   --lavender: #b4befe;
-  --text: #cdd6f4;
+  /* --text: #abb2bf;  */
+  --text: #dde1eb;
   --subtext1: #bac2de;
   --subtext0: #a6adc8;
   --overlay2: #9399b2;
@@ -16,9 +17,10 @@ For more information about configuration options, please visit the Wiki https://
   --overlay0: #6c7086;
   --surface2: #585b70;
   --surface1: #45475a;
-  --surface0: #282936;
-  --base: #1e1e2e;
-  --crust: rgba(32, 32, 43, 0.92);
+  --surface0: #21252b; /* Atom One Dark selection color */
+  --base: #282c34; /* Atom One Dark background */
+  /* --crust: rgba(32, 32, 43, 0.92); */
+  --crust: rgba(0, 0, 0, 0.5);
 }
 /* Global styles for ToolTip */
 QToolTip {
@@ -33,12 +35,11 @@ QToolTip {
   font-size: 12px;
   color: var(--text);
   font-weight: 600;
-  font-family: "JetBrainsMono NFP";
+  font-family: "JetBrainsMono NF";
   margin: 0;
   padding: 0;
 }
 .yasb-bar {
-  padding: 0;
   margin: 0;
   background-color: var(--crust);
   border-radius: 8px;
@@ -50,6 +51,7 @@ QToolTip {
 }
 .icon {
   font-size: 16px;
+  margin: 0 3px;
 }
 .widget .label {
   padding: 0px 2px;
@@ -275,7 +277,7 @@ QToolTip {
   font-size: 14px;
 }
 .notification-widget .icon.new-notification {
-  color: var(--blue);
+  color: var(--yellow);
 }
 
 /* Taskbar plugin */
@@ -287,7 +289,10 @@ QToolTip {
   padding: 0 6px;
 }
 .taskbar-widget .app-icon.foreground {
-  background-color: rgba(0, 0, 0, 0.4);
+  /* background-color: var(--surface0);
+  margin: 3px 0 3px 0;
+  border-radius: 12px;
+  border: 1px solid var(--surface0); */
 }
 /* if title_label is enabled: */
 .taskbar-widget .app-title {

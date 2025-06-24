@@ -8,48 +8,6 @@ komorebi:
   stop_command: "komorebic stop --whkd"
   reload_command: "komorebic stop --whkd && komorebic start --whkd"
 bars:
-  secondary-bar:
-    screens: ["DELL P2319H (1)", "DELL P2319H (2)"]
-    class_name: "yasb-bar"
-    alignment:
-      position: "top"
-      center: false
-    animation:
-      enabled: false
-      duration: 1000
-    blur_effect:
-      enabled: false
-      acrylic: false
-      dark_mode: false
-      round_corners: false
-      round_corners_type: "normal"
-      border_color: "System"
-    window_flags:
-      always_on_top: false
-      windows_app_bar: true
-    dimensions:
-      width: "100%"
-      height: 32
-    padding:
-      top: 8
-      left: 15
-      bottom: 0
-      right: 15
-    widgets:
-      left: ["komorebi_workspaces", "komorebi_active_layout"]
-      center: ["clock"]
-      right:
-        [
-          "media",
-          "weather",
-          "battery",
-          "cpu",
-          "memory",
-          "microphone",
-          "volume",
-          "notifications",
-          "power_menu",
-        ]
   primary-bar:
     enabled: true
     screens: ["*"]
@@ -74,20 +32,99 @@ bars:
       width: "100%"
       height: 32
     padding:
-      top: 8
-      left: 15
+      top: 10
+      left: 12
       bottom: 0
-      right: 15
+      right: 12
     widgets:
-      left: ["home", "komorebi_workspaces", "komorebi_active_layout", "taskbar"]
+      left: ["komorebi_workspaces", "komorebi_active_layout", "taskbar"]
+      center: ["clock", "weather"]
+      right:
+        [
+          "media",
+          "battery",
+          "cpu",
+          "memory",
+          "microphone",
+          "volume",
+          "notifications",
+          "power_menu",
+        ]
+  secondary-bar:
+    screens: ["DELL P2319H (1)"]
+    class_name: "yasb-bar"
+    alignment:
+      position: "top"
+      center: false
+    animation:
+      enabled: false
+      duration: 1000
+    blur_effect:
+      enabled: false
+      acrylic: false
+      dark_mode: false
+      round_corners: false
+      round_corners_type: "normal"
+      border_color: "System"
+    window_flags:
+      always_on_top: false
+      windows_app_bar: true
+    dimensions:
+      width: "100%"
+      height: 32
+    padding:
+      top: 10
+      left: 12
+      bottom: 0
+      right: 12
+    widgets:
+      left: ["komorebi_workspaces", "komorebi_active_layout"]
+      center: ["clock", "weather"]
+      right:
+        [
+          "media",
+          "battery",
+          "cpu",
+          "memory",
+          "microphone",
+          "volume",
+          "notifications",
+          "power_menu",
+        ]
+  ternary-bar:
+    screens: ["DELL P2319H (2)"]
+    class_name: "yasb-bar"
+    alignment:
+      position: "top"
+      center: false
+    animation:
+      enabled: false
+      duration: 1000
+    blur_effect:
+      enabled: false
+      acrylic: false
+      dark_mode: false
+      round_corners: false
+      round_corners_type: "normal"
+      border_color: "System"
+    window_flags:
+      always_on_top: false
+      windows_app_bar: true
+    dimensions:
+      width: "100%"
+      height: 32
+    padding:
+      top: 10
+      left: 12
+      bottom: 0
+      right: 12
+    widgets:
+      left: ["komorebi_workspaces", "komorebi_active_layout"]
       center: ["clock"]
       right:
         [
           "media",
-          "weather",
           "battery",
-          "cpu",
-          "memory",
           "microphone",
           "volume",
           "notifications",
@@ -119,7 +156,7 @@ widgets:
   home:
     type: "yasb.home.HomeWidget"
     options:
-      label: "<span>\udb81\udf17</span>"
+      label: "<span>◆</span>"
       menu_list:
         - { title: "User Home", path: "~" }
         - { title: "Download", path: "~\\Downloads" }
@@ -163,9 +200,9 @@ widgets:
   clock:
     type: "yasb.clock.ClockWidget"
     options:
-      label: "{%a, %d %b %H:%M}"
-      label_alt: "{%A, %d %B %Y %H:%M}"
-      timezones: []
+      label: "{%A %e %b %H:%M}"
+      label_alt: "{%A %d %B %Y %H:%M}"
+      locale: "fr_FR"
       callbacks:
         on_left: "toggle_label"
   komorebi_workspaces:
@@ -228,10 +265,10 @@ widgets:
     options:
       label: "<span>{icon}</span> {temp}"
       label_alt: "{location}: Min {min_temp}, Max {max_temp}, Humidity {humidity}"
-      api_key: env
+      api_key: 44aaafb81e3c4d4c88892308250207
       update_interval: 600
       hide_decimal: true
-      location: env
+      location: Strasbourg, France
       callbacks:
         on_left: "toggle_label"
       icons:
@@ -316,10 +353,9 @@ widgets:
       label: "<span>\uf476</span> {count}"
       label_alt: "{count} notifications"
       hide_empty: true
-      tooltip: false
       callbacks:
         on_left: "toggle_notification"
-        on_right: "do_nothing"
+        on_right: "clear_notifications"
         on_middle: "toggle_label"
   cpu:
     type: "yasb.cpu.CpuWidget"
@@ -367,32 +403,7 @@ widgets:
         icon_low: "\uf243"
         icon_medium: "\uf242"
         icon_high: "\uf241"
-        icon_full: "uf240"
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 3
-        offset: [1, 1]
-  disk:
-    type: "yasb.disk.DiskWidget"
-    options:
-      label: "{volume_label} {space[used][percent]}"
-      label_alt: "{volume_label} {space[used][gb]} / {space[total][gb]}"
-      volume_label: "C"
-      update_interval: 60
-      group_label:
-        volume_labels: ["C", "D", "E", "F"]
-        show_label_name: true
-        blur: True
-        round_corners: True
-        round_corners_type: "small"
-        border_color: "System"
-        alignment: "right"
-        direction: "down"
-      callbacks:
-        on_left: "toggle_group"
-        on_middle: "toggle_label"
-        on_right: "exec explorer C:\\" # Open disk C in file explorer
+        icon_full: "\uf240"
       label_shadow:
         enabled: true
         color: "black"
@@ -401,7 +412,7 @@ widgets:
   memory:
     type: "yasb.memory.MemoryWidget"
     options:
-      label: "<span>\udb82\ude23</span> {virtual_mem_percent}%"
+      label: "<span>\ue266</span> {virtual_mem_percent}%"
       label_alt: "<span>\uf4bc</span> VIRT: {virtual_mem_percent}% SWAP: {swap_mem_percent}%"
       update_interval: 5000
       callbacks:
@@ -466,96 +477,3 @@ widgets:
         color: "black"
         radius: 3
         offset: [1, 1]
-  notes:
-    type: "yasb.notes.NotesWidget"
-    options:
-      label: "<span>\udb82\udd0c</span> {count}"
-      label_alt: "{count} notes"
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0
-      menu:
-        blur: true
-        round_corners: true
-        round_corners_type: "normal"
-        border_color: "System"
-        alignment: "right"
-        direction: "down"
-        offset_top: 6
-        offset_left: 0
-        max_title_size: 150
-        show_date_time: true
-      icons:
-        note: "udb82\udd0c"
-        delete: "\ueab8"
-        copy: "uebcc"
-      callbacks:
-        on_left: "toggle_menu"
-        on_middle: "do_nothing"
-        on_right: "toggle_label"
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 3
-        offset: [1, 1]
-  brightness:
-    type: "yasb.brightness.BrightnessWidget"
-    options:
-      label: "<span>{icon}</span>"
-      label_alt: "Brightness {percent}%"
-      tooltip: true
-      hide_unsupported: true
-      brightness_toggle_level: [0, 50, 100]
-      auto_light: false
-      auto_light_icon: "\udb80\udce1"
-      auto_light_night_level: 35
-      auto_light_night_start_time: "19:00"
-      auto_light_night_end_time: "06:45"
-      auto_light_day_level: 75
-      brightness_icons: [
-          "\udb80\udcde", # Icon for 0-25% brightness
-          "\udb80\udcdd", # Icon for 26-50% brightness
-          "\udb80\udcdf", # Icon for 51-75% brightness
-          "\udb80\udce0", # Icon for 76-100% brightness
-        ]
-      brightness_menu:
-        blur: true
-        round_corners: true
-        round_corners_type: "normal"
-        border_color: "System"
-        alignment: "right"
-        direction: "down"
-      callbacks:
-        on_left: "toggle_label"
-      container_padding:
-        top: 0
-        left: 8
-        bottom: 0
-        right: 8
-      label_shadow:
-        enabled: true
-        color: "black"
-        radius: 3
-        offset: [1, 1]
-  cava:
-    type: "yasb.cava.CavaWidget"
-    options:
-      bar_height: 12
-      min_bar_height: 0
-      gradient: 1
-      reverse: 0
-      foreground: "#89b4fa"
-      gradient_color_1: "#74c7ec"
-      gradient_color_2: "#89b4fa"
-      gradient_color_3: "#cba6f7"
-      bars_number: 8
-      bar_spacing: 2
-      bar_width: 4
-      hide_empty: true
-      container_padding:
-        top: 0
-        left: 8
-        bottom: 0
-        right: 8

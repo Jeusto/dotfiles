@@ -35,10 +35,10 @@ ctrl + alt - l : yabai -m window --resize right:30:0 2>/dev/null || yabai -m win
 # ==============================================================================
 
 # swap windows
-ctrl + shift - j : yabai -m window --swap south
-ctrl + shift - k : yabai -m window --swap north
-ctrl + shift - h : yabai -m window --swap west
-ctrl + shift - l : yabai -m window --swap east
+alt + shift - j : yabai -m window --swap south
+alt + shift - k : yabai -m window --swap north
+alt + shift - h : yabai -m window --swap west
+alt + shift - l : yabai -m window --swap east
 
 # move window and split
 # ctrl + shift - j : yabai -m window --warp south

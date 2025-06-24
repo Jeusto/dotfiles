@@ -1,0 +1,402 @@
+{
+    "Hotkey": "Alt \u002B Space",
+    "OpenResultModifiers": "Alt",
+    "ColorScheme": "System",
+    "ShowOpenResultHotkey": true,
+    "WindowSize": 580,
+    "PreviewHotkey": "F1",
+    "Language": "en",
+    "Theme": "Win11System",
+    "UseDropShadowEffect": false,
+    "QueryBoxFont": "JetBrainsMono Nerd Font",
+    "QueryBoxFontStyle": null,
+    "QueryBoxFontWeight": null,
+    "QueryBoxFontStretch": null,
+    "ResultFont": "JetBrainsMono Nerd Font Mono",
+    "ResultFontStyle": null,
+    "ResultFontWeight": null,
+    "ResultFontStretch": null,
+    "UseGlyphIcons": true,
+    "UseAnimation": false,
+    "UseSound": false,
+    "UseClock": false,
+    "UseDate": false,
+    "TimeFormat": "HH:mm",
+    "DateFormat": "dddd dd\u0027, \u0027MMMM",
+    "FirstLaunch": false,
+    "SettingWindowWidth": 1890,
+    "SettingWindowHeight": 1010,
+    "SettingWindowTop": 55,
+    "SettingWindowLeft": 15,
+    "SettingWindowState": 0,
+    "CustomExplorerIndex": 0,
+    "CustomExplorerList": [
+        {
+            "Name": "Explorer",
+            "Path": "explorer",
+            "FileArgument": "/select, \u0022%f\u0022",
+            "DirectoryArgument": "\u0022%d\u0022",
+            "Editable": false
+        },
+        {
+            "Name": "Total Commander",
+            "Path": "C:\\Program Files\\totalcmd\\TOTALCMD64.exe",
+            "FileArgument": "/O /A /S /T \u0022%f\u0022",
+            "DirectoryArgument": "/O /A /S /T \u0022%d\u0022",
+            "Editable": true
+        },
+        {
+            "Name": "Directory Opus",
+            "Path": "C:\\Program Files\\GPSoftware\\Directory Opus\\dopusrt.exe",
+            "FileArgument": "/cmd Go \u0022%f\u0022 NEW",
+            "DirectoryArgument": "/cmd Go \u0022%d\u0022 NEW",
+            "Editable": true
+        },
+        {
+            "Name": "Files",
+            "Path": "Files",
+            "FileArgument": "-select \u0022%f\u0022",
+            "DirectoryArgument": "-select \u0022%d\u0022",
+            "Editable": true
+        }
+    ],
+    "CustomBrowserIndex": 0,
+    "CustomBrowserList": [
+        {
+            "Name": "Default",
+            "Path": "*",
+            "PrivateArg": "",
+            "EnablePrivate": false,
+            "OpenInTab": true,
+            "Editable": false
+        },
+        {
+            "Name": "Google Chrome",
+            "Path": "chrome",
+            "PrivateArg": "-incognito",
+            "EnablePrivate": false,
+            "OpenInTab": true,
+            "Editable": false
+        },
+        {
+            "Name": "Mozilla Firefox",
+            "Path": "firefox",
+            "PrivateArg": "-private",
+            "EnablePrivate": false,
+            "OpenInTab": true,
+            "Editable": false
+        },
+        {
+            "Name": "MS Edge",
+            "Path": "msedge",
+            "PrivateArg": "-inPrivate",
+            "EnablePrivate": false,
+            "OpenInTab": true,
+            "Editable": false
+        }
+    ],
+    "ShouldUsePinyin": false,
+    "AlwaysPreview": false,
+    "AlwaysStartEn": false,
+    "QuerySearchPrecision": "Regular",
+    "AutoUpdates": false,
+    "WindowLeft": 670,
+    "WindowTop": 289.5,
+    "CustomWindowLeft": 0,
+    "CustomWindowTop": 0,
+    "MaxResultsToShow": 5,
+    "ActivateTimes": 1239,
+    "CustomPluginHotkeys": [],
+    "CustomShortcuts": [],
+    "DontPromptUpdateMsg": false,
+    "EnableUpdateLog": false,
+    "StartFlowLauncherOnSystemStartup": true,
+    "HideOnStartup": true,
+    "HideNotifyIcon": false,
+    "LeaveCmdOpen": false,
+    "HideWhenDeactivated": true,
+    "SearchWindowScreen": "Custom",
+    "SearchWindowAlign": "Center",
+    "CustomScreenNumber": 1,
+    "IgnoreHotkeysOnFullscreen": false,
+    "Proxy": {
+        "Enabled": false,
+        "Server": null,
+        "Port": 0,
+        "UserName": null,
+        "Password": null
+    },
+    "LastQueryMode": "Selected",
+    "AnimationSpeed": "Medium",
+    "CustomAnimationLength": 360,
+    "PluginSettings": {
+        "PythonExecutablePath": "C:\\Users\\ARHUN.SADAY\\AppData\\Roaming\\FlowLauncher\\Environments\\Python\\PythonEmbeddable-v3.8.9\\pythonw.exe",
+        "NodeExecutablePath": "",
+        "Plugins": {
+            "0ECADE17459B49F587BF81DC3A125110": {
+                "ID": "0ECADE17459B49F587BF81DC3A125110",
+                "Name": "Browser Bookmarks",
+                "Version": "3.1.3",
+                "ActionKeywords": [
+                    "b"
+                ],
+                "Priority": 0,
+                "Disabled": true
+            },
+            "CEA0FDFC6D3B4085823D60DC76F28855": {
+                "ID": "CEA0FDFC6D3B4085823D60DC76F28855",
+                "Name": "Calculator",
+                "Version": "3.0.3",
+                "ActionKeywords": [
+                    "*"
+                ],
+                "Priority": 0,
+                "Disabled": false
+            },
+            "572be03c74c642baae319fc283e561a8": {
+                "ID": "572be03c74c642baae319fc283e561a8",
+                "Name": "Explorer",
+                "Version": "3.1.2",
+                "ActionKeywords": [
+                    "*",
+                    "doc:",
+                    "*",
+                    "*",
+                    "*"
+                ],
+                "Priority": 0,
+                "Disabled": false
+            },
+            "6A122269676E40EB86EB543B945932B9": {
+                "ID": "6A122269676E40EB86EB543B945932B9",
+                "Name": "Plugin Indicator",
+                "Version": "3.0.2",
+                "ActionKeywords": [
+                    "?"
+                ],
+                "Priority": 0,
+                "Disabled": true
+            },
+            "9f8f9b14-2518-4907-b211-35ab6290dee7": {
+                "ID": "9f8f9b14-2518-4907-b211-35ab6290dee7",
+                "Name": "Plugins Manager",
+                "Version": "3.0.4",
+                "ActionKeywords": [
+                    "pm"
+                ],
+                "Priority": 0,
+                "Disabled": false
+            },
+            "b64d0a79-329a-48b0-b53f-d658318a1bf6": {
+                "ID": "b64d0a79-329a-48b0-b53f-d658318a1bf6",
+                "Name": "Process Killer",
+                "Version": "3.0.3",
+                "ActionKeywords": [
+                    "kill"
+                ],
+                "Priority": 0,
+                "Disabled": false
+            },
+            "791FC278BA414111B8D1886DFE447410": {
+                "ID": "791FC278BA414111B8D1886DFE447410",
+                "Name": "Program",
+                "Version": "3.1.2",
+                "ActionKeywords": [
+                    "*"
+                ],
+                "Priority": 0,
+                "Disabled": false
+            },
+            "D409510CD0D2481F853690A07E6DC426": {
+                "ID": "D409510CD0D2481F853690A07E6DC426",
+                "Name": "Shell",
+                "Version": "3.1.1",
+                "ActionKeywords": [
+                    "\u003E"
+                ],
+                "Priority": 0,
+                "Disabled": false
+            },
+            "CEA08895D2544B019B2E9C5009600DF4": {
+                "ID": "CEA08895D2544B019B2E9C5009600DF4",
+                "Name": "System Commands",
+                "Version": "3.0.3",
+                "ActionKeywords": [
+                    "*"
+                ],
+                "Priority": 0,
+                "Disabled": false
+            },
+            "0308FD86DE0A4DEE8D62B9B535370992": {
+                "ID": "0308FD86DE0A4DEE8D62B9B535370992",
+                "Name": "URL",
+                "Version": "3.0.3",
+                "ActionKeywords": [
+                    "*"
+                ],
+                "Priority": 0,
+                "Disabled": false
+            },
+            "565B73353DBF4806919830B9202EE3BF": {
+                "ID": "565B73353DBF4806919830B9202EE3BF",
+                "Name": "Web Searches",
+                "Version": "3.0.4",
+                "ActionKeywords": [
+                    "*",
+                    "sc",
+                    "wiki",
+                    "findicon",
+                    "facebook",
+                    "twitter",
+                    "maps",
+                    "translate",
+                    "duckduckgo",
+                    "github",
+                    "gist",
+                    "gmail",
+                    "drive",
+                    "wolframalpha",
+                    "stackoverflow",
+                    "lucky",
+                    "image",
+                    "youtube",
+                    "bing",
+                    "yahoo",
+                    "bd"
+                ],
+                "Priority": 0,
+                "Disabled": true
+            },
+            "5043CETYU6A748679OPA02D27D99677A": {
+                "ID": "5043CETYU6A748679OPA02D27D99677A",
+                "Name": "Windows Settings",
+                "Version": "4.0.4",
+                "ActionKeywords": [
+                    "s"
+                ],
+                "Priority": 0,
+                "Disabled": false
+            },
+            "F71F6EE367D34BAFB681A9287ACF59EB": {
+                "ID": "F71F6EE367D34BAFB681A9287ACF59EB",
+                "Name": "Todoist",
+                "Version": "3.0.1",
+                "ActionKeywords": [
+                    "t"
+                ],
+                "Priority": 0,
+                "Disabled": true
+            },
+            "E5E5A4BD-39C7-4B41-93F8-0D4850BC317C": {
+                "ID": "E5E5A4BD-39C7-4B41-93F8-0D4850BC317C",
+                "Name": "FendCalculator",
+                "Version": "1.1.1",
+                "ActionKeywords": [
+                    "*"
+                ],
+                "Priority": 0,
+                "Disabled": true
+            },
+            "4F31D5DF26984581BDF4213D40860ADF": {
+                "ID": "4F31D5DF26984581BDF4213D40860ADF",
+                "Name": "Windows Dark Mode Toggle",
+                "Version": "1.0.3",
+                "ActionKeywords": [
+                    "wt"
+                ],
+                "Priority": 0,
+                "Disabled": true
+            },
+            "df432fe0-9ff7-4ba1-b0fd-5ffd26efbf86": {
+                "ID": "df432fe0-9ff7-4ba1-b0fd-5ffd26efbf86",
+                "Name": "ChatGPT",
+                "Version": "1.1.2",
+                "ActionKeywords": [
+                    "ask"
+                ],
+                "Priority": 0,
+                "Disabled": true
+            },
+            "B9B8174812E4474D96C148317BE2BFB7": {
+                "ID": "B9B8174812E4474D96C148317BE2BFB7",
+                "Name": "FlowRaindrop",
+                "Version": "0.0.2",
+                "ActionKeywords": [
+                    "rd"
+                ],
+                "Priority": 0,
+                "Disabled": true
+            },
+            "525995402BEF4A8CA860D92F6D108092": {
+                "ID": "525995402BEF4A8CA860D92F6D108092",
+                "Name": "VS Code Workspaces",
+                "Version": "1.3.0",
+                "ActionKeywords": [
+                    "vs"
+                ],
+                "Priority": 0,
+                "Disabled": true
+            },
+            "SY91U1N7H9D0X1DTZ8IOP4YV43KT7C5M": {
+                "ID": "SY91U1N7H9D0X1DTZ8IOP4YV43KT7C5M",
+                "Name": "SpotifyPremium",
+                "Version": "1.1.5",
+                "ActionKeywords": [
+                    "sp"
+                ],
+                "Priority": 0,
+                "Disabled": true
+            },
+            "915f45f7747440f7828621bd8ec0f298": {
+                "ID": "915f45f7747440f7828621bd8ec0f298",
+                "Name": "DuckDuckGo !bang",
+                "Version": "1.3.3",
+                "ActionKeywords": [
+                    "*"
+                ],
+                "Priority": 0,
+                "Disabled": false
+            },
+            "7d2d209d-5ab9-42dd-ae9b-2487b57ff569": {
+                "ID": "7d2d209d-5ab9-42dd-ae9b-2487b57ff569",
+                "Name": "VolumeFlow",
+                "Version": "1.1.0",
+                "ActionKeywords": [
+                    "vo"
+                ],
+                "Priority": 0,
+                "Disabled": true
+            },
+            "72E67DFE0F6F482395AF3CD0A3BC6F04": {
+                "ID": "72E67DFE0F6F482395AF3CD0A3BC6F04",
+                "Name": "WinsFlow",
+                "Version": "1.0.0",
+                "ActionKeywords": [
+                    "wn"
+                ],
+                "Priority": 0,
+                "Disabled": true
+            },
+            "e6162bbf-ac7c-4b43-a7f9-e71f44693f6f": {
+                "ID": "e6162bbf-ac7c-4b43-a7f9-e71f44693f6f",
+                "Name": "DayNight Toggle",
+                "Version": "1.0.4",
+                "ActionKeywords": [
+                    "*"
+                ],
+                "Priority": 0,
+                "Disabled": false
+            },
+            "75763350-A89D-4942-B697-14875D94C222": {
+                "ID": "75763350-A89D-4942-B697-14875D94C222",
+                "Name": "ShareX_Flow_Plugin",
+                "Version": "1.0.0",
+                "ActionKeywords": [
+                    "shx"
+                ],
+                "Priority": 0,
+                "Disabled": false
+            }
+        }
+    }
+}

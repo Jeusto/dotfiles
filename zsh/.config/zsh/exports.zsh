@@ -23,7 +23,6 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 # Other
 export PNPM_HOME="/home/asaday/.local/share/pnpm"
-
 export ANDROID_HOME="/Users/asaday/Library/Android/sdk"
 export NDK_HOME="/Users/asaday/Library/Android/sdk/ndk/28.0.12433566"
 
@@ -32,7 +31,6 @@ export GOPATH="$HOME/.go"
 export GOBIN=$GOPATH/bin
 export TEXPATH="/Library/TeX/texbin"
 export PYTHONPATH="/users/asaday/Library/Python/3.9/bin"
-# export JAVA_HOME=/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home
 export JAVA_HOME=/Users/asaday/.asdf/installs/java/openjdk-17
 
 # Path
