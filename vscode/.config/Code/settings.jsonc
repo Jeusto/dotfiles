@@ -448,7 +448,7 @@
       "icon": "git-compare",
       "statusBar": {
         "alignment": "left",
-        "priority": -8
+        "priority": -9
       }
     },
     "Toggle Copilot": {
@@ -456,7 +456,7 @@
       "icon": "sparkle",
       "statusBar": {
         "alignment": "left",
-        "priority": -9
+        "priority": -8
       }
     },
     "Toggle Format on Save": {
@@ -1293,3 +1293,4 @@
   },
   "workbench.preferredDarkColorTheme": "One Sandbox Dark"
 }
+

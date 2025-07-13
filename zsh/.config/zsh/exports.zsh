@@ -32,6 +32,8 @@ export GOBIN=$GOPATH/bin
 export TEXPATH="/Library/TeX/texbin"
 export PYTHONPATH="/users/asaday/Library/Python/3.9/bin"
 export JAVA_HOME=/Users/asaday/.asdf/installs/java/openjdk-17
+export VSCODE_PROFILES=("Frontend/angular" "Default" "Backend/devops" "Minimal")
+
 
 # Path
 export PATH=$PYTHONPATH:/home/linuxbrew/.linuxbrew/bin/:/home/linuxbrew/.linuxbrew/opt/node@18/bin/:/var/lib/flatpak/exports/bin:$HOME/.cargo/bin:$HOME/.deno/bin:$HOME/.local:$HOME/.local/bin:$HOME/.local/scripts:$HOME/.local/share/pop-launcher/scripts:$PNPM_HOME:$GOPATH/bin:$GOROOT/bin:$PATH:$TEXPATH
