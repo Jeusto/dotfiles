@@ -1,0 +1,34 @@
+[general]
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 12.0
+
+[font.normal]
+family = "JetBrainsMono NF"
+
+[font.offset]
+x = 0
+y = 1
+
+[scrolling]
+history = 5000
+
+[window]
+dynamic_padding = false
+opacity = 1
+title = "Alacritty"
+dynamic_title = false
+
+[window.padding]
+x = 6
+y = 6
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[terminal]
+shell = { program = "C:\\Program Files\\Git\\bin\\bash.exe" }

@@ -1,14 +1,10 @@
-/* 
-This is default and very simple styles file for Yasb. 
-For more information about configuration options, please visit the Wiki https://github.com/amnweb/yasb/wiki
-*/
 :root {
   --mauve: #c678dd; /* Atom One Dark purple */
   --red: #e06c75; /* Atom One Dark red */
   --yellow: #e5c07b; /* Atom One Dark yellow */
   --blue: #61afef; /* Atom One Dark blue */
   --lavender: #b4befe;
-  /* --text: #abb2bf;  */
+  --white: #abb2bf;
   --text: #dde1eb;
   --subtext1: #bac2de;
   --subtext0: #a6adc8;
@@ -42,16 +38,25 @@ QToolTip {
 .yasb-bar {
   margin: 0;
   background-color: var(--crust);
-  border-radius: 8px;
+  border-radius: 7px;
   border: 1px solid #313244;
-}
-.widget {
-  padding: 0 12px;
-  margin: 0;
 }
 .icon {
   font-size: 16px;
   margin: 0 3px;
+}
+.memory-widget,
+.cpu-widget,
+.battery-widget,
+.volume-widget,
+.microphone-widget,
+.notification-widget,
+.power-menu-widget {
+  padding: 0px;
+}
+.widget {
+  padding: 0 7px;
+  margin: 0;
 }
 .widget .label {
   padding: 0px 2px;
@@ -103,7 +108,7 @@ QToolTip {
   color: transparent;
   width: 10px;
   height: 10px;
-  background-color: var(--lavender);
+  background-color: var(--white);
   border-radius: 5px;
   margin: 0 4px;
   font-size: 1px;
@@ -128,10 +133,12 @@ QToolTip {
 .apps-widget .label:hover {
   color: var(--text);
 }
-
+.power-menu-widget {
+  padding-right: 10px;
+}
 .power-menu-widget .label {
   color: #f38ba8;
-  font-size: 13px;
+  font-size: 15px;
 }
 .power-menu-popup {
   background-color: transparent;
@@ -187,9 +194,6 @@ QToolTip {
   color: var(--surface2);
   font-weight: 600;
 }
-.microphone-widget {
-  padding: 0 6px 0 6px;
-}
 .microphone-widget .icon {
   font-size: 18px;
 }
@@ -197,13 +201,9 @@ QToolTip {
   color: var(--mauve);
 }
 .volume-widget .icon {
-  font-size: 17px;
+  font-size: 20px;
   color: var(--blue);
   margin: 0px 2px 0 0;
-}
-.weather-widget,
-.volume-widget {
-  padding: 0 6px;
 }
 .weather-widget .icon {
   font-size: 18px;
@@ -211,7 +211,7 @@ QToolTip {
   color: var(--yellow);
 }
 .media-widget {
-  padding: 0;
+  padding: 0 0px 0 6px;
   margin: 0;
   border-radius: 0;
 }
@@ -227,13 +227,12 @@ QToolTip {
   margin: 0;
   font-family: "JetBrainsMono NFP";
   font-weight: 400;
-  font-size: 20px;
+  font-size: 22px;
 }
 .media-widget .btn:hover {
   color: #babfd3;
 }
 .media-widget .btn.play {
-  font-size: 24px;
   color: #989caa;
 }
 .media-widget .btn.disabled:hover,
@@ -270,9 +269,6 @@ QToolTip {
   max-height: 1px;
   background-color: rgba(128, 130, 158, 0.3);
 }
-.notification-widget {
-  padding: 0 0px 0 4px;
-}
 .notification-widget .icon {
   font-size: 14px;
 }
@@ -288,14 +284,19 @@ QToolTip {
 .taskbar-widget .app-icon {
   padding: 0 6px;
 }
-.taskbar-widget .app-icon.foreground {
-  /* background-color: var(--surface0);
+/* .taskbar-widget .app-icon.foreground {
+  background-color: var(--surface1);
   margin: 3px 0 3px 0;
   border-radius: 12px;
-  border: 1px solid var(--surface0); */
+  border: 1px solid var(--surface0);
+} */
+
+.memory-widget .label.status-critical {
+  color: var(--red);
 }
-/* if title_label is enabled: */
-.taskbar-widget .app-title {
-}
-.taskbar-widget .app-title.foreground {
+
+.memory-widget .icon,
+.cpu-widget .icon,
+.battery-widget .icon {
+  margin-bottom: 1.5px;
 }
