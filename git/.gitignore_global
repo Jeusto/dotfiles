@@ -3,3 +3,6 @@
 **/.DS_Store
 **/._.DS_Store
 .idea
+.claude/
+.github/copilot-instructions.md
+Claude.md
