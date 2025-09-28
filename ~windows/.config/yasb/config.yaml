@@ -35,41 +35,22 @@ bars:
       bottom: 0
       right: 11
     widgets:
-      left: [ "komorebi_workspaces", "komorebi_active_layout", "taskbar" ]
-      center: [ "clock" ]
-      right: [ "battery", "cpu", "memory", "microphone", "volume", "notifications", "power_menu" ]
+      left:
+      # - "random_icon"
+      - "home"
+      - "komorebi_workspaces"
+      - "komorebi_active_layout"
+      center:
+      - "clock"
+      right:
+      - "battery"
+      - "cpu"
+      - "memory"
+      - "microphone"
+      - "volume"
+      - "notifications"
+      - "power_menu"
   secondary-bar:
-    screens: [ "DELL P2319H (1)" ]
-    class_name: "yasb-bar"
-    alignment:
-      position: "top"
-      center: false
-    animation:
-      enabled: false
-      duration: 1000
-    blur_effect:
-      enabled: false
-      acrylic: false
-      dark_mode: false
-      round_corners: false
-      round_corners_type: "normal"
-      border_color: "System"
-    window_flags:
-      always_on_top: false
-      windows_app_bar: true
-    dimensions:
-      width: "100%"
-      height: 32
-    padding:
-      top: 10
-      left: 12
-      bottom: 0
-      right: 12
-    widgets:
-      left: [ "komorebi_workspaces", "komorebi_active_layout", "taskbar" ]
-      center: [ "clock" ]
-      right: [ "battery", "cpu", "memory", "microphone", "volume", "notifications", "power_menu" ]
-  ternary-bar:
     screens: [ "DELL P2319H (2)" ]
     class_name: "yasb-bar"
     alignment:
@@ -97,9 +78,17 @@ bars:
       bottom: 0
       right: 12
     widgets:
-      left: [ "komorebi_workspaces", "komorebi_active_layout" ]
-      center: [ "clock" ]
-      right: [ "microphone", "volume", "notifications", "power_menu" ]
+      left:
+      - "home"
+      - "komorebi_workspaces"
+      - "komorebi_active_layout"
+      center:
+      - "clock"
+      right:
+      - "microphone"
+      - "volume"
+      - "notifications"
+      - "power_menu"
 widgets:
   taskbar:
     type: "yasb.taskbar.TaskbarWidget"
@@ -126,7 +115,7 @@ widgets:
   home:
     type: "yasb.home.HomeWidget"
     options:
-      label: "<span>◆</span>"
+      label: "<span></span>" #  󰤇 󰉊 󰊠 󰇥 
       menu_list:
       - { title: "User Home", path: "~" }
       - { title: "Download", path: "~\\Downloads" }
@@ -138,19 +127,24 @@ widgets:
   media:
     type: "yasb.media.MediaWidget"
     options:
-      label: "{title} - {artist}"
+      label: "  {title} - {artist}"
       label_alt: "{title}"
       max_field_size:
         label: 60
         label_alt: 60
-      show_thumbnail: true
+      show_thumbnail: false
       controls_only: false
-      controls_left: true
+      controls_left: false
       hide_empty: true
       thumbnail_alpha: 80
       thumbnail_padding: 24
       thumbnail_corner_radius: 0
       thumbnail_edge_fade: true
+      controls_hide: true
+      callbacks:
+        on_left: "exec powershell -command \"(New-Object -ComObject WScript.Shell).SendKeys([char]179)\""
+        on_middle: "exec powershell -command \"(New-Object -ComObject WScript.Shell).SendKeys([char]177)\""
+        on_right: "exec powershell -command \"(New-Object -ComObject WScript.Shell).SendKeys([char]176)\""
       icons:
         prev_track: "󰒮"
         next_track: "󰒭"
@@ -170,18 +164,20 @@ widgets:
   clock:
     type: "yasb.clock.ClockWidget"
     options:
-      label: "{%A %e %b %H:%M}"
-      label_alt: "{%A %d %B %Y %H:%M:%S}"
-      locale: "fr_FR"
+      label: "{%A %e %B — %H:%M}"
+      label_alt: "{%A %d %B %Y — %H:%M:%S}"
+      locale: "en_US"
       callbacks:
-        on_left: "toggle_label"
+        on_left: "exec powershell -command \"(New-Object -ComObject WScript.Shell).SendKeys([char]179)\""
+        on_middle: "exec powershell -command \"(New-Object -ComObject WScript.Shell).SendKeys([char]177)\""
+        on_right: "exec powershell -command \"(New-Object -ComObject WScript.Shell).SendKeys([char]176)\""
   komorebi_workspaces:
     type: "komorebi.workspaces.WorkspaceWidget"
     options:
-      label_offline: "⏼ Offline"
-      label_workspace_btn: "󰐽"
-      label_workspace_active_btn: ""
-      label_workspace_populated_btn: "󰐾"
+      label_offline: "Komorebi Offline"
+      label_workspace_btn: ""
+      label_workspace_active_btn: ""
+      label_workspace_populated_btn: ""
       label_default_name: "{index}"
       label_zero_index: false
       hide_empty_workspaces: false
@@ -189,11 +185,12 @@ widgets:
       animation: false
       container_padding:
         top: 0
-        left: 8
+        left: 0
         bottom: 0
         right: 8
   komorebi_control:
     type: "komorebi.control.KomorebiControlWidget"
+
     options:
       label: "<span>󰇙</span>"
       icons:
@@ -224,21 +221,21 @@ widgets:
       label: "{icon}"
       layouts: [ "bsp", "columns", "rows", "grid", "ultrawide_vertical_stack" ]
       layout_icons:
-        bsp: "BSP"
-        columns: "COLS"
-        rows: "ROWS"
-        grid: "GRID"
-        vertical_stack: "V-STACK"
-        horizontal_stack: "H-STACK"
-        ultrawide_vertical_stack: "ULTRAWIDE"
-        right_main_vertical_stack: "RMV-STACK"
-        monocle: "MONOCLE"
-        maximised: "MAX"
-        floating: "FLOATING"
-        paused: "PAUSED"
+        bsp: "Default"
+        columns: "Horizontal"
+        rows: "Vertical"
+        grid: "Grid"
+        vertical_stack: "Vertical Stack"
+        horizontal_stack: "Horizontal Stack"
+        ultrawide_vertical_stack: "Ultrawide"
+        right_main_vertical_stack: "Right Main Vertical Stack"
+        monocle: "Maximized Layout"
+        maximised: "Maximized"
+        floating: "Floating"
+        paused: "Paused"
       container_padding:
         top: 0
-        left: 8
+        left: 0
         bottom: 0
         right: 8
       callbacks:
@@ -552,3 +549,13 @@ widgets:
         left: 8
         bottom: 0
         right: 8
+  random_icon:
+    type: "yasb.custom.CustomWidget"
+    options:
+      label: "{data}"
+      label_alt: "{data}"
+      class_name: "random-word-widget"
+      exec_options:
+        run_cmd: "powershell -c (Get-Random -InputObject  , 󰊠, 󰇥)"
+        run_interval: 10000
+        return_format: "string"
