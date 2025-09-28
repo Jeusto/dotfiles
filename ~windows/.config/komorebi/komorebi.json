@@ -29,7 +29,8 @@
   "display_index_preferences": {
     "0": "AUO6092-4&266e0cb&0&UID8388688",
     "1": "DELD0D6-4&266e0cb&0&UID8259",
-    "2": "DELD0D7-4&266e0cb&0&UID12611"
+    "2": "DELD0D7-4&266e0cb&0&UID12611",
+    "3": "HWV6A25-4&266e0cb&0&UID8259"
   },
   "monitors": [
     {
@@ -49,10 +50,6 @@
         {
           "name": "IV",
           "layout": "BSP"
-        },
-        {
-          "name": "V",
-          "layout": "BSP"
         }
       ]
     },
@@ -72,10 +69,6 @@
         },
         {
           "name": "IV",
-          "layout": "BSP"
-        },
-        {
-          "name": "V",
           "layout": "BSP"
         }
       ]
@@ -97,10 +90,26 @@
         {
           "name": "IV",
           "layout": "Rows"
+        }
+      ]
+    },
+    {
+      "workspaces": [
+        {
+          "name": "I",
+          "layout": "UltrawideVerticalStack"
         },
         {
-          "name": "V",
-          "layout": "Rows"
+          "name": "II",
+          "layout": "UltrawideVerticalStack"
+        },
+        {
+          "name": "III",
+          "layout": "UltrawideVerticalStack"
+        },
+        {
+          "name": "IV",
+          "layout": "UltrawideVerticalStack"
         }
       ]
     }
