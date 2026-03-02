@@ -8,7 +8,7 @@ komorebi:
 bars:
   primary-bar:
     enabled: true
-    screens: [ "*" ]
+    screens: [ "*", "LS34A650U" ]
     class_name: "yasb-bar"
     alignment:
       position: "top"
@@ -36,7 +36,6 @@ bars:
       right: 11
     widgets:
       left:
-      # - "random_icon"
       - "home"
       - "komorebi_workspaces"
       - "komorebi_active_layout"
@@ -51,7 +50,7 @@ bars:
       - "notifications"
       - "power_menu"
   secondary-bar:
-    screens: [ "DELL P2319H (2)" ]
+    screens: [ "DELL P2319H" ]
     class_name: "yasb-bar"
     alignment:
       position: "top"
@@ -124,6 +123,8 @@ widgets:
       system_menu: true
       power_menu: true
       blur: false
+      callbacks:
+        on_left: "exec powershell -NoProfile -File \"%USERPROFILE%\\.config\\komorebi\\switch-theme.ps1\""
   media:
     type: "yasb.media.MediaWidget"
     options:
@@ -164,7 +165,7 @@ widgets:
   clock:
     type: "yasb.clock.ClockWidget"
     options:
-      label: "{%A %e %B — %H:%M}"
+      label: "{%A%e %B — %H:%M}"
       label_alt: "{%A %d %B %Y — %H:%M:%S}"
       locale: "en_US"
       callbacks:
@@ -219,7 +220,7 @@ widgets:
     options:
       hide_if_offline: true
       label: "{icon}"
-      layouts: [ "bsp", "columns", "rows", "grid", "ultrawide_vertical_stack" ]
+      layouts: [ "bsp", "columns", "rows", "grid", "ultrawide_vertical_stack", "vertical_stack", "right_main_vertical_stack" ]
       layout_icons:
         bsp: "Default"
         columns: "Horizontal"
@@ -556,6 +557,21 @@ widgets:
       label_alt: "{data}"
       class_name: "random-word-widget"
       exec_options:
-        run_cmd: "powershell -c (Get-Random -InputObject  , 󰊠, 󰇥)"
-        run_interval: 10000
+        # run_cmd: "powershell -c (Get-Random -InputObject  , 󰊠, 󰇥)"
+        # run_cmd: "powershell -c (Get-Random -InputObject  , 󰊠, 󰇥)"
+        # run_cmd: "powershell -c (Get-Random -InputObject ♪, b, c)"
+        # run_cmd: "powershell -c [Console]::OutputEncoding = [System.Text.Encoding]::UTF8; Write-Host ((Get-Random -InputObject @('A', 'B', 'C')))"
+        # run_cmd: "powershell -c Write-Host ((Get-Random -InputObject @('▶', '⏸', '⏹')))"
+        # run_cmd: "powershell -Command \"\\\"♪♫◈\\\".ToCharArray() | Get-Random\""
+        # run_cmd: "powershell -c (echo )"
+        # run_cmd: "bash -c 'echo '"
+        # bash random icon
+        run_cmd: "bash -c 'icons=( 󰊠 󰇥     󱔎 󱢴 󰧱 ); echo ${icons[$RANDOM % ${#icons[@]}]}'"
+        # run_cmd: "powershell -c Write-Host ((Get-Random -InputObject @('', '󰊠', '󰇥'))"
+        # run_cmd: "powershell -NoProfile -Command \"@('♪','♫','◈') | Get-Random\""
+        run_interval: 1000
         return_format: "string"
+        # use_shell: true
+        # encoding: "utf-8"
+      callbacks:
+        on_left: "update_label"

@@ -4,13 +4,16 @@
 # alt + o                 : taskkill /f /im whkd.exe && start /b whkd # if shell is cmd
 alt + o                 : taskkill /f /im whkd.exe; Start-Process whkd -WindowStyle hidden # if shell is pwsh / powershell
 alt + shift + o         : komorebic reload-configuration
-
 alt + i                 : komorebic toggle-shortcuts
 
 # App shortcuts - these require shell to be pwsh / powershell
 # The apps will be focused if open, or launched if not open
 # alt + f                 : if ($wshell.AppActivate('Firefox') -eq $False) { start firefox }
 # alt + b                 : if ($wshell.AppActivate('Chrome') -eq $False) { start chrome }
+# alt + b                 : if ($wshell.AppActivate('Chrome') -eq $False) { start chrome }
+# alt + b                 : if ($wshell.AppActivate('Chrome') -eq $False) { start chrome }
+# alt + v                 : if ($wshell.AppActivate('Visual Studio Code') -eq $False) { start code }
+# alt + t                 : if ($wshell.AppActivate('') -eq $False) { start code }
 
 # alt + q                 : komorebic close
 alt + m                 : komorebic minimize
@@ -32,7 +35,7 @@ alt + shift + return    : komorebic promote
 
 # Stack windows
 # alt + left              : komorebic stack left
-# alt + down              : komorebic sta   downgit@github.com:cgi-mobile-team-str/lgtm-stack.git
+# alt + down              : komorebic stack down
 
 # alt + up                : komorebic stack up
 # alt + right             : komorebic stack right
@@ -47,12 +50,14 @@ alt + shift + oem_plus  : komorebic resize-axis vertical increase
 alt + shift + oem_minus : komorebic resize-axis vertical decrease
 
 # Manipulate windows
-alt + t                 : komorebic toggle-float
+alt + shift + t         : komorebic toggle-float
 alt + shift + f         : komorebic toggle-monocle
+alt + shift + c         : & "$env:USERPROFILE\.config\komorebi\center-float.ps1"
+alt + shift + d         : & "$env:USERPROFILE\.config\komorebi\switch-theme.ps1"
 
 # Window manager options
 alt + shift + r         : komorebic retile
-alt + p                 : komorebic toggle-pause
+alt + shift + p         : komorebic toggle-pause
 
 # Layouts
 alt + x                 : komorebic flip-layout horizontal
