@@ -109,3 +109,7 @@ zle -N zle-keymap-select
 # bindkey -s ^H "tmux-cht\n"
 
 # ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+
+# Kubernetes completions
+
+HUSKY=0

@@ -23,7 +23,7 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 # Other
 export PNPM_HOME="/home/asaday/.local/share/pnpm"
-export ANDROID_HOME="/Users/asaday/Library/Android/sdk"
+# export ANDROID_HOME="/Users/asaday/Library/Android/sdk"
 export NDK_HOME="/Users/asaday/Library/Android/sdk/ndk/28.0.12433566"
 
 export GOROOT="/opt/homebrew/opt/go/libexec"
@@ -31,9 +31,8 @@ export GOPATH="$HOME/.go"
 export GOBIN=$GOPATH/bin
 export TEXPATH="/Library/TeX/texbin"
 export PYTHONPATH="/users/asaday/Library/Python/3.9/bin"
-export JAVA_HOME=/Users/asaday/.asdf/installs/java/openjdk-17
+# export JAVA_HOME=/Users/asaday/.asdf/installs/java/openjdk-17
 export VSCODE_PROFILES=("Frontend/angular" "Default" "Backend/devops" "Minimal")
-
 
 # Path
 export PATH=$PYTHONPATH:/home/linuxbrew/.linuxbrew/bin/:/home/linuxbrew/.linuxbrew/opt/node@18/bin/:/var/lib/flatpak/exports/bin:$HOME/.cargo/bin:$HOME/.deno/bin:$HOME/.local:$HOME/.local/bin:$HOME/.local/scripts:$HOME/.local/share/pop-launcher/scripts:$PNPM_HOME:$GOPATH/bin:$GOROOT/bin:$PATH:$TEXPATH

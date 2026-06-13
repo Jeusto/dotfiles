@@ -2,6 +2,9 @@
   name = Arhun Saday
   email = arhunsad@gmail.com
 
+[includeIf "hasconfig:remote.*.url:git@github-work.com:*/**"]
+    path = ~/.gitconfig-work
+
 [core]
   editor = nvim
   autocrlf = false
@@ -21,6 +24,7 @@
 
 [pull]
   rebase = true
+[rebase]
   autostash = true
 [push]
   autoSetupRemote = true
@@ -103,4 +107,4 @@
 
   commit-date = "!f() { git log -1 --format='%h %ad' --date=local \"$1\"; }; f"
   delete-tag = "!f() { git tag -d \"$1\" && git push origin :refs/tags/$1; }; f"
-	retag = "!f() { \\   git tag -d $1 2>/dev/null; \\   git push origin :refs/tags/$1 2>/dev/null; \\   git tag $1; \\   git push origin $1; \\ }; f"
+	retag = "!f() { git tag -d \"$1\" 2>/dev/null; git push origin \":refs/tags/$1\" 2>/dev/null; git tag \"$1\"; git push origin \"$1\"; }; f"

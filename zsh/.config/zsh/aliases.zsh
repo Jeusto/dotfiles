@@ -50,6 +50,7 @@ alias gendir="mkdir -p {a,b}/{e,f,g}/{h,i,j}"
 alias lzd="lazydocker"
 alias p="pnpm"
 alias x="git add . && git commit -m 'x' && git push"
+alias y="git add -A && git commit --amend --no-edit && git push --force-with-lease"
 alias gitlogin='eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_rsa'
 alias c='code -r'
 alias k='kubectl'

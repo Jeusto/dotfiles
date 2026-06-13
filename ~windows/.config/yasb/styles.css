@@ -71,6 +71,7 @@ QToolTip {
 }
 
 .yasb-bar {
+  padding: 0;
   margin: 0;
   background-color: var(--crust);
   border-radius: 7px;
@@ -345,7 +346,7 @@ QToolTip {
 }
 
 .notification-widget .icon.new-notification {
-  color: var(--yellow);
+  color: var(--blue);
 }
 
 /* =============================================================================
