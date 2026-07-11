@@ -1,0 +1,7 @@
+{
+  "statusLine": {
+    "type": "command",
+    "command": "$HOME/.claude/statusline-gradient.sh",
+    "padding": 0
+  }
+}

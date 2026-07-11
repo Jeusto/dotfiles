@@ -5,6 +5,9 @@
 [includeIf "hasconfig:remote.*.url:git@github-work.com:*/**"]
     path = ~/.gitconfig-work
 
+[includeIf "hasconfig:remote.*.url:git@github-perso.com:*/**"]
+    path = ~/.gitconfig-perso
+
 [core]
   editor = nvim
   autocrlf = false
