@@ -1,118 +1,110 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Claude Code statusline: 📁 repo · 🌿 branch · <model> · 💲 cost · ±diff · context gauge
+# Palette inspired by the user's Starship One Dark / Tokyo-Night theme.
+set -uo pipefail
 
-# Read JSON input
 input=$(cat)
 
-# Extract data
-cwd=$(echo "$input" | jq -r '.workspace.current_dir')
-model_name=$(echo "$input" | jq -r '.model.display_name')
-usage=$(echo "$input" | jq '.context_window.current_usage')
-total_in=$(echo "$input" | jq -r '.context_window.total_input_tokens // 0')
-total_out=$(echo "$input" | jq -r '.context_window.total_output_tokens // 0')
+# ── Parse every field in a single jq pass (tab-separated to preserve spaces) ──
+IFS=$'\t' read -r cwd model_name usage_current context_size total_in total_out < <(
+  jq -r '
+    [ .workspace.current_dir // ".",
+      .model.display_name // "?",
+      ((.context_window.current_usage // {}) as $u
+        | ($u.input_tokens + $u.cache_creation_input_tokens + $u.cache_read_input_tokens) // 0),
+      .context_window.context_window_size // 0,
+      .context_window.total_input_tokens // 0,
+      .context_window.total_output_tokens // 0
+    ] | @tsv' <<<"$input"
+)
 
-# ── Truecolor helper ──
-rgb() { printf '\033[38;2;%d;%d;%dm' "$1" "$2" "$3"; }
+# ── Palette: one truecolor helper. Theme accents = One Dark; status/gauge
+#    colors = vivid/saturated (brighter gradient, matches the old config). ──
+c() { printf -v "$1" '\033[38;2;%d;%d;%dm' "$2" "$3" "$4"; }
+# Gauge anchors (vivid) — defined once, reused by the tier colors AND the bar lerp.
+GAUGE_LO=(0 200 80)     # green
+GAUGE_MID=(220 200 0)   # yellow
+GAUGE_HI=(220 40 20)    # red
+c BLUE    97 175 239   # #61afef  folder (theme accent)
+c INDIGO  129 140 248  # #818cf8  branch (theme accent)
+c PINK    255 121 198  # #ff79c6  model name (theme accent)
+c GREEN   "${GAUGE_LO[@]}"   # low tier / +diff
+c YELLOW  "${GAUGE_MID[@]}"  # mid tier / cost
+c ORANGE  255 140 0          # high tier
+c RED     "${GAUGE_HI[@]}"   # top tier / -diff
+c GRAY    92 99 112    # #5c6370  separators
+c EMPTY   59 64 72     # #3b4048  empty gauge blocks
+RESET=$'\033[0m'
+BOLD=$'\033[1m'
 
-# Get repo name
-repo_name=$(basename "$cwd")
+# ── Model → emoji + accent color ──
+shopt -s nocasematch
+case $model_name in
+  *opus*)   model_emoji='🤖' ;;
+  *sonnet*) model_emoji='🪶' ;;
+  *fable*)  model_emoji='👑' ;;
+  *haiku*)  model_emoji='🍃' ;;
+  *)        model_emoji='🤖' ;;
+esac
+shopt -u nocasematch
+model_color=$PINK
 
-# Get git branch (skip optional locks)
-branch=""
-if git -C "$cwd" rev-parse --git-dir > /dev/null 2>&1; then
-    branch=$(git -C "$cwd" -c core.filesRefLockTimeout=0 -c core.packedRefsTimeout=0 rev-parse --abbrev-ref HEAD 2>/dev/null || echo "")
-fi
-
-# Calculate context percentage and get usage emoji
+# ── Context usage → percentage + gauge color ──
 pct=0
-usage_emoji=$'\xf0\x9f\xdf\xa2'  # 🟢
-pct_color="\033[38;2;0;200;80m"  # green
+(( context_size > 0 )) && pct=$(( usage_current * 100 / context_size ))
+(( pct > 100 )) && pct=100
 
-if [ "$usage" != "null" ]; then
-    current=$(echo "$usage" | jq '.input_tokens + .cache_creation_input_tokens + .cache_read_input_tokens')
-    size=$(echo "$input" | jq '.context_window.context_window_size')
-    pct=$((current * 100 / size))
-    
-# Set emoji and color based on percentage
-    if [ $pct -lt 20 ]; then
-        usage_emoji=$'\xf0\x9f\xdf\xa2'  # 🟢
-        pct_color="\033[38;2;0;200;80m"  # green
-    elif [ $pct -lt 70 ]; then
-        usage_emoji=$'\xe2\x9a\xa1\xef\xb8\x8f' # ⚡️ 
-        pct_color="\033[38;2;220;200;0m"  # yellow
-    elif [ $pct -lt 90 ]; then
-        usage_emoji=$'\xf0\x9f\x94\xa5'  # 🔥
-        pct_color="\033[38;2;255;140;0m"  # orange
-    else
-        usage_emoji=$'\xf0\x9f\x9a\xa8'  # 🚨
-        pct_color="\033[38;2;220;40;20m"  # red
-    fi
+if   (( pct < 20 )); then usage_color=$GREEN
+elif (( pct < 70 )); then usage_color=$YELLOW
+elif (( pct < 90 )); then usage_color=$ORANGE
+else                      usage_color=$RED
 fi
 
-# Calculate session cost (rough estimate: $3/1M input, $15/1M output)
-cost_input=$(echo "scale=4; $total_in / 1000000 * 3" | bc)
-cost_output=$(echo "scale=4; $total_out / 1000000 * 15" | bc)
-total_cost=$(echo "scale=3; $cost_input + $cost_output" | bc)
-
-# Get code velocity (lines changed in git)
-added=0
-removed=0
-if git -C "$cwd" rev-parse --git-dir > /dev/null 2>&1; then
-    diff_stats=$(git -C "$cwd" -c core.filesRefLockTimeout=0 -c core.packedRefsTimeout=0 diff --numstat 2>/dev/null)
-    if [ -n "$diff_stats" ]; then
-        added=$(echo "$diff_stats" | awk '{sum+=$1} END {print sum+0}')
-        removed=$(echo "$diff_stats" | awk '{sum+=$2} END {print sum+0}')
-    fi
-fi
-
-# Generate 20-block RGB gradient context bar
-blocks=""
-filled_blocks=$((pct * 20 / 100))
-empty_blocks=$((20 - filled_blocks))
-
-for i in $(seq 1 20); do
-    if [ $i -le $filled_blocks ]; then
-        # Calculate RGB gradient from green(0,200,80) -> yellow(220,200,0) -> red(220,40,20)
-        if [ $i -le 10 ]; then
-            # First half: green to yellow
-            ratio=$(((i - 1) * 100 / 10))
-            r=$((0 + ratio * 220 / 100))
-            g=200
-            b=$((80 - ratio * 80 / 100))
-        else
-            # Second half: yellow to red
-            ratio=$(((i - 11) * 100 / 10))
-            r=220
-            g=$((200 - ratio * 160 / 100))
-            b=$((0 + ratio * 20 / 100))
-        fi
-        blocks="${blocks}\033[38;2;${r};${g};${b}m█"
-    else
-        # Dark gray empty blocks
-        blocks="${blocks}\033[38;2;60;60;60m█"
-    fi
+# ── 20-block gradient bar, lerped across the same tier anchors (green→yellow→red) ──
+lerp() {  # $1=t(0..100) $2-$4=from rgb  $5-$7=to rgb → sets R G B
+  local t=$1
+  R=$(( $2 + ($5 - $2) * t / 100 ))
+  G=$(( $3 + ($6 - $3) * t / 100 ))
+  B=$(( $4 + ($7 - $4) * t / 100 ))
+}
+BAR_WIDTH=20
+HALF=$(( BAR_WIDTH / 2 ))
+filled=$(( pct * BAR_WIDTH / 100 ))
+bar=""
+for (( i = 0; i < BAR_WIDTH; i++ )); do
+  if (( i >= filled )); then
+    bar+="${EMPTY}█"
+    continue
+  fi
+  if (( i < HALF )); then
+    lerp $(( i * 100 / HALF )) "${GAUGE_LO[@]}" "${GAUGE_MID[@]}"          # green → yellow
+  else
+    lerp $(( (i - HALF) * 100 / HALF )) "${GAUGE_MID[@]}" "${GAUGE_HI[@]}" # yellow → red
+  fi
+  printf -v seg '\033[38;2;%d;%d;%dm█' "$R" "$G" "$B"
+  bar+=$seg
 done
 
-# Color codes
-BOLD_YELLOW="\033[1;38;2;255;215;0m"
-BOLD_CYAN="\033[1;38;2;0;200;200m"
-GREEN='\033[32m'
-YELLOW='\033[33m'
-RED='\033[31m'
-MAGENTA='\033[35m'
-DIM_GRAY="\033[38;2;100;100;100m"
-RESET="\033[0m"
-
-# Build status line
-printf "📁 ${BOLD_YELLOW}${repo_name}${RESET}"
-
-if [ -n "$branch" ]; then
-    printf "${DIM_GRAY}${RESET} 🌿 ${BOLD_CYAN}${branch}${RESET}"
+# ── Git: one repository check for branch + working-tree diff ──
+branch=""; added=0; removed=0
+if git -C "$cwd" rev-parse --git-dir >/dev/null 2>&1; then
+  git_opts=(-c core.filesRefLockTimeout=0 -c core.packedRefsTimeout=0)
+  branch=$(git -C "$cwd" "${git_opts[@]}" rev-parse --abbrev-ref HEAD 2>/dev/null || true)
+  read -r added removed < <(
+    git -C "$cwd" "${git_opts[@]}" diff --numstat 2>/dev/null |
+      awk '{ a += $1; r += $2 } END { print a + 0, r + 0 }'
+  )
 fi
 
-printf " ${DIM_GRAY}|${RESET} 🤖 ${MAGENTA}${model_name}${RESET}"
-# printf " ${DIM_GRAY}|${RESET} ${YELLOW}\$${total_cost}${RESET}"
-printf " ${DIM_GRAY}|${RESET} 🔁 ${GREEN}+${added}${RESET} ${RED}-${removed}${RESET}"
-printf " ${DIM_GRAY}|${RESET} ${usage_emoji} ${blocks}${RESET}"
-printf " ${DIM_GRAY}${RESET}${pct_color}${pct}%%${RESET}"
+# ── Session cost estimate ($3/1M input, $15/1M output) ──
+cost=$(awk -v i="$total_in" -v o="$total_out" 'BEGIN { printf "%.3f", i / 1e6 * 3 + o / 1e6 * 15 }')
 
-echo ""
+# ── Render ──
+sep=" ${GRAY}|${RESET} "
+printf '📁 %s%s%s%s' "$BOLD" "$BLUE" "$(basename "$cwd")" "$RESET"
+[ -n "$branch" ] && printf ' 🌿 %s%s%s%s' "$BOLD" "$INDIGO" "$branch" "$RESET"
+printf '%s%s %s%s%s' "$sep" "$model_emoji" "$model_color" "$model_name" "$RESET"
+printf '%s%s$%s%s' "$sep" "$YELLOW" "$cost" "$RESET"
+printf '%s%s+%s%s %s-%s%s' "$sep" "$GREEN" "$added" "$RESET" "$RED" "$removed" "$RESET"
+printf '%s%s%s' "$sep" "$bar" "$RESET"
+printf ' %s%d%%%s\n' "$usage_color" "$pct" "$RESET"
