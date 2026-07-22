@@ -1,6 +1,7 @@
 source $HOME/.config/zsh/main.zsh
 source $HOME/.config/zsh/functions.zsh
 source $HOME/.config/zsh/aliases.zsh
+source $HOME/.config/zsh/claude-shell.zsh
 
 # Asdf
 # . /opt/homebrew/opt/asdf/libexec/asdf.sh

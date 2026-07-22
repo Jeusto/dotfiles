@@ -207,9 +207,8 @@ const FocusApp = ({ task, dispatch }) => {
     >
       {mode === "countdown" ? (
         <CountdownDisplay title="Right-click to return to tasks">
-          😊️✨ Memento Mori : {timeLeft.years}y {pad(timeLeft.months)}m{" "}
-          {pad(timeLeft.days)}d {pad(timeLeft.hours)}h {pad(timeLeft.minutes)}m{" "}
-          {pad(timeLeft.seconds)}s
+          😊️✨ Memento Mori : {timeLeft.years}y {timeLeft.months}m{" "}
+          {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m{" "}
         </CountdownDisplay>
       ) : isEditing ? (
         <InvisibleInput
@@ -251,6 +250,6 @@ const FocusApp = ({ task, dispatch }) => {
   );
 };
 
-// export const render = ({ task }, dispatch) => {
-//   return <FocusApp task={task} dispatch={dispatch} />;
-// };
+export const render = ({ task }, dispatch) => {
+  return <FocusApp task={task} dispatch={dispatch} />;
+};

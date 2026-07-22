@@ -6,10 +6,12 @@ set -uo pipefail
 input=$(cat)
 
 # ── Parse every field in a single jq pass (tab-separated to preserve spaces) ──
-IFS=$'\t' read -r cwd model_name usage_current context_size total_in total_out < <(
+IFS=$'\t' read -r cwd model_name effort fast_mode usage_current context_size total_in total_out < <(
   jq -r '
     [ .workspace.current_dir // ".",
       .model.display_name // "?",
+      .effort.level // "",
+      .fast_mode // false,
       ((.context_window.current_usage // {}) as $u
         | ($u.input_tokens + $u.cache_creation_input_tokens + $u.cache_read_input_tokens) // 0),
       .context_window.context_window_size // 0,
@@ -38,6 +40,7 @@ RESET=$'\033[0m'
 BOLD=$'\033[1m'
 
 # ── Model → emoji + accent color ──
+model_name=${model_name%% (*}   # strip trailing "(…)" qualifier, e.g. "Opus 4.8 (1M context)"
 shopt -s nocasematch
 case $model_name in
   *opus*)   model_emoji='🤖' ;;
@@ -48,6 +51,8 @@ case $model_name in
 esac
 shopt -u nocasematch
 model_color=$PINK
+[ -n "$effort" ] && model_name="$model_name ($effort)"
+[ "$fast_mode" = "true" ] && model_name="$model_name ⏩"
 
 # ── Context usage → percentage + gauge color ──
 pct=0
@@ -96,6 +101,16 @@ if git -C "$cwd" rev-parse --git-dir >/dev/null 2>&1; then
   )
 fi
 
+branch=""; added=0; removed=0
+if git -C "$cwd" rev-parse --git-dir >/dev/null 2>&1; then
+  git_opts=(-c core.filesRefLockTimeout=0 -c core.packedRefsTimeout=0)
+  branch=$(git -C "$cwd" "${git_opts[@]}" rev-parse --abbrev-ref HEAD 2>/dev/null || true)
+  read -r added removed < <(
+    git -C "$cwd" "${git_opts[@]}" diff --numstat 2>/dev/null |
+      awk '{ a += $1; r += $2 } END { print a + 0, r + 0 }'
+  )
+fi
+
 # ── Session cost estimate ($3/1M input, $15/1M output) ──
 cost=$(awk -v i="$total_in" -v o="$total_out" 'BEGIN { printf "%.3f", i / 1e6 * 3 + o / 1e6 * 15 }')
 
@@ -104,7 +119,8 @@ sep=" ${GRAY}|${RESET} "
 printf '📁 %s%s%s%s' "$BOLD" "$BLUE" "$(basename "$cwd")" "$RESET"
 [ -n "$branch" ] && printf ' 🌿 %s%s%s%s' "$BOLD" "$INDIGO" "$branch" "$RESET"
 printf '%s%s %s%s%s' "$sep" "$model_emoji" "$model_color" "$model_name" "$RESET"
-printf '%s%s$%s%s' "$sep" "$YELLOW" "$cost" "$RESET"
-printf '%s%s+%s%s %s-%s%s' "$sep" "$GREEN" "$added" "$RESET" "$RED" "$removed" "$RESET"
+# printf '%s%s$%s%s' "$sep" "$YELLOW" "$cost" "$RESET"
+printf '%s%s %s%s %s %s%s' "$sep" "$GREEN" "$added" "$RESET" "$RED" "$removed" "$RESET" # '%s%s+%s%s %s-%s%s'
 printf '%s%s%s' "$sep" "$bar" "$RESET"
 printf ' %s%d%%%s\n' "$usage_color" "$pct" "$RESET"
+
