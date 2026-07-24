@@ -1,8 +1,7 @@
 format = """
-$directory\
+$directory \
 $git_branch\
-$git_status\
-$status\
+$git_status \
 $all$character"""
 
 command_timeout = 1000
@@ -16,7 +15,7 @@ vicmd_symbol = "[◆](bold #e5c07b)"
 
 [directory]
 style = "bold fg:#61afef"
-format = "[$read_only$path ]($style)"
+format = "[$read_only$path]($style)"
 read_only = "🔒 "
 fish_style_pwd_dir_length = 3
 truncate_to_repo = true
@@ -30,7 +29,7 @@ symbol = "🌿 "
 
 [git_status]
 style = "fg:#a78bfa"
-format = "[$all_status$ahead_behind ]($style)"
+format = "[$all_status$ahead_behind]($style)"
 stashed = ""
 ahead = " \uf062 ${count}"
 behind = " \uf063 ${count}"
@@ -46,7 +45,7 @@ untracked = " \uf059 ${count}"
 disabled = false
 added_style = "fg:#98c379"
 deleted_style = "fg:#e06c75"
-format = "( [\uf457 $added]($added_style) )([\uf458 $deleted]($deleted_style)) "
+format = "( [\uf457 $added]($added_style)) ([\uf458 $deleted ]($deleted_style))"
 
 [jobs]
 format = "[ $symbol$number]($style)"
@@ -65,3 +64,7 @@ symbol = "\ue738 "
 disabled=false
 format = '[$symbol$context( \($namespace\))]($style)'
 symbol = '🐋 '
+
+[cmd_duration]
+min_time = 500
+format = ' took [$duration](bold yellow)'

@@ -22,3 +22,6 @@ Thumbs.db
 venv
 node_modules
 .sass-cache
+
+# Track this repo's Claude Code memory (overrides global **/Claude.md ignore)
+!**/CLAUDE.md
