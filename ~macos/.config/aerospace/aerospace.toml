@@ -10,8 +10,10 @@ config-version = 2
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = [
     # JankyBorders has a built-in detection of already running process,
-    # so it won't be run twice on AeroSpace restart
-    'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0'
+    # so it won't be run twice on AeroSpace restart. The actual color/width/
+    # blacklist values live in border-colors.sh (shared with the pause and
+    # fullscreen border scripts) so there's one source of truth.
+    'exec-and-forget /Users/asaday/.config/aerospace/border-colors.sh'
 ]
 
 # Start AeroSpace at login
@@ -239,6 +241,29 @@ gaps.outer.right =      10
     # Toggle floating/tiling layout for the focused window without entering service mode
     alt-shift-t = 'layout floating tiling'
 
+    # Enter resize mode: bare hjkl resizes repeatedly without holding alt each time
+    ctrl-alt-r = 'mode resize'
+
+    # See: https://nikitabobko.github.io/AeroSpace/commands#fullscreen
+    # In-place fullscreen, no macOS Space switch/animation. Also flips the
+    # JankyBorders color to reflect fullscreen state (native fullscreen below
+    # isn't wired up the same way since it moves to its own macOS Space, where
+    # borders isn't drawing anyway)
+    alt-shift-f = ['fullscreen', 'exec-and-forget /Users/asaday/.config/aerospace/fullscreen-border.sh']
+    # See: https://nikitabobko.github.io/AeroSpace/commands#macos-native-fullscreen
+    # Real macOS animated fullscreen, creates a new Space
+    alt-shift-g = 'macos-native-fullscreen'
+
+# 'resize' binding mode declaration.
+# See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
+[mode.resize.binding]
+    esc = 'mode main'
+    enter = 'mode main'
+    h = 'resize width -50'
+    l = 'resize width +50'
+    j = 'resize height +50'
+    k = 'resize height -50'
+
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
@@ -273,10 +298,6 @@ run = 'layout floating'
 
 [[on-window-detected]]
 if.app-name-regex-substring = '^Calculator$'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-name-regex-substring = '^bersicht$'
 run = 'layout floating'
 
 [[on-window-detected]]
