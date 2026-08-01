@@ -17,7 +17,7 @@
 # works in both directions regardless of current state.
 
 /opt/homebrew/bin/aerospace enable toggle
-/Users/asaday/.config/aerospace/toggle-pause-state.sh
+$HOME/.config/aerospace/toggle-pause-state.sh
 
 # if [ -f "$HOME/.aerospace_paused" ]; then
 #   echo "AeroSpace paused"

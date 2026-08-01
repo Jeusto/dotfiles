@@ -36,7 +36,7 @@ backup_conflicts() {
         
         # Parse conflicts and backup each file
         while IFS= read -r line; do
-            if [[ "$line" =~ existing\ target.*:\ (.+) ]]; then
+            if [[ "$line" =~ existing\ target\ (.+)\ since\ neither ]]; then
                 local conflict_path="${BASH_REMATCH[1]}"
                 local full_path="$TARGET_DIR/$conflict_path"
                 

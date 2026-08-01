@@ -13,7 +13,7 @@ after-startup-command = [
     # so it won't be run twice on AeroSpace restart. The actual color/width/
     # blacklist values live in border-colors.sh (shared with the pause and
     # fullscreen border scripts) so there's one source of truth.
-    'exec-and-forget /Users/asaday/.config/aerospace/border-colors.sh'
+    'exec-and-forget $HOME/.config/aerospace/border-colors.sh'
 ]
 
 # Start AeroSpace at login
@@ -249,7 +249,7 @@ gaps.outer.right =      10
     # JankyBorders color to reflect fullscreen state (native fullscreen below
     # isn't wired up the same way since it moves to its own macOS Space, where
     # borders isn't drawing anyway)
-    alt-shift-f = ['fullscreen', 'exec-and-forget /Users/asaday/.config/aerospace/fullscreen-border.sh']
+    alt-shift-f = ['fullscreen', 'exec-and-forget $HOME/.config/aerospace/fullscreen-border.sh']
     # See: https://nikitabobko.github.io/AeroSpace/commands#macos-native-fullscreen
     # Real macOS animated fullscreen, creates a new Space
     alt-shift-g = 'macos-native-fullscreen'

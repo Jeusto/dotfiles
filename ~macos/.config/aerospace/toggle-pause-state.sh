@@ -3,7 +3,7 @@
 # has no query command of its own. Only ever call this together with
 # `aerospace enable toggle` (same keybind/Raycast command) so the two stay in sync.
 STATE_FILE="$HOME/.aerospace_paused"
-. "/Users/asaday/.config/aerospace/border-colors.sh"
+. "$HOME/.config/aerospace/border-colors.sh"
 
 if [ -f "$STATE_FILE" ]; then
   rm "$STATE_FILE"
