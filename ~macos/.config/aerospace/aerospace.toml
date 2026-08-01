@@ -54,9 +54,10 @@ automatically-unhide-macos-hidden-apps = false
 # even when they are invisible.
 # This config option is only available since 'config-version = 2'
 # Fallback value (if you omit the key): persistent-workspaces = []
-persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B",
-                         "C", "D", "E", "F", "G", "I", "M", "N", "O", "P", "Q",
-                         "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+persistent-workspaces = ["1", "2", "3", "4", "Q", "W", "E", "R"]
+# persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B",
+#                          "C", "D", "E", "F", "G", "I", "M", "N", "O", "P", "Q",
+#                          "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 
 # A callback that runs every time binding mode changes
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -143,6 +144,10 @@ gaps.outer.right =      10
     alt-7 = 'workspace 7'
     alt-8 = 'workspace 8'
     alt-9 = 'workspace 9'
+    alt-q = 'workspace Q'
+    alt-w = 'workspace W'
+    alt-e = 'workspace E'
+    alt-r = 'workspace R'
     # alt-a = 'workspace A' # In your config, you can drop workspace bindings that you don't need
     # alt-b = 'workspace B'
     # alt-c = 'workspace C'
@@ -224,6 +229,10 @@ gaps.outer.right =      10
     alt-shift-7 = 'move-node-to-workspace 7 --focus-follows-window'
     alt-shift-8 = 'move-node-to-workspace 8 --focus-follows-window'
     alt-shift-9 = 'move-node-to-workspace 9 --focus-follows-window'
+    alt-shift-q = 'move-node-to-workspace Q --focus-follows-window'
+    alt-shift-w = 'move-node-to-workspace W --focus-follows-window'
+    alt-shift-e = 'move-node-to-workspace E --focus-follows-window'
+    alt-shift-r = 'move-node-to-workspace R --focus-follows-window'
 
     # Toggle floating/tiling layout for the focused window without entering service mode
     alt-shift-t = 'layout floating tiling'
@@ -343,3 +352,7 @@ run = 'layout floating'
     6 = 'secondary'
     7 = 'secondary'
     8 = 'secondary'
+    Q = 'secondary'
+    W = 'secondary'
+    E = 'secondary'
+    R = 'secondary'
