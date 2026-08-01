@@ -5,7 +5,7 @@ const refreshFrequency = 500;
 // Use an absolute path: Uebersicht runs commands outside a login shell, so
 // PATH doesn't include /opt/homebrew/bin the way your Terminal's does.
 const aerospace = "/opt/homebrew/bin/aerospace";
-const AEROSPACE_TOML = "/Users/asaday/.config/aerospace/aerospace.toml";
+const AEROSPACE_TOML = "$HOME/.config/aerospace/aerospace.toml";
 const FIELDS =
   "%{monitor-id} %{monitor-is-main} %{workspace} %{workspace-is-focused} %{workspace-is-visible}";
 

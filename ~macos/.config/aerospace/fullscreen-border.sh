@@ -2,7 +2,7 @@
 # Called right after `aerospace fullscreen` toggles, to reflect the resulting
 # state in JankyBorders' color. Re-evaluates paused state too (paused takes
 # priority) so this can't clobber a paused border with a stale fullscreen color.
-. "/Users/asaday/.config/aerospace/border-colors.sh"
+. "$HOME/.config/aerospace/border-colors.sh"
 
 if [ -f "$HOME/.aerospace_paused" ]; then
   borders_paused
