@@ -62,9 +62,9 @@ symbol = "\ue738 "
 
 [kubernetes]
 disabled=false
-format = '[$symbol$context( \($namespace\))]($style)'
+format = '[$symbol$context(\($namespace\))]($style) '
 symbol = '🐋 '
 
 [cmd_duration]
 min_time = 500
-format = ' took [$duration](bold yellow)'
+format = 'took [$duration](bold yellow)'
