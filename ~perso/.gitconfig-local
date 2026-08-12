@@ -1,0 +1,3 @@
+# personal environment identity - linked by ./dotfiles.sh install perso
+[user]
+    email = arhunsad@gmail.com

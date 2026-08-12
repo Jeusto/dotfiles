@@ -1,0 +1,410 @@
+#!/usr/bin/env python3
+"""Export a Claude conversation to Markdown.
+
+Sources:
+  code     ~/.claude/projects/**/<session>.jsonl  (local, no auth)
+  desktop  claude.ai API, authenticated with Claude Desktop's own session cookie
+"""
+
+import argparse
+import gzip
+import hashlib
+import json
+import os
+import re
+import shutil
+import sqlite3
+import subprocess
+import sys
+import tempfile
+import urllib.error
+import urllib.request
+from datetime import datetime, timezone
+from pathlib import Path
+
+PROJECTS_DIR = Path.home() / ".claude" / "projects"
+COOKIES_DB = Path.home() / "Library/Application Support/Claude/Cookies"
+DEFAULT_OUT = Path.home() / "Downloads" 
+UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+      "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
+
+
+def die(msg):
+    print(msg, file=sys.stderr)
+    sys.exit(1)
+
+
+def local_time(ts):
+    if not ts:
+        return ""
+    try:
+        dt = datetime.fromisoformat(ts.replace("Z", "+00:00"))
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt.astimezone().strftime("%Y-%m-%d %H:%M")
+    except ValueError:
+        return ts
+
+
+def slugify(text, limit=60):
+    slug = re.sub(r"[^a-z0-9]+", "-", (text or "").lower()).strip("-")
+    return slug[:limit].rstrip("-") or "conversation"
+
+
+# --- pickers ---------------------------------------------------------------
+
+def choose(entries, title):
+    """entries: list of display strings. Returns index, or None if cancelled."""
+    labels = [f"{i + 1:02d} · {e}" for i, e in enumerate(entries)]
+    quoted = ", ".join('"' + s.replace("\\", "\\\\").replace('"', '\\"') + '"' for s in labels)
+    script = (
+        'tell application "System Events" to activate\n'
+        f'set picked to choose from list {{{quoted}}} with title "{title}"'
+        ' with prompt "Select a conversation to export" OK button name "Export"\n'
+        'if picked is false then return ""\n'
+        'return item 1 of picked'
+    )
+    out = subprocess.run(["osascript", "-e", script], capture_output=True, text=True)
+    line = out.stdout.strip()
+    if not line:
+        return None
+    return int(line.split(" ", 1)[0]) - 1
+
+
+# --- claude code -----------------------------------------------------------
+
+def code_sessions():
+    sessions = []
+    for path in PROJECTS_DIR.glob("*/*.jsonl"):
+        try:
+            stat = path.stat()
+        except OSError:
+            continue
+        if stat.st_size == 0:
+            continue
+        sessions.append({"path": path, "mtime": stat.st_mtime,
+                         "project": path.parent.name, "title": None, "cwd": None})
+    sessions.sort(key=lambda s: s["mtime"], reverse=True)
+    return sessions
+
+
+def code_meta(session):
+    """Fill in title/cwd by scanning the file (title records come last)."""
+    title = last_prompt = first_prompt = cwd = None
+    for record in read_jsonl(session["path"]):
+        kind = record.get("type")
+        if kind == "ai-title":
+            title = record.get("aiTitle") or title
+        elif kind == "last-prompt":
+            last_prompt = record.get("lastPrompt") or last_prompt
+        elif kind == "user":
+            cwd = cwd or record.get("cwd")
+            if first_prompt is None:
+                text = flatten_code_content(record.get("message", {}).get("content"))
+                if text:
+                    first_prompt = text.strip().splitlines()[0]
+    session["title"] = title or first_prompt or last_prompt or session["path"].stem
+    session["cwd"] = cwd or session["project"].replace("-", "/")
+    return session
+
+
+def read_jsonl(path):
+    with path.open(encoding="utf8", errors="replace") as handle:
+        for line in handle:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                yield json.loads(line)
+            except json.JSONDecodeError:
+                continue
+
+
+def flatten_code_content(content):
+    if isinstance(content, str):
+        return content
+    if not isinstance(content, list):
+        return ""
+    return "\n".join(b.get("text", "") for b in content
+                     if isinstance(b, dict) and b.get("type") == "text")
+
+
+def is_noise(text):
+    return bool(re.match(r"\s*<(command-name|command-message|local-command|"
+                         r"system-reminder|user-prompt-submit-hook)", text or ""))
+
+
+def render_code(session, verbose):
+    lines = [f"# {session['title']}", ""]
+    lines += [f"- **Source:** Claude Code",
+              f"- **Project:** `{session['cwd']}`",
+              f"- **Session:** `{session['path'].stem}`",
+              f"- **Exported:** {datetime.now().astimezone().strftime('%Y-%m-%d %H:%M')}",
+              ""]
+
+    models = set()
+    body = []
+    for record in read_jsonl(session["path"]):
+        kind = record.get("type")
+        if kind not in ("user", "assistant"):
+            continue
+        if record.get("isMeta") or (record.get("isSidechain") and not verbose):
+            continue
+        message = record.get("message") or {}
+        stamp = local_time(record.get("timestamp"))
+
+        if kind == "user":
+            text = flatten_code_content(message.get("content"))
+            if not text.strip() or is_noise(text):
+                continue
+            body += [f"## \U0001f9d1 User — {stamp}", "", text.strip(), ""]
+            continue
+
+        if message.get("model"):
+            models.add(message["model"])
+        chunks = []
+        for block in message.get("content") or []:
+            if not isinstance(block, dict):
+                continue
+            btype = block.get("type")
+            if btype == "text" and block.get("text", "").strip():
+                chunks.append(block["text"].strip())
+            elif btype == "thinking" and verbose and block.get("thinking", "").strip():
+                chunks.append("<details><summary>Thinking</summary>\n\n"
+                              f"{block['thinking'].strip()}\n\n</details>")
+            elif btype == "tool_use" and verbose:
+                payload = json.dumps(block.get("input", {}), indent=2, ensure_ascii=False)
+                if len(payload) > 2000:
+                    payload = payload[:2000] + "\n… truncated"
+                chunks.append(f"<details><summary>Tool: {block.get('name')}</summary>\n\n"
+                              f"```json\n{payload}\n```\n\n</details>")
+        if not chunks:
+            continue
+        body += [f"## \U0001f916 Claude — {stamp}", "", "\n\n".join(chunks), ""]
+
+    if models:
+        lines.insert(-1, f"- **Model:** {', '.join(sorted(models))}")
+    lines += body
+    return "\n".join(lines).rstrip() + "\n"
+
+
+# --- claude desktop --------------------------------------------------------
+
+def keychain(service, account):
+    result = subprocess.run(["security", "find-generic-password", "-w", "-s", service,
+                             "-a", account], capture_output=True, text=True)
+    return result.stdout.strip() if result.returncode == 0 else None
+
+
+def desktop_cookies():
+    if not COOKIES_DB.exists():
+        die("Claude Desktop cookie store not found. Is Claude Desktop installed and signed in?")
+    password = keychain("Claude Safe Storage", "Claude")
+    if not password:
+        die("Could not read the 'Claude Safe Storage' keychain item (denied or missing).")
+    key = hashlib.pbkdf2_hmac("sha1", password.encode(), b"saltysalt", 1003, 16).hex()
+
+    with tempfile.TemporaryDirectory() as tmp:
+        copy = Path(tmp) / "Cookies"
+        shutil.copy(COOKIES_DB, copy)
+        rows = sqlite3.connect(copy).execute(
+            "select name, encrypted_value from cookies where host_key like '%claude.ai'"
+        ).fetchall()
+
+    cookies = {}
+    for name, blob in rows:
+        if not blob or blob[:3] not in (b"v10", b"v11"):
+            continue
+        plain = subprocess.run(
+            ["openssl", "enc", "-aes-128-cbc", "-d", "-K", key, "-iv", "20" * 16, "-nopad"],
+            input=blob[3:], capture_output=True).stdout
+        if not plain:
+            continue
+        if plain[-1] <= 16:                       # strip PKCS#7 padding
+            plain = plain[:-plain[-1]]
+        if len(plain) > 32 and not plain[:4].isascii():
+            plain = plain[32:]                    # Chrome 130+ domain-hash prefix
+        cookies[name] = plain.decode("utf8", "replace")
+    return cookies
+
+
+def session_key(cookies):
+    return (os.environ.get("CLAUDE_SESSION_KEY")
+            or cookies.get("sessionKey")
+            or keychain("claude-session-key", os.environ.get("USER", "")))
+
+
+def api(path, key):
+    request = urllib.request.Request(
+        f"https://claude.ai/api{path}",
+        headers={"Cookie": f"sessionKey={key}", "User-Agent": UA,
+                 "Accept": "application/json", "Accept-Encoding": "gzip",
+                 "anthropic-client-platform": "web_claude_ai"})
+    try:
+        response = urllib.request.urlopen(request, timeout=30)
+    except urllib.error.HTTPError as err:
+        if err.code in (401, 403):
+            die("claude.ai rejected the session (expired?). Sign in again in Claude Desktop.")
+        die(f"claude.ai request failed: {err.code} {err.reason}")
+    except urllib.error.URLError as err:
+        die(f"Could not reach claude.ai: {err.reason}")
+    body = response.read()
+    if response.headers.get("Content-Encoding") == "gzip":
+        body = gzip.decompress(body)
+    return json.loads(body)
+
+
+def org_uuid(cookies, key):
+    if cookies.get("lastActiveOrg"):
+        return cookies["lastActiveOrg"]
+    orgs = api("/organizations", key)
+    if not orgs:
+        die("No organizations returned by claude.ai.")
+    return orgs[0]["uuid"]
+
+
+def front_window_title():
+    """Title of Claude Desktop's front window, if it is running."""
+    script = ('if application "Claude" is running then\n'
+              ' tell application "System Events" to tell process "Claude"\n'
+              '  if exists window 1 then return name of window 1\n'
+              ' end tell\n'
+              'end if\n'
+              'return ""')
+    out = subprocess.run(["osascript", "-e", script], capture_output=True, text=True)
+    return out.stdout.strip()
+
+
+def render_desktop(conv, verbose):
+    lines = [f"# {conv.get('name') or 'Untitled'}", "",
+             "- **Source:** Claude Desktop",
+             f"- **Model:** {conv.get('model') or 'default'}",
+             f"- **Conversation:** `{conv['uuid']}`",
+             f"- **Started:** {local_time(conv.get('created_at'))}",
+             f"- **Updated:** {local_time(conv.get('updated_at'))}",
+             f"- **Link:** https://claude.ai/chat/{conv['uuid']}",
+             f"- **Exported:** {datetime.now().astimezone().strftime('%Y-%m-%d %H:%M')}",
+             ""]
+
+    for message in conv.get("chat_messages", []):
+        human = message.get("sender") == "human"
+        who = "\U0001f9d1 User" if human else "\U0001f916 Claude"
+        chunks = []
+        for block in message.get("content") or []:
+            btype = block.get("type")
+            if btype == "text" and block.get("text", "").strip():
+                chunks.append(block["text"].strip())
+            elif btype == "thinking" and verbose and block.get("thinking", "").strip():
+                chunks.append("<details><summary>Thinking</summary>\n\n"
+                              f"{block['thinking'].strip()}\n\n</details>")
+            elif btype == "tool_use" and verbose:
+                payload = json.dumps(block.get("input", {}), indent=2, ensure_ascii=False)
+                if len(payload) > 2000:
+                    payload = payload[:2000] + "\n… truncated"
+                chunks.append(f"<details><summary>Tool: {block.get('name')}</summary>\n\n"
+                              f"```json\n{payload}\n```\n\n</details>")
+        if not chunks and message.get("text", "").strip():
+            chunks.append(message["text"].strip())
+        for attachment in message.get("attachments") or []:
+            chunks.append(f"_Attachment: {attachment.get('file_name')}_")
+        for f in message.get("files") or []:
+            chunks.append(f"_File: {f.get('file_name')}_")
+        if not chunks:
+            continue
+        lines += [f"## {who} — {local_time(message.get('created_at'))}", "",
+                  "\n\n".join(chunks), ""]
+
+    return "\n".join(lines).rstrip() + "\n"
+
+
+# --- main ------------------------------------------------------------------
+
+def export_code(args):
+    sessions = code_sessions()
+    if not sessions:
+        die(f"No Claude Code sessions found in {PROJECTS_DIR}.")
+
+    if args.pick:
+        shortlist = [code_meta(s) for s in sessions[:args.limit]]
+        entries = [f"{datetime.fromtimestamp(s['mtime']).strftime('%m-%d %H:%M')}  "
+                   f"{s['title'][:70]}  ({Path(s['cwd']).name})" for s in shortlist]
+        index = choose(entries, "Claude Code sessions")
+        if index is None:
+            return None, None
+        session = shortlist[index]
+    else:
+        session = code_meta(sessions[0])
+
+    return render_code(session, args.verbose), f"{slugify(session['title'])}-code"
+
+
+def export_desktop(args):
+    cookies = desktop_cookies()
+    key = session_key(cookies)
+    if not key:
+        die("No claude.ai session key found. Sign in to Claude Desktop, or set "
+            "CLAUDE_SESSION_KEY.")
+    org = org_uuid(cookies, key)
+    conversations = api(f"/organizations/{org}/chat_conversations?limit={args.limit}", key)
+    if not conversations:
+        die("No conversations found on claude.ai.")
+    conversations.sort(key=lambda c: c.get("updated_at") or "", reverse=True)
+
+    if args.pick:
+        entries = [f"{local_time(c.get('updated_at'))}  {(c.get('name') or 'Untitled')[:70]}"
+                   for c in conversations]
+        index = choose(entries, "Claude Desktop conversations")
+        if index is None:
+            return None, None
+        target = conversations[index]
+    else:
+        window = front_window_title()
+        target = next((c for c in conversations
+                       if c.get("name") and window and c["name"] in window), conversations[0])
+
+    full = api(f"/organizations/{org}/chat_conversations/{target['uuid']}"
+               "?tree=True&rendering_mode=messages&render_all_tools=true", key)
+    return render_desktop(full, args.verbose), f"{slugify(full.get('name'))}-desktop"
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("source", nargs="?", default="code", choices=["code", "desktop"])
+    parser.add_argument("-p", "--pick", action="store_true",
+                        help="choose from a list instead of the most recent conversation")
+    parser.add_argument("-v", "--verbose", action="store_true",
+                        help="include thinking, tool calls and subagent turns")
+    parser.add_argument("-o", "--out", type=Path,
+                        default=Path(os.environ.get("CLAUDE_EXPORT_DIR", DEFAULT_OUT)),
+                        help=f"output directory (default: {DEFAULT_OUT})")
+    parser.add_argument("-n", "--limit", type=int, default=40,
+                        help="how many recent conversations to offer (default: 40)")
+    parser.add_argument("-r", "--reveal", action="store_true", help="reveal in Finder")
+    parser.add_argument("--stdout", action="store_true", help="print instead of writing a file")
+    args = parser.parse_args()
+
+    markdown, name = export_desktop(args) if args.source == "desktop" else export_code(args)
+    if markdown is None:
+        print("Cancelled.")
+        return
+
+    if args.stdout:
+        sys.stdout.write(markdown)
+        return
+
+    args.out.mkdir(parents=True, exist_ok=True)
+    path = args.out / f"{datetime.now().strftime('%Y-%m-%d')}-{name}.md"
+    counter = 2
+    while path.exists():
+        path = args.out / f"{datetime.now().strftime('%Y-%m-%d')}-{name}-{counter}.md"
+        counter += 1
+    path.write_text(markdown, encoding="utf8")
+
+    subprocess.run(["pbcopy"], input=str(path), text=True)
+    if args.reveal:
+        subprocess.run(["open", "-R", str(path)])
+    print(f"Exported to {path} ({len(markdown.splitlines())} lines, path copied)")
+
+
+if __name__ == "__main__":
+    main()

@@ -22,17 +22,24 @@ export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 # Other
-export PNPM_HOME="/home/asaday/.local/share/pnpm"
-# export ANDROID_HOME="/Users/asaday/Library/Android/sdk"
-export NDK_HOME="/Users/asaday/Library/Android/sdk/ndk/28.0.12433566"
+# pnpm derives its store dir from this; a wrong value silently moves the store
+# and forces a full node_modules rebuild on every repo.
+if [[ $OSTYPE == darwin* ]]; then
+  export PNPM_HOME="$HOME/Library/pnpm"
+else
+  export PNPM_HOME="$HOME/.local/share/pnpm"
+fi
+# Zscaler re-signs TLS, and node's own CA store does not read .npmrc. Without this,
+# postinstall scripts that download things fail with UNABLE_TO_GET_ISSUER_CERT_LOCALLY.
+_zscaler_ca="$HOME/Documents/zscaler-certificates/ZscalerRootCertificate-2048-SHA256.pem"
+[[ -f $_zscaler_ca ]] && export NODE_EXTRA_CA_CERTS="$_zscaler_ca"
+unset _zscaler_ca
 
 export GOROOT="/opt/homebrew/opt/go/libexec"
 export GOPATH="$HOME/.go"
 export GOBIN=$GOPATH/bin
 export TEXPATH="/Library/TeX/texbin"
-export PYTHONPATH="/users/asaday/Library/Python/3.9/bin"
-# export JAVA_HOME=/Users/asaday/.asdf/installs/java/openjdk-17
 export VSCODE_PROFILES=("Frontend/angular" "Default" "Backend/devops" "Minimal")
 
 # Path
-export PATH=$PYTHONPATH:/home/linuxbrew/.linuxbrew/bin/:/home/linuxbrew/.linuxbrew/opt/node@18/bin/:/var/lib/flatpak/exports/bin:$HOME/.cargo/bin:$HOME/.deno/bin:$HOME/.local:$HOME/.local/bin:$HOME/.local/scripts:$HOME/.local/share/pop-launcher/scripts:$PNPM_HOME:$GOPATH/bin:$GOROOT/bin:$PATH:$TEXPATH
+export PATH=/var/lib/flatpak/exports/bin:$HOME/.cargo/bin:$HOME/.deno/bin:$HOME/.local:$HOME/.local/bin:$HOME/.local/scripts:$HOME/.local/share/pop-launcher/scripts:$PNPM_HOME:$GOPATH/bin:$GOROOT/bin:$PATH:$TEXPATH

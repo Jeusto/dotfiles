@@ -1,1 +1,0 @@
-/Users/asaday/.local/raycast-scripts/commands/system/custom-window.applescript

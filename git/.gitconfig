@@ -1,6 +1,10 @@
 [user]
   name = Arhun Saday
-  email = arhunsad@gmail.com
+  useConfigOnly = true
+
+# per-machine default identity, untracked (work pc: cgi, perso pc: gmail)
+[include]
+    path = ~/.gitconfig-local
 
 [includeIf "hasconfig:remote.*.url:git@github-work.com:*/**"]
     path = ~/.gitconfig-work

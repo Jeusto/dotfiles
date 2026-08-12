@@ -1,0 +1,3 @@
+# work environment identity - linked by ./dotfiles.sh install work
+[user]
+    email = arhun.saday@cgi.com
